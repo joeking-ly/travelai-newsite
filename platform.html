@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform — TravelAI Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--spectrum:linear-gradient(90deg,#FF6B6B 0%,#FFA500 14%,#FFD700 28%,#32CD32 42%,#00CED1 57%,#4169E1 71%,#9370DB 85%,#FF1493 100%);--black-deep:#0A0A0F;--black-soft:#1A1A1A;--white:#FFF;--glass-border:rgba(255,255,255,0.1);--font:'Inter Tight',sans-serif;--nav-h:72px}html{scroll-behavior:smooth;background:var(--black-deep)}body{font-family:var(--font);font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);background:var(--black-deep)}a{color:inherit;text-decoration:none}nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,15,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border)}.nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white)}.logo-prism{width:32px;height:32px}.logo-prism svg{width:100%;height:100%}.nav-links{display:flex;align-items:center;gap:36px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-cta{padding:12px 28px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:14px;font-weight:600;transition:all .3s}.nav-cta:hover{transform:translateY(-2px)}.hero{padding:calc(var(--nav-h) + 120px) 48px 120px;background:var(--black-deep);text-align:center}.hero-title{font-weight:700;font-size:clamp(48px,7vw,72px);line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px}.hero-title .gradient{background:var(--spectrum);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:spectrum-shift 6s linear infinite;font-style:italic}@keyframes spectrum-shift{0%{background-position:0% center}100%{background-position:200% center}}.hero-subtitle{font-size:18px;color:rgba(255,255,255,0.6);max-width:900px;margin:0 auto 40px}.hero-ctas{display:flex;gap:16px;justify-content:center}.hero-cta{padding:16px 36px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:15px;font-weight:600;transition:all .3s}.hero-cta:hover{transform:translateY(-2px)}.hero-cta.secondary{background:transparent;color:var(--white);border:1px solid var(--glass-border)}.hero-cta.secondary:hover{background:rgba(255,255,255,0.08)}.section{padding:120px 48px;border-top:1px solid var(--glass-border)}.section.white{background:var(--white);border-top:1px solid rgba(0,0,0,0.08)}.section.dark{background:var(--black-deep)}.section.soft{background:var(--black-soft)}.inner{max-width:1200px;margin:0 auto}.sec-title{font-weight:600;font-size:clamp(36px,5vw,56px);line-height:1.15;letter-spacing:-0.03em;text-align:center;margin-bottom:20px}.white .sec-title{color:#0A0A0F}.dark .sec-title,.soft .sec-title{color:var(--white)}.sec-subtitle{font-size:18px;text-align:center;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto}.white .sec-subtitle{color:#666}.dark .sec-subtitle,.soft .sec-subtitle{color:rgba(255,255,255,0.6)}.overview-box{max-width:900px;margin:0 auto;text-align:center}.overview-text{font-size:20px;line-height:1.8;color:#666;margin-bottom:28px}.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.product-card{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;text-align:center;transition:all .3s}.product-card:hover{background:rgba(255,255,255,0.05);transform:translateY(-4px)}.product-icon{width:60px;height:60px;margin:0 auto 20px}.product-icon svg{width:100%;height:100%}.product-title{font-weight:600;font-size:20px;color:var(--white);margin-bottom:12px}.product-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.7)}.engine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:900px;margin:0 auto}.engine-item{padding:40px;background:rgba(255,200,100,0.15);border:1px solid rgba(255,200,100,0.3);border-radius:16px;text-align:center}.engine-label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#999;margin-bottom:12px}.engine-title{font-weight:700;font-size:18px;color:#0A0A0F;margin-bottom:12px}.engine-desc{font-size:15px;line-height:1.7;color:#666}.surfaces-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:900px;margin:0 auto}.surface-card{padding:32px;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:16px}.surface-title{font-weight:600;font-size:18px;color:#0A0A0F;margin-bottom:8px}.surface-desc{font-size:15px;line-height:1.7;color:#666}.stack-layers{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}.stack-layer{padding:32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px}.layer-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}.layer-number{font-size:14px;font-weight:600;color:rgba(255,255,255,0.5)}.layer-title{font-size:22px;font-weight:700;color:var(--white)}.layer-items{display:flex;flex-wrap:wrap;gap:12px}.layer-item{padding:10px 18px;background:rgba(255,255,255,0.08);border:1px solid var(--glass-border);border-radius:8px;font-size:14px;font-weight:500;color:var(--white)}.roadmap-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.roadmap-phase{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px}.phase-header{margin-bottom:24px}.phase-badge{display:inline-block;padding:6px 14px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9370DB;margin-bottom:12px}.phase-title{font-weight:700;font-size:24px;color:var(--white);margin-bottom:8px}.phase-subtitle{font-size:13px;color:rgba(255,255,255,0.5)}.phase-items{list-style:none;display:flex;flex-direction:column;gap:12px}.phase-items li{font-size:15px;color:rgba(255,255,255,0.7);padding-left:20px;position:relative}.phase-items li::before{content:'→';position:absolute;left:0;color:rgba(255,255,255,0.4)}footer{background:var(--black-deep);border-top:1px solid var(--glass-border);padding:80px 48px 40px}.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}.footer-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px}.footer-tagline{font-size:14px;color:rgba(255,255,255,0.5);max-width:300px}.footer-col h5{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:20px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}.footer-col a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s}.footer-col a:hover{color:var(--white)}.footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--glass-border)}.footer-legal{font-size:13px;color:rgba(255,255,255,0.4)}.social-links{display:flex;gap:12px}.social-links a{width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);transition:all .3s}.social-links a:hover{border-color:var(--white);color:var(--white);transform:translateY(-2px)}@media(max-width:1024px){.products-grid{grid-template-columns:repeat(2,1fr)}.roadmap-phases,.engine-grid{grid-template-columns:1fr}.surfaces-grid{grid-template-columns:1fr}}@media(max-width:768px){nav{padding:0 24px}.nav-links{display:none}.products-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr;gap:40px}.footer-bottom{flex-direction:column;gap:20px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/homepage.html" class="nav-logo">
+      <div class="logo-prism"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="n" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#4169E1"/><stop offset="66%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FF1493"/></linearGradient></defs><path d="M12 2L2 22h20L12 2z" fill="url(#n)"/></svg></div>
+      <span>TravelAI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/why.html">Why</a></li>
+      <li><a href="/platform.html" class="active">Platform</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/partners.html">Partners</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/partners.html" class="nav-cta">Become a Partner</a>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero-title">AI that <span class="gradient">learns</span>,<br/>personalizes, and scales.</h1>
+    <p class="hero-subtitle">A self-improving platform that powers 470+ travel brands with AI-driven personalization, autonomous optimization, and privacy-first intelligence.</p>
+    <div class="hero-ctas">
+      <a href="#products" class="hero-cta">Explore the Platform</a>
+      <a href="/network.html" class="hero-cta secondary">The Agentic Network</a>
+    </div>
+  </section>
+
+  <section class="section white" id="overview">
+    <div class="inner">
+      <h2 class="sec-title">One engine. Every surface.</h2>
+      <div class="overview-box">
+        <p class="overview-text">TravelAI's platform is a single, unified engine that adapts to every surface, channel, and agent. We meet travelers where they are — web, chat, voice, messaging, partner sites, or Slack. The same AI-powered core delivers personalized experiences across all touchpoints.</p>
+        <p class="overview-text">Built for the agentic age, our platform combines generative AI, machine learning, and proprietary optimization to create content at scale, drive high-intent demand, and deliver measurable results for partners.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="inner">
+      <h3 style="font-weight:600;font-size:28px;color:#0A0A0F;text-align:center;margin-bottom:48px">Meet travelers everywhere they are</h3>
+      <div class="surfaces-grid">
+        <div class="surface-card">
+          <h4 class="surface-title">Any Website</h4>
+          <p class="surface-desc">470+ travel brands powered by the same engine</p>
+        </div>
+        <div class="surface-card">
+          <h4 class="surface-title">Any Device</h4>
+          <p class="surface-desc">Responsive experiences across desktop, mobile, tablet</p>
+        </div>
+        <div class="surface-card">
+          <h4 class="surface-title">Any Platform</h4>
+          <p class="surface-desc">Partner sites, marketplaces, distribution channels</p>
+        </div>
+        <div class="surface-card">
+          <h4 class="surface-title">Any Conversation</h4>
+          <p class="surface-desc">Chat, voice, messaging, Slack (Trip Desk)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="products">
+    <div class="inner">
+      <h2 class="sec-title">The tools that power the network</h2>
+      <p class="sec-subtitle">From autonomous site generation to AI-powered optimization, our platform automates what used to take teams weeks or months.</p>
+      
+      <div class="products-grid">
+        
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4169E1"/><stop offset="100%" stop-color="#00CED1"/></linearGradient><filter id="g1"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect x="18" y="16" width="24" height="28" rx="2" fill="none" stroke="url(#p1)" stroke-width="2.5" filter="url(#g1)"/><path d="M24 16V12C24 12 26 10 30 10C34 10 36 12 36 12V16" stroke="url(#p1)" stroke-width="2" filter="url(#g1)"/><circle cx="30" cy="30" r="4" fill="url(#p1)" filter="url(#g1)"/><path d="M22 36H38" stroke="url(#p1)" stroke-width="2" filter="url(#g1)"/></svg>
+          </div>
+          <h3 class="product-title">Presto</h3>
+          <p class="product-desc">Agentic site builder that launches travel brands in days, not months. Autonomous content generation, SEO optimization, and continuous improvement.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00CED1"/><stop offset="100%" stop-color="#32CD32"/></linearGradient><filter id="g2"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="30" cy="26" r="8" fill="none" stroke="url(#p2)" stroke-width="2.5" filter="url(#g2)"/><path d="M22 34C22 34 24 30 30 30C36 30 38 34 38 34" stroke="url(#p2)" stroke-width="2.5" stroke-linecap="round" filter="url(#g2)"/><path d="M16 22L20 26L16 30" stroke="url(#p2)" stroke-width="2" stroke-linecap="round" filter="url(#g2)"/><path d="M44 22L40 26L44 30" stroke="url(#p2)" stroke-width="2" stroke-linecap="round" filter="url(#g2)"/></svg>
+          </div>
+          <h3 class="product-title">Trip.bot</h3>
+          <p class="product-desc">Conversational AI for travelers. From "Web of One" personalized experiences to "Web of None" agentic trip orchestration.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9370DB"/><stop offset="100%" stop-color="#4169E1"/></linearGradient><filter id="g3"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M30 14L26 24L34 24L30 14Z" fill="url(#p3)" filter="url(#g3)"/><circle cx="30" cy="30" r="6" fill="none" stroke="url(#p3)" stroke-width="2.5" filter="url(#g3)"/><path d="M30 36L26 44L34 44L30 36Z" fill="url(#p3)" filter="url(#g3)"/></svg>
+          </div>
+          <h3 class="product-title">TAM Engine</h3>
+          <p class="product-desc">Traveler Action Models that create portable, privacy-first intelligence. Pseudonymous preference vectors that improve with every interaction.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFD700"/><stop offset="100%" stop-color="#FFA500"/></linearGradient><filter id="g4"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="30" cy="30" r="12" fill="none" stroke="url(#p4)" stroke-width="2.5" filter="url(#g4)"/><path d="M26 24L30 30L34 24" stroke="url(#p4)" stroke-width="2" stroke-linecap="round" filter="url(#g4)"/><path d="M34 36L30 30L26 36" stroke="url(#p4)" stroke-width="2" stroke-linecap="round" filter="url(#g4)"/><circle cx="30" cy="30" r="2" fill="url(#p4)" filter="url(#g4)"/></svg>
+          </div>
+          <h3 class="product-title">Ad Management</h3>
+          <p class="product-desc">AI-powered traffic acquisition with cancellation prediction algorithms. Guaranteed positive ROAS on every campaign.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FFD700"/></linearGradient><filter id="g5"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M20 26L26 20L30 24L34 20L40 26" stroke="url(#p5)" stroke-width="2.5" stroke-linecap="round" filter="url(#g5)"/><circle cx="26" cy="20" r="2" fill="url(#p5)" filter="url(#g5)"/><circle cx="34" cy="20" r="2" fill="url(#p5)" filter="url(#g5)"/><rect x="18" y="32" width="24" height="10" rx="2" fill="url(#p5)" fill-opacity="0.3" filter="url(#g5)"/></svg>
+          </div>
+          <h3 class="product-title">Self-Healing Content</h3>
+          <p class="product-desc">Content that automatically adapts to performance signals. Broken links fixed, outdated info updated, relevance continuously optimized.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#FF1493"/></linearGradient><filter id="g6"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="30" cy="30" r="10" fill="none" stroke="url(#p6)" stroke-width="2.5" filter="url(#g6)"/><circle cx="22" cy="22" r="3" fill="url(#p6)" filter="url(#g6)"/><circle cx="38" cy="22" r="3" fill="url(#p6)" filter="url(#g6)"/><circle cx="22" cy="38" r="3" fill="url(#p6)" filter="url(#g6)"/><circle cx="38" cy="38" r="3" fill="url(#p6)" filter="url(#g6)"/></svg>
+          </div>
+          <h3 class="product-title">Domain System</h3>
+          <p class="product-desc">Intelligent domain management and brand portfolio optimization. Strategic acquisitions integrated in days via AI automation.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4169E1"/><stop offset="100%" stop-color="#9370DB"/></linearGradient><filter id="g7"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="22" cy="30" r="5" fill="url(#p7)" filter="url(#g7)"/><circle cx="38" cy="30" r="5" fill="url(#p7)" filter="url(#g7)"/><path d="M22 25C22 25 24 22 30 22C36 22 38 25 38 25" stroke="url(#p7)" stroke-width="2" stroke-linecap="round" filter="url(#g7)"/><path d="M22 35C22 35 24 38 30 38C36 38 38 35 38 35" stroke="url(#p7)" stroke-width="2" stroke-linecap="round" filter="url(#g7)"/></svg>
+          </div>
+          <h3 class="product-title">SVTP Protocol</h3>
+          <p class="product-desc">Shared Vector Travel Protocol for consent-based context sharing across partners. The missing layer for agentic travel.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00CED1"/><stop offset="100%" stop-color="#4169E1"/></linearGradient><filter id="g8"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="30" cy="22" r="6" fill="url(#p8)" filter="url(#g8)"/><circle cx="20" cy="38" r="4" fill="url(#p8)" filter="url(#g8)"/><circle cx="40" cy="38" r="4" fill="url(#p8)" filter="url(#g8)"/><path d="M26 26L22 34M34 26L38 34" stroke="url(#p8)" stroke-width="2" filter="url(#g8)"/></svg>
+          </div>
+          <h3 class="product-title">Travel Community</h3>
+          <p class="product-desc">Closed-network travel clubs and referral networks. Member-exclusive access and syndication across partner brands.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF1493"/><stop offset="100%" stop-color="#9370DB"/></linearGradient><filter id="g9"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect x="20" y="18" width="8" height="12" rx="1" fill="url(#p9)" filter="url(#g9)"/><rect x="32" y="22" width="8" height="8" rx="1" fill="url(#p9)" filter="url(#g9)"/><rect x="20" y="34" width="8" height="8" rx="1" fill="url(#p9)" filter="url(#g9)"/><rect x="32" y="34" width="8" height="8" rx="1" fill="url(#p9)" filter="url(#g9)"/></svg>
+          </div>
+          <h3 class="product-title">Bot Army</h3>
+          <p class="product-desc">Autonomous AI agents that build, test, market, and continuously improve products. The machine that builds the machine.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="inner">
+      <h2 class="sec-title">The Growth Engine</h2>
+      <p class="sec-subtitle">Our self-reinforcing loop drives compounding growth. Every interaction makes the system smarter. Every brand we add strengthens the network.</p>
+      <div class="engine-grid">
+        <div class="engine-item">
+          <div class="engine-label">Content</div>
+          <div class="engine-title">19.5M+ supply listings</div>
+          <p class="engine-desc">across 40 languages. GenAI creates helpful content and micro-segmented brands at scale.</p>
+        </div>
+        <div class="engine-item">
+          <div class="engine-label">Travelers</div>
+          <div class="engine-title">Millions of high-intent travelers</div>
+          <p class="engine-desc">via online marketing, organic search, and LLM discovery channels.</p>
+        </div>
+        <div class="engine-item">
+          <div class="engine-label">Data</div>
+          <div class="engine-title">Nearly 1,000 transactions per day</div>
+          <p class="engine-desc">Every search, click, and booking generates learning signals that compound network intelligence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="inner">
+      <h2 class="sec-title">Built for scale, optimized for speed</h2>
+      <div class="stack-layers">
+        <div class="stack-layer">
+          <div class="layer-header">
+            <div class="layer-number">Layer 1</div>
+            <div class="layer-title">AI & Agents</div>
+          </div>
+          <div class="layer-items">
+            <span class="layer-item">LLM Integration</span>
+            <span class="layer-item">Generative AI</span>
+            <span class="layer-item">ML Models</span>
+            <span class="layer-item">TAM Engine</span>
+            <span class="layer-item">Agentic Bots</span>
+            <span class="layer-item">SVTP Protocol</span>
+          </div>
+        </div>
+        <div class="stack-layer">
+          <div class="layer-header">
+            <div class="layer-number">Layer 2</div>
+            <div class="layer-title">Platform Core</div>
+          </div>
+          <div class="layer-items">
+            <span class="layer-item">Presto Builder</span>
+            <span class="layer-item">Content Management</span>
+            <span class="layer-item">SEO Engine</span>
+            <span class="layer-item">Personalization</span>
+            <span class="layer-item">Analytics</span>
+            <span class="layer-item">Attribution</span>
+          </div>
+        </div>
+        <div class="stack-layer">
+          <div class="layer-header">
+            <div class="layer-number">Layer 3</div>
+            <div class="layer-title">Distribution</div>
+          </div>
+          <div class="layer-items">
+            <span class="layer-item">Traffic Acquisition</span>
+            <span class="layer-item">Partner APIs</span>
+            <span class="layer-item">Deep Links</span>
+            <span class="layer-item">Affiliate Network</span>
+            <span class="layer-item">Supply Integration</span>
+          </div>
+        </div>
+        <div class="stack-layer">
+          <div class="layer-header">
+            <div class="layer-number">Layer 4</div>
+            <div class="layer-title">Infrastructure</div>
+          </div>
+          <div class="layer-items">
+            <span class="layer-item">Cloud Native</span>
+            <span class="layer-item">Auto-Scaling</span>
+            <span class="layer-item">CDN</span>
+            <span class="layer-item">Security</span>
+            <span class="layer-item">Privacy by Design</span>
+            <span class="layer-item">Compliance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="inner">
+      <h2 class="sec-title">Product Roadmap</h2>
+      <p class="sec-subtitle">Our roadmap focuses on three phases: scaling the platform, integrating new verticals, and distributing intelligence across the network.</p>
+      <div class="roadmap-phases">
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-badge">Foundation</div>
+            <h3 class="phase-title">Scale</h3>
+            <p class="phase-subtitle">2025</p>
+          </div>
+          <ul class="phase-items">
+            <li>Presto Platform (launched)</li>
+            <li>Trip.bot "Web of One"</li>
+            <li>Agentic Builder</li>
+            <li>Ad Management Platform</li>
+            <li>Domain Management System</li>
+            <li>TAM Development</li>
+          </ul>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-badge">Expansion</div>
+            <h3 class="phase-title">Integrate</h3>
+            <p class="phase-subtitle">2026</p>
+          </div>
+          <ul class="phase-items">
+            <li>Trip.bot "Connected Trip"</li>
+            <li>SVTP/TAM Validation</li>
+            <li>Agent-to-Agent API</li>
+            <li>Hotel/DMO Data Integration</li>
+            <li>Activities + Tours Supply</li>
+            <li>Multi-Day & Cruise Supply</li>
+          </ul>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-badge">Network</div>
+            <h3 class="phase-title">Distribute</h3>
+            <p class="phase-subtitle">2027</p>
+          </div>
+          <ul class="phase-items">
+            <li>Trip.bot "Web of None"</li>
+            <li>Data Exchange Network</li>
+            <li>Referral Network/Syndication</li>
+            <li>Travel Community Partners</li>
+            <li>Closed Network Travel Club</li>
+            <li>Self-Healing Content</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" style="text-align:center">
+    <div class="inner">
+      <h2 style="font-weight:700;font-size:clamp(40px,6vw,64px);line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:24px">Ready to see the<br/>platform in action?</h2>
+      <p style="font-size:20px;color:rgba(255,255,255,0.6);margin-bottom:44px;max-width:800px;margin-left:auto;margin-right:auto">Whether you're a travel brand looking to scale, an OTA seeking high-intent demand, or a technology partner exploring integration — let's talk.</p>
+      <div style="display:flex;gap:16px;justify-content:center">
+        <a href="/partners.html" style="padding:16px 36px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:15px;font-weight:600;display:inline-block">Become a Partner</a>
+        <a href="/contact.html" style="padding:16px 36px;background:transparent;color:var(--white);border:1px solid var(--glass-border);border-radius:100px;font-size:15px;font-weight:600;display:inline-block">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-prism"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#4169E1"/><stop offset="66%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FF1493"/></linearGradient></defs><path d="M12 2L2 22h20L12 2z" fill="url(#f)"/></svg></div>
+          <span>TravelAI</span>
+        </div>
+        <p class="footer-tagline">Making travel better through AI personalization.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="/platform.html">Platform</a></li><li><a href="/why.html">Why TravelAI</a></li><li><a href="/resources.html">Resources</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/partners.html">Partners</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div class="footer-col"><h5>Content</h5><ul><li><a href="/insights.html">Insights</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/case-studies.html">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2025 TravelAI. All rights reserved.</span>
+      <div class="social-links"><a href="#">𝕏</a><a href="#">in</a><a href="#">f</a><a href="#">◎</a></div>
+    </div>
+  </footer>
+</body>
+</html>

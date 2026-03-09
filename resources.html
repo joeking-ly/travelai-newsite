@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — TravelAI Press Kit & Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--spectrum:linear-gradient(90deg,#FF6B6B 0%,#FFA500 14%,#FFD700 28%,#32CD32 42%,#00CED1 57%,#4169E1 71%,#9370DB 85%,#FF1493 100%);--black-deep:#0A0A0F;--black-soft:#1A1A1A;--white:#FFF;--glass-border:rgba(255,255,255,0.1);--font:'Inter Tight',sans-serif;--nav-h:72px}html{scroll-behavior:smooth;background:var(--black-deep)}body{font-family:var(--font);font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);background:var(--black-deep)}a{color:inherit;text-decoration:none}nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,15,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border)}.nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white)}.logo-prism{width:32px;height:32px}.logo-prism svg{width:100%;height:100%}.nav-links{display:flex;align-items:center;gap:36px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-cta{padding:12px 28px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:14px;font-weight:600;transition:all .3s}.nav-cta:hover{transform:translateY(-2px)}.hero{padding:calc(var(--nav-h) + 120px) 48px 120px;background:var(--black-deep);text-align:center}.hero-title{font-weight:700;font-size:clamp(48px,7vw,72px);line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px}.hero-title .gradient{background:var(--spectrum);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:spectrum-shift 6s linear infinite;font-style:italic}@keyframes spectrum-shift{0%{background-position:0% center}100%{background-position:200% center}}.hero-subtitle{font-size:18px;color:rgba(255,255,255,0.6);max-width:900px;margin:0 auto}.section{padding:120px 48px;border-top:1px solid var(--glass-border)}.section.dark{background:var(--black-deep)}.section.white{background:var(--white);border-top:1px solid rgba(0,0,0,0.08)}.inner{max-width:1200px;margin:0 auto}.sec-title{font-weight:600;font-size:clamp(36px,5vw,56px);line-height:1.15;letter-spacing:-0.03em;margin-bottom:20px;text-align:center}.dark .sec-title{color:var(--white)}.white .sec-title{color:#0A0A0F}.sec-desc{font-size:17px;text-align:center;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto}.dark .sec-desc{color:rgba(255,255,255,0.6)}.white .sec-desc{color:#666}.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}.press-item{padding:32px 28px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;text-align:center;transition:all .3s}.press-item:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}.press-icon{font-size:32px;margin-bottom:16px}.press-title{font-weight:600;font-size:16px;color:var(--white);margin-bottom:8px}.press-desc{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px}.press-link{padding:10px 24px;background:rgba(255,255,255,0.08);border:1px solid var(--glass-border);border-radius:100px;font-size:13px;font-weight:600;color:var(--white);display:inline-block;transition:all .3s}.press-link:hover{background:rgba(255,255,255,0.12)}.company-info{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.info-item{padding:20px;background:rgba(255,255,255,0.02);border-radius:12px}.info-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:6px}.info-value{font-size:15px;color:var(--white)}.news-list{display:flex;flex-direction:column;gap:24px}.news-item{padding:32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;display:flex;gap:24px;transition:all .3s}.news-item:hover{background:rgba(255,255,255,0.05)}.news-date{flex-shrink:0;width:60px;text-align:center}.news-day{font-size:28px;font-weight:700;color:var(--white);line-height:1}.news-month{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase}.news-content{flex:1}.news-source{font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:8px}.news-title{font-weight:600;font-size:18px;color:var(--white);margin-bottom:8px}.news-desc{font-size:14px;color:rgba(255,255,255,0.6)}.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.doc-card{padding:32px;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:16px}.doc-icon{font-size:32px;margin-bottom:16px}.doc-title{font-weight:600;font-size:18px;color:#0A0A0F;margin-bottom:12px}.doc-list{list-style:none;display:flex;flex-direction:column;gap:8px}.doc-list li{font-size:14px;color:#666;padding-left:20px;position:relative}.doc-list li::before{content:'→';position:absolute;left:0;color:#999}.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:16px}.faq-item{padding:24px 28px;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:12px;display:flex;justify-content:space-between;align-items:center}.faq-q{font-weight:500;font-size:16px;color:#0A0A0F}.faq-icon{font-size:20px;color:#666}.labs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}.lab-card{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;position:relative}.lab-badge{display:inline-block;padding:6px 14px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9370DB;margin-bottom:12px}.lab-status{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px}.lab-title{font-weight:700;font-size:22px;color:var(--white);margin-bottom:12px}.lab-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.7)}footer{background:var(--black-deep);border-top:1px solid var(--glass-border);padding:80px 48px 40px}.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}.footer-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px}.footer-tagline{font-size:14px;color:rgba(255,255,255,0.5);max-width:300px}.footer-col h5{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:20px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}.footer-col a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s}.footer-col a:hover{color:var(--white)}.footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--glass-border)}.footer-legal{font-size:13px;color:rgba(255,255,255,0.4)}.social-links{display:flex;gap:12px}.social-links a{width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);transition:all .3s}.social-links a:hover{border-color:var(--white);color:var(--white);transform:translateY(-2px)}@media(max-width:1024px){.press-grid,.docs-grid{grid-template-columns:repeat(2,1fr)}.labs-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}@media(max-width:768px){nav{padding:0 24px}.nav-links{display:none}.press-grid,.docs-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr;gap:40px}.footer-bottom{flex-direction:column;gap:20px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/homepage.html" class="nav-logo">
+      <div class="logo-prism"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="n" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#4169E1"/><stop offset="66%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FF1493"/></linearGradient></defs><path d="M12 2L2 22h20L12 2z" fill="url(#n)"/></svg></div>
+      <span>TravelAI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/why.html">Why</a></li>
+      <li><a href="/platform.html">Platform</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/partners.html">Partners</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/partners.html" class="nav-cta">Become a Partner</a>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero-title">Everything you need<br/>to know about <span class="gradient">TravelAI</span></h1>
+    <p class="hero-subtitle">Press materials, media coverage, documentation, and our latest experiments in AI-powered travel technology.</p>
+  </section>
+
+  <!-- PRESS KIT -->
+  <section class="section dark">
+    <div class="inner">
+      <h2 class="sec-title">Press Kit</h2>
+      <p class="sec-desc">Download logos, brand guidelines, and company information for press and media inquiries.</p>
+      
+      <div class="press-grid">
+        <div class="press-item">
+          <div class="press-icon">📦</div>
+          <h3 class="press-title">Logo Pack</h3>
+          <p class="press-desc">SVG, PNG, and EPS formats in multiple color variations</p>
+          <a href="#" class="press-link">Download</a>
+        </div>
+        <div class="press-item">
+          <div class="press-icon">🎨</div>
+          <h3 class="press-title">Brand Guidelines</h3>
+          <p class="press-desc">Typography, colors, usage guidelines, and visual identity</p>
+          <a href="#" class="press-link">Download</a>
+        </div>
+        <div class="press-item">
+          <div class="press-icon">📸</div>
+          <h3 class="press-title">Product Screenshots</h3>
+          <p class="press-desc">High-resolution images of our platform and products</p>
+          <a href="#" class="press-link">Download</a>
+        </div>
+        <div class="press-item">
+          <div class="press-icon">👥</div>
+          <h3 class="press-title">Team Photos</h3>
+          <p class="press-desc">Leadership headshots and team photography</p>
+          <a href="#" class="press-link">Download</a>
+        </div>
+        <div class="press-item">
+          <div class="press-icon">📄</div>
+          <h3 class="press-title">Fact Sheet</h3>
+          <p class="press-desc">Company overview, stats, and key information</p>
+          <a href="#" class="press-link">Download</a>
+        </div>
+        <div class="press-item">
+          <div class="press-icon">📊</div>
+          <h3 class="press-title">Investor Deck</h3>
+          <p class="press-desc">Company presentation and financial overview</p>
+          <a href="#" class="press-link">Request Access</a>
+        </div>
+      </div>
+
+      <div class="company-info">
+        <h3 style="font-weight:600;font-size:20px;color:var(--white);margin-bottom:24px">Company Information</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Company Name</div>
+            <div class="info-value">TravelAI Solutions Inc.</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Founded</div>
+            <div class="info-value">2018</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Headquarters</div>
+            <div class="info-value">Vancouver, British Columbia, Canada</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Leadership</div>
+            <div class="info-value">John Lyotier (CEO), Rakib Islam (CTO), Simon Jones (CFO)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Employees</div>
+            <div class="info-value">100 full-time (Vancouver & Dhaka)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Funding</div>
+            <div class="info-value">100% founder-funded, bootstrapped</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Press Contact</div>
+            <div class="info-value">press@travelai.com</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Website</div>
+            <div class="info-value">www.travelai.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA COVERAGE -->
+  <section class="section dark">
+    <div class="inner">
+      <h2 class="sec-title">In the News</h2>
+      <p class="sec-desc">Recent press mentions, articles, and coverage of TravelAI across industry publications.</p>
+      
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-date">
+            <div class="news-day">10</div>
+            <div class="news-month">Feb</div>
+          </div>
+          <div class="news-content">
+            <div class="news-source">TechCrunch</div>
+            <h3 class="news-title">How TravelAI is Building the Context Layer for Agentic Travel</h3>
+            <p class="news-desc">TravelAI's patent-pending SVTP protocol could become the industry standard for portable traveler intelligence...</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">
+            <div class="news-day">28</div>
+            <div class="news-month">Jan</div>
+          </div>
+          <div class="news-content">
+            <div class="news-source">Skift</div>
+            <h3 class="news-title">This Travel Startup Turned a $30k Domain into $45M in GBV</h3>
+            <p class="news-desc">The CASAI acquisition demonstrates how AI-powered infrastructure can unlock immediate value in legacy travel brands...</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">
+            <div class="news-day">15</div>
+            <div class="news-month">Jan</div>
+          </div>
+          <div class="news-content">
+            <div class="news-source">Phocuswire</div>
+            <h3 class="news-title">TravelAI Reports 60% Revenue Growth, $6.1M EBITDA in 2025</h3>
+            <p class="news-desc">The Vancouver-based travel tech company achieved profitable growth while scaling to 470+ brands and $456M in gross booking value...</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">
+            <div class="news-day">20</div>
+            <div class="news-month">Dec</div>
+          </div>
+          <div class="news-content">
+            <div class="news-source">VentureBeat</div>
+            <h3 class="news-title">ChatGPT Drives 94% of AI Referral Traffic for Travel Platforms</h3>
+            <p class="news-desc">TravelAI data reveals LLMs have become a major discovery channel for travel, with ChatGPT dominating AI-driven traffic...</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">
+            <div class="news-day">30</div>
+            <div class="news-month">Nov</div>
+          </div>
+          <div class="news-content">
+            <div class="news-source">Deloitte</div>
+            <h3 class="news-title">TravelAI Named to Technology Fast 500 for Third Time</h3>
+            <p class="news-desc">Recognition for sustained high-growth technology companies in North America, marking TravelAI's third appearance on the list...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTATION -->
+  <section class="section white">
+    <div class="inner">
+      <h2 class="sec-title" style="color:#0A0A0F">Documentation</h2>
+      <p class="sec-desc" style="color:#666">Technical documentation, guides, and resources for partners and developers.</p>
+      
+      <div class="docs-grid">
+        <div class="doc-card">
+          <div class="doc-icon">🚀</div>
+          <h3 class="doc-title">Getting Started</h3>
+          <ul class="doc-list">
+            <li>Platform Overview</li>
+            <li>Partnership Guide</li>
+            <li>Integration Basics</li>
+            <li>Quick Start Tutorial</li>
+          </ul>
+          <p style="font-size:13px;color:#999;margin-top:16px">New to TravelAI? Start here to understand our platform and partnership model.</p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">⚙️</div>
+          <h3 class="doc-title">Technical Docs</h3>
+          <ul class="doc-list">
+            <li>API Reference</li>
+            <li>SVTP Protocol Spec</li>
+            <li>TAM Integration</li>
+            <li>Authentication</li>
+          </ul>
+          <p style="font-size:13px;color:#999;margin-top:16px">API documentation, SDKs, and integration guides for developers.</p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">🤝</div>
+          <h3 class="doc-title">For Partners</h3>
+          <ul class="doc-list">
+            <li>Partner Dashboard</li>
+            <li>Performance Metrics</li>
+            <li>Attribution Models</li>
+            <li>Best Practices</li>
+          </ul>
+          <p style="font-size:13px;color:#999;margin-top:16px">Resources for accommodation providers and distribution partners.</p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">📚</div>
+          <h3 class="doc-title">Use Cases</h3>
+          <ul class="doc-list">
+            <li>OwnerDirect Relaunch</li>
+            <li>CASAI Acquisition</li>
+            <li>Multi-Brand Strategy</li>
+            <li>Traffic Optimization</li>
+          </ul>
+          <p style="font-size:13px;color:#999;margin-top:16px">Real-world examples and case studies of TravelAI implementations.</p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">🔒</div>
+          <h3 class="doc-title">Privacy & Security</h3>
+          <ul class="doc-list">
+            <li>Privacy Policy</li>
+            <li>Data Protection</li>
+            <li>GDPR Compliance</li>
+            <li>Security Overview</li>
+          </ul>
+          <p style="font-size:13px;color:#999;margin-top:16px">How we protect traveler data and ensure compliance.</p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">💬</div>
+          <h3 class="doc-title">Support</h3>
+          <ul class="doc-list">
+            <li>Contact Support</li>
+            <li>Report an Issue</li>
+            <li>Feature Requests</li>
+            <li>Community Forum</li>
+          </ul>
+          <p style="font-size:13px;color:#999;margin-top:16px">Need help? Get in touch with our support team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section white">
+    <div class="inner">
+      <h2 class="sec-title" style="color:#0A0A0F">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <span class="faq-q">What is TravelAI?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">How does the Traveler Action Model (TAM) work?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">What is the Shared Vector Travel Protocol (SVTP)?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">How do I partner with TravelAI?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">What makes TravelAI different from other travel platforms?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">Is TravelAI hiring?</span>
+          <span class="faq-icon">+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABS & EXPERIMENTS -->
+  <section class="section dark">
+    <div class="inner">
+      <h2 class="sec-title">Labs & Innovation</h2>
+      <p class="sec-desc">Beta features, research projects, and cutting-edge experiments in AI-powered travel technology. These are early-stage products we're testing in the wild.</p>
+      
+      <div class="labs-grid">
+        <div class="lab-card">
+          <div class="lab-badge">Beta</div>
+          <div class="lab-status">Active Beta — 12 companies testing</div>
+          <h3 class="lab-title">Trip Desk for Slack</h3>
+          <p class="lab-desc">Conversational travel planning directly in Slack. Your team can search, compare, and book travel without leaving their workspace. Built on Trip.bot with full TAM integration for personalized recommendations.</p>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-badge">Research</div>
+          <div class="lab-status">Research Phase — Collecting data</div>
+          <h3 class="lab-title">Predictive Demand Signals</h3>
+          <p class="lab-desc">Using LLM conversation patterns to predict travel demand 30-90 days out. Early tests show 70%+ accuracy in identifying destination interest before traditional search volume spikes.</p>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-badge">Alpha</div>
+          <div class="lab-status">Alpha Testing — Internal use only</div>
+          <h3 class="lab-title">Dynamic Creative Generator</h3>
+          <p class="lab-desc">AI-generated ad creative that adapts in real-time to performance signals. The system creates, tests, and optimizes hundreds of creative variations autonomously across paid channels.</p>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-badge">Beta</div>
+          <div class="lab-status">Beta — Selected partners only</div>
+          <h3 class="lab-title">Agent-to-Agent API</h3>
+          <p class="lab-desc">Enabling AI agents to communicate, negotiate, and transact autonomously. First implementation: allowing ChatGPT to book directly through our network with full context preservation via SVTP.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-prism"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#4169E1"/><stop offset="66%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FF1493"/></linearGradient></defs><path d="M12 2L2 22h20L12 2z" fill="url(#f)"/></svg></div>
+          <span>TravelAI</span>
+        </div>
+        <p class="footer-tagline">Making travel better through AI personalization.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="/platform.html">Platform</a></li><li><a href="/why.html">Why TravelAI</a></li><li><a href="/resources.html">Resources</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/partners.html">Partners</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div class="footer-col"><h5>Content</h5><ul><li><a href="/insights.html">Insights</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/case-studies.html">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2025 TravelAI. All rights reserved.</span>
+      <div class="social-links"><a href="#">𝕏</a><a href="#">in</a><a href="#">f</a><a href="#">◎</a></div>
+    </div>
+  </footer>
+</body>
+</html>

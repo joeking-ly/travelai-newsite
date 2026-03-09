@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelAI — Travel Technology, Built for People</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       BASE SETUP
+       ═══════════════════════════════════════════════════════ */
+    
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    :root {
+      /* Rainbow Spectrum */
+      --spectrum: linear-gradient(90deg, 
+        #FF6B6B 0%, #FFA500 14%, #FFD700 28%, #32CD32 42%, 
+        #00CED1 57%, #4169E1 71%, #9370DB 85%, #FF1493 100%);
+
+      /* Individual Colors */
+      --red: #FF6B6B;
+      --orange: #FFA500;
+      --yellow: #FFD700;
+      --green: #32CD32;
+      --cyan: #00CED1;
+      --blue: #4169E1;
+      --purple: #9370DB;
+      --pink: #FF1493;
+
+      /* Neutrals - Light */
+      --white: #FFFFFF;
+      --cream: #FAF7F0;
+      --sand: #E8C9A0;
+      --warm: #D4A574;
+      --tan: #C4A574;
+
+      /* Neutrals - Dark */
+      --black: #000000;
+      --black-soft: #1A1A1A;
+      --gray-dark: #2A2A2A;
+      --gray-mid: #666666;
+      --gray-light: #999999;
+
+      --font: 'Inter Tight', sans-serif;
+      --nav-h: 64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════ */
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--black);
+    }
+
+    .logo-prism {
+      width: 28px;
+      height: 28px;
+    }
+
+    .logo-prism svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════════════════ */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: calc(var(--nav-h) + 80px) 48px 80px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/></svg>');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-weight: 600;
+      font-size: clamp(48px, 7vw, 72px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-title-line2 {
+      background: var(--spectrum);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: spectrum-shift 6s linear infinite;
+      font-style: italic;
+    }
+
+    @keyframes spectrum-shift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-subtitle {
+      font-size: 19px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 32px;
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary {
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MISSION SECTION (Dark with Video)
+       ═══════════════════════════════════════════════════════ */
+
+    .mission-section {
+      padding: 120px 48px;
+      background: var(--black);
+      text-align: center;
+    }
+
+    .mission-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .mission-title {
+      font-weight: 500;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+      color: var(--white);
+    }
+
+    .mission-title .powerful {
+      background: var(--spectrum);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: spectrum-shift 6s linear infinite;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .mission-video {
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .play-button {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 8px 32px rgba(255,255,255,0.2);
+    }
+
+    .play-button:hover { transform: scale(1.1); }
+
+    .play-button svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 3px;
+      fill: var(--black);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       STATS SECTION (Dark with subtle color accents)
+       ═══════════════════════════════════════════════════════ */
+
+    .stats-section {
+      padding: 80px 48px;
+      background: var(--black-soft);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-weight: 700;
+      font-size: clamp(40px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .stat-item:nth-child(1) .stat-value {
+      background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-item:nth-child(2) .stat-value {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-item:nth-child(3) .stat-value {
+      background: linear-gradient(135deg, var(--green) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-item:nth-child(4) .stat-value {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FEATURE SECTIONS (Dark)
+       ═══════════════════════════════════════════════════════ */
+
+    .feature-section {
+      padding: 100px 48px;
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-section:nth-of-type(even) {
+      background: var(--black-soft);
+    }
+
+    .feature-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .feature-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .feature-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+    }
+
+    .feature-visual {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .feature-inner.reverse {
+      direction: rtl;
+    }
+
+    .feature-inner.reverse > * {
+      direction: ltr;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       AGENTIC SECTION (Dark with 6 cards)
+       ═══════════════════════════════════════════════════════ */
+
+    .agentic-section {
+      padding: 120px 48px;
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .agentic-title {
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .agentic-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 80px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .agentic-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .agentic-card {
+      padding: 36px 32px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      text-align: left;
+      transition: all 0.3s;
+    }
+
+    .agentic-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+    }
+
+    /* Animated Line Icons */
+    .agentic-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .agentic-icon svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 4px 12px currentColor);
+    }
+
+    .agentic-card:nth-child(1) .agentic-icon { color: var(--red); }
+    .agentic-card:nth-child(2) .agentic-icon { color: var(--blue); }
+    .agentic-card:nth-child(3) .agentic-icon { color: var(--green); }
+    .agentic-card:nth-child(4) .agentic-icon { color: var(--purple); }
+    .agentic-card:nth-child(5) .agentic-icon { color: var(--yellow); }
+    .agentic-card:nth-child(6) .agentic-icon { color: var(--cyan); }
+
+    .agentic-icon path,
+    .agentic-icon circle,
+    .agentic-icon rect,
+    .agentic-icon polyline,
+    .agentic-icon ellipse {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw-line 2s ease-out forwards;
+    }
+
+    .agentic-card:nth-child(1) .agentic-icon * { animation-delay: 0.1s; }
+    .agentic-card:nth-child(2) .agentic-icon * { animation-delay: 0.2s; }
+    .agentic-card:nth-child(3) .agentic-icon * { animation-delay: 0.3s; }
+    .agentic-card:nth-child(4) .agentic-icon * { animation-delay: 0.4s; }
+    .agentic-card:nth-child(5) .agentic-icon * { animation-delay: 0.5s; }
+    .agentic-card:nth-child(6) .agentic-icon * { animation-delay: 0.6s; }
+
+    @keyframes draw-line {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .agentic-icon {
+      animation: icon-float 3s ease-in-out infinite;
+    }
+
+    .agentic-card:nth-child(1) .agentic-icon { animation-delay: 0s; }
+    .agentic-card:nth-child(2) .agentic-icon { animation-delay: 0.5s; }
+    .agentic-card:nth-child(3) .agentic-icon { animation-delay: 1s; }
+    .agentic-card:nth-child(4) .agentic-icon { animation-delay: 1.5s; }
+    .agentic-card:nth-child(5) .agentic-icon { animation-delay: 2s; }
+    .agentic-card:nth-child(6) .agentic-icon { animation-delay: 2.5s; }
+
+    @keyframes icon-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .agentic-card-title {
+      font-weight: 600;
+      font-size: 19px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .agentic-card-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SCALE SECTION (Dark with subtle colored cards)
+       ═══════════════════════════════════════════════════════ */
+
+    .scale-section {
+      padding: 120px 48px;
+      background: var(--black);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .scale-title {
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 80px;
+      color: var(--white);
+    }
+
+    .scale-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .scale-card {
+      padding: 48px 40px;
+      border-radius: 16px;
+      text-align: left;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .scale-card.dark {
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+    }
+
+    .scale-card.light {
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+    }
+
+    .scale-card.warm {
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+      border-color: rgba(255, 107, 107, 0.2);
+      color: var(--white);
+    }
+
+    .scale-card.blue {
+      background: linear-gradient(135deg, rgba(65, 105, 225, 0.1) 0%, rgba(0, 206, 209, 0.05) 100%);
+      border-color: rgba(65, 105, 225, 0.2);
+      color: var(--white);
+    }
+
+    .scale-card-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .scale-card-title {
+      font-weight: 600;
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .scale-card-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MARKET SECTION (Dark)
+       ═══════════════════════════════════════════════════════ */
+
+    .market-section {
+      padding: 120px 48px;
+      background: var(--black-soft);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .market-title {
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 80px;
+      color: var(--white);
+    }
+
+    .market-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .market-card {
+      padding: 48px 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+
+    .market-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .market-value {
+      font-weight: 700;
+      font-size: clamp(48px, 6vw, 64px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .market-card:nth-child(1) .market-value {
+      background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .market-card:nth-child(2) .market-value {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .market-card:nth-child(3) .market-value {
+      background: linear-gradient(135deg, var(--green) 0%, var(--yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .market-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .market-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PARTNERS SECTION (Dark with checkboxes)
+       ═══════════════════════════════════════════════════════ */
+
+    .partners-section {
+      padding: 120px 48px;
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .partners-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .partners-title {
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .partners-title .better {
+      background: var(--spectrum);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: spectrum-shift 6s linear infinite;
+      font-style: italic;
+    }
+
+    .partners-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+    }
+
+    .partners-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .partner-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+
+    .partner-item:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .partner-checkbox {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 2px solid rgba(255,255,255,0.3);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .partner-checkbox svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--green);
+      stroke-width: 3;
+    }
+
+    .partner-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .partner-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CTA SECTION (Dark)
+       ═══════════════════════════════════════════════════════ */
+
+    .cta-section {
+      padding: 140px 48px;
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-weight: 600;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .cta-title .for-ai {
+      background: var(--spectrum);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: spectrum-shift 6s linear infinite;
+      font-style: italic;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 44px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      padding: 16px 36px;
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.3);
+    }
+
+    .btn-outline-white {
+      padding: 16px 36px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-white:hover {
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER (Dark)
+       ═══════════════════════════════════════════════════════ */
+
+    footer {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 80px 48px 40px;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.5);
+      max-width: 280px;
+    }
+
+    .footer-col h5 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-legal {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      transition: all 0.2s;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .social-links a:hover {
+      border-color: var(--white);
+      color: var(--white);
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════ */
+
+    @media (max-width: 1024px) {
+      .feature-inner,
+      .partners-inner {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      
+      .agentic-grid { grid-template-columns: repeat(2, 1fr); }
+      .scale-grid,
+      .market-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .agentic-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <div class="logo-prism">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="prism-nav" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="33%" stop-color="#4169E1"/>
+              <stop offset="66%" stop-color="#32CD32"/>
+              <stop offset="100%" stop-color="#FF1493"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2L2 22h20L12 2z" fill="url(#prism-nav)"/>
+        </svg>
+      </div>
+      <span>TravelAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="/stories.html">Stories</a></li>
+      <li><a href="/about.html">Company</a></li>
+    </ul>
+
+    <a href="/partners.html" class="nav-cta">Get Started</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        Travel Technology,<br/>
+        <span class="hero-title-line2">Built for People.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        AI-driven search that connects travelers to the destinations & experiences
+        they'll love. Making travel better through personalization.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary">Get Started</button>
+        <button class="btn-secondary">View Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission-section">
+    <div class="mission-inner">
+      <h2 class="mission-title">
+        Travel is <span class="powerful">powerful.</span> It connects people,
+        creates lasting memories, and fuels economic opportunity.
+      </h2>
+
+      <div class="mission-video">
+        <div class="play-button">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M8 5v14l11-7L8 5z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value">1M+</div>
+        <div class="stat-label">Monthly Active Users</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">470+</div>
+        <div class="stat-label">Travel Brands</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">34.6M</div>
+        <div class="stat-label">Annual Travelers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">1/38s</div>
+        <div class="stat-label">Booking Frequency</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 1 -->
+  <section id="platform" class="feature-section">
+    <div class="feature-inner">
+      <div class="feature-content">
+        <p class="feature-eyebrow">Platform</p>
+        <h2 class="feature-title">Every journey starts with a person, not a platform.</h2>
+        <p class="feature-desc">
+          We put travelers first by understanding their unique preferences, budget, and
+          travel style. AI learns what matters most to create personalized recommendations.
+        </p>
+        <button class="btn-primary" style="background:var(--white);color:var(--black);">Learn More</button>
+      </div>
+      <div class="feature-visual"></div>
+    </div>
+  </section>
+
+  <!-- FEATURE 2 -->
+  <section class="feature-section">
+    <div class="feature-inner reverse">
+      <div class="feature-content">
+        <p class="feature-eyebrow">Discovery</p>
+        <h2 class="feature-title">AI that captures the soul of a place.</h2>
+        <p class="feature-desc">
+          Our AI understands the vibe, culture, and experiences that make each place unique.
+          From hidden gems to iconic landmarks, we surface what truly matters.
+        </p>
+        <button class="btn-primary" style="background:var(--white);color:var(--black);">Explore Now</button>
+      </div>
+      <div class="feature-visual"></div>
+    </div>
+  </section>
+
+  <!-- AGENTIC SECTION -->
+  <section id="technology" class="agentic-section">
+    <h2 class="agentic-title">Built for the Agentic Age</h2>
+    <p class="agentic-subtitle">
+      A platform designed for intelligent travel planning—where AI agents and humans
+      collaborate seamlessly to create better journeys.
+    </p>
+
+    <div class="agentic-grid">
+      <div class="agentic-card">
+        <div class="agentic-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect x="16" y="12" width="32" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="26" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="38" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M24 32 Q32 36 40 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M32 12 L32 6 M28 6 L36 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M16 46 L16 52 M48 46 L48 52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M20 40 L20 46 L44 46 L44 40" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h3 class="agentic-card-title">Intelligent Agents</h3>
+        <p class="agentic-card-desc">
+          AI agents that learn preferences and autonomously surface destinations matched to your style.
+        </p>
+      </div>
+
+      <div class="agentic-card">
+        <div class="agentic-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 8 L34 20 L42 14 L36 22 L48 24 L36 26 L42 34 L34 28 L32 40 L30 28 L22 34 L28 26 L16 24 L28 22 L22 14 L30 20 L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="48" cy="16" r="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="16" cy="48" r="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="52" cy="48" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="agentic-card-title">Personalized Discovery</h3>
+        <p class="agentic-card-desc">
+          Recommendations adapt in real-time based on interactions, budget, and travel history.
+        </p>
+      </div>
+
+      <div class="agentic-card">
+        <div class="agentic-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M32 10 Q32 32 32 54" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M10 32 Q32 32 54 32" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M32 10 Q42 20 42 32 Q42 44 32 54" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M32 10 Q22 20 22 32 Q22 44 32 54" stroke="currentColor" stroke-width="2.5"/>
+            <ellipse cx="32" cy="32" rx="22" ry="10" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h3 class="agentic-card-title">Global Network</h3>
+        <p class="agentic-card-desc">
+          Access 19.5M+ listings across 470+ brands, optimized through our unified AI layer.
+        </p>
+      </div>
+
+      <div class="agentic-card">
+        <div class="agentic-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 8 L48 16 L48 32 Q48 44 32 56 Q16 44 16 32 L16 16 L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M28 32 L30 34 L36 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="agentic-card-title">Privacy First</h3>
+        <p class="agentic-card-desc">
+          Portable intelligence that learns without exposing personal information.
+        </p>
+      </div>
+
+      <div class="agentic-card">
+        <div class="agentic-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M36 8 L20 32 L32 32 L28 56 L44 32 L32 32 L36 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="52" cy="20" r="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="44" r="2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="agentic-card-title">Instant Results</h3>
+        <p class="agentic-card-desc">
+          Context-aware recommendations from your first search, in milliseconds.
+        </p>
+      </div>
+
+      <div class="agentic-card">
+        <div class="agentic-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M32 10 L32 6 M32 54 L32 58 M54 32 L58 32 M10 32 L6 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="agentic-card-title">Continuous Learning</h3>
+        <p class="agentic-card-desc">
+          Platform gets smarter with every interaction across the entire network.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCALE SECTION -->
+  <section class="scale-section">
+    <h2 class="scale-title">A self-reinforcing engine<br/>powering accelerating scale</h2>
+
+    <div class="scale-grid">
+      <div class="scale-card dark">
+        <div>
+          <p class="scale-card-eyebrow">Content</p>
+          <h3 class="scale-card-title">Gen AI<br/>+ 19.5M Discovery</h3>
+        </div>
+        <p class="scale-card-desc">
+          Generative AI creates helpful content at scale across 470+ brands and 40 languages.
+        </p>
+      </div>
+
+      <div class="scale-card light">
+        <div>
+          <p class="scale-card-eyebrow">Travelers</p>
+          <h3 class="scale-card-title">Millions Travelers,<br/>Billion+ Quality Data</h3>
+        </div>
+        <p class="scale-card-desc">
+          High-intent demand via online marketing, organic search, and LLM discovery channels.
+        </p>
+      </div>
+
+      <div class="scale-card blue">
+        <div>
+          <p class="scale-card-eyebrow">Data</p>
+          <h3 class="scale-card-title">Optimizing for<br/>Life of Traveler</h3>
+        </div>
+        <p class="scale-card-desc">
+          Nearly 1,000 transactions per day generate learning signals across the network.
+        </p>
+      </div>
+
+      <div class="scale-card warm">
+        <div>
+          <p class="scale-card-eyebrow">Economics</p>
+          <h3 class="scale-card-title">Manage Economics<br/>Data to Revenue</h3>
+        </div>
+        <p class="scale-card-desc">
+          Sustainable growth through intelligent monetization and partner relationships.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET SIZE -->
+  <section class="market-section">
+    <h2 class="market-title">The world's largest vertical.<br/>Ready for AI.</h2>
+
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-value">$1.7T</div>
+        <div class="market-label">Total Addressable Market</div>
+        <p class="market-desc">Global travel & tourism industry size</p>
+      </div>
+
+      <div class="market-card">
+        <div class="market-value">$341B</div>
+        <div class="market-label">Online Booking Market</div>
+        <p class="market-desc">Digital travel bookings worldwide</p>
+      </div>
+
+      <div class="market-card">
+        <div class="market-value">$110B</div>
+        <div class="market-label">Serviceable Market</div>
+        <p class="market-desc">AI-enabled travel discovery</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners-section">
+    <div class="partners-inner">
+      <div class="partners-content">
+        <h2 class="partners-title">
+          Better travel starts with<br/>
+          <span class="better">better</span> partners.
+        </h2>
+        <p class="partners-desc">
+          We work with leading travel brands, accommodation providers, and technology
+          partners to create seamless, intelligent travel experiences.
+        </p>
+        <button class="btn-primary" style="background:var(--white);color:var(--black);">Become a Partner</button>
+      </div>
+
+      <div class="partners-list">
+        <div class="partner-item">
+          <div class="partner-checkbox">
+            <svg viewBox="0 0 24 24" fill="none">
+              <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="partner-title">Accommodation Providers</h3>
+            <p class="partner-desc">
+              Connect with high-intent travelers matched to your properties through AI-powered personalization.
+            </p>
+          </div>
+        </div>
+
+        <div class="partner-item">
+          <div class="partner-checkbox">
+            <svg viewBox="0 0 24 24" fill="none">
+              <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="partner-title">Travel Brands</h3>
+            <p class="partner-desc">
+              Join 470+ brands powered by our unified AI platform to drive growth and optimize performance.
+            </p>
+          </div>
+        </div>
+
+        <div class="partner-item">
+          <div class="partner-checkbox">
+            <svg viewBox="0 0 24 24" fill="none">
+              <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="partner-title">Technology Partners</h3>
+            <p class="partner-desc">
+              Integrate with our agentic network through SVTP protocol for portable traveler intelligence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="cta-title">
+      The Age of AI<br/>
+      <span class="for-ai">for one billion travelers.</span>
+    </h2>
+    <p class="cta-subtitle">
+      Join the future of travel. Intelligent, personalized, and built for everyone.
+    </p>
+    <div class="cta-actions">
+      <button class="btn-white">Get Started</button>
+      <button class="btn-outline-white">Learn More</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-prism">
+            <svg viewBox="0 0 24 24" fill="none">
+              <defs>
+                <linearGradient id="prism-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FF6B6B"/>
+                  <stop offset="33%" stop-color="#4169E1"/>
+                  <stop offset="66%" stop-color="#32CD32"/>
+                  <stop offset="100%" stop-color="#FF1493"/>
+                </linearGradient>
+              </defs>
+              <path d="M12 2L2 22h20L12 2z" fill="url(#prism-footer)"/>
+            </svg>
+          </div>
+          <span>TravelAI</span>
+        </div>
+        <p class="footer-tagline">
+          Making travel better through AI personalization — one traveler at a time.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/stories.html">Stories</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2025 TravelAI. All rights reserved.</span>
+      <div class="social-links">
+        <a href="#">𝕏</a>
+        <a href="#">in</a>
+        <a href="#">f</a>
+        <a href="#">◎</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

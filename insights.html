@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights — TravelAI Thought Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--spectrum:linear-gradient(90deg,#FF6B6B 0%,#FFA500 14%,#FFD700 28%,#32CD32 42%,#00CED1 57%,#4169E1 71%,#9370DB 85%,#FF1493 100%);--black-deep:#0A0A0F;--black-soft:#1A1A1A;--white:#FFF;--glass-border:rgba(255,255,255,0.1);--font:'Inter Tight',sans-serif;--nav-h:72px}html{scroll-behavior:smooth;background:var(--black-deep)}body{font-family:var(--font);font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);background:var(--black-deep)}a{color:inherit;text-decoration:none}nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,15,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border)}.nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white)}.logo-prism{width:32px;height:32px}.logo-prism svg{width:100%;height:100%}.nav-links{display:flex;align-items:center;gap:36px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-cta{padding:12px 28px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:14px;font-weight:600;transition:all .3s}.nav-cta:hover{transform:translateY(-2px)}.hero{padding:calc(var(--nav-h) + 120px) 48px 120px;background:var(--black-deep);text-align:center}.hero-title{font-weight:700;font-size:clamp(48px,7vw,72px);line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px}.hero-title .gradient{background:var(--spectrum);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:spectrum-shift 6s linear infinite;font-style:italic}@keyframes spectrum-shift{0%{background-position:0% center}100%{background-position:200% center}}.hero-subtitle{font-size:18px;color:rgba(255,255,255,0.6);max-width:900px;margin:0 auto}.featured{padding:120px 48px;background:var(--black-soft);border-top:1px solid var(--glass-border)}.featured-inner{max-width:1200px;margin:0 auto}.featured-badge{display:inline-block;padding:6px 16px;background:rgba(255,255,255,0.1);border:1px solid var(--glass-border);border-radius:100px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);margin-bottom:20px}.featured-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.featured-visual{aspect-ratio:16/10;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:20px}.featured-info{}.featured-cat{display:inline-block;padding:4px 12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:100px;font-size:12px;font-weight:600;color:#9370DB;margin-bottom:16px}.featured-title{font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.2;letter-spacing:-0.02em;color:var(--white);margin-bottom:16px}.featured-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,0.7);margin-bottom:24px}.featured-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px}.featured-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:rgba(255,255,255,0.08);border:1px solid var(--glass-border);border-radius:100px;font-size:15px;font-weight:600;color:var(--white);transition:all .3s}.featured-cta:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}.posts{padding:120px 48px;background:var(--black-deep);border-top:1px solid var(--glass-border)}.posts-inner{max-width:1200px;margin:0 auto}.posts-header{text-align:center;margin-bottom:60px}.posts-title{font-weight:600;font-size:clamp(32px,4vw,48px);line-height:1.2;letter-spacing:-0.02em;color:var(--white);margin-bottom:60px}.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.post-card{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;transition:all .3s}.post-card:hover{background:rgba(255,255,255,0.05);transform:translateY(-4px)}.post-visual{aspect-ratio:16/10;background:rgba(255,255,255,0.05);border-bottom:1px solid var(--glass-border)}.post-content{padding:28px}.post-cat{display:inline-block;padding:4px 10px;background:rgba(255,255,255,0.08);border-radius:6px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);margin-bottom:12px}.post-title{font-weight:600;font-size:20px;line-height:1.3;color:var(--white);margin-bottom:12px}.post-desc{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.6);margin-bottom:16px}.post-meta{display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,0.4)}.newsletter{padding:100px 48px;background:var(--black-soft);border-top:1px solid var(--glass-border);text-align:center}.newsletter-inner{max-width:700px;margin:0 auto}.newsletter-title{font-weight:600;font-size:clamp(28px,3vw,36px);line-height:1.3;letter-spacing:-0.02em;color:var(--white);margin-bottom:12px}.newsletter-desc{font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:32px}.newsletter-form{display:flex;gap:12px;max-width:500px;margin:0 auto}.newsletter-input{flex:1;padding:14px 20px;background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);border-radius:100px;color:var(--white);font-family:var(--font);font-size:15px}.newsletter-input::placeholder{color:rgba(255,255,255,0.3)}.newsletter-input:focus{outline:none;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.08)}.newsletter-submit{padding:14px 32px;background:var(--white);color:var(--black-deep);border:none;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s}.newsletter-submit:hover{transform:translateY(-2px)}footer{background:var(--black-deep);border-top:1px solid var(--glass-border);padding:80px 48px 40px}.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}.footer-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px}.footer-tagline{font-size:14px;color:rgba(255,255,255,0.5);max-width:300px}.footer-col h5{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:20px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}.footer-col a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s}.footer-col a:hover{color:var(--white)}.footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--glass-border)}.footer-legal{font-size:13px;color:rgba(255,255,255,0.4)}.social-links{display:flex;gap:12px}.social-links a{width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);transition:all .3s}.social-links a:hover{border-color:var(--white);color:var(--white);transform:translateY(-2px)}@media(max-width:1024px){.featured-content{grid-template-columns:1fr}.posts-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:768px){nav{padding:0 24px}.nav-links{display:none}.posts-grid{grid-template-columns:1fr}.newsletter-form{flex-direction:column}.footer-top{grid-template-columns:1fr;gap:40px}.footer-bottom{flex-direction:column;gap:20px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/homepage.html" class="nav-logo">
+      <div class="logo-prism"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="n" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#4169E1"/><stop offset="66%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FF1493"/></linearGradient></defs><path d="M12 2L2 22h20L12 2z" fill="url(#n)"/></svg></div>
+      <span>TravelAI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/why.html">Why</a></li>
+      <li><a href="/platform.html">Platform</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/partners.html">Partners</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/partners.html" class="nav-cta">Request Access</a>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero-title">The future of<br/><span class="gradient">travel intelligence</span></h1>
+    <p class="hero-subtitle">Perspectives on AI, personalization, and the evolution of travel from the team building the industry's most advanced agentic network.</p>
+  </section>
+
+  <section class="featured">
+    <div class="featured-inner">
+      <div class="featured-badge">Featured article</div>
+      <div class="featured-content">
+        <div class="featured-visual"></div>
+        <div class="featured-info">
+          <div class="featured-cat">Industry Trends</div>
+          <h2 class="featured-title">The Agentic Age: Why Travel is Leading the AI Revolution</h2>
+          <p class="featured-desc">Travel isn't just adopting AI — it's being fundamentally transformed by it. From cold starts to warm handoffs, portable context to cross-partner workflows, the future of travel is agentic. Here's why travel is uniquely positioned to lead this transformation.</p>
+          <div class="featured-meta">
+            <span>John Lyotier</span>
+            <span>•</span>
+            <span>Feb 15, 2026</span>
+            <span>•</span>
+            <span>12 min read</span>
+          </div>
+          <a href="#" class="featured-cta">Read the full article →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="posts">
+    <div class="posts-inner">
+      <h2 class="posts-title">Recent insights</h2>
+      <div class="posts-grid">
+        
+        <div class="post-card">
+          <div class="post-visual"></div>
+          <div class="post-content">
+            <div class="post-cat">M&A Strategy</div>
+            <h3 class="post-title">The CASAI Arbitrage: $50M Brand, $30k Entry Price</h3>
+            <p class="post-desc">How we acquired and relaunched a luxury vacation rental brand that had raised $50M — generating $45M in GBV in just 20 months.</p>
+            <div class="post-meta">
+              <span>M&A</span>
+              <span>•</span>
+              <span>Dec 20, 2025</span>
+              <span>•</span>
+              <span>11 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-visual"></div>
+          <div class="post-content">
+            <div class="post-cat">Privacy & Trust</div>
+            <h3 class="post-title">Building Privacy-First AI: The SVTP Approach</h3>
+            <p class="post-desc">How the Shared Vector Travel Protocol enables portable context without exposing PII — and why consent-based sharing is the foundation of agentic networks.</p>
+            <div class="post-meta">
+              <span>Privacy</span>
+              <span>•</span>
+              <span>Jan 8, 2026</span>
+              <span>•</span>
+              <span>9 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-visual"></div>
+          <div class="post-content">
+            <div class="post-cat">Data & Insights</div>
+            <h3 class="post-title">2025 Year in Review: 467k Transactions, 60% Growth</h3>
+            <p class="post-desc">Breaking down TravelAI's 2025 performance — from $456M in GBV to the compounding effects of network learning across 470+ travel brands.</p>
+            <div class="post-meta">
+              <span>Data</span>
+              <span>•</span>
+              <span>Jan 15, 2026</span>
+              <span>•</span>
+              <span>12 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-visual"></div>
+          <div class="post-content">
+            <div class="post-cat">Industry Trends</div>
+            <h3 class="post-title">Why LLMs Are the New Front Door for Travel Discovery</h3>
+            <p class="post-desc">ChatGPT now drives 94% of our AI referral traffic. The search paradigm is shifting and travel brands need to adapt now or risk invisibility.</p>
+            <div class="post-meta">
+              <span>Industry</span>
+              <span>•</span>
+              <span>Jan 28, 2026</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-visual"></div>
+          <div class="post-content">
+            <div class="post-cat">Product & Tech</div>
+            <h3 class="post-title">Understanding Traveler Action Models (TAMs)</h3>
+            <p class="post-desc">A deep dive into the technology powering portable traveler context — how TAMs work, why they're privacy-first, and what they enable for the future of travel.</p>
+            <div class="post-meta">
+              <span>Product</span>
+              <span>•</span>
+              <span>Feb 5, 2026</span>
+              <span>•</span>
+              <span>15 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-visual"></div>
+          <div class="post-content">
+            <div class="post-cat">Case Studies</div>
+            <h3 class="post-title">How We Revived OwnerDirect in 7 Days Using AI</h3>
+            <p class="post-desc">A 40-year-old vacation rental brand. One week to relaunch. Full payback in 60 days. The story of how AI infrastructure unlocks immediate value in legacy brands.</p>
+            <div class="post-meta">
+              <span>Case Study</span>
+              <span>•</span>
+              <span>Feb 10, 2026</span>
+              <span>•</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-title">Stay in the loop</h2>
+      <p class="newsletter-desc">Get insights on AI, personalization, and the future of travel delivered to your inbox. No spam, just signal.</p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email" />
+        <button type="submit" class="newsletter-submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-prism"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#4169E1"/><stop offset="66%" stop-color="#32CD32"/><stop offset="100%" stop-color="#FF1493"/></linearGradient></defs><path d="M12 2L2 22h20L12 2z" fill="url(#f)"/></svg></div>
+          <span>TravelAI</span>
+        </div>
+        <p class="footer-tagline">Making travel better through AI personalization.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5><ul><li><a href="/platform.html">Platform</a></li><li><a href="/why.html">Why TravelAI</a></li><li><a href="/resources.html">Resources</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/partners.html">Partners</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div class="footer-col"><h5>Content</h5><ul><li><a href="/insights.html">Insights</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/case-studies.html">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2025 TravelAI. All rights reserved.</span>
+      <div class="social-links"><a href="#">𝕏</a><a href="#">in</a><a href="#">f</a><a href="#">◎</a></div>
+    </div>
+  </footer>
+</body>
+</html>
