@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finding Hidden Gems in Portugal's Douro Valley — TravelAI Stories</title>
+  <title>How We're Building the Future of Personalized Travel Search — TravelAI Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/universal-nav.css">
   <style>
@@ -15,22 +15,21 @@
 
   <section class="hero">
     <div class="hero-inner">
-      <a href="stories.html" class="back-link">← Back to Stories</a>
-      <div class="breadcrumb">Stories / Portugal / Destinations</div>
+      <a href="blog.html" class="back-link">← Back to Blog</a>
+      <div class="breadcrumb">Blog / Product / AI</div>
       <div class="hero-tags">
-        <span class="hero-tag">Portugal</span>
-        <span class="hero-tag">Wine Tourism</span>
-        <span class="hero-tag">Hidden Gems</span>
-        <span class="hero-tag">Luxury Travel</span>
-        <span class="hero-tag">Douro Valley</span>
+        <span class="hero-tag">Product</span>
+        <span class="hero-tag">AI</span>
+        <span class="hero-tag">Personalization</span>
+        <span class="hero-tag">Search</span>
       </div>
-      <h1 class="hero-title">Finding Hidden Gems in Portugal's Douro Valley</h1>
-      <p class="hero-excerpt">My three-week journey through Portugal's wine country revealed more than spectacular vineyards. From family-run quintas to sunrise river cruises, here's what I discovered when I let AI help me explore beyond the guidebook.</p>
+      <h1 class="hero-title">How We're Building the Future of Personalized Travel Search</h1>
+      <p class="hero-excerpt">A look inside our approach to AI-driven discovery: how we combine intent, context, and traveler preferences to surface the right destinations and experiences at the right time.</p>
       <div class="hero-meta">
-        <div class="author-avatar">SK</div>
+        <div class="author-avatar">TA</div>
         <div class="author-info">
-          <div class="author-name">Sarah Kim</div>
-          <div class="meta-details">Published Feb 18, 2026 • 12 min read</div>
+          <div class="author-name">TravelAI Team</div>
+          <div class="meta-details">Published Mar 6, 2026 • 8 min read</div>
         </div>
       </div>
     </div>
@@ -40,82 +39,53 @@
     <div class="article">
       <div class="article-img"></div>
 
-      <p>I've always been skeptical of AI-powered travel recommendations. Too generic, I thought. Too impersonal. But after three weeks wandering through Portugal's Douro Valley with nothing but a loose itinerary and TravelAI's personalized suggestions, I'm a convert.</p>
+      <p>Travel search has been broken for a long time. Generic keyword matching, one-size-fits-all results, and endless scrolling through options that don't match what you actually want. We started TravelAI to fix that — and this post is a peek under the hood at how we're doing it.</p>
 
-      <p>The Douro Valley isn't on most travelers' radar the way Lisbon or Porto are. And that's exactly why it should be. This UNESCO World Heritage region, carved by the Douro River through terraced vineyards that date back 2,000 years, offers something increasingly rare in European travel: authenticity without the crowds.</p>
+      <p>Our core belief: the best search doesn't feel like search. It feels like a knowledgeable friend who already knows your taste, your budget, and what kind of trip you're in the mood for. Getting there required rethinking the entire pipeline — from how we interpret queries to how we rank and personalize results across 19.5M+ listings.</p>
 
-      <h2>The AI Difference: Beyond the Tourist Trail</h2>
+      <h2>Intent, Context, and Preference</h2>
 
-      <p>Here's what surprised me most: TravelAI didn't just recommend the famous wine estates everyone knows. It learned what I actually cared about — intimate experiences, local connections, architectural beauty — and surfaced places I never would have found.</p>
+      <p>Traditional search treats every query the same. We don't. We model three things for every search: <strong>intent</strong> (what the traveler is trying to do), <strong>context</strong> (where they are, device, time of year), and <strong>preference</strong> (learned from past behavior and explicit signals).</p>
 
       <div class="article-img-inline"></div>
 
-      <p>Take Quinta do Vallado, for instance. While tour buses lined up at the bigger estates, I spent an afternoon with the fifth-generation winemaker learning about their biodynamic practices. The AI knew I'd appreciate this based on my previous wine tourism experiences in Burgundy and Napa.</p>
+      <p>Intent might be "plan a romantic weekend" or "find a last-minute beach stay." Context might be "mobile, in Europe, searching in January." Preference might be "prefers boutique hotels, cares about sustainability, tends to book 2–3 months ahead." Combining these lets us rank and filter in a way that feels tailored, not generic.</p>
 
-      <h3>Three Discoveries That Made the Trip</h3>
+      <h3>What We've Shipped Recently</h3>
 
       <ul>
-        <li><strong>A Family-Run Quinta:</strong> Where the grandmother still makes traditional almond cakes using her mother's recipe</li>
-        <li><strong>The Foz Côa Archaeological Park:</strong> 25,000-year-old rock art in a stunning canyon setting</li>
-        <li><strong>Pinhão's Morning Market:</strong> Locals gathering for fresh bread and regional cheese, completely off the tourist radar</li>
+        <li><strong>Unified ranking model:</strong> One model across the network that balances relevance, diversity, and business goals</li>
+        <li><strong>Real-time personalization:</strong> Results update as we learn from each interaction, without requiring a full re-index</li>
+        <li><strong>Cross-brand signals:</strong> Anonymous, privacy-preserving signals that improve recommendations for every partner in the network</li>
       </ul>
 
       <div class="callout">
-        <div class="callout-title">💡 Pro Tip</div>
-        <div class="callout-content">"The best travel experiences aren't in guidebooks. They're in the moments when technology gets out of the way and lets you be fully present."</div>
+        <div class="callout-title">💡 For partners</div>
+        <div class="callout-content">If you're building on TravelAI, our latest API supports intent and context parameters so you can pass through user signals and get better relevance out of the box.</div>
       </div>
 
-      <h2>Where to Stay: Quintas Worth Booking</h2>
+      <h2>Privacy Without Sacrificing Quality</h2>
 
-      <p>Accommodation in the Douro Valley ranges from luxury hotels to working wine estates. I stayed at three different quintas, each with its own character. Here's what worked:</p>
+      <p>Personalization only works if travelers trust it. We never sell or share personal data. Preferences are learned in a privacy-preserving way — portable and under the user's control where possible. That constraint has actually pushed us to build smarter models that don't rely on invasive tracking.</p>
 
-      <p>The standout was <strong>Quinta da Pacheca</strong>, where I stayed in a converted wine barrel (yes, really). Floor-to-ceiling windows overlooking the vineyards, a private deck, and sunrise views that made me cancel my morning plans just to sit with coffee and watch the valley wake up.</p>
+      <h2>What's Next</h2>
 
-      <div class="callout">
-        <div class="callout-title">🏨 Recommended Property</div>
-        <div class="callout-content"><strong>Quinta da Pacheca Wine House Hotel</strong><br/>Luxury wine estate with unique barrel rooms, Michelin-recommended restaurant, and exclusive vineyard experiences. Book through TravelAI for special rates.</div>
-      </div>
-
-      <h2>The River Experience</h2>
-
-      <p>Everyone talks about Douro River cruises, but most recommend the full-day tours packed with tourists. TravelAI suggested something better: a sunrise boat trip with a local fisherman who's been navigating these waters for 40 years.</p>
-
-      <div class="video-embed">
-        <div>🎥 Video: Exploring Douro Valley Vineyards</div>
-      </div>
-
-      <p>We launched at 6 AM from a tiny dock in Régua. Just me, the captain, and the sound of water lapping against traditional rabelo boats. He pointed out secret swimming spots, explained the region's history, and yes — he knew everyone we passed on the river by name.</p>
-
-      <h2>Food: Beyond Port Wine and Bacalhau</h2>
-
-      <p>Portuguese cuisine in the Douro goes far beyond the tourist staples. Thanks to AI recommendations that learned my palate, I found:</p>
-
-      <ul>
-        <li><strong>DOC Restaurant:</strong> Michelin-starred riverside dining where local ingredients shine</li>
-        <li><strong>Castas e Pratos:</strong> A tiny tavern where the chef decides your menu based on what's fresh</li>
-        <li><strong>Vila Real Market:</strong> Saturday mornings, when locals shop for the week</li>
-      </ul>
-
-      <p>The standout meal? A family-style lunch at a quinta where the matriarch taught me to make caldo verde (Portuguese kale soup) while her husband opened bottles from their private cellar dating back to the 1960s.</p>
+      <p>We're investing heavily in agentic search: the idea that search can be a conversation, with follow-up questions, refinements, and proactive suggestions. Early tests show significant gains in engagement and conversion when travelers can iterate instead of starting over. We'll share more on that in a future post.</p>
 
       <div class="tips-box">
-        <h3 class="tips-title">Practical Tips for Your Visit</h3>
+        <h3 class="tips-title">Key Takeaways</h3>
         <div class="tips-grid">
           <div class="tip-item">
-            <h4>Best Time to Visit:</h4>
-            <p>September and October for harvest season, or April-May for blooming almond trees and fewer crowds.</p>
+            <h4>Intent + context + preference</h4>
+            <p>Our ranking combines what the user wants, where they are, and what we've learned about their taste — in real time.</p>
           </div>
           <div class="tip-item">
-            <h4>Getting Around:</h4>
-            <p>Rent a car. The winding roads are half the experience, and you'll want freedom to explore the small villages AI recommends based on real-time availability.</p>
+            <h4>One model, entire network</h4>
+            <p>Improvements to the core model benefit all 470+ brands and every traveler on the platform.</p>
           </div>
           <div class="tip-item">
-            <h4>How Long:</h4>
-            <p>Minimum 5 days to really explore. I spent 3 weeks and still felt like I was scratching the surface.</p>
-          </div>
-          <div class="tip-item">
-            <h4>🚗 Transportation Note</h4>
-            <p>While you can take trains between major towns, having a car unlocks the valley's best secrets. Just remember: Portuguese wine estates are generous with tastings. Plan accordingly.</p>
+            <h4>Privacy by design</h4>
+            <p>We personalize without selling data or building creepy profiles. It's possible, and it's non-negotiable.</p>
           </div>
         </div>
       </div>
@@ -125,16 +95,15 @@
 
   <section class="verdict">
     <div class="verdict-inner">
-      <h2 class="verdict-title">The Verdict</h2>
-      <p>The Douro Valley proved that AI-powered travel planning isn't about removing spontaneity — it's about spending less time researching and more time experiencing. Every recommendation felt hand-picked for me, because in a way, it was.</p>
-      <p>Would I have found that sunrise boat trip on my own? Probably not. The grandmother making almond cakes? Never. The hidden viewpoint where locals watch sunset? No chance.</p>
-      <p>Technology didn't replace the human experience. It enhanced it. And that's the kind of travel I want more of.</p>
+      <h2 class="verdict-title">The Bottom Line</h2>
+      <p>Personalized travel search isn't about more filters or fancier UI. It's about understanding travelers and serving them the right options at the right time — across the largest travel content graph we're aware of. We're just getting started.</p>
+      <p>If you're a partner, a developer, or just curious how it works, we'd love to hear from you. Drop us a line or check out our <a href="platform.html" style="color:rgba(255,255,255,0.9);text-decoration:underline;">platform</a> and <a href="resources.html" style="color:rgba(255,255,255,0.9);text-decoration:underline;">resources</a> pages for more.</p>
     </div>
   </section>
 
   <section class="share">
     <div class="share-inner">
-      <h3 class="share-title">Enjoyed this story? Share it</h3>
+      <h3 class="share-title">Enjoyed this post? Share it</h3>
       <div class="share-buttons">
         <button class="share-btn">🐦 Twitter</button>
         <button class="share-btn">📘 Facebook</button>
@@ -146,31 +115,37 @@
 
   <section class="more-stories">
     <div class="more-inner">
-      <h2 class="more-title">More Stories You'll Love</h2>
+      <h2 class="more-title">More from the Blog</h2>
       <div class="stories-grid">
         
         <div class="story-card">
-          <div class="story-img"></div>
-          <div class="story-content">
-            <h3 class="story-title">Wine Tourism in Tuscany: A First-Timer's Guide</h3>
-            <p class="story-excerpt">Beyond Chianti: discovering Italy's lesser-known wine regions with AI-powered recommendations that actually understand your palate...</p>
-          </div>
+          <a href="blog.html" style="display:block;color:inherit;">
+            <div class="story-img"></div>
+            <div class="story-content">
+              <h3 class="story-title">Introducing Smarter Recommendations Across the Network</h3>
+              <p class="story-excerpt">Our latest model update improves relevance for 470+ travel brands. Here's what changed and how it benefits both travelers and partners...</p>
+            </div>
+          </a>
         </div>
 
         <div class="story-card">
-          <div class="story-img"></div>
-          <div class="story-content">
-            <h3 class="story-title">How I Planned 3 Weeks in Europe Without an Itinerary</h3>
-            <p class="story-excerpt">Spontaneous travel meets smart technology. Here's how AI helped me stay flexible while never missing the best experiences...</p>
-          </div>
+          <a href="blog.html" style="display:block;color:inherit;">
+            <div class="story-img"></div>
+            <div class="story-content">
+              <h3 class="story-title">The State of AI in Travel: What We're Seeing in 2026</h3>
+              <p class="story-excerpt">From agentic booking to personalized discovery, here's how AI is reshaping the travel industry and what it means for the next decade...</p>
+            </div>
+          </a>
         </div>
 
         <div class="story-card">
-          <div class="story-img"></div>
-          <div class="story-content">
-            <h3 class="story-title">The Secret to Finding Authentic Local Experiences</h3>
-            <p class="story-excerpt">Tourist traps vs. local gems: what I learned about travel authenticity after visiting 30 countries with personalized AI recommendations...</p>
-          </div>
+          <a href="blog.html" style="display:block;color:inherit;">
+            <div class="story-img"></div>
+            <div class="story-content">
+              <h3 class="story-title">Privacy-First Personalization: How We Learn Without Overstepping</h3>
+              <p class="story-excerpt">Travelers deserve great recommendations without sacrificing privacy. Here's how our platform balances both...</p>
+            </div>
+          </a>
         </div>
 
       </div>

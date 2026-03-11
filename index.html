@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/universal-nav.css">
 
   <style>
     /* ═══════════════════════════════════════════════════════
@@ -144,7 +145,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: calc(var(--nav-h) + 80px) 48px 80px;
+      padding: calc(var(--nav-h) + 80px) clamp(24px, 5vw, 80px) 80px;
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                   url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/></svg>');
       background-size: cover;
@@ -191,9 +192,47 @@
 
     .hero-actions {
       display: flex;
-      gap: 16px;
+      gap: 22px;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .hero-actions .btn-primary,
+    .hero-actions .btn-hero-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font);
+      text-decoration: none;
+    }
+
+    .hero-actions .btn-primary {
+      background: #FFFFFF;
+      color: #212121;
+      border: none;
+    }
+
+    .hero-actions .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.25);
+    }
+
+    .hero-actions .btn-hero-outline {
+      background: #33303D;
+      color: #E0E0E0;
+      border: 1px solid #54515E;
+    }
+
+    .hero-actions .btn-hero-outline:hover {
+      border-color: #6b6875;
+      color: #fff;
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -421,6 +460,39 @@
       direction: ltr;
     }
 
+    /* Platform & Discovery – white background, inverted colors */
+    .feature-section-light {
+      background: var(--white) !important;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .feature-section-light .feature-eyebrow {
+      color: var(--gray-mid);
+    }
+
+    .feature-section-light .feature-title {
+      color: var(--black-soft);
+    }
+
+    .feature-section-light .feature-desc {
+      color: var(--gray-mid);
+    }
+
+    .feature-section-light .feature-visual {
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .feature-section-light .btn-primary {
+      background: var(--black-soft);
+      color: var(--white);
+    }
+
+    .feature-section-light .btn-primary:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
     /* ═══════════════════════════════════════════════════════
        AGENTIC SECTION (Dark with 6 cards)
        ═══════════════════════════════════════════════════════ */
@@ -550,10 +622,31 @@
        ═══════════════════════════════════════════════════════ */
 
     .scale-section {
+      position: relative;
       padding: 120px 48px;
       background: var(--black);
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+
+    .scale-section-spotlight {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        circle at var(--spot-x, 50%) var(--spot-y, 50%),
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.03) 35%,
+        transparent 55%
+      );
+    }
+
+    .scale-section .scale-title,
+    .scale-section .scale-grid {
+      position: relative;
+      z-index: 1;
     }
 
     .scale-title {
@@ -735,6 +828,7 @@
       letter-spacing: -0.03em;
       margin-bottom: 24px;
       color: var(--white);
+      overflow: visible;
     }
 
     .partners-title .better {
@@ -742,8 +836,12 @@
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       animation: spectrum-shift 6s linear infinite;
       font-style: italic;
+      padding: 0 0.2em 0 0.05em;
+      display: inline-block;
+      box-sizing: content-box;
     }
 
     .partners-desc {
@@ -1010,33 +1108,7 @@
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a href="/" class="nav-logo">
-      <div class="logo-prism">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="prism-nav" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FF6B6B"/>
-              <stop offset="33%" stop-color="#4169E1"/>
-              <stop offset="66%" stop-color="#32CD32"/>
-              <stop offset="100%" stop-color="#FF1493"/>
-            </linearGradient>
-          </defs>
-          <path d="M12 2L2 22h20L12 2z" fill="url(#prism-nav)"/>
-        </svg>
-      </div>
-      <span>TravelAI</span>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#platform">Platform</a></li>
-      <li><a href="#technology">Technology</a></li>
-      <li><a href="/stories.html">Stories</a></li>
-      <li><a href="/about.html">Company</a></li>
-    </ul>
-
-    <a href="/partners.html" class="nav-cta">Get Started</a>
-  </nav>
+  <div id="universal-nav-placeholder"></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -1052,8 +1124,8 @@
       </p>
 
       <div class="hero-actions">
-        <button class="btn-primary">Get Started</button>
-        <button class="btn-secondary">View Demo</button>
+        <a href="platform.html" class="btn-primary">What We're Building</a>
+        <a href="partners.html" class="btn-hero-outline">Partner With Us</a>
       </div>
     </div>
   </section>
@@ -1099,7 +1171,7 @@
   </section>
 
   <!-- FEATURE 1 -->
-  <section id="platform" class="feature-section">
+  <section id="platform" class="feature-section feature-section-light">
     <div class="feature-inner">
       <div class="feature-content">
         <p class="feature-eyebrow">Platform</p>
@@ -1108,14 +1180,14 @@
           We put travelers first by understanding their unique preferences, budget, and
           travel style. AI learns what matters most to create personalized recommendations.
         </p>
-        <button class="btn-primary" style="background:var(--white);color:var(--black);">Learn More</button>
+        <button class="btn-primary">Learn More</button>
       </div>
       <div class="feature-visual"></div>
     </div>
   </section>
 
   <!-- FEATURE 2 -->
-  <section class="feature-section">
+  <section class="feature-section feature-section-light">
     <div class="feature-inner reverse">
       <div class="feature-content">
         <p class="feature-eyebrow">Discovery</p>
@@ -1124,7 +1196,7 @@
           Our AI understands the vibe, culture, and experiences that make each place unique.
           From hidden gems to iconic landmarks, we surface what truly matters.
         </p>
-        <button class="btn-primary" style="background:var(--white);color:var(--black);">Explore Now</button>
+        <button class="btn-primary">Explore Now</button>
       </div>
       <div class="feature-visual"></div>
     </div>
@@ -1234,7 +1306,8 @@
   </section>
 
   <!-- SCALE SECTION -->
-  <section class="scale-section">
+  <section class="scale-section" id="scale-section">
+    <div class="scale-section-spotlight" aria-hidden="true"></div>
     <h2 class="scale-title">A self-reinforcing engine<br/>powering accelerating scale</h2>
 
     <div class="scale-grid">
@@ -1310,8 +1383,7 @@
     <div class="partners-inner">
       <div class="partners-content">
         <h2 class="partners-title">
-          Better travel starts with<br/>
-          <span class="better">better</span> partners.
+          Better travel starts with <span class="better">better</span> partners.
         </h2>
         <p class="partners-desc">
           We work with leading travel brands, accommodation providers, and technology
@@ -1386,20 +1458,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="logo-prism">
-            <svg viewBox="0 0 24 24" fill="none">
-              <defs>
-                <linearGradient id="prism-footer" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#FF6B6B"/>
-                  <stop offset="33%" stop-color="#4169E1"/>
-                  <stop offset="66%" stop-color="#32CD32"/>
-                  <stop offset="100%" stop-color="#FF1493"/>
-                </linearGradient>
-              </defs>
-              <path d="M12 2L2 22h20L12 2z" fill="url(#prism-footer)"/>
-            </svg>
-          </div>
-          <span>TravelAI</span>
+          <a href="index.html"><img src="assets/White%20Logo%20Horizontal%20Transparent.svg" alt="TravelAI" class="footer-logo-img"></a>
         </div>
         <p class="footer-tagline">
           Making travel better through AI personalization — one traveler at a time.
@@ -1418,8 +1477,8 @@
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="partners.html">Partners</a></li>
           <li><a href="#">Careers</a></li>
         </ul>
       </div>
@@ -1427,9 +1486,9 @@
       <div class="footer-col">
         <h5>Resources</h5>
         <ul>
-          <li><a href="/insights.html">Insights</a></li>
-          <li><a href="/stories.html">Stories</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
@@ -1443,7 +1502,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span class="footer-legal">© 2025 TravelAI. All rights reserved.</span>
+      <span class="footer-legal">© 2026 TravelAI. All rights reserved.</span>
       <div class="social-links">
         <a href="#">𝕏</a>
         <a href="#">in</a>
@@ -1452,6 +1511,32 @@
       </div>
     </div>
   </footer>
+  <script src="js/universal-nav.js?v=2"></script>
+  <script>
+    (function () {
+      var section = document.getElementById('scale-section');
+      if (!section) return;
+      var spotX = 50, spotY = 50;
+      var targetX = 50, targetY = 50;
+      var ease = 0.06;
 
+      function setSpotlight() {
+        spotX += (targetX - spotX) * ease;
+        spotY += (targetY - spotY) * ease;
+        section.style.setProperty('--spot-x', spotX + '%');
+        section.style.setProperty('--spot-y', spotY + '%');
+        requestAnimationFrame(setSpotlight);
+      }
+
+      document.addEventListener('mousemove', function (e) {
+        var rect = section.getBoundingClientRect();
+        if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) return;
+        targetX = ((e.clientX - rect.left) / rect.width) * 100;
+        targetY = ((e.clientY - rect.top) / rect.height) * 100;
+      });
+
+      setSpotlight();
+    })();
+  </script>
 </body>
 </html>
