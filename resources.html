@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/universal-nav.css">
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--spectrum:linear-gradient(90deg,#FF6B6B 0%,#FFA500 14%,#FFD700 28%,#32CD32 42%,#00CED1 57%,#4169E1 71%,#9370DB 85%,#FF1493 100%);--black-deep:#0A0A0F;--black-soft:#1A1A1A;--white:#FFF;--glass-border:rgba(255,255,255,0.1);--font:'Inter Tight',sans-serif;--nav-h:72px}html{scroll-behavior:smooth;background:var(--black-deep)}body{font-family:var(--font);font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);background:var(--black-deep)}a{color:inherit;text-decoration:none}nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,15,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border)}.nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white)}.logo-prism{width:32px;height:32px}.logo-prism svg{width:100%;height:100%}.nav-links{display:flex;align-items:center;gap:36px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-cta{padding:12px 28px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:14px;font-weight:600;transition:all .3s}.nav-cta:hover{transform:translateY(-2px)}.hero{padding:calc(var(--nav-h) + 120px) clamp(24px,5vw,80px) 120px;background:var(--black-deep);text-align:center}.hero-title{font-weight:700;font-size:clamp(48px,7vw,72px);line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px}.hero-title .gradient{background:var(--spectrum);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:spectrum-shift 6s linear infinite;font-style:italic}@keyframes spectrum-shift{0%{background-position:0% center}100%{background-position:200% center}}.hero-subtitle{font-size:18px;color:rgba(255,255,255,0.6);max-width:900px;margin:0 auto}.section{padding:120px 48px;border-top:1px solid var(--glass-border)}.section.dark{background:var(--black-deep)}.section.white{background:var(--white);border-top:1px solid rgba(0,0,0,0.08)}.inner{max-width:1200px;margin:0 auto}.sec-title{font-weight:600;font-size:clamp(36px,5vw,56px);line-height:1.15;letter-spacing:-0.03em;margin-bottom:20px;text-align:center}.dark .sec-title{color:var(--white)}.white .sec-title{color:#0A0A0F}.sec-desc{font-size:17px;text-align:center;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto}.dark .sec-desc{color:rgba(255,255,255,0.6)}.white .sec-desc{color:#666}.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}.press-item{padding:32px 28px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;text-align:center;transition:all .3s}.press-item:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}.press-icon{font-size:32px;margin-bottom:16px}.press-title{font-weight:600;font-size:16px;color:var(--white);margin-bottom:8px}.press-desc{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px}.press-link{padding:10px 24px;background:rgba(255,255,255,0.08);border:1px solid var(--glass-border);border-radius:100px;font-size:13px;font-weight:600;color:var(--white);display:inline-block;transition:all .3s}.press-link:hover{background:rgba(255,255,255,0.12)}.company-info{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.info-item{padding:20px;background:rgba(255,255,255,0.02);border-radius:12px}.info-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:6px}.info-value{font-size:15px;color:var(--white)}.news-list{display:flex;flex-direction:column;gap:24px}.news-item{padding:32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;display:flex;gap:24px;transition:all .3s}.news-item:hover{background:rgba(255,255,255,0.05)}.news-date{flex-shrink:0;width:60px;text-align:center}.news-day{font-size:28px;font-weight:700;color:var(--white);line-height:1}.news-month{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase}.news-content{flex:1}.news-source{font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:8px}.news-title{font-weight:600;font-size:18px;color:var(--white);margin-bottom:8px}.news-desc{font-size:14px;color:rgba(255,255,255,0.6)}.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.doc-card{padding:32px;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:16px}.doc-icon{font-size:32px;margin-bottom:16px}.doc-title{font-weight:600;font-size:18px;color:#0A0A0F;margin-bottom:12px}.doc-list{list-style:none;display:flex;flex-direction:column;gap:8px}.doc-list li{font-size:14px;color:#666;padding-left:20px;position:relative}.doc-list li::before{content:'→';position:absolute;left:0;color:#999}.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:16px}.faq-item{padding:24px 28px;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:12px;display:flex;justify-content:space-between;align-items:center}.faq-q{font-weight:500;font-size:16px;color:#0A0A0F}.faq-icon{font-size:20px;color:#666}.labs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}.lab-card{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;position:relative}.lab-badge{display:inline-block;padding:6px 14px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9370DB;margin-bottom:12px}.lab-status{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px}.lab-title{font-weight:700;font-size:22px;color:var(--white);margin-bottom:12px}.lab-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.7)}footer{background:var(--black-deep);border-top:1px solid var(--glass-border);padding:80px 48px 40px}.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}.footer-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px}.footer-tagline{font-size:14px;color:rgba(255,255,255,0.5);max-width:300px}.footer-col h5{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:20px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}.footer-col a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s}.footer-col a:hover{color:var(--white)}.footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--glass-border)}.footer-legal{font-size:13px;color:rgba(255,255,255,0.4)}.social-links{display:flex;gap:12px}.social-links a{width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);transition:all .3s}.social-links a:hover{border-color:var(--white);color:var(--white);transform:translateY(-2px)}@media(max-width:1024px){.press-grid,.docs-grid{grid-template-columns:repeat(2,1fr)}.labs-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}@media(max-width:768px){nav{padding:0 24px}.nav-links{display:none}.press-grid,.docs-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr;gap:40px}.footer-bottom{flex-direction:column;gap:20px}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--spectrum:linear-gradient(90deg,#FF6B6B 0%,#FFA500 14%,#FFD700 28%,#32CD32 42%,#00CED1 57%,#4169E1 71%,#9370DB 85%,#FF1493 100%);--red:#FF6B6B;--blue:#4169E1;--green:#32CD32;--purple:#9370DB;--cyan:#00CED1;--yellow:#FFD700;--black-deep:#0A0A0F;--black-soft:#1A1A1A;--white:#FFF;--glass-border:rgba(255,255,255,0.1);--font:'Inter Tight',sans-serif;--nav-h:72px}html{scroll-behavior:smooth;background:var(--black-deep)}body{font-family:var(--font);font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);background:var(--black-deep)}a{color:inherit;text-decoration:none}nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,15,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border)}.nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white)}.logo-prism{width:32px;height:32px}.logo-prism svg{width:100%;height:100%}.nav-links{display:flex;align-items:center;gap:36px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-cta{padding:12px 28px;background:var(--white);color:var(--black-deep);border-radius:100px;font-size:14px;font-weight:600;transition:all .3s}.nav-cta:hover{transform:translateY(-2px)}.hero{padding:calc(var(--nav-h) + 120px) clamp(24px,5vw,80px) 120px;background:var(--black-deep);text-align:center}.hero-title{font-weight:700;font-size:clamp(48px,7vw,72px);line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px}.hero-title .gradient{background:var(--spectrum);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:spectrum-shift 6s linear infinite;font-style:italic}@keyframes spectrum-shift{0%{background-position:0% center}100%{background-position:200% center}}.hero-subtitle{font-size:18px;color:rgba(255,255,255,0.6);max-width:900px;margin:0 auto}.section{padding:120px 48px;border-top:1px solid var(--glass-border)}.section.dark{background:var(--black-deep)}.section.white{background:var(--white);border-top:1px solid rgba(0,0,0,0.08)}.inner{max-width:1200px;margin:0 auto}.sec-title{font-weight:600;font-size:clamp(36px,5vw,56px);line-height:1.15;letter-spacing:-0.03em;margin-bottom:20px;text-align:center}.dark .sec-title{color:var(--white)}.white .sec-title{color:#0A0A0F}.sec-desc{font-size:17px;text-align:center;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto}.dark .sec-desc{color:rgba(255,255,255,0.6)}.white .sec-desc{color:#666}.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}.press-item{padding:32px 28px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;text-align:center;transition:all .3s}.press-item:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}.press-icon{width:48px;height:48px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center}.press-icon svg{width:100%;height:100%;filter:drop-shadow(0 4px 12px currentColor)}.press-item:nth-child(1) .press-icon{color:var(--cyan)}.press-item:nth-child(2) .press-icon{color:var(--purple)}.press-item:nth-child(3) .press-icon{color:var(--blue)}.press-item:nth-child(4) .press-icon{color:var(--red)}.press-item:nth-child(5) .press-icon{color:var(--green)}.press-item:nth-child(6) .press-icon{color:var(--yellow)}.press-title{font-weight:600;font-size:16px;color:var(--white);margin-bottom:8px}.press-desc{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px}.press-link{padding:10px 24px;background:rgba(255,255,255,0.08);border:1px solid var(--glass-border);border-radius:100px;font-size:13px;font-weight:600;color:var(--white);display:inline-block;transition:all .3s}.press-link:hover{background:rgba(255,255,255,0.12)}.company-info{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.info-item{padding:20px;background:rgba(255,255,255,0.02);border-radius:12px}.info-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:6px}.info-value{font-size:15px;color:var(--white)}.news-list{display:flex;flex-direction:column;gap:24px}.news-item{padding:32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;display:flex;gap:24px;transition:all .3s}.news-item:hover{background:rgba(255,255,255,0.05)}.news-date{flex-shrink:0;width:60px;text-align:center}.news-day{font-size:28px;font-weight:700;color:var(--white);line-height:1}.news-month{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase}.news-content{flex:1}.news-source{font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:8px}.news-title{font-weight:600;font-size:18px;color:var(--white);margin-bottom:8px}.news-desc{font-size:14px;color:rgba(255,255,255,0.6)}.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.doc-card{padding:32px;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:16px}.doc-icon{width:48px;height:48px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;color:#0A0A0F}.doc-icon svg{width:100%;height:100%}.doc-title{font-weight:600;font-size:18px;color:#0A0A0F;margin-bottom:12px}.doc-list{list-style:none;display:flex;flex-direction:column;gap:8px}.doc-list li{font-size:14px;color:#666;padding-left:20px;position:relative}.doc-list li::before{content:'→';position:absolute;left:0;color:#999}.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:16px}.faq-item{background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);border-radius:12px;overflow:hidden}.faq-item-head{display:flex;justify-content:space-between;align-items:center;padding:24px 28px;cursor:pointer;transition:background .2s}.faq-item-head:hover{background:rgba(0,0,0,0.03)}.faq-q{font-weight:500;font-size:16px;color:#0A0A0F}.faq-icon{font-size:20px;color:#666;transition:transform .25s ease}.faq-item.is-open .faq-icon{transform:rotate(45deg)}.faq-answer{display:none;padding:0 28px 24px;font-size:15px;line-height:1.7;color:#666}.faq-item.is-open .faq-answer{display:block}.labs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}.lab-card{padding:40px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;position:relative}.lab-badge{display:inline-block;padding:6px 14px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9370DB;margin-bottom:12px}.lab-status{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px}.lab-title{font-weight:700;font-size:22px;color:var(--white);margin-bottom:12px}.lab-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.7)}footer{background:var(--black-deep);border-top:1px solid var(--glass-border);padding:80px 48px 40px}.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}.footer-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px}.footer-tagline{font-size:14px;color:rgba(255,255,255,0.5);max-width:300px}.footer-col h5{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:20px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}.footer-col a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s}.footer-col a:hover{color:var(--white)}.footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--glass-border)}.footer-legal{font-size:13px;color:rgba(255,255,255,0.4)}.social-links{display:flex;gap:12px}.social-links a{width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);transition:all .3s}.social-links a:hover{border-color:var(--white);color:var(--white);transform:translateY(-2px)}@media(max-width:1024px){.press-grid,.docs-grid{grid-template-columns:repeat(2,1fr)}.labs-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}@media(max-width:768px){nav{padding:0 24px}.nav-links{display:none}.press-grid,.docs-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr;gap:40px}.footer-bottom{flex-direction:column;gap:20px}}
   </style>
 </head>
 <body>
@@ -26,37 +26,37 @@
       
       <div class="press-grid">
         <div class="press-item">
-          <div class="press-icon">📦</div>
+          <div class="press-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M12 20L32 8L52 20V44L32 56L12 44V20Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M32 8V56M12 20L32 32L52 20M12 44L32 32L52 44" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
           <h3 class="press-title">Logo Pack</h3>
           <p class="press-desc">SVG, PNG, and EPS formats in multiple color variations</p>
           <a href="#" class="press-link">Download</a>
         </div>
         <div class="press-item">
-          <div class="press-icon">🎨</div>
+          <div class="press-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="28" r="14" stroke="currentColor" stroke-width="2.5"/><path d="M32 14V8M32 48V42M18 28H12M52 28H46M24 16L20 12M40 40L44 44M40 16L44 12M24 40L20 44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M32 42C38 42 42 36 42 28C42 20 38 14 32 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <h3 class="press-title">Brand Guidelines</h3>
           <p class="press-desc">Typography, colors, usage guidelines, and visual identity</p>
           <a href="#" class="press-link">Download</a>
         </div>
         <div class="press-item">
-          <div class="press-icon">📸</div>
+          <div class="press-icon"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="18" width="44" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="34" r="10" stroke="currentColor" stroke-width="2.5"/><circle cx="48" cy="24" r="4" stroke="currentColor" stroke-width="2.5"/><path d="M22 50L28 44L34 48L42 40L52 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h3 class="press-title">Product Screenshots</h3>
           <p class="press-desc">High-resolution images of our platform and products</p>
           <a href="#" class="press-link">Download</a>
         </div>
         <div class="press-item">
-          <div class="press-icon">👥</div>
+          <div class="press-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="22" cy="26" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M12 48C12 38 16 34 22 34C28 34 32 38 32 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="42" cy="26" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M32 48C32 38 36 34 42 34C48 34 52 38 52 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <h3 class="press-title">Team Photos</h3>
           <p class="press-desc">Leadership headshots and team photography</p>
           <a href="#" class="press-link">Download</a>
         </div>
         <div class="press-item">
-          <div class="press-icon">📄</div>
+          <div class="press-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M18 8H46L52 14V56H18V8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M46 8V14H52M24 24H40M24 32H40M24 40H32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <h3 class="press-title">Fact Sheet</h3>
           <p class="press-desc">Company overview, stats, and key information</p>
           <a href="#" class="press-link">Download</a>
         </div>
         <div class="press-item">
-          <div class="press-icon">📊</div>
+          <div class="press-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M16 48V24M28 48V32M40 48V16M52 48V8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 52H56" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <h3 class="press-title">Investor Deck</h3>
           <p class="press-desc">Company presentation and financial overview</p>
           <a href="#" class="press-link">Request Access</a>
@@ -181,7 +181,7 @@
       
       <div class="docs-grid">
         <div class="doc-card">
-          <div class="doc-icon">🚀</div>
+          <div class="doc-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M32 52L32 24M32 24L22 34M32 24L42 34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 40L12 48L20 56L28 48L20 40Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M44 40L36 48L44 56L52 48L44 40Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M32 12C26 12 22 16 22 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <h3 class="doc-title">Getting Started</h3>
           <ul class="doc-list">
             <li>Platform Overview</li>
@@ -193,7 +193,7 @@
         </div>
 
         <div class="doc-card">
-          <div class="doc-icon">⚙️</div>
+          <div class="doc-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="12" stroke="currentColor" stroke-width="2.5"/><path d="M32 18V14M32 50V46M46 32H50M14 32H18M38 26L41 23M23 41L26 38M38 38L41 41M23 23L26 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M32 24L36 28L32 32L28 28L32 24Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
           <h3 class="doc-title">Technical Docs</h3>
           <ul class="doc-list">
             <li>API Reference</li>
@@ -205,7 +205,7 @@
         </div>
 
         <div class="doc-card">
-          <div class="doc-icon">🤝</div>
+          <div class="doc-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M24 36L18 42L24 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 36L46 42L40 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 38C22 32 26 28 32 28C38 28 42 32 42 38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M32 28V20C32 16 30 12 24 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M32 28C32 24 34 20 40 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <h3 class="doc-title">For Partners</h3>
           <ul class="doc-list">
             <li>Partner Dashboard</li>
@@ -217,7 +217,7 @@
         </div>
 
         <div class="doc-card">
-          <div class="doc-icon">📚</div>
+          <div class="doc-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M12 16H28V48H12V16Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M22 16V8L32 12L42 8V16" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M36 16H52V48H36V16Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
           <h3 class="doc-title">Use Cases</h3>
           <ul class="doc-list">
             <li>OwnerDirect Relaunch</li>
@@ -229,7 +229,7 @@
         </div>
 
         <div class="doc-card">
-          <div class="doc-icon">🔒</div>
+          <div class="doc-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M20 28V22C20 16 25 12 32 12S44 16 44 22V28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="16" y="28" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M26 40L30 44L38 34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h3 class="doc-title">Privacy & Security</h3>
           <ul class="doc-list">
             <li>Privacy Policy</li>
@@ -241,7 +241,7 @@
         </div>
 
         <div class="doc-card">
-          <div class="doc-icon">💬</div>
+          <div class="doc-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M12 20C12 16 16 12 32 12S52 16 52 20V44C52 48 48 52 32 52S12 48 12 44V20Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M12 20L32 32L52 20" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
           <h3 class="doc-title">Support</h3>
           <ul class="doc-list">
             <li>Contact Support</li>
@@ -261,28 +261,46 @@
       <h2 class="sec-title" style="color:#0A0A0F">Frequently asked questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <span class="faq-q">What is TravelAI?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-item-head">
+            <span class="faq-q">What is TravelAI?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">TravelAI is a global leader in applied artificial intelligence for travel. We build a personalization ecosystem that helps travelers discover and book the right trips across 470+ consumer-facing brands, powered by privacy-first AI like the Traveler Action Model (TAM) and the Shared Vector Travel Protocol (SVTP).</div>
         </div>
         <div class="faq-item">
-          <span class="faq-q">How does the Traveler Action Model (TAM) work?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-item-head">
+            <span class="faq-q">How does the Traveler Action Model (TAM) work?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">The TAM is a compact, pseudonymous representation of a traveler’s preferences—built from behavior and outcomes without storing personally identifiable information. It learns over time so recommendations get better across our network while keeping data portable and under the traveler’s control.</div>
         </div>
         <div class="faq-item">
-          <span class="faq-q">What is the Shared Vector Travel Protocol (SVTP)?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-item-head">
+            <span class="faq-q">What is the Shared Vector Travel Protocol (SVTP)?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">SVTP is our consent-based protocol for sharing traveler context between partners and AI agents. It allows warm handoffs with full personalization so the next site or agent can serve the traveler well from the first interaction, without ever seeing raw PII.</div>
         </div>
         <div class="faq-item">
-          <span class="faq-q">How do I partner with TravelAI?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-item-head">
+            <span class="faq-q">How do I partner with TravelAI?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">We work with travel brands, OTAs, accommodation providers, and technology partners. Visit our <a href="partners.html" style="color:#4169E1;text-decoration:underline;">Partners</a> page to learn about integration options, or reach out via <a href="contact.html" style="color:#4169E1;text-decoration:underline;">Contact</a> to start a conversation.</div>
         </div>
         <div class="faq-item">
-          <span class="faq-q">What makes TravelAI different from other travel platforms?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-item-head">
+            <span class="faq-q">What makes TravelAI different from other travel platforms?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">We focus on privacy-first personalization at network scale: one learning system across 19.5M+ listings and 470+ brands, with portable traveler context (TAM + SVTP) so personalization follows the traveler instead of locking them into a single walled garden.</div>
         </div>
         <div class="faq-item">
-          <span class="faq-q">Is TravelAI hiring?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-item-head">
+            <span class="faq-q">Is TravelAI hiring?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">Yes. We’re always looking for talented people in engineering, product, growth, and operations. Check our <a href="contact.html" style="color:#4169E1;text-decoration:underline;">Contact</a> page for open roles or get in touch to learn more.</div>
         </div>
       </div>
     </div>
@@ -335,9 +353,9 @@
         <p class="footer-tagline">Making travel better through AI personalization.</p>
       </div>
       <div class="footer-col"><h5>Product</h5><ul><li><a href="platform.html">Platform</a></li><li><a href="why.html">Why TravelAI</a></li><li><a href="resources.html">Resources</a></li></ul></div>
-      <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="partners.html">Partners</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="partners.html">Partners</a></li><li><a href="careers.html">Careers</a></li></ul></div>
       <div class="footer-col"><h5>Content</h5><ul><li><a href="insights.html">Insights</a></li><li><a href="stories.html">Stories</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
-      <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span class="footer-legal">© 2026 TravelAI. All rights reserved.</span>
@@ -345,5 +363,16 @@
     </div>
   </footer>
   <script src="js/universal-nav.js?v=2"></script>
+  <script>
+  (function() {
+    document.querySelectorAll('.faq-list .faq-item').forEach(function(item) {
+      var head = item.querySelector('.faq-item-head');
+      if (!head) return;
+      head.addEventListener('click', function() {
+        item.classList.toggle('is-open');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

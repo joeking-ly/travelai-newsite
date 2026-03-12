@@ -11,8 +11,47 @@
   justify-content: space-between;
   padding: 0 48px;
   background: #0A0A0F;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: 'Inter Tight', sans-serif;
+}
+
+/* Animated line under nav: white → rainbow sweep → white (runs once on page load) */
+.universal-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.5) 28%,
+    #ff6b6b 32%,
+    #ffa500 40%,
+    #ffd700 48%,
+    #32cd32 56%,
+    #00ced1 64%,
+    #4169e1 72%,
+    #9370db 80%,
+    #ff1493 88%,
+    rgba(255, 255, 255, 0.5) 95%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0% 0;
+  animation: unav-line-sweep 2.5s ease-in-out 1 forwards;
+}
+
+@keyframes unav-line-sweep {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
 }
 
 .universal-nav .unav-logo {

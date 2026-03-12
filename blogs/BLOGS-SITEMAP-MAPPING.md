@@ -70,4 +70,4 @@ Existing posts also tagged Inspiration: five-themes-trends-travel-technology-inn
 
 ## Sitemap
 
-Full list of posts: [TravelAI Sitemap](https://www.travelai.com/site-map). Many sitemap titles are not yet in this local build; add new posts to `blog.html` and create matching `.html` files in `blogs/` as needed.
+Full list of posts: [TravelAI Sitemap](https://www.travelai.com/site-map). Many sitemap titles are not yet in this local build; add new posts to `insights.html` and create matching `.html` files in `blogs/` as needed.
