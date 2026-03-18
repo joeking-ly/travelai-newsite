@@ -1,0 +1,38 @@
+/* Initial state for card reveal (Motion.js slide-up + fade). Remove when JS runs. */
+.stat-item,
+.agentic-card,
+.partner-item,
+.mission-card,
+.value-card,
+.press-item,
+.doc-card,
+.lab-card,
+.tech-card,
+.factor-card,
+.surface-card,
+.product-card,
+.type-card,
+.testimonial-card {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-item,
+  .agentic-card,
+  .partner-item,
+  .mission-card,
+  .value-card,
+  .press-item,
+  .doc-card,
+  .lab-card,
+  .tech-card,
+  .factor-card,
+  .surface-card,
+  .product-card,
+  .type-card,
+  .testimonial-card {
+    opacity: 1;
+    transform: none;
+  }
+}

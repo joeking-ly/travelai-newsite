@@ -544,3 +544,137 @@
 .footer-col h5 {
   font-weight: 700 !important;
 }
+
+/* Global hover for icon/text cards */
+.mission-card,
+.value-card,
+.contact-card,
+.press-item,
+.doc-card,
+.lab-card,
+.tech-card,
+.factor-card,
+.surface-card,
+.product-card,
+.type-card,
+.testimonial-card,
+.agentic-card,
+.partner-item {
+  border: 1px solid var(--glass-border);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease,
+    background 0.22s ease;
+  will-change: transform, box-shadow;
+}
+
+.mission-card:hover,
+.value-card:hover,
+.contact-card:hover,
+.press-item:hover,
+.doc-card:hover,
+.lab-card:hover,
+.tech-card:hover,
+.factor-card:hover,
+.surface-card:hover,
+.product-card:hover,
+.type-card:hover,
+.testimonial-card:hover,
+.agentic-card:hover,
+.partner-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Icon-matching border on hover per card */
+.values-grid .value-card:nth-child(1):hover { border-color: #FF6B6B; }
+.values-grid .value-card:nth-child(2):hover { border-color: #9370DB; }
+.values-grid .value-card:nth-child(3):hover { border-color: #FFD700; }
+.values-grid .value-card:nth-child(4):hover { border-color: #00CED1; }
+.values-grid .value-card:nth-child(5):hover { border-color: #32CD32; }
+.values-grid .value-card:nth-child(6):hover { border-color: #4169E1; }
+
+.agentic-grid .agentic-card:nth-child(1):hover,
+.agentic-section .agentic-card:nth-child(1):hover { border-color: #FF6B6B; }
+.agentic-grid .agentic-card:nth-child(2):hover,
+.agentic-section .agentic-card:nth-child(2):hover { border-color: #4169E1; }
+.agentic-grid .agentic-card:nth-child(3):hover,
+.agentic-section .agentic-card:nth-child(3):hover { border-color: #32CD32; }
+.agentic-grid .agentic-card:nth-child(4):hover,
+.agentic-section .agentic-card:nth-child(4):hover { border-color: #9370DB; }
+.agentic-grid .agentic-card:nth-child(5):hover,
+.agentic-section .agentic-card:nth-child(5):hover { border-color: #FFD700; }
+.agentic-grid .agentic-card:nth-child(6):hover,
+.agentic-section .agentic-card:nth-child(6):hover { border-color: #00CED1; }
+
+.contact-grid .contact-card:nth-child(1):hover { border-color: #00CED1; }
+.contact-grid .contact-card:nth-child(2):hover { border-color: #4169E1; }
+.contact-grid .contact-card:nth-child(3):hover { border-color: #FF6B6B; }
+.contact-grid .contact-card:nth-child(4):hover { border-color: #9370DB; }
+
+.press-grid .press-item:nth-child(1):hover { border-color: #00CED1; }
+.press-grid .press-item:nth-child(2):hover { border-color: #9370DB; }
+.press-grid .press-item:nth-child(3):hover { border-color: #4169E1; }
+.press-grid .press-item:nth-child(4):hover { border-color: #FF6B6B; }
+.press-grid .press-item:nth-child(5):hover { border-color: #32CD32; }
+.press-grid .press-item:nth-child(6):hover { border-color: #FFD700; }
+
+.products-grid .product-card:nth-child(1):hover { border-color: #00CED1; }
+.products-grid .product-card:nth-child(2):hover { border-color: #00CED1; }
+.products-grid .product-card:nth-child(3):hover { border-color: #9370DB; }
+.products-grid .product-card:nth-child(4):hover { border-color: #FFD700; }
+.products-grid .product-card:nth-child(5):hover { border-color: #32CD32; }
+.products-grid .product-card:nth-child(6):hover { border-color: #FF1493; }
+.products-grid .product-card:nth-child(7):hover { border-color: #9370DB; }
+.products-grid .product-card:nth-child(8):hover { border-color: #4169E1; }
+.products-grid .product-card:nth-child(9):hover { border-color: #FF1493; }
+
+.types-grid .type-card:nth-child(1):hover { border-color: #FF6B6B; }
+.types-grid .type-card:nth-child(2):hover { border-color: #4169E1; }
+.types-grid .type-card:nth-child(3):hover { border-color: #32CD32; }
+.types-grid .type-card:nth-child(4):hover { border-color: #9370DB; }
+
+.surfaces-grid .surface-card:nth-child(1):hover { border-color: #FF6B6B; }
+.surfaces-grid .surface-card:nth-child(2):hover { border-color: #4169E1; }
+.surfaces-grid .surface-card:nth-child(3):hover { border-color: #32CD32; }
+.surfaces-grid .surface-card:nth-child(4):hover { border-color: #9370DB; }
+
+.testimonials-grid .testimonial-card:nth-child(1):hover { border-color: #00CED1; }
+.testimonials-grid .testimonial-card:nth-child(2):hover { border-color: #4169E1; }
+.testimonials-grid .testimonial-card:nth-child(3):hover { border-color: #9370DB; }
+.testimonials-grid .testimonial-card:nth-child(4):hover { border-color: #32CD32; }
+
+.tech-grid .tech-card:nth-child(1):hover { border-color: #FF6B6B; }
+.tech-grid .tech-card:nth-child(2):hover { border-color: #4169E1; }
+.tech-grid .tech-card:nth-child(3):hover { border-color: #32CD32; }
+.tech-grid .tech-card:nth-child(4):hover { border-color: #9370DB; }
+
+.factors-grid .factor-card:nth-child(1):hover { border-color: #FF6B6B; }
+.factors-grid .factor-card:nth-child(2):hover { border-color: #4169E1; }
+.factors-grid .factor-card:nth-child(3):hover { border-color: #32CD32; }
+.factors-grid .factor-card:nth-child(4):hover { border-color: #FFD700; }
+.factors-grid .factor-card:nth-child(5):hover { border-color: #00CED1; }
+.factors-grid .factor-card:nth-child(6):hover { border-color: #9370DB; }
+
+/* Mobile: hero CTAs stacked, centered, same width */
+@media (max-width: 768px) {
+  .hero-ctas,
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-ctas .hero-cta,
+  .hero-ctas a,
+  .hero-actions .btn-primary,
+  .hero-actions .btn-hero-outline,
+  .hero-actions a {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    justify-content: center;
+  }
+}
