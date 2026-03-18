@@ -11,11 +11,116 @@
   <link rel="stylesheet" href="css/universal-nav.css">
   <link rel="stylesheet" href="css/motion-reveal.css">
   <link rel="stylesheet" href="css/site.css">
+  <style>
+    /* Index-only auth gate (temporary) */
+    .auth-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(10,10,15,0.86);
+      backdrop-filter: blur(6px);
+    }
+    html.auth-ok .auth-gate { display: none; }
+    .auth-modal {
+      width: 100%;
+      max-width: 420px;
+      background: #0A0A0F;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      color: rgba(255,255,255,0.92);
+    }
+    .auth-title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .auth-fields { display: flex; flex-direction: column; gap: 12px; }
+    .auth-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,0.7);
+    }
+    .auth-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+    .auth-input:focus {
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.08);
+    }
+    .auth-error {
+      color: #ffb4b4;
+      font-size: 13px;
+      min-height: 16px;
+      margin-top: 8px;
+    }
+    .auth-actions { display: flex; gap: 12px; margin-top: 16px; }
+    .auth-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: #fff;
+      color: #0A0A0F;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+    }
+    .auth-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(255,255,255,0.15);
+    }
+    body.auth-blocked { overflow: hidden; }
+  </style>
+  <script>
+    // Prevent initial flicker: hide gate if already unlocked.
+    try {
+      if (localStorage.getItem('tunerdepot_auth') === '1') {
+        document.documentElement.classList.add('auth-ok');
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body class="page-home">
 
   <!-- NAV -->
   <div id="universal-nav-placeholder"></div>
+
+  <!-- TEMP: Index-only auth gate -->
+  <div id="auth-gate" class="auth-gate" aria-modal="true" role="dialog" aria-labelledby="auth-title">
+    <div class="auth-modal">
+      <div id="auth-title" class="auth-title">Sign in to view</div>
+      <div class="auth-fields">
+        <div class="auth-field">
+          <label for="auth-username">Username</label>
+          <input id="auth-username" class="auth-input" type="text" autocomplete="username" />
+        </div>
+        <div class="auth-field">
+          <label for="auth-password">Password</label>
+          <input id="auth-password" class="auth-input" type="password" autocomplete="current-password" />
+        </div>
+      </div>
+      <div id="auth-error" class="auth-error" aria-live="polite"></div>
+      <div class="auth-actions">
+        <button id="auth-submit" class="auth-btn" type="button">Enter</button>
+      </div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -558,6 +663,64 @@
     </div>
   </footer>
   <script src="js/universal-nav.js?v=2"></script>
+  <script>
+    (function () {
+      var gate = document.getElementById('auth-gate');
+      if (!gate) return;
+
+      // Provided credentials (temporary).
+      var USERNAME = 'traveller';
+      var PASSWORD = 'therethere';
+      var STORAGE_KEY = 'tunerdepot_auth';
+
+      var submit = document.getElementById('auth-submit');
+      var username = document.getElementById('auth-username');
+      var password = document.getElementById('auth-password');
+      var error = document.getElementById('auth-error');
+
+      function unlock() {
+        try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+        gate.remove();
+        document.body.classList.remove('auth-blocked');
+      }
+
+      function lock() {
+        document.body.classList.add('auth-blocked');
+      }
+
+      function check() {
+        if (!username || !password) return;
+        var u = (username.value || '').trim();
+        var p = (password.value || '').trim();
+        if (u === USERNAME && p === PASSWORD) {
+          error.textContent = '';
+          unlock();
+        } else {
+          error.textContent = 'Incorrect username or password.';
+          password.focus();
+        }
+      }
+
+      // If already unlocked, do nothing.
+      try {
+        if (localStorage.getItem(STORAGE_KEY) === '1') return;
+      } catch (e) {}
+
+      lock();
+      if (username) username.focus();
+
+      if (submit) {
+        submit.addEventListener('click', check);
+      }
+
+      [username, password].forEach(function (el) {
+        if (!el) return;
+        el.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') check();
+        });
+      });
+    })();
+  </script>
   <script>
     (function () {
       var section = document.getElementById('scale-section');
