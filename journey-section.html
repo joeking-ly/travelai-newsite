@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelAI — Meet Travelers Anywhere</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#0f0f23;
+  font-family:'Inter Tight',sans-serif;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ── Section header ── */
+.sec-head{
+  text-align:center;
+  padding:100px 40px 80px;
+}
+.sec-eyebrow{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#F7AF24;
+  margin-bottom:18px;
+}
+.sec-title{
+  font-size:clamp(40px,5vw,72px);
+  font-weight:700;
+  letter-spacing:-.03em;
+  line-height:1.05;
+  background:linear-gradient(160deg,#fff 30%,rgba(255,255,255,.45));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.sec-sub{
+  margin-top:18px;
+  font-size:18px;
+  color:rgba(255,255,255,.45);
+  font-weight:400;
+  letter-spacing:-.01em;
+}
+
+/* ── Journey section ── */
+.journey{
+  position:relative;
+  padding:40px 0 140px;
+}
+
+/* SVG overlay for wavy line */
+#jsvg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:visible;
+}
+
+/* Items wrapper */
+.j-items{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 60px;
+  position:relative;
+}
+
+/* Individual item */
+.j-item{
+  display:flex;
+  align-items:center;
+  gap:0;
+  margin-bottom:0;
+  padding:80px 0;
+  position:relative;
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.j-item.in{
+  opacity:1;
+  transform:none;
+}
+.j-item:nth-child(even){flex-direction:row-reverse;}
+
+/* Icon waypoint */
+.j-icon-col{
+  flex:0 0 140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.j-icon{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:rgba(255,255,255,.05);
+  border:1.5px solid rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:10;
+  transition:border-color .4s, box-shadow .4s;
+  backdrop-filter:blur(8px);
+}
+.j-item.in .j-icon{
+  border-color:rgba(247,175,36,.5);
+  box-shadow:0 0 0 6px rgba(247,175,36,.06), 0 0 32px rgba(247,175,36,.15);
+}
+.j-icon svg{
+  width:28px;height:28px;
+  stroke:#fff;stroke-width:1.5;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* Content area */
+.j-content-col{
+  flex:1;
+  position:relative;
+  min-height:280px;
+  display:flex;
+  align-items:center;
+}
+.j-text{
+  position:relative;
+  z-index:5;
+  max-width:420px;
+}
+.j-item:nth-child(odd) .j-text{margin-left:40px;}
+.j-item:nth-child(even) .j-text{margin-right:40px; margin-left:auto;}
+
+.j-eyebrow{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#F7AF24;
+  margin-bottom:12px;
+  opacity:.85;
+}
+.j-title{
+  font-size:clamp(28px,3.5vw,44px);
+  font-weight:700;
+  letter-spacing:-.025em;
+  line-height:1.1;
+  margin-bottom:14px;
+}
+.j-desc{
+  font-size:16px;
+  line-height:1.75;
+  color:rgba(255,255,255,.55);
+  font-weight:400;
+}
+
+/* ── Floaters ── */
+.floaters{
+  position:absolute;
+  inset:-20% -5%;
+  pointer-events:none;
+  overflow:visible;
+}
+.floater{
+  position:absolute;
+  animation:drift linear infinite;
+  will-change:transform;
+}
+@keyframes drift{
+  0%  {transform:translateY(0)   rotate(0deg);}
+  25% {transform:translateY(-10px) rotate(1.5deg);}
+  75% {transform:translateY(8px)  rotate(-1deg);}
+  100%{transform:translateY(0)   rotate(0deg);}
+}
+
+/* ── Amber glow dot traveling the line ── */
+#travel-dot{
+  r:5;
+  fill:#F7AF24;
+  filter:drop-shadow(0 0 6px rgba(247,175,36,.8));
+}
+
+</style>
+</head>
+<body>
+
+<div class="sec-head">
+  <p class="sec-eyebrow">Reach &amp; distribution</p>
+  <h2 class="sec-title">Meet travelers<br>anywhere they are</h2>
+  <p class="sec-sub">One intelligent engine. Every touchpoint.</p>
+</div>
+
+<section class="journey" id="journey">
+
+  <!-- SVG layer for the wavy journey line -->
+  <svg id="jsvg" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+        <stop offset="0%"   stop-color="#F7AF24" stop-opacity="0"/>
+        <stop offset="12%"  stop-color="#F7AF24" stop-opacity="1"/>
+        <stop offset="88%"  stop-color="#F7AF24" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#F7AF24" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Glow copy of path (wider, blurred) -->
+    <path id="jpath-glow" fill="none"
+      stroke="rgba(247,175,36,0.2)" stroke-width="12"
+      filter="url(#glow)"/>
+
+    <!-- Main path -->
+    <path id="jpath" fill="none"
+      stroke="url(#lineGrad)" stroke-width="2"
+      stroke-dasharray="0" stroke-dashoffset="0"/>
+
+    <!-- Traveling dot -->
+    <circle id="travel-dot" cx="-100" cy="-100" r="5"/>
+  </svg>
+
+  <div class="j-items" id="jitems">
+
+    <!-- ① Any Website -->
+    <div class="j-item" id="item0">
+      <div class="j-icon-col">
+        <div class="j-icon" id="icon0">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2c-3.5 4-3.5 12 0 16M12 2c3.5 4 3.5 12 0 16"/>
+          </svg>
+        </div>
+      </div>
+      <div class="j-content-col">
+
+        <!-- Floating web elements -->
+        <div class="floaters">
+          <!-- Browser window -->
+          <svg class="floater" style="left:56%;top:-18%;width:130px;opacity:.35;animation-duration:7s;animation-delay:0s;" viewBox="0 0 130 85">
+            <rect x="1" y="1" width="128" height="83" rx="7" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <rect x="1" y="1" width="128" height="18" rx="7" fill="rgba(255,255,255,0.07)"/>
+            <circle cx="12" cy="10" r="2.5" fill="rgba(255,90,90,0.5)"/>
+            <circle cx="21" cy="10" r="2.5" fill="rgba(255,190,60,0.5)"/>
+            <circle cx="30" cy="10" r="2.5" fill="rgba(80,200,80,0.5)"/>
+            <rect x="38" y="5" width="76" height="10" rx="5" fill="rgba(255,255,255,0.12)"/>
+            <rect x="10" y="28" width="110" height="7" rx="3" fill="rgba(255,255,255,0.12)"/>
+            <rect x="10" y="42" width="85" height="5" rx="2" fill="rgba(255,255,255,0.08)"/>
+            <rect x="10" y="54" width="100" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <rect x="10" y="66" width="65"  height="5" rx="2" fill="rgba(255,255,255,0.05)"/>
+          </svg>
+          <!-- Small URL pill -->
+          <div class="floater" style="left:52%;top:68%;animation-duration:5.5s;animation-delay:1s;font-size:11px;font-family:monospace;color:rgba(247,175,36,0.7);background:rgba(247,175,36,0.07);border:1px solid rgba(247,175,36,0.2);padding:4px 12px;border-radius:20px;white-space:nowrap;">
+            hotel.brand.com
+          </div>
+          <!-- Small card floating top-left -->
+          <svg class="floater" style="left:40%;top:72%;width:75px;opacity:.3;animation-duration:8s;animation-delay:2s;" viewBox="0 0 75 55">
+            <rect x="1" y="1" width="73" height="53" rx="6" fill="rgba(247,175,36,0.08)" stroke="rgba(247,175,36,0.25)" stroke-width="1"/>
+            <rect x="7" y="10" width="40" height="5" rx="2" fill="rgba(247,175,36,0.35)"/>
+            <rect x="7" y="22" width="55" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+            <rect x="7" y="32" width="45" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+          </svg>
+          <!-- Dot grid -->
+          <svg class="floater" style="left:70%;top:30%;width:55px;opacity:.2;animation-duration:9s;animation-delay:.5s;" viewBox="0 0 55 55">
+            <g fill="rgba(255,255,255,0.5)">
+              <circle cx="8" cy="8" r="2"/><circle cx="20" cy="8" r="2"/><circle cx="32" cy="8" r="2"/><circle cx="44" cy="8" r="2"/>
+              <circle cx="8" cy="20" r="2"/><circle cx="20" cy="20" r="2"/><circle cx="32" cy="20" r="2"/><circle cx="44" cy="20" r="2"/>
+              <circle cx="8" cy="32" r="2"/><circle cx="20" cy="32" r="2"/><circle cx="32" cy="32" r="2"/><circle cx="44" cy="32" r="2"/>
+              <circle cx="8" cy="44" r="2"/><circle cx="20" cy="44" r="2"/><circle cx="32" cy="44" r="2"/><circle cx="44" cy="44" r="2"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="j-text">
+          <p class="j-eyebrow">470+ travel brands powered</p>
+          <h3 class="j-title">Any Website</h3>
+          <p class="j-desc">TravelAI integrates seamlessly across your entire network of travel brand websites. Travelers receive intelligent, contextual assistance the moment they land — regardless of which brand they're browsing.</p>
+        </div>
+      </div>
+    </div><!-- /item0 -->
+
+    <!-- ② Any Device -->
+    <div class="j-item" id="item1">
+      <div class="j-icon-col">
+        <div class="j-icon" id="icon1">
+          <svg viewBox="0 0 24 24">
+            <rect x="5" y="2" width="14" height="20" rx="2"/>
+            <circle cx="12" cy="17.5" r="1" fill="#fff" stroke="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="j-content-col">
+
+        <!-- Floating device elements -->
+        <div class="floaters">
+          <!-- Phone -->
+          <svg class="floater" style="right:55%;top:-10%;width:52px;opacity:.4;animation-duration:6.5s;animation-delay:.3s;" viewBox="0 0 52 84">
+            <rect x="3" y="2" width="46" height="80" rx="9" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <rect x="16" y="7" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.18)"/>
+            <rect x="7" y="16" width="38" height="52" rx="3" fill="rgba(247,175,36,0.05)"/>
+            <circle cx="26" cy="75" r="3.5" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
+          </svg>
+          <!-- Tablet -->
+          <svg class="floater" style="right:60%;top:55%;width:82px;opacity:.35;animation-duration:7.5s;animation-delay:1s;" viewBox="0 0 82 112">
+            <rect x="3" y="3" width="76" height="106" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+            <rect x="10" y="12" width="62" height="82" rx="3" fill="rgba(247,175,36,0.04)"/>
+            <circle cx="41" cy="101" r="4" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none"/>
+          </svg>
+          <!-- Laptop -->
+          <svg class="floater" style="right:42%;top:72%;width:115px;opacity:.35;animation-duration:8s;animation-delay:.6s;" viewBox="0 0 115 80">
+            <rect x="10" y="3" width="95" height="60" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+            <rect x="16" y="9" width="83" height="48" rx="2" fill="rgba(247,175,36,0.04)"/>
+            <rect x="1" y="63" width="113" height="9" rx="4" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <rect x="42" y="66" width="31" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
+          </svg>
+          <!-- Responsive label -->
+          <div class="floater" style="right:50%;top:32%;animation-duration:5s;animation-delay:1.8s;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,175,36,0.5);background:rgba(247,175,36,0.06);border:1px solid rgba(247,175,36,0.15);padding:4px 10px;border-radius:4px;white-space:nowrap;">
+            Responsive
+          </div>
+        </div>
+
+        <div class="j-text">
+          <p class="j-eyebrow">Desktop, mobile, tablet</p>
+          <h3 class="j-title">Any Device</h3>
+          <p class="j-desc">A fully responsive experience that adapts to every screen. Whether your traveler is planning at home on a desktop or booking at the gate on mobile — TravelAI delivers the same quality of assistance everywhere.</p>
+        </div>
+      </div>
+    </div><!-- /item1 -->
+
+    <!-- ③ Any Platform -->
+    <div class="j-item" id="item2">
+      <div class="j-icon-col">
+        <div class="j-icon" id="icon2">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="j-content-col">
+
+        <!-- Floating platform elements -->
+        <div class="floaters">
+          <!-- 2×2 app grid -->
+          <svg class="floater" style="left:55%;top:-15%;width:95px;opacity:.35;animation-duration:7s;animation-delay:0s;" viewBox="0 0 95 95">
+            <rect x="2" y="2" width="40" height="40" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <rect x="53" y="2" width="40" height="40" rx="8" fill="rgba(247,175,36,0.1)" stroke="rgba(247,175,36,0.3)" stroke-width="1"/>
+            <rect x="2" y="53" width="40" height="40" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <rect x="53" y="53" width="40" height="40" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <rect x="9"  cy="22" x="9"  y="20" width="25" height="4" rx="2" fill="rgba(255,255,255,0.18)"/>
+            <rect x="60" y="20" width="25" height="4" rx="2" fill="rgba(247,175,36,0.5)"/>
+            <rect x="9"  y="72" width="25" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="60" y="72" width="25" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+          </svg>
+          <!-- API code block -->
+          <div class="floater" style="left:58%;top:60%;animation-duration:6s;animation-delay:1.2s;font-size:11px;font-family:monospace;line-height:1.7;color:rgba(100,220,160,0.65);background:rgba(0,0,0,0.35);border:1px solid rgba(100,220,160,0.15);padding:10px 14px;border-radius:8px;white-space:nowrap;">
+            <span style="color:rgba(100,220,160,0.4);">POST</span> /v1/ai<br>
+            <span style="color:rgba(255,255,255,0.3);">{</span> channel: <span style="color:rgba(247,175,36,0.6);">"partner"</span> <span style="color:rgba(255,255,255,0.3);">}</span>
+          </div>
+          <!-- Distribution pills -->
+          <div class="floater" style="left:52%;top:32%;animation-duration:5.5s;animation-delay:2s;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.38);white-space:nowrap;">Expedia Partner Network</div>
+            <div style="font-size:10px;background:rgba(247,175,36,0.07);border:1px solid rgba(247,175,36,0.2);border-radius:20px;padding:4px 12px;color:rgba(247,175,36,0.5);white-space:nowrap;">OTA Marketplace</div>
+          </div>
+        </div>
+
+        <div class="j-text">
+          <p class="j-eyebrow">Partner sites &amp; marketplaces</p>
+          <h3 class="j-title">Any Platform</h3>
+          <p class="j-desc">From OTA marketplaces to white-label distribution partners, TravelAI extends your reach across the entire travel ecosystem. Every channel becomes an intelligent touchpoint for your brand.</p>
+        </div>
+      </div>
+    </div><!-- /item2 -->
+
+    <!-- ④ Any Conversation -->
+    <div class="j-item" id="item3">
+      <div class="j-icon-col">
+        <div class="j-icon" id="icon3">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="j-content-col">
+
+        <!-- Floating conversation elements -->
+        <div class="floaters">
+          <!-- Chat bubble pair -->
+          <svg class="floater" style="right:55%;top:-20%;width:145px;opacity:.38;animation-duration:6s;animation-delay:0s;" viewBox="0 0 145 100">
+            <!-- User bubble -->
+            <rect x="2" y="2" width="95" height="32" rx="16" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+            <rect x="10" y="13" width="65" height="6" rx="3" fill="rgba(255,255,255,0.18)"/>
+            <path d="M14 34 L10 44 L26 34" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" stroke-width="0.5" stroke-linejoin="round"/>
+            <!-- AI bubble -->
+            <rect x="45" y="62" width="97" height="32" rx="16" fill="rgba(247,175,36,0.1)" stroke="rgba(247,175,36,0.3)" stroke-width="1"/>
+            <rect x="53" y="73" width="60" height="6" rx="3" fill="rgba(247,175,36,0.38)"/>
+            <path d="M130 62 L134 52 L118 62" fill="rgba(247,175,36,0.1)" stroke="rgba(247,175,36,0.3)" stroke-width="0.5" stroke-linejoin="round"/>
+          </svg>
+          <!-- Voice waveform -->
+          <svg class="floater" style="right:52%;top:55%;width:105px;opacity:.38;animation-duration:4.5s;animation-delay:.5s;" viewBox="0 0 105 42">
+            <rect x="1" y="1" width="103" height="40" rx="20" fill="rgba(247,175,36,0.05)" stroke="rgba(247,175,36,0.2)" stroke-width="1"/>
+            <g stroke="rgba(247,175,36,0.55)" stroke-linecap="round" stroke-width="2">
+              <line x1="18" y1="21" x2="18" y2="21"/>
+              <line x1="26" y1="17" x2="26" y2="25"/>
+              <line x1="34" y1="12" x2="34" y2="30"/>
+              <line x1="42" y1="8"  x2="42" y2="34"/>
+              <line x1="50" y1="5"  x2="50" y2="37"/>
+              <line x1="58" y1="9"  x2="58" y2="33"/>
+              <line x1="66" y1="13" x2="66" y2="29"/>
+              <line x1="74" y1="17" x2="74" y2="25"/>
+              <line x1="82" y1="19" x2="82" y2="23"/>
+              <line x1="90" y1="21" x2="90" y2="21"/>
+            </g>
+          </svg>
+          <!-- Trip Desk / Slack badge -->
+          <div class="floater" style="right:58%;top:30%;animation-duration:7s;animation-delay:1.5s;font-size:11px;font-weight:500;background:rgba(74,21,75,0.25);border:1px solid rgba(160,80,175,0.25);border-radius:6px;padding:6px 12px;color:rgba(190,130,210,0.8);white-space:nowrap;display:flex;align-items:center;gap:7px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="opacity:.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.56 4.89 2 2 0 0 1 3.53 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            # trip-desk
+          </div>
+          <!-- Typing dots -->
+          <svg class="floater" style="right:50%;bottom:8%;width:64px;opacity:.4;animation-duration:5s;animation-delay:1s;" viewBox="0 0 64 30">
+            <rect x="1" y="1" width="62" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <circle cx="22" cy="15" r="3" fill="rgba(255,255,255,0.35)">
+              <animate attributeName="opacity" values=".35;.9;.35" dur="1.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="32" cy="15" r="3" fill="rgba(255,255,255,0.35)">
+              <animate attributeName="opacity" values=".35;.9;.35" dur="1.4s" begin=".2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="42" cy="15" r="3" fill="rgba(255,255,255,0.35)">
+              <animate attributeName="opacity" values=".35;.9;.35" dur="1.4s" begin=".4s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+
+        <div class="j-text">
+          <p class="j-eyebrow">Chat, voice &amp; messaging</p>
+          <h3 class="j-title">Any Conversation</h3>
+          <p class="j-desc">Text chat, voice queries, messaging, or Slack via Trip Desk — TravelAI meets travelers in whatever channel they prefer. The same intelligence, the same brand voice, everywhere a conversation can happen.</p>
+        </div>
+      </div>
+    </div><!-- /item3 -->
+
+  </div><!-- /.j-items -->
+</section>
+
+<script>
+(function(){
+
+  /* ── Build the wavy SVG path through icon centers ── */
+  function buildPath(){
+    const section = document.getElementById('journey');
+    const svg     = document.getElementById('jsvg');
+    const sRect   = section.getBoundingClientRect();
+    const W       = window.innerWidth;
+    const H       = section.offsetHeight;
+
+    /* Collect icon center coords relative to section */
+    const pts = [0,1,2,3].map(i=>{
+      const el   = document.getElementById('icon'+i);
+      const r    = el.getBoundingClientRect();
+      return {
+        x: r.left + r.width/2,
+        y: r.top  - sRect.top + r.height/2
+      };
+    });
+
+    /* Build cubic‑bezier S‑curve through each waypoint */
+    let d = `M ${pts[0].x} ${-40}`;          /* enter from top */
+    d    += ` L ${pts[0].x} ${pts[0].y}`;    /* down to icon 0 */
+
+    for(let i=0;i<pts.length-1;i++){
+      const a = pts[i], b = pts[i+1];
+      const mid = (a.y + b.y)/2;
+      d += ` C ${a.x} ${mid} ${b.x} ${mid} ${b.x} ${b.y}`;
+    }
+
+    d += ` L ${pts[3].x} ${H+40}`;           /* exit to bottom */
+
+    const main = document.getElementById('jpath');
+    const glow = document.getElementById('jpath-glow');
+    main.setAttribute('d',d);
+    glow.setAttribute('d',d);
+
+    /* Compute total length for dash animation */
+    const len = main.getTotalLength();
+    main.style.strokeDasharray  = len;
+    main.style.strokeDashoffset = len;
+    main.style.transition = 'stroke-dashoffset 2.8s cubic-bezier(0.25,1,0.5,1)';
+
+    /* Store for dot animation */
+    svg._path = main;
+    svg._len  = len;
+
+    /* Fix SVG viewBox */
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  }
+
+  /* ── Scroll‑drive line draw & reveal ── */
+  function setupScrollEffects(){
+    const section = document.getElementById('journey');
+    const items   = document.querySelectorAll('.j-item');
+
+    /* Line draw on section enter */
+    const lineObs = new IntersectionObserver(ents=>{
+      ents.forEach(e=>{
+        if(e.isIntersecting){
+          document.getElementById('jpath').style.strokeDashoffset='0';
+          startDot();
+          lineObs.disconnect();
+        }
+      });
+    },{threshold:.1});
+    lineObs.observe(section);
+
+    /* Item reveal */
+    const itemObs = new IntersectionObserver(ents=>{
+      ents.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in');
+      });
+    },{threshold:.25});
+    items.forEach(el=>itemObs.observe(el));
+  }
+
+  /* ── Animate dot traveling the path ── */
+  function startDot(){
+    const svg = document.getElementById('jsvg');
+    const dot = document.getElementById('travel-dot');
+    const path = document.getElementById('jpath');
+    const len  = path.getTotalLength();
+    let t = 0;
+    const DURATION = 6000; /* ms for one full pass */
+    let start = null;
+
+    function step(ts){
+      if(!start) start=ts;
+      const elapsed = (ts-start) % DURATION;
+      t = elapsed/DURATION;
+      const pt = path.getPointAtLength(t*len);
+      dot.setAttribute('cx',pt.x);
+      dot.setAttribute('cy',pt.y);
+      requestAnimationFrame(step);
+    }
+    /* Wait for line to draw then start dot */
+    setTimeout(()=>requestAnimationFrame(step), 2800);
+  }
+
+  /* ── Init ── */
+  window.addEventListener('load',()=>{
+    buildPath();
+    setupScrollEffects();
+  });
+  window.addEventListener('resize',()=>{
+    buildPath();
+  });
+
+})();
+</script>
+
+</body>
+</html>
