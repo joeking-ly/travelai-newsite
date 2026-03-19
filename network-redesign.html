@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Agentic Network — TravelAI Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0f0f23;
+  --amber:#F7AF24;
+  --amber-dim:rgba(247,175,36,0.12);
+  --amber-glow:rgba(247,175,36,0.06);
+  --blue:#4A9EFF;
+  --green:#3DDBA1;
+  --purple:#9B7FFF;
+  --border:rgba(255,255,255,0.08);
+  --border-hover:rgba(255,255,255,0.15);
+  --text:rgba(255,255,255,0.9);
+  --muted:rgba(255,255,255,0.45);
+  --card-bg:rgba(255,255,255,0.03);
+  --font:'Inter Tight',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:var(--font);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;
+  background:rgba(15,15,35,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;color:#fff;letter-spacing:-.03em}
+.nav-logo svg{width:28px;height:28px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{
+  background:var(--amber);color:#000;font-weight:600;font-size:13px;
+  padding:8px 18px;border-radius:8px;text-decoration:none;letter-spacing:-.01em;
+  transition:opacity .2s;
+}
+.nav-cta:hover{opacity:.85}
+
+/* ── UTIL ── */
+.section{padding:120px 0}
+.container{max-width:1160px;margin:0 auto;padding:0 48px}
+.eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:16px;display:inline-block;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+  background:var(--amber-dim);color:var(--amber);border:1px solid rgba(247,175,36,.2);
+}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding-top:64px;overflow:hidden;
+}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-inner{
+  position:relative;z-index:5;text-align:center;max-width:800px;padding:0 40px;
+}
+.hero-title{
+  font-size:clamp(52px,7vw,88px);font-weight:800;letter-spacing:-.04em;line-height:.98;
+  background:linear-gradient(160deg,#fff 40%,rgba(255,255,255,.45));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:24px;
+}
+.hero-title em{
+  -webkit-text-fill-color:transparent;
+  background:linear-gradient(90deg,var(--amber),#ff8c42);
+  -webkit-background-clip:text;background-clip:text;
+  font-style:normal;
+}
+.hero-sub{
+  font-size:18px;color:var(--muted);font-weight:400;max-width:580px;margin:0 auto 40px;line-height:1.7;
+}
+.hero-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-pill{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;
+  padding:8px 16px;border-radius:40px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--muted);
+}
+.hero-pill .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.hero-pill .dot-amber{background:var(--amber);box-shadow:0 0 8px rgba(247,175,36,.5)}
+.hero-pill .dot-blue{background:var(--blue);box-shadow:0 0 8px rgba(74,158,255,.5)}
+.hero-pill .dot-green{background:var(--green);box-shadow:0 0 8px rgba(61,219,161,.5)}
+.hero-ctas{display:flex;gap:14px;justify-content:center}
+.btn-primary{
+  background:var(--amber);color:#000;font-weight:700;font-size:14px;
+  padding:13px 28px;border-radius:10px;text-decoration:none;letter-spacing:-.02em;
+  transition:opacity .2s,transform .2s;display:inline-block;
+}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-outline{
+  background:transparent;color:#fff;font-weight:600;font-size:14px;
+  padding:13px 28px;border-radius:10px;text-decoration:none;letter-spacing:-.02em;
+  border:1px solid var(--border-hover);transition:border-color .2s,transform .2s;display:inline-block;
+}
+.btn-outline:hover{border-color:rgba(255,255,255,.3);transform:translateY(-1px)}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(var(--amber),transparent)}
+
+/* ── HOW IT WORKS ── */
+#how{background:linear-gradient(180deg,rgba(247,175,36,.03) 0%,transparent 100%)}
+.how-head{text-align:center;margin-bottom:80px}
+.how-title{font-size:clamp(36px,4.5vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px}
+.how-sub{font-size:17px;color:var(--muted);max-width:520px;margin:0 auto}
+
+.orbit-arena{
+  position:relative;width:100%;max-width:800px;margin:0 auto;
+  aspect-ratio:1/0.85;
+}
+#orbit-svg{width:100%;height:100%}
+
+.metcalfe-bar{
+  margin-top:60px;padding:32px 40px;
+  border:1px solid var(--border);border-radius:16px;background:var(--card-bg);
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  backdrop-filter:blur(8px);
+}
+.metcalfe-label{font-size:13px;color:var(--muted);font-weight:500;max-width:280px;line-height:1.6}
+.metcalfe-formula{
+  font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-.04em;
+  white-space:nowrap;
+  background:linear-gradient(90deg,var(--amber),#ff8c42);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.metcalfe-formula span{
+  -webkit-text-fill-color:rgba(255,255,255,.4);color:rgba(255,255,255,.4);
+}
+
+/* ── TECHNOLOGY BENTO ── */
+#tech{}
+.tech-head{margin-bottom:60px}
+.tech-bento{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:16px;
+}
+.bento-card{
+  border:1px solid var(--border);border-radius:20px;
+  background:var(--card-bg);
+  overflow:hidden;position:relative;
+  transition:border-color .3s,transform .3s;
+  padding:40px;
+}
+.bento-card:hover{border-color:var(--border-hover);transform:translateY(-3px)}
+.bento-full{grid-column:1/-1}
+.bento-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;gap:16px}
+.bento-card-title{font-size:22px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
+.bento-card-sub{font-size:14px;color:var(--muted);line-height:1.6}
+.bento-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.bento-bullets li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--muted);line-height:1.5;
+}
+.bento-bullets li::before{
+  content:'';flex-shrink:0;margin-top:7px;
+  width:5px;height:5px;border-radius:50%;background:var(--amber);
+}
+.bento-vis{
+  width:100%;height:160px;margin-top:28px;position:relative;overflow:hidden;border-radius:12px;
+  background:rgba(0,0,0,.25);
+}
+.bento-vis-sm{height:120px}
+
+/* TAM vis: ring layers */
+.tam-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+
+/* SVTP vis: two orbs with handoff beam */
+
+/* bottom row cards */
+.bento-sm{padding:32px}
+.bento-sm .bento-card-title{font-size:18px}
+
+/* ── TRANSFORMATION ── */
+#transform{background:linear-gradient(180deg,rgba(74,158,255,.03) 0%,transparent 60%)}
+.transform-head{text-align:center;margin-bottom:64px}
+.transform-toggle-wrap{
+  display:flex;justify-content:center;margin-bottom:48px;
+}
+.transform-toggle{
+  display:flex;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:40px;padding:4px;gap:0;
+}
+.t-btn{
+  padding:10px 28px;border-radius:36px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .3s;background:none;border:none;color:var(--muted);letter-spacing:-.01em;
+}
+.t-btn.active{background:var(--card-bg);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.t-btn.active.cold{color:#fff}
+.t-btn.active.warm{background:var(--amber-dim);color:var(--amber)}
+
+.transform-panels{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  border-radius:20px;overflow:hidden;border:1px solid var(--border);
+  position:relative;min-height:540px;
+}
+.t-panel{
+  padding:52px 48px;position:relative;overflow:hidden;
+  transition:all .5s cubic-bezier(0.4,0,0.2,1);
+}
+.t-panel.t-cold{background:rgba(255,80,80,.03);border-right:1px solid var(--border)}
+.t-panel.t-warm{background:rgba(61,219,161,.04)}
+.t-panel-header{margin-bottom:32px}
+.t-status{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 14px;border-radius:20px;margin-bottom:20px;
+}
+.t-status.cold{background:rgba(255,80,80,.1);color:rgba(255,120,120,.9);border:1px solid rgba(255,80,80,.2)}
+.t-status.warm{background:rgba(61,219,161,.1);color:var(--green);border:1px solid rgba(61,219,161,.2)}
+.t-panel-title{font-size:32px;font-weight:800;letter-spacing:-.04em;margin-bottom:8px}
+.t-panel-desc{font-size:14px;color:var(--muted);line-height:1.65;max-width:300px}
+.t-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.t-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;color:rgba(255,255,255,.7);line-height:1.55;
+}
+.t-icon{
+  flex-shrink:0;width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.t-icon.x{background:rgba(255,80,80,.12);color:rgba(255,120,120,.9);font-size:11px;font-weight:700}
+.t-icon.check{background:rgba(61,219,161,.12);color:var(--green);font-size:11px;font-weight:700}
+.t-panel-visual{
+  position:absolute;bottom:0;right:0;left:0;
+  height:120px;overflow:hidden;opacity:.35;
+}
+/* Cold viz: fragmented dots */
+/* Warm viz: unified flow */
+
+/* Arrow divider */
+.transform-arrow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);z-index:10;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--amber);
+}
+
+/* ── MECHANISM ── */
+#mechanism{}
+.mech-head{margin-bottom:64px}
+.mech-flow{
+  display:flex;align-items:center;justify-content:center;gap:0;
+  flex-wrap:nowrap;overflow-x:auto;
+  padding:0 0 20px;
+}
+.mech-step{
+  flex-shrink:0;width:220px;
+  border:1px solid var(--border);border-radius:16px;background:var(--card-bg);
+  padding:28px;position:relative;
+  transition:border-color .3s;
+}
+.mech-step:hover{border-color:var(--border-hover)}
+.mech-arrow{
+  flex-shrink:0;width:48px;display:flex;align-items:center;justify-content:center;
+  color:var(--amber);font-size:18px;
+}
+.mech-step-num{
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;opacity:.7;
+}
+.mech-step-title{font-size:16px;font-weight:700;letter-spacing:-.025em;margin-bottom:8px}
+.mech-step-sub{font-size:13px;color:var(--muted);line-height:1.6}
+.mech-step-vis{
+  margin-top:16px;height:56px;
+  border-radius:8px;background:rgba(0,0,0,.3);
+  overflow:hidden;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.vector-space{
+  margin-top:64px;padding:48px;
+  border:1px solid var(--border);border-radius:20px;background:var(--card-bg);
+  position:relative;overflow:hidden;
+}
+.vector-space-head{margin-bottom:32px}
+.vector-space-head h3{font-size:22px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
+.vector-space-head p{font-size:14px;color:var(--muted);max-width:480px}
+.vector-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;
+}
+.vector-canvas-wrap{position:relative}
+.vector-canvas-wrap canvas{display:block;width:100%;border-radius:12px;background:rgba(0,0,0,.3)}
+.vector-legend{display:flex;flex-direction:column;gap:16px;padding-top:8px}
+.vl-item{display:flex;align-items:center;gap:12px}
+.vl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.vl-label{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.vl-desc{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
+.vector-formula{
+  margin-top:24px;padding:20px 24px;border-radius:12px;
+  background:rgba(0,0,0,.3);border:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.vf-step{text-align:center}
+.vf-label{font-size:11px;color:var(--muted);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase}
+.vf-value{
+  font-size:13px;font-weight:600;font-family:monospace;
+  padding:6px 12px;border-radius:6px;white-space:nowrap;
+}
+.vf-arr{color:var(--amber);font-size:18px;align-self:flex-end;padding-bottom:10px}
+
+/* ── WHAT MAKES IT WORK (UNCHANGED FROM SITE) ── */
+#makes{background:rgba(255,255,255,.015)}
+.makes-head{text-align:center;margin-bottom:64px}
+.makes-title{font-size:clamp(36px,4.5vw,56px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px}
+.makes-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.makes-card{
+  border:1px solid var(--border);border-radius:16px;background:var(--card-bg);
+  padding:36px;transition:border-color .3s,transform .3s;
+}
+.makes-card:hover{border-color:var(--border-hover);transform:translateY(-3px)}
+.makes-card-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--amber-dim);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.makes-card-icon svg{width:22px;height:22px;stroke:var(--amber);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.makes-card-title{font-size:18px;font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
+.makes-card-sub{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* ── CTA ── */
+#cta{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(247,175,36,.08) 0%,rgba(74,158,255,.06) 50%,rgba(155,127,255,.06) 100%);
+}
+#cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(247,175,36,.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.cta-inner{text-align:center;position:relative;z-index:2}
+.cta-title{font-size:clamp(36px,5vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:20px}
+.cta-title span{
+  background:linear-gradient(90deg,var(--amber),#ff8c42);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-sub{font-size:17px;color:var(--muted);max-width:520px;margin:0 auto 40px;line-height:1.7}
+.cta-partner-types{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:44px;
+}
+.cta-partner-pill{
+  font-size:12px;font-weight:500;color:var(--muted);
+  padding:7px 16px;border-radius:40px;border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
+}
+.cta-btns{display:flex;gap:14px;justify-content:center}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);padding:60px 0;
+  background:rgba(0,0,0,.3);
+}
+.footer-inner{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;align-items:start;
+}
+.footer-brand p{font-size:14px;color:var(--muted);margin-top:12px;line-height:1.6;max-width:200px}
+.footer-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:#fff;text-decoration:none;letter-spacing:-.03em}
+.footer-col h5{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:13px;color:rgba(255,255,255,.3);
+}
+.footer-social{display:flex;gap:16px}
+.footer-social a{color:rgba(255,255,255,.3);text-decoration:none;font-size:14px;transition:color .2s}
+.footer-social a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#F7AF24" stroke-width="2"/><path d="M8 14 Q14 8 20 14 Q14 20 8 14Z" fill="#F7AF24" opacity=".6"/><circle cx="14" cy="14" r="3" fill="#F7AF24"/></svg>
+    TravelAI
+  </a>
+  <div class="nav-links">
+    <a href="platform.html">Platform</a>
+    <a href="network.html" class="active">Network</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="partners.html">Partners</a>
+    <a href="about.html">About</a>
+    <a href="insights.html">Insights</a>
+  </div>
+  <a href="partners.html" class="nav-cta">Become a Partner</a>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <p class="eyebrow reveal" style="display:block;text-align:center;margin-bottom:20px;">The Agentic Network</p>
+    <h1 class="hero-title reveal reveal-d1">The future of<br>travel is <em>connected</em></h1>
+    <p class="hero-sub reveal reveal-d2">A self-learning distribution network powering agentic, cross-partner workflows — delivering seamless experiences and quantifiable value through privacy-first traveler intelligence.</p>
+    <div class="hero-pills reveal reveal-d3">
+      <div class="hero-pill"><span class="dot dot-amber"></span>Travelers</div>
+      <div class="hero-pill"><span class="dot dot-blue"></span>AI Agents</div>
+      <div class="hero-pill"><span class="dot dot-green"></span>Supply Providers</div>
+    </div>
+    <div class="hero-ctas reveal reveal-d4">
+      <a href="partners.html" class="btn-primary">Join the Network</a>
+      <a href="#how" class="btn-outline">How It Works</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     HOW IT WORKS — Orbital participants
+══════════════════════════════════════════ -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="how-head reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="how-title">Three participants.<br>One shared objective.</h2>
+      <p class="how-sub">TravelAI's network connects Travelers, AI Agents, and Supply Providers to facilitate the purchase and consumption of travel — better, for everyone.</p>
+    </div>
+    <div class="orbit-arena reveal reveal-d1">
+      <svg id="orbit-svg" viewBox="0 0 800 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="og-amber" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F7AF24" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#F7AF24" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="og-blue" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#4A9EFF" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#4A9EFF" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="og-green" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3DDBA1" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#3DDBA1" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="glow-f" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <marker id="marr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M1 1L9 5L1 9" stroke="#F7AF24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </marker>
+        </defs>
+
+        <!-- Background orbit ring -->
+        <circle cx="400" cy="340" r="210" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="6 8"/>
+
+        <!-- Animated connection arcs between nodes -->
+        <!-- Travelers (400,100) ↔ AI Agents (186,520) -->
+        <path id="arc-ta" d="M400,140 Q210,300 220,490"
+          stroke="url(#arc-grad-amber)" stroke-width="1.5" stroke-dasharray="8 6" fill="none" opacity=".5">
+          <animate attributeName="stroke-dashoffset" values="0;-100" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <!-- AI Agents (186,520) ↔ Supply (614,520) -->
+        <path id="arc-as" d="M252,516 Q400,580 548,516"
+          stroke="url(#arc-grad-blue)" stroke-width="1.5" stroke-dasharray="8 6" fill="none" opacity=".5">
+          <animate attributeName="stroke-dashoffset" values="0;-100" dur="3.4s" repeatCount="indefinite"/>
+        </path>
+        <!-- Supply (614,520) ↔ Travelers (400,100) -->
+        <path id="arc-st" d="M580,490 Q590,300 400,140"
+          stroke="url(#arc-grad-green)" stroke-width="1.5" stroke-dasharray="8 6" fill="none" opacity=".5">
+          <animate attributeName="stroke-dashoffset" values="0;-100" dur="2.8s" repeatCount="indefinite"/>
+        </path>
+
+        <defs>
+          <linearGradient id="arc-grad-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F7AF24" stop-opacity=".8"/>
+            <stop offset="100%" stop-color="#F7AF24" stop-opacity=".1"/>
+          </linearGradient>
+          <linearGradient id="arc-grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4A9EFF" stop-opacity=".8"/>
+            <stop offset="100%" stop-color="#4A9EFF" stop-opacity=".1"/>
+          </linearGradient>
+          <linearGradient id="arc-grad-green" x1="100%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#3DDBA1" stop-opacity=".8"/>
+            <stop offset="100%" stop-color="#3DDBA1" stop-opacity=".1"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Center hub glow -->
+        <circle cx="400" cy="340" r="40" fill="rgba(247,175,36,0.04)" stroke="rgba(247,175,36,0.1)" stroke-width="1"/>
+        <circle cx="400" cy="340" r="24" fill="rgba(247,175,36,0.08)" stroke="rgba(247,175,36,0.2)" stroke-width="1">
+          <animate attributeName="r" values="24;32;24" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0.5;1" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <text x="400" y="346" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="rgba(247,175,36,0.7)">AI</text>
+
+        <!-- NODE: Travelers (top) -->
+        <circle cx="400" cy="104" r="70" fill="url(#og-amber)" opacity=".6"/>
+        <circle cx="400" cy="104" r="50" fill="rgba(247,175,36,0.07)" stroke="rgba(247,175,36,0.3)" stroke-width="1.5"/>
+        <circle cx="400" cy="104" r="50" fill="none" stroke="rgba(247,175,36,0.15)" stroke-width="1.5">
+          <animate attributeName="r" values="50;62;50" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <!-- Person icon -->
+        <circle cx="400" cy="92" r="11" fill="rgba(247,175,36,0.6)"/>
+        <path d="M374 124 Q374 108 400 108 Q426 108 426 124" fill="rgba(247,175,36,0.4)"/>
+        <text x="400" y="155" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="16" font-weight="700" fill="white">Travelers</text>
+        <text x="400" y="174" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="12" fill="rgba(255,255,255,0.45)">High-intent demand</text>
+        <text x="400" y="191" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="12" fill="rgba(255,255,255,0.45)">with portable context</text>
+
+        <!-- NODE: AI Agents (bottom-left) -->
+        <circle cx="190" cy="528" r="70" fill="url(#og-blue)" opacity=".6"/>
+        <circle cx="190" cy="528" r="50" fill="rgba(74,158,255,0.07)" stroke="rgba(74,158,255,0.3)" stroke-width="1.5"/>
+        <circle cx="190" cy="528" r="50" fill="none" stroke="rgba(74,158,255,0.15)" stroke-width="1.5">
+          <animate attributeName="r" values="50;62;50" dur="3.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;0;0.6" dur="3.5s" repeatCount="indefinite"/>
+        </circle>
+        <!-- Brain/AI icon -->
+        <path d="M178 524 Q178 512 190 512 Q202 512 202 524 L202 536 Q202 544 190 544 Q178 544 178 536 Z" fill="rgba(74,158,255,0.5)"/>
+        <circle cx="184" cy="522" r="3" fill="rgba(74,158,255,0.9)"/>
+        <circle cx="196" cy="522" r="3" fill="rgba(74,158,255,0.9)"/>
+        <text x="190" y="579" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="16" font-weight="700" fill="white">AI Agents</text>
+        <text x="190" y="598" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="12" fill="rgba(255,255,255,0.45)">Autonomous optimization</text>
+        <text x="190" y="615" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="12" fill="rgba(255,255,255,0.45)">&amp; orchestration</text>
+
+        <!-- NODE: Supply (bottom-right) -->
+        <circle cx="610" cy="528" r="70" fill="url(#og-green)" opacity=".6"/>
+        <circle cx="610" cy="528" r="50" fill="rgba(61,219,161,0.07)" stroke="rgba(61,219,161,0.3)" stroke-width="1.5"/>
+        <circle cx="610" cy="528" r="50" fill="none" stroke="rgba(61,219,161,0.15)" stroke-width="1.5">
+          <animate attributeName="r" values="50;62;50" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;0;0.6" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <!-- Building/supply icon -->
+        <rect x="598" y="514" width="24" height="28" rx="2" fill="rgba(61,219,161,0.4)"/>
+        <rect x="604" y="520" width="5" height="5" rx="1" fill="rgba(61,219,161,0.9)"/>
+        <rect x="613" y="520" width="5" height="5" rx="1" fill="rgba(61,219,161,0.9)"/>
+        <rect x="604" y="530" width="5" height="5" rx="1" fill="rgba(61,219,161,0.9)"/>
+        <rect x="613" y="530" width="5" height="5" rx="1" fill="rgba(61,219,161,0.9)"/>
+        <text x="610" y="579" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="16" font-weight="700" fill="white">Supply</text>
+        <text x="610" y="598" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="12" fill="rgba(255,255,255,0.45)">Accommodation,</text>
+        <text x="610" y="615" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="12" fill="rgba(255,255,255,0.45)">activities, experiences</text>
+
+        <!-- Moving data packets -->
+        <circle r="4" fill="#F7AF24" opacity=".9" filter="url(#glow-f)">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M400,140 Q210,300 220,490"/>
+          <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="4" fill="#4A9EFF" opacity=".9" filter="url(#glow-f)">
+          <animateMotion dur="3.4s" repeatCount="indefinite" path="M252,516 Q400,580 548,516"/>
+          <animate attributeName="opacity" values="0;1;1;0" dur="3.4s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="4" fill="#3DDBA1" opacity=".9" filter="url(#glow-f)">
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M580,490 Q590,300 400,140"/>
+          <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+
+    <!-- Metcalfe's law bar -->
+    <div class="metcalfe-bar reveal reveal-d2">
+      <p class="metcalfe-label">Following <strong>Metcalfe's Law</strong> — network value compounds as new participants join. Each new brand, traveler, or supply partner exponentially increases value for everyone.</p>
+      <div class="metcalfe-formula">V <span>∝</span> N²</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TECHNOLOGY — Bento grid
+══════════════════════════════════════════ -->
+<section class="section" id="tech">
+  <div class="container">
+    <div class="tech-head reveal">
+      <p class="eyebrow">The Technology</p>
+      <h2 style="font-size:clamp(36px,4.5vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px">Two models.<br>One portable context.</h2>
+      <p style="font-size:17px;color:var(--muted);max-width:520px;line-height:1.7">TravelAI's patent-pending architecture combines Traveler Action Models with the Shared Vector Travel Protocol to create privacy-first, portable traveler intelligence.</p>
+    </div>
+
+    <div class="tech-bento">
+      <!-- TAM card -->
+      <div class="bento-card reveal reveal-d1">
+        <div class="bento-card-header">
+          <div>
+            <div class="badge" style="margin-bottom:14px">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Patent Pending
+            </div>
+            <div class="bento-card-title">Traveler Action Model<br><span style="color:var(--amber)">TAM</span></div>
+            <div class="bento-card-sub">A compact, pseudonymous "memory" of a traveler's preferences. Built from passive, active, analyzed, and enriched data — no PII, ever.</div>
+          </div>
+        </div>
+        <!-- TAM visualization: concentric memory rings -->
+        <div class="bento-vis" style="height:180px">
+          <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="xMidYMid meet">
+            <!-- Ring layers animating in -->
+            <circle cx="200" cy="90" r="20" fill="rgba(247,175,36,0.6)" opacity=".9"/>
+            <circle cx="200" cy="90" r="35" fill="none" stroke="rgba(247,175,36,0.35)" stroke-width="1.5" stroke-dasharray="4 4">
+              <animateTransform attributeName="transform" type="rotate" from="0 200 90" to="360 200 90" dur="12s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="90" r="52" fill="none" stroke="rgba(247,175,36,0.25)" stroke-width="1.5">
+              <animate attributeName="r" values="52;56;52" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="90" r="72" fill="none" stroke="rgba(247,175,36,0.15)" stroke-width="1" stroke-dasharray="6 6">
+              <animateTransform attributeName="transform" type="rotate" from="360 200 90" to="0 200 90" dur="18s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Layer labels -->
+            <text x="200" y="87" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" font-weight="700" fill="rgba(0,0,0,0.7)">TAM</text>
+            <text x="200" y="97" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7" fill="rgba(0,0,0,0.6)">no PII</text>
+            <!-- orbiting data points -->
+            <circle r="4" fill="#F7AF24">
+              <animateMotion dur="4s" repeatCount="indefinite" path="M0 0 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/>
+            </circle>
+            <circle r="3" fill="rgba(247,175,36,0.6)">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M0 0 m-72 0 a72 72 0 1 0 144 0 a72 72 0 1 0 -144 0"/>
+            </circle>
+            <!-- Data type labels around -->
+            <text x="275" y="55" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.6)" font-weight="600">Behavioral</text>
+            <text x="270" y="130" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.5)">Enriched</text>
+            <text x="88" y="55" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.5)" text-anchor="end">Passive</text>
+            <text x="100" y="130" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.5)" text-anchor="end">Active</text>
+          </svg>
+        </div>
+        <ul class="bento-bullets">
+          <li>Privacy-first with no personally identifiable information</li>
+          <li>Continuously learns from traveler signals and outcomes</li>
+          <li>Compact vector representation enables real-time matching</li>
+          <li>Self-improving as the network observes more behavior</li>
+        </ul>
+      </div>
+
+      <!-- SVTP card -->
+      <div class="bento-card reveal reveal-d2">
+        <div class="bento-card-header">
+          <div>
+            <div class="badge" style="margin-bottom:14px">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Patent Pending
+            </div>
+            <div class="bento-card-title">Shared Vector Travel<br>Protocol <span style="color:var(--blue)">SVTP</span></div>
+            <div class="bento-card-sub">The standard way to exchange traveler memory between partners. Consent-based sharing lets the receiving site personalize without ever seeing PII.</div>
+          </div>
+        </div>
+        <!-- SVTP visualization: warm handoff beam -->
+        <div class="bento-vis" style="height:180px">
+          <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="xMidYMid meet">
+            <!-- Left brand -->
+            <rect x="30" y="55" width="80" height="70" rx="10" fill="rgba(74,158,255,0.1)" stroke="rgba(74,158,255,0.3)" stroke-width="1.5"/>
+            <text x="70" y="85" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="11" font-weight="700" fill="rgba(74,158,255,0.9)">Brand A</text>
+            <text x="70" y="100" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" fill="rgba(74,158,255,0.5)">Origin</text>
+            <rect x="50" y="110" width="40" height="8" rx="4" fill="rgba(74,158,255,0.2)"/>
+            <!-- Right brand -->
+            <rect x="290" y="55" width="80" height="70" rx="10" fill="rgba(61,219,161,0.1)" stroke="rgba(61,219,161,0.3)" stroke-width="1.5"/>
+            <text x="330" y="85" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="11" font-weight="700" fill="rgba(61,219,161,0.9)">Brand B</text>
+            <text x="330" y="100" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" fill="rgba(61,219,161,0.5)">Destination</text>
+            <rect x="310" y="110" width="40" height="8" rx="4" fill="rgba(61,219,161,0.2)"/>
+            <!-- Consent gate center -->
+            <rect x="163" y="65" width="74" height="50" rx="8" fill="rgba(247,175,36,0.08)" stroke="rgba(247,175,36,0.25)" stroke-width="1"/>
+            <text x="200" y="87" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" font-weight="700" fill="rgba(247,175,36,0.8)">CONSENT</text>
+            <text x="200" y="100" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="8" fill="rgba(247,175,36,0.5)">GATE</text>
+            <text x="200" y="112" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="8" fill="rgba(247,175,36,0.4)">✓ Granted</text>
+            <!-- Beam between them -->
+            <line x1="115" y1="90" x2="160" y2="90" stroke="rgba(74,158,255,0.5)" stroke-width="2" stroke-dasharray="5 3">
+              <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="240" y1="90" x2="287" y2="90" stroke="rgba(61,219,161,0.5)" stroke-width="2" stroke-dasharray="5 3">
+              <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.2s" repeatCount="indefinite"/>
+            </line>
+            <!-- Vector data packet -->
+            <circle r="5" fill="#F7AF24" opacity=".8">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M110,90 L165,90 L200,90 L240,90 L290,90"/>
+              <animate attributeName="opacity" values="0;1;1;1;0" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Labels below -->
+            <text x="200" y="155" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(255,255,255,0.3)">Vector matrix shared · No PII exposed · Context preserved</text>
+          </svg>
+        </div>
+        <ul class="bento-bullets">
+          <li>Consent-based sharing model puts travelers in control</li>
+          <li>Warm handoffs with full context preservation</li>
+          <li>Works across brands, partners, and AI agents seamlessly</li>
+          <li>Industry-standard protocol for the agentic age</li>
+        </ul>
+      </div>
+
+      <!-- Bottom row: Vector Enrichment + Network Learning -->
+      <div class="bento-card bento-sm reveal reveal-d3" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+        <div>
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(155,127,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:1px solid rgba(155,127,255,0.2)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B7FFF" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="bento-card-title" style="font-size:16px;margin-bottom:6px">Vector Enrichment</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px">The traveler's memory is continuously updated with new signals — aggregated outcomes, status signals, and behavioral patterns. Each update refreshes the TAM.</p>
+          <ul class="bento-bullets" style="gap:7px">
+            <li>Real-time signal processing from every interaction</li>
+            <li>Cross-session learning compounds over time</li>
+            <li>Network effects improve accuracy for all travelers</li>
+          </ul>
+        </div>
+        <div>
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(61,219,161,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:1px solid rgba(61,219,161,0.2)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDBA1" stroke-width="1.7" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M12 8h.01M17 8h.01M7 12h10"/></svg>
+          </div>
+          <div class="bento-card-title" style="font-size:16px;margin-bottom:6px">Network-Scale Learning Engine</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px">Autonomous learning infrastructure that operationalizes insights across 470+ brands. Cohort and causal models identify what drives conversion and satisfaction at scale.</p>
+          <ul class="bento-bullets" style="gap:7px">
+            <li>Distributed learning across the entire brand portfolio</li>
+            <li>Safe deployment with monitoring and rollback</li>
+            <li>Management focuses on strategy, not optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TRANSFORMATION — Animated comparison
+══════════════════════════════════════════ -->
+<section class="section" id="transform">
+  <div class="container">
+    <div class="transform-head reveal">
+      <p class="eyebrow">The Transformation</p>
+      <h2 style="font-size:clamp(36px,4.5vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px">From cold<br>to <span style="background:linear-gradient(90deg,var(--amber),#ff8c42);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">warm start</span></h2>
+      <p style="font-size:17px;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.7">Moving from fragmented signals to context-rich sessions that offer relevance, lower bounce rates, and higher conversion.</p>
+    </div>
+
+    <div class="transform-panels reveal reveal-d1">
+      <div class="transform-arrow">→</div>
+
+      <!-- COLD -->
+      <div class="t-panel t-cold">
+        <div class="t-panel-header">
+          <div class="t-status cold">✕ &nbsp;Today — Cold Start</div>
+          <div class="t-panel-title" style="color:rgba(255,255,255,0.7)">Fragmented<br>& Forgotten</div>
+          <p class="t-panel-desc">Users receive generic experiences on first landing as high-intent signals are siloed, lost, or unable to be shared.</p>
+        </div>
+        <ul class="t-list">
+          <li><div class="t-icon x">✕</div>Fragmented traveler signals across platforms</li>
+          <li><div class="t-icon x">✕</div>Generic first-screen experiences with no context</li>
+          <li><div class="t-icon x">✕</div>High bounce rates from irrelevant recommendations</li>
+          <li><div class="t-icon x">✕</div>No way to share context without exposing PII</li>
+          <li><div class="t-icon x">✕</div>Partners convert first-time traffic with limited intelligence</li>
+        </ul>
+        <!-- Animated fragmented dots -->
+        <div class="t-panel-visual">
+          <svg width="100%" height="120" viewBox="0 0 400 120">
+            <circle cx="40" cy="40" r="6" fill="rgba(255,80,80,0.4)"/>
+            <circle cx="120" cy="70" r="5" fill="rgba(255,80,80,0.3)"/>
+            <circle cx="200" cy="30" r="7" fill="rgba(255,80,80,0.35)"/>
+            <circle cx="280" cy="80" r="4" fill="rgba(255,80,80,0.3)"/>
+            <circle cx="360" cy="50" r="6" fill="rgba(255,80,80,0.35)"/>
+            <circle cx="80" cy="95" r="4" fill="rgba(255,80,80,0.25)"/>
+            <circle cx="160" cy="100" r="5" fill="rgba(255,80,80,0.28)"/>
+            <circle cx="320" cy="15" r="4" fill="rgba(255,80,80,0.25)"/>
+            <text x="200" y="115" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(255,80,80,0.4)">Siloed · Lost · Inaccessible</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- WARM -->
+      <div class="t-panel t-warm">
+        <div class="t-panel-header">
+          <div class="t-status warm">✓ &nbsp;Tomorrow — Warm Start</div>
+          <div class="t-panel-title">Connected<br>&amp; <span style="color:var(--green)">Personalized</span></div>
+          <p class="t-panel-desc">New front doors remember preferences and generate personalized results instantly. Partner context flows with consent in a privacy-safe manner.</p>
+        </div>
+        <ul class="t-list">
+          <li><div class="t-icon check">✓</div>Portable context travels with the traveler</li>
+          <li><div class="t-icon check">✓</div>Instant personalization on first screen</li>
+          <li><div class="t-icon check">✓</div>Partners receive high-intent signals with full context</li>
+          <li><div class="t-icon check">✓</div>Consent-based sharing preserves privacy and control</li>
+          <li><div class="t-icon check">✓</div>Immediate first-screen relevance drives conversion</li>
+        </ul>
+        <!-- Animated converging dots -->
+        <div class="t-panel-visual">
+          <svg width="100%" height="120" viewBox="0 0 400 120">
+            <line x1="40" y1="40" x2="195" y2="60" stroke="rgba(61,219,161,0.2)" stroke-width="1"/>
+            <line x1="120" y1="70" x2="195" y2="60" stroke="rgba(61,219,161,0.2)" stroke-width="1"/>
+            <line x1="280" y1="80" x2="205" y2="60" stroke="rgba(61,219,161,0.2)" stroke-width="1"/>
+            <line x1="360" y1="50" x2="205" y2="60" stroke="rgba(61,219,161,0.2)" stroke-width="1"/>
+            <circle cx="40" cy="40" r="5" fill="rgba(61,219,161,0.35)"/>
+            <circle cx="120" cy="70" r="4" fill="rgba(61,219,161,0.3)"/>
+            <circle cx="280" cy="80" r="5" fill="rgba(61,219,161,0.3)"/>
+            <circle cx="360" cy="50" r="4" fill="rgba(61,219,161,0.35)"/>
+            <circle cx="200" cy="60" r="14" fill="rgba(61,219,161,0.15)" stroke="rgba(61,219,161,0.4)" stroke-width="1.5">
+              <animate attributeName="r" values="14;18;14" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="60" r="6" fill="rgba(61,219,161,0.7)"/>
+            <text x="200" y="115" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(61,219,161,0.5)">Portable · Consensual · Personalized</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MECHANISM — Vectorization pipeline
+══════════════════════════════════════════ -->
+<section class="section" id="mechanism">
+  <div class="container">
+    <div class="mech-head reveal">
+      <p class="eyebrow">The Mechanism</p>
+      <h2 style="font-size:clamp(36px,4.5vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px">Everything becomes<br>a vector</h2>
+      <p style="font-size:17px;color:var(--muted);max-width:580px;line-height:1.7">The bedrock of portable traveler context lies in vectorization — a numerical representation where closeness equals similarity. Every item becomes a point in multi-dimensional space.</p>
+    </div>
+
+    <!-- Pipeline steps -->
+    <div class="mech-flow reveal reveal-d1">
+      <div class="mech-step">
+        <div class="mech-step-num">Step 01</div>
+        <div class="mech-step-title">Raw Signal</div>
+        <div class="mech-step-sub">Traveler behavior, preferences, and intent captured across touchpoints</div>
+        <div class="mech-step-vis">
+          <svg width="90%" height="100%" viewBox="0 0 180 56">
+            <rect x="4" y="8" width="80" height="40" rx="6" fill="rgba(247,175,36,0.08)" stroke="rgba(247,175,36,0.2)" stroke-width="1"/>
+            <text x="44" y="26" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(247,175,36,0.6)">"Beach vacation"</text>
+            <text x="44" y="38" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(247,175,36,0.4)">Budget: mid-range</text>
+            <rect x="95" y="20" width="60" height="16" rx="3" fill="rgba(247,175,36,0.06)" stroke="rgba(247,175,36,0.15)" stroke-width="1"/>
+            <text x="125" y="31" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(247,175,36,0.4)">+12 signals</text>
+          </svg>
+        </div>
+      </div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-step">
+        <div class="mech-step-num">Step 02</div>
+        <div class="mech-step-title">Embedding Model</div>
+        <div class="mech-step-sub">Neural network transforms raw data into dense numerical representations</div>
+        <div class="mech-step-vis">
+          <svg width="90%" height="100%" viewBox="0 0 180 56">
+            <rect x="20" y="6" width="140" height="44" rx="8" fill="rgba(155,127,255,0.08)" stroke="rgba(155,127,255,0.2)" stroke-width="1"/>
+            <text x="90" y="22" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" font-weight="600" fill="rgba(155,127,255,0.7)">Neural Network</text>
+            <line x1="35" y1="33" x2="70" y2="33" stroke="rgba(155,127,255,0.4)" stroke-width="1"/>
+            <line x1="80" y1="33" x2="115" y2="33" stroke="rgba(155,127,255,0.4)" stroke-width="1"/>
+            <line x1="125" y1="33" x2="148" y2="33" stroke="rgba(155,127,255,0.4)" stroke-width="1"/>
+            <circle cx="75" cy="33" r="4" fill="rgba(155,127,255,0.5)"/>
+            <circle cx="120" cy="33" r="4" fill="rgba(155,127,255,0.5)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-step">
+        <div class="mech-step-num">Step 03</div>
+        <div class="mech-step-title">TAM Vector</div>
+        <div class="mech-step-sub">Compact pseudonymous representation — no PII, fully portable</div>
+        <div class="mech-step-vis">
+          <svg width="90%" height="100%" viewBox="0 0 180 56">
+            <rect x="4" y="10" width="172" height="36" rx="6" fill="rgba(74,158,255,0.08)" stroke="rgba(74,158,255,0.2)" stroke-width="1"/>
+            <text x="10" y="27" font-family="monospace" font-size="8" fill="rgba(74,158,255,0.6)">[0.12, -0.88, 0.07, 0.34,</text>
+            <text x="10" y="39" font-family="monospace" font-size="8" fill="rgba(74,158,255,0.4)"> -0.21, 0.63, ... 512d]</text>
+          </svg>
+        </div>
+      </div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-step">
+        <div class="mech-step-num">Step 04</div>
+        <div class="mech-step-title">Match & Rank</div>
+        <div class="mech-step-sub">Cosine similarity finds closest items in real-time across millions of properties</div>
+        <div class="mech-step-vis">
+          <svg width="90%" height="100%" viewBox="0 0 180 56">
+            <circle cx="40" cy="28" r="14" fill="rgba(61,219,161,0.1)" stroke="rgba(61,219,161,0.3)" stroke-width="1.5"/>
+            <text x="40" y="32" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="8" fill="rgba(61,219,161,0.7)">0.97</text>
+            <circle cx="80" cy="28" r="10" fill="rgba(61,219,161,0.07)" stroke="rgba(61,219,161,0.2)" stroke-width="1"/>
+            <text x="80" y="32" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7" fill="rgba(61,219,161,0.5)">0.91</text>
+            <circle cx="115" cy="28" r="8" fill="rgba(61,219,161,0.05)" stroke="rgba(61,219,161,0.15)" stroke-width="1"/>
+            <text x="115" y="32" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7" fill="rgba(61,219,161,0.4)">0.85</text>
+            <text x="148" y="32" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(255,255,255,0.2)">...</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vector space visualization -->
+    <div class="vector-space reveal reveal-d2">
+      <div class="vector-space-head">
+        <h3>Vector space: closeness = similarity</h3>
+        <p>One format lets all entities be compared, combined, and retrieved in real-time — while avoiding exposure of raw data.</p>
+      </div>
+      <div class="vector-grid">
+        <div class="vector-canvas-wrap">
+          <canvas id="vector-canvas" width="480" height="320"></canvas>
+        </div>
+        <div>
+          <div class="vector-legend">
+            <div class="vl-item">
+              <div class="vl-dot" style="background:#F7AF24"></div>
+              <div><div class="vl-label">Travelers</div><div class="vl-desc">Clustered by preference profile and travel style</div></div>
+            </div>
+            <div class="vl-item">
+              <div class="vl-dot" style="background:#4A9EFF"></div>
+              <div><div class="vl-label">Properties</div><div class="vl-desc">Beach resorts, city hotels, boutique stays</div></div>
+            </div>
+            <div class="vl-item">
+              <div class="vl-dot" style="background:#3DDBA1"></div>
+              <div><div class="vl-label">Activities</div><div class="vl-desc">Experiences matched by vibe and context</div></div>
+            </div>
+            <div class="vl-item">
+              <div class="vl-dot" style="background:#9B7FFF"></div>
+              <div><div class="vl-label">Locations</div><div class="vl-desc">Destinations with personality embeddings</div></div>
+            </div>
+          </div>
+          <div class="vector-formula">
+            <div class="vf-step"><div class="vf-label">Raw Data</div><div class="vf-value" style="background:rgba(247,175,36,0.08);color:rgba(247,175,36,0.8)">"Beach trip"</div></div>
+            <div class="vf-arr">→</div>
+            <div class="vf-step"><div class="vf-label">Model</div><div class="vf-value" style="background:rgba(155,127,255,0.08);color:rgba(155,127,255,0.8)">Embed()</div></div>
+            <div class="vf-arr">→</div>
+            <div class="vf-step"><div class="vf-label">TAM Vector</div><div class="vf-value" style="background:rgba(74,158,255,0.08);color:rgba(74,158,255,0.8)">[0.12, -0.88…]</div></div>
+            <div class="vf-arr">→</div>
+            <div class="vf-step"><div class="vf-label">Match</div><div class="vf-value" style="background:rgba(61,219,161,0.08);color:rgba(61,219,161,0.8)">Top-K similar</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     WHAT MAKES IT WORK — UNCHANGED
+══════════════════════════════════════════ -->
+<section class="section" id="makes">
+  <div class="container">
+    <div class="makes-head reveal">
+      <p class="eyebrow">The Foundations</p>
+      <h2 class="makes-title">What makes an agentic<br>network work</h2>
+    </div>
+    <div class="makes-grid">
+      <div class="makes-card reveal">
+        <div class="makes-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div class="makes-card-title">Speed &amp; Scale</div>
+        <p class="makes-card-sub">Context flows at the speed of thought. Millisecond response times even across millions of travelers, properties, and preference combinations.</p>
+      </div>
+      <div class="makes-card reveal reveal-d1">
+        <div class="makes-card-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="makes-card-title">Clear Attribution</div>
+        <p class="makes-card-sub">Partners need visibility into what's working. Attribution, monitoring, and partner ROI analytics are built into every handoff.</p>
+      </div>
+      <div class="makes-card reveal reveal-d2">
+        <div class="makes-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="makes-card-title">Network Learning</div>
+        <p class="makes-card-sub">Every interaction improves the entire network. What works for one traveler or partner makes the system smarter for everyone else.</p>
+      </div>
+      <div class="makes-card reveal reveal-d1">
+        <div class="makes-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="makes-card-title">Outcome Optimization</div>
+        <p class="makes-card-sub">The network optimizes for actual traveler satisfaction and partner ROI — not just clicks, impressions, or vanity metrics.</p>
+      </div>
+      <div class="makes-card reveal reveal-d2">
+        <div class="makes-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="makes-card-title">Seamless Integration</div>
+        <p class="makes-card-sub">Supply providers need frictionless integrations that deliver high-intent demand without operational complexity or technical overhead.</p>
+      </div>
+      <div class="makes-card reveal reveal-d3">
+        <div class="makes-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="makes-card-title">Trust in Agents</div>
+        <p class="makes-card-sub">Travelers must trust that AI agents act in their best interest — with transparency, consent, and predictable outcomes at every step of the journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CTA
+══════════════════════════════════════════ -->
+<section class="section" id="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <p class="eyebrow" style="display:block;text-align:center;margin-bottom:20px;">Join the Network</p>
+      <h2 class="cta-title">Build the future of<br><span>connected travel</span></h2>
+      <p class="cta-sub">Whether you're a travel brand, OTA, accommodation provider, or technology partner — there's a place for you in the TravelAI Agentic Network.</p>
+      <div class="cta-partner-types">
+        <div class="cta-partner-pill">Travel Brands</div>
+        <div class="cta-partner-pill">OTAs</div>
+        <div class="cta-partner-pill">Accommodation Providers</div>
+        <div class="cta-partner-pill">Technology Partners</div>
+        <div class="cta-partner-pill">DMOs</div>
+      </div>
+      <div class="cta-btns">
+        <a href="partners.html" class="btn-primary">Become a Partner</a>
+        <a href="contact.html" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#F7AF24" stroke-width="2"/><path d="M8 14 Q14 8 20 14 Q14 20 8 14Z" fill="#F7AF24" opacity=".6"/><circle cx="14" cy="14" r="3" fill="#F7AF24"/></svg>
+          TravelAI
+        </a>
+        <p>Making travel better through AI personalization.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="platform.html">Platform</a>
+        <a href="network.html">Network</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="partners.html">Partners</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="why.html">Why TravelAI</a>
+        <a href="about.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Content</h5>
+        <a href="insights.html">Insights</a>
+        <a href="resources.html">Resources</a>
+        <a href="stories.html">Travel Stories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TravelAI. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">𝕏</a><a href="#">in</a><a href="#">f</a><a href="#">◎</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════
+   HERO CANVAS — Animated network graph
+══════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [], t = 0;
+
+  const COLORS = ['rgba(247,175,36,', 'rgba(74,158,255,', 'rgba(61,219,161,'];
+
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    initNodes();
+  }
+
+  function initNodes(){
+    nodes = [];
+    const count = Math.floor((W * H) / 28000);
+    for(let i = 0; i < count; i++){
+      nodes.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - .5) * .35,
+        vy: (Math.random() - .5) * .35,
+        r: Math.random() * 2.5 + 1,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        pulse: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    t += .008;
+
+    // Draw connections
+    for(let i = 0; i < nodes.length; i++){
+      for(let j = i + 1; j < nodes.length; j++){
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < 150){
+          const alpha = (1 - dist/150) * .18;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(247,175,36,${alpha})`;
+          ctx.lineWidth = .8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw + move nodes
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > W) n.vx *= -1;
+      if(n.y < 0 || n.y > H) n.vy *= -1;
+      const pulse = Math.sin(t * 2 + n.pulse) * .4 + .6;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.color + (pulse * .7) + ')';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
+/* ══════════════════════════════════════
+   VECTOR CANVAS — Dot cluster visualization
+══════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('vector-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = 480, H = 320;
+
+  // Pre-defined clusters
+  const clusters = [
+    { color: [247,175,36],  label:'Traveler',  cx:180, cy:130, count:18, spread:52 },
+    { color: [74,158,255],  label:'Property',  cx:320, cy:90,  count:16, spread:48 },
+    { color: [61,219,161],  label:'Activity',  cx:340, cy:230, count:14, spread:44 },
+    { color: [155,127,255], label:'Location',  cx:140, cy:240, count:12, spread:50 },
+  ];
+
+  let points = [];
+  let t = 0;
+
+  clusters.forEach((c, ci) => {
+    for(let i = 0; i < c.count; i++){
+      const angle = Math.random() * Math.PI * 2;
+      const dist  = Math.random() * c.spread;
+      points.push({
+        x: c.cx + Math.cos(angle) * dist,
+        y: c.cy + Math.sin(angle) * dist,
+        r: Math.random() * 2.8 + 1.5,
+        color: c.color,
+        ox: c.cx + Math.cos(angle) * dist,
+        oy: c.cy + Math.sin(angle) * dist,
+        phase: Math.random() * Math.PI * 2,
+        speed: .3 + Math.random() * .4,
+        cluster: ci,
+      });
+    }
+  });
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    t += .012;
+
+    // Draw faint axis
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 6]);
+    ctx.beginPath(); ctx.moveTo(40, H/2); ctx.lineTo(W-20, H/2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(W/2, 20); ctx.lineTo(W/2, H-20); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Draw inter-cluster connection (traveler → nearest property)
+    ctx.beginPath();
+    ctx.moveTo(clusters[0].cx, clusters[0].cy);
+    ctx.lineTo(clusters[1].cx, clusters[1].cy);
+    ctx.strokeStyle = 'rgba(247,175,36,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Draw cluster halos
+    clusters.forEach(c => {
+      const [r,g,b] = c.color;
+      const grad = ctx.createRadialGradient(c.cx, c.cy, 0, c.cx, c.cy, c.spread + 20);
+      grad.addColorStop(0, `rgba(${r},${g},${b},0.08)`);
+      grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+      ctx.beginPath();
+      ctx.arc(c.cx, c.cy, c.spread + 20, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    });
+
+    // Draw points
+    points.forEach(p => {
+      p.x = p.ox + Math.sin(t * p.speed + p.phase) * 2.5;
+      p.y = p.oy + Math.cos(t * p.speed * .7 + p.phase) * 2.5;
+      const [r,g,b] = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},0.75)`;
+      ctx.fill();
+    });
+
+    // Cluster labels
+    clusters.forEach(c => {
+      const [r,g,b] = c.color;
+      ctx.font = '600 11px Inter Tight, sans-serif';
+      ctx.fillStyle = `rgba(${r},${g},${b},0.7)`;
+      ctx.textAlign = 'center';
+      ctx.fillText(c.label + 's', c.cx, c.cy - c.spread - 10);
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+    }
+  });
+}, { threshold: .1 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Trigger hero reveals immediately */
+document.querySelectorAll('#hero .reveal').forEach(el => {
+  setTimeout(() => el.classList.add('in'), 100);
+});
+</script>
+</body>
+</html>

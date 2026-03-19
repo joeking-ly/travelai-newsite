@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/motion-reveal.css">
   <link rel="stylesheet" href="css/site.css">
 </head>
-<body>
+<body class="network-page">
   <div id="universal-nav-placeholder"></div>
 
   <section class="hero">
@@ -19,87 +19,265 @@
 
   <section class="section soft">
     <div class="inner">
-      <h2 class="sec-title">How It Works</h2>
-      <p style="text-align:center;color:rgba(255,255,255,0.6);font-size:18px;margin-bottom:60px;max-width:900px;margin-left:auto;margin-right:auto">TravelAI's Agentic Network consists of AI Agents, Travelers, and Supply Providers (accommodation, activities, DMOs). Network participants communicate, transact, and cooperate to achieve a common objective: facilitate the purchase and consumption of travel while providing a better experience for everyone.</p>
-      
-      <h3 style="font-weight:600;font-size:24px;color:var(--white);text-align:center;margin-bottom:40px">Three participants. One shared objective.</h3>
-      
-      <div class="participants-grid">
-        <div class="participant">
-          <div class="participant-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="22" cy="26" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M12 48C12 38 16 34 22 34C28 34 32 38 32 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="42" cy="26" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M32 48C32 38 36 34 42 34C48 34 52 38 52 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-          <h3 class="participant-title">Travelers</h3>
-          <p class="participant-desc">High-intent demand with portable context</p>
-        </div>
-        <div class="participant">
-          <div class="participant-icon"><svg viewBox="0 0 64 64" fill="none"><rect x="16" y="12" width="32" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="26" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/><circle cx="38" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/><path d="M24 32Q32 36 40 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M32 12L32 6M28 6L36 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-          <h3 class="participant-title">AI Agents</h3>
-          <p class="participant-desc">Autonomous optimization & orchestration</p>
-        </div>
-        <div class="participant">
-          <div class="participant-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M8 52V24L32 8L56 24V52" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M8 32H56M20 32V52M32 32V52M44 32V52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="24" y="36" width="16" height="16" rx="1" stroke="currentColor" stroke-width="2.5"/></svg></div>
-          <h3 class="participant-title">Supply</h3>
-          <p class="participant-desc">Accommodation, activities, experiences</p>
-        </div>
+      <div class="net-head net-reveal">
+        <p class="net-eyebrow">How It Works</p>
+        <h2 class="sec-title">Three participants.<br/>One shared objective.</h2>
+        <p class="net-sub">TravelAI's network connects Travelers, AI Agents, and Supply Providers to facilitate the purchase and consumption of travel — better, for everyone.</p>
       </div>
 
-      <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:14px;font-style:italic">Following Metcalfe's Law: Value increases at the square of the number of participants</p>
+      <div class="net-orbit-wrap net-reveal net-reveal-d1" aria-hidden="true">
+        <svg class="net-orbit" viewBox="0 0 800 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="net-og-amber" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F7AF24" stop-opacity=".4"/>
+              <stop offset="100%" stop-color="#F7AF24" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="net-og-blue" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#4A9EFF" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#4A9EFF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="net-og-green" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#3DDBA1" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#3DDBA1" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="net-glow-f" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <linearGradient id="net-arc-grad-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F7AF24" stop-opacity=".85"/>
+              <stop offset="100%" stop-color="#F7AF24" stop-opacity=".12"/>
+            </linearGradient>
+            <linearGradient id="net-arc-grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4A9EFF" stop-opacity=".78"/>
+              <stop offset="100%" stop-color="#4A9EFF" stop-opacity=".12"/>
+            </linearGradient>
+            <linearGradient id="net-arc-grad-green" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#3DDBA1" stop-opacity=".78"/>
+              <stop offset="100%" stop-color="#3DDBA1" stop-opacity=".12"/>
+            </linearGradient>
+          </defs>
+
+          <circle cx="400" cy="340" r="210" class="net-orbit-ring"/>
+
+          <path d="M400,140 Q210,300 220,490" class="net-arc net-arc-amber" stroke="url(#net-arc-grad-amber)">
+            <animate attributeName="stroke-dashoffset" values="0;-100" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M252,516 Q400,580 548,516" class="net-arc net-arc-blue" stroke="url(#net-arc-grad-blue)">
+            <animate attributeName="stroke-dashoffset" values="0;-100" dur="3.4s" repeatCount="indefinite"/>
+          </path>
+          <path d="M580,490 Q590,300 400,140" class="net-arc net-arc-green" stroke="url(#net-arc-grad-green)">
+            <animate attributeName="stroke-dashoffset" values="0;-100" dur="2.8s" repeatCount="indefinite"/>
+          </path>
+
+          <g class="net-hub">
+            <circle cx="400" cy="340" r="40" class="net-hub-outer"/>
+            <circle cx="400" cy="340" r="24" class="net-hub-inner">
+              <animate attributeName="r" values="24;32;24" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;0.5;1" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <text x="400" y="346" text-anchor="middle" class="net-hub-text">AI</text>
+          </g>
+
+          <!-- Travelers -->
+          <g class="net-node net-node-amber">
+            <circle cx="400" cy="104" r="70" fill="url(#net-og-amber)" opacity=".6"/>
+            <circle cx="400" cy="104" r="50" class="net-node-core"/>
+            <circle cx="400" cy="104" r="50" class="net-node-pulse">
+              <animate attributeName="r" values="50;62;50" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="400" cy="92" r="11" class="net-node-icon"/>
+            <path d="M374 124 Q374 108 400 108 Q426 108 426 124" class="net-node-icon" opacity=".7"/>
+            <text x="400" y="155" text-anchor="middle" class="net-node-title">Travelers</text>
+            <text x="400" y="174" text-anchor="middle" class="net-node-sub">High-intent demand</text>
+            <text x="400" y="191" text-anchor="middle" class="net-node-sub">with portable context</text>
+          </g>
+
+          <!-- AI Agents -->
+          <g class="net-node net-node-blue">
+            <circle cx="190" cy="528" r="70" fill="url(#net-og-blue)" opacity=".6"/>
+            <circle cx="190" cy="528" r="50" class="net-node-core"/>
+            <circle cx="190" cy="528" r="50" class="net-node-pulse">
+              <animate attributeName="r" values="50;62;50" dur="3.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0;0.6" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M178 524 Q178 512 190 512 Q202 512 202 524 L202 536 Q202 544 190 544 Q178 544 178 536 Z" class="net-node-icon" opacity=".75"/>
+            <circle cx="184" cy="522" r="3" class="net-node-icon"/>
+            <circle cx="196" cy="522" r="3" class="net-node-icon"/>
+            <text x="190" y="579" text-anchor="middle" class="net-node-title">AI Agents</text>
+            <text x="190" y="598" text-anchor="middle" class="net-node-sub">Autonomous optimization</text>
+            <text x="190" y="615" text-anchor="middle" class="net-node-sub">&amp; orchestration</text>
+          </g>
+
+          <!-- Supply -->
+          <g class="net-node net-node-green">
+            <circle cx="610" cy="528" r="70" fill="url(#net-og-green)" opacity=".6"/>
+            <circle cx="610" cy="528" r="50" class="net-node-core"/>
+            <circle cx="610" cy="528" r="50" class="net-node-pulse">
+              <animate attributeName="r" values="50;62;50" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0;0.6" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <rect x="598" y="514" width="24" height="28" rx="2" class="net-node-icon" opacity=".7"/>
+            <rect x="604" y="520" width="5" height="5" rx="1" class="net-node-icon"/>
+            <rect x="613" y="520" width="5" height="5" rx="1" class="net-node-icon"/>
+            <rect x="604" y="530" width="5" height="5" rx="1" class="net-node-icon"/>
+            <rect x="613" y="530" width="5" height="5" rx="1" class="net-node-icon"/>
+            <text x="610" y="579" text-anchor="middle" class="net-node-title">Supply</text>
+            <text x="610" y="598" text-anchor="middle" class="net-node-sub">Accommodation,</text>
+            <text x="610" y="615" text-anchor="middle" class="net-node-sub">activities, experiences</text>
+          </g>
+
+          <!-- Moving packets -->
+          <circle r="4" fill="#F7AF24" opacity=".9" filter="url(#net-glow-f)">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M400,140 Q210,300 220,490"/>
+            <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="4" fill="#4A9EFF" opacity=".9" filter="url(#net-glow-f)">
+            <animateMotion dur="3.4s" repeatCount="indefinite" path="M252,516 Q400,580 548,516"/>
+            <animate attributeName="opacity" values="0;1;1;0" dur="3.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="4" fill="#3DDBA1" opacity=".9" filter="url(#net-glow-f)">
+            <animateMotion dur="2.8s" repeatCount="indefinite" path="M580,490 Q590,300 400,140"/>
+            <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+
+      <div class="net-metcalfe net-reveal net-reveal-d2">
+        <p class="net-metcalfe-label">Following <strong>Metcalfe's Law</strong> — network value compounds as new participants join. Each new brand, traveler, or supply partner exponentially increases value for everyone.</p>
+        <div class="net-metcalfe-formula">V <span>∝</span> N²</div>
+      </div>
     </div>
   </section>
 
   <section class="section dark">
     <div class="inner">
-      <h2 class="sec-title">The Technology</h2>
-      <p style="text-align:center;color:rgba(255,255,255,0.6);font-size:18px;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto">TravelAI's patent-pending architecture combines Traveler Action Models (TAMs) with the Shared Vector Travel Protocol (SVTP) to create privacy-first, portable traveler intelligence.</p>
-      
-      <h3 style="font-weight:600;font-size:24px;color:var(--white);text-align:center;margin-bottom:40px">Two models. One portable context.</h3>
+      <div class="net-head net-reveal">
+        <p class="net-eyebrow">The Technology</p>
+        <h2 class="sec-title">Two models.<br/>One portable context.</h2>
+        <p class="net-sub">TravelAI's patent-pending architecture combines Traveler Action Models with the Shared Vector Travel Protocol to create privacy-first, portable traveler intelligence.</p>
+      </div>
 
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-badge">Patent Pending</div>
-          <h3 class="tech-title">Traveler Action Model (TAM)</h3>
-          <ul class="tech-list">
-            <li>Privacy-first architecture with no personally identifiable information</li>
+      <div class="net-tech-bento">
+        <div class="net-bento-card net-reveal net-reveal-d1">
+          <div class="net-bento-header">
+            <div>
+              <div class="net-badge">Patent Pending</div>
+              <div class="net-bento-title">Traveler Action Model<br><span class="net-accent-amber">TAM</span></div>
+              <div class="net-bento-sub">A compact, pseudonymous "memory" of a traveler's preferences. Built from passive, active, analyzed, and enriched data — no PII, ever.</div>
+            </div>
+          </div>
+          <div class="net-bento-vis">
+            <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <circle cx="200" cy="90" r="20" fill="rgba(247,175,36,0.6)" opacity=".9"/>
+              <circle cx="200" cy="90" r="35" fill="none" stroke="rgba(247,175,36,0.35)" stroke-width="1.5" stroke-dasharray="4 4">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 90" to="360 200 90" dur="12s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="200" cy="90" r="52" fill="none" stroke="rgba(247,175,36,0.25)" stroke-width="1.5">
+                <animate attributeName="r" values="52;56;52" dur="4s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="200" cy="90" r="72" fill="none" stroke="rgba(247,175,36,0.15)" stroke-width="1" stroke-dasharray="6 6">
+                <animateTransform attributeName="transform" type="rotate" from="360 200 90" to="0 200 90" dur="18s" repeatCount="indefinite"/>
+              </circle>
+              <text x="200" y="87" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" font-weight="700" fill="rgba(0,0,0,0.7)">TAM</text>
+              <text x="200" y="97" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7" fill="rgba(0,0,0,0.6)">no PII</text>
+              <circle r="4" fill="#F7AF24">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M0 0 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/>
+              </circle>
+              <circle r="3" fill="rgba(247,175,36,0.6)">
+                <animateMotion dur="6s" repeatCount="indefinite" path="M0 0 m-72 0 a72 72 0 1 0 144 0 a72 72 0 1 0 -144 0"/>
+              </circle>
+              <text x="275" y="55" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.6)" font-weight="600">Behavioral</text>
+              <text x="270" y="130" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.5)">Enriched</text>
+              <text x="88" y="55" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.5)" text-anchor="end">Passive</text>
+              <text x="100" y="130" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(247,175,36,0.5)" text-anchor="end">Active</text>
+            </svg>
+          </div>
+          <ul class="net-bullets">
+            <li>Privacy-first with no personally identifiable information</li>
             <li>Continuously learns from traveler signals and outcomes</li>
             <li>Compact vector representation enables real-time matching</li>
             <li>Self-improving as the network observes more behavior</li>
           </ul>
-          <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:20px">A TAM is a compact, pseudonymous "memory" of a traveler's preferences. It's built from passive, active, analyzed, and enriched data. TAMs contain no PII, and get smarter over time to offer better personalization.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-badge">Patent Pending</div>
-          <h3 class="tech-title">Shared Vector Travel Protocol (SVTP)</h3>
-          <ul class="tech-list">
+        <div class="net-bento-card net-reveal net-reveal-d2">
+          <div class="net-bento-header">
+            <div>
+              <div class="net-badge">Patent Pending</div>
+              <div class="net-bento-title">Shared Vector Travel<br>Protocol <span class="net-accent-blue">SVTP</span></div>
+              <div class="net-bento-sub">The standard way to exchange traveler memory between partners. Consent-based sharing lets the receiving site personalize without ever seeing PII.</div>
+            </div>
+          </div>
+          <div class="net-bento-vis">
+            <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <rect x="30" y="55" width="80" height="70" rx="10" fill="rgba(74,158,255,0.08)" stroke="rgba(74,158,255,0.25)" stroke-width="1.5"/>
+              <text x="70" y="85" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="11" font-weight="700" fill="rgba(74,158,255,0.9)">Brand A</text>
+              <text x="70" y="100" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" fill="rgba(74,158,255,0.5)">Origin</text>
+              <rect x="50" y="110" width="40" height="8" rx="4" fill="rgba(74,158,255,0.18)"/>
+
+              <rect x="290" y="55" width="80" height="70" rx="10" fill="rgba(61,219,161,0.08)" stroke="rgba(61,219,161,0.25)" stroke-width="1.5"/>
+              <text x="330" y="85" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="11" font-weight="700" fill="rgba(61,219,161,0.9)">Brand B</text>
+              <text x="330" y="100" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" fill="rgba(61,219,161,0.5)">Destination</text>
+              <rect x="310" y="110" width="40" height="8" rx="4" fill="rgba(61,219,161,0.18)"/>
+
+              <rect x="163" y="65" width="74" height="50" rx="8" fill="rgba(247,175,36,0.07)" stroke="rgba(247,175,36,0.22)" stroke-width="1"/>
+              <text x="200" y="87" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" font-weight="700" fill="rgba(247,175,36,0.85)">CONSENT</text>
+              <text x="200" y="100" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="8" fill="rgba(247,175,36,0.55)">GATE</text>
+              <text x="200" y="112" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="8" fill="rgba(247,175,36,0.45)">✓ Granted</text>
+
+              <line x1="115" y1="90" x2="160" y2="90" stroke="rgba(74,158,255,0.45)" stroke-width="2" stroke-dasharray="5 3">
+                <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.2s" repeatCount="indefinite"/>
+              </line>
+              <line x1="240" y1="90" x2="287" y2="90" stroke="rgba(61,219,161,0.45)" stroke-width="2" stroke-dasharray="5 3">
+                <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.2s" repeatCount="indefinite"/>
+              </line>
+
+              <circle r="5" fill="#F7AF24" opacity=".82">
+                <animateMotion dur="2.5s" repeatCount="indefinite" path="M110,90 L165,90 L200,90 L240,90 L290,90"/>
+                <animate attributeName="opacity" values="0;1;1;1;0" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+
+              <text x="200" y="155" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(255,255,255,0.28)">Vector shared · No PII exposed · Context preserved</text>
+            </svg>
+          </div>
+          <ul class="net-bullets">
             <li>Consent-based sharing model puts travelers in control</li>
             <li>Warm handoffs with full context preservation</li>
             <li>Works across brands, partners, and AI agents seamlessly</li>
             <li>Industry-standard protocol for the agentic age</li>
           </ul>
-          <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:20px">The standard way to exchange traveler memory between partners. With the traveler's consent, a vector matrix is shared so the receiving site can personalize the first encounter without ever seeing PII.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-badge">Core Technology</div>
-          <h3 class="tech-title">Vector Enrichment</h3>
-          <ul class="tech-list">
-            <li>Real-time signal processing from every interaction</li>
-            <li>Behavioral patterns detected automatically</li>
-            <li>Cross-session learning compounds over time</li>
-            <li>Network effects improve accuracy for all travelers</li>
-          </ul>
-          <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:20px">The traveler's memory is continuously updated with new signals like aggregated outcomes (views, saves, bookings) and status signals (loyalty). Each update refreshes the TAM so the next visit starts warmer and more relevant.</p>
-        </div>
+        <div class="net-bento-card net-bento-wide net-reveal net-reveal-d3">
+          <div class="net-bento-wide-grid">
+            <div class="net-mini">
+              <div class="net-mini-icon net-mini-purple" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              </div>
+              <div class="net-mini-title">Vector Enrichment</div>
+              <p class="net-mini-sub">The traveler's memory is continuously updated with new signals — aggregated outcomes, status signals, and behavioral patterns. Each update refreshes the TAM.</p>
+              <ul class="net-bullets net-bullets-tight">
+                <li>Real-time signal processing from every interaction</li>
+                <li>Cross-session learning compounds over time</li>
+                <li>Network effects improve accuracy for all travelers</li>
+              </ul>
+            </div>
 
-        <div class="tech-card">
-          <div class="tech-badge">Infrastructure</div>
-          <h3 class="tech-title">Network-Scale Learning Engine</h3>
-          <ul class="tech-list">
-            <li>Distributed learning across the entire brand portfolio</li>
-            <li>A/B testing at massive scale with rapid iteration</li>
-            <li>Safe deployment with monitoring and rollback</li>
-            <li>Management focuses on strategy, not optimization</li>
-          </ul>
-          <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:20px">Autonomous learning infrastructure that operationalizes insights across 470+ brands. Cohort and causal models work across properties to identify what drives conversion and satisfaction at scale.</p>
+            <div class="net-mini">
+              <div class="net-mini-icon net-mini-green" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M12 8h.01M17 8h.01M7 12h10"/></svg>
+              </div>
+              <div class="net-mini-title">Network-Scale Learning Engine</div>
+              <p class="net-mini-sub">Autonomous learning infrastructure that operationalizes insights across 470+ brands. Cohort and causal models identify what drives conversion and satisfaction at scale.</p>
+              <ul class="net-bullets net-bullets-tight">
+                <li>Distributed learning across the entire brand portfolio</li>
+                <li>Safe deployment with monitoring and rollback</li>
+                <li>Management focuses on strategy, not optimization</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -107,124 +285,168 @@
 
   <section class="section white">
     <div class="inner">
-      <div class="transform-section">
-        <h2 class="sec-title" style="color:#0A0A0F">The Transformation</h2>
-        <p style="text-align:center;color:#666;font-size:18px;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto">Moving from fragmented signals to context-rich sessions that offer relevance, lower bounce rates, and higher conversion for partners.</p>
-        
-        <div style="position:relative;margin-bottom:80px">
-          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120px;height:120px;background:linear-gradient(135deg,#FF6B6B,#4169E1);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 20px 60px rgba(65,105,225,0.3)">
-            <span style="font-size:48px">→</span>
-          </div>
-          
-          <div class="transform-grid" style="position:relative;z-index:1">
-            <div style="padding:48px;background:linear-gradient(135deg,rgba(255,107,107,0.08),rgba(255,107,107,0.02));border:2px solid rgba(255,107,107,0.2);border-radius:24px;position:relative;overflow:hidden">
-              <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(255,107,107,0.15),transparent);border-radius:50%"></div>
-              <div style="position:relative">
-                <div style="display:inline-block;padding:8px 20px;background:rgba(255,107,107,0.15);border:1px solid rgba(255,107,107,0.3);border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#FF6B6B;margin-bottom:20px">Today</div>
-                <h3 style="font-weight:700;font-size:32px;color:#0A0A0F;margin-bottom:28px">Cold Start</h3>
-                <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px">
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(255,107,107,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#FF6B6B;font-size:14px">✕</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Fragmented traveler signals across platforms</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(255,107,107,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#FF6B6B;font-size:14px">✕</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Generic first-screen experiences with no context</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(255,107,107,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#FF6B6B;font-size:14px">✕</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">High bounce rates from irrelevant recommendations</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(255,107,107,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#FF6B6B;font-size:14px">✕</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">No way to share context without exposing PII</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(255,107,107,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#FF6B6B;font-size:14px">✕</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Partners convert first-time traffic with limited intelligence</p>
-                  </div>
-                </div>
-                <div style="padding:20px 24px;background:rgba(255,107,107,0.08);border-left:3px solid #FF6B6B;border-radius:8px">
-                  <p style="color:#666;font-size:14px;line-height:1.7;margin:0;font-style:italic">Users receive generic experiences on first landing as high-intent signals are siloed, lost, or unable to be shared. Partner context can't flow today without privacy risks.</p>
-                </div>
-              </div>
-            </div>
+      <div class="net-transform-head net-reveal">
+        <p class="net-eyebrow net-eyebrow-dark">The Transformation</p>
+        <h2 class="sec-title" style="color:#0A0A0F">From cold<br/>to <span class="net-warm">warm start</span></h2>
+        <p class="net-sub net-sub-dark">Moving from fragmented signals to context-rich sessions that offer relevance, lower bounce rates, and higher conversion.</p>
+      </div>
 
-            <div style="padding:48px;background:linear-gradient(135deg,rgba(50,205,50,0.08),rgba(50,205,50,0.02));border:2px solid rgba(50,205,50,0.2);border-radius:24px;position:relative;overflow:hidden">
-              <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(50,205,50,0.15),transparent);border-radius:50%"></div>
-              <div style="position:relative">
-                <div style="display:inline-block;padding:8px 20px;background:rgba(50,205,50,0.15);border:1px solid rgba(50,205,50,0.3);border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#32CD32;margin-bottom:20px">Tomorrow</div>
-                <h3 style="font-weight:700;font-size:32px;color:#0A0A0F;margin-bottom:28px">Warm Start</h3>
-                <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px">
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(50,205,50,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#32CD32;font-size:14px">✓</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Portable context travels with the traveler</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(50,205,50,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#32CD32;font-size:14px">✓</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Instant personalization on first screen</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(50,205,50,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#32CD32;font-size:14px">✓</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Partners receive high-intent signals with full context</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(50,205,50,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#32CD32;font-size:14px">✓</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Consent-based sharing preserves privacy and control</p>
-                  </div>
-                  <div style="display:flex;align-items:start;gap:12px">
-                    <div style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(50,205,50,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px"><span style="color:#32CD32;font-size:14px">✓</span></div>
-                    <p style="color:#666;font-size:15px;line-height:1.6;margin:0">Immediate first-screen relevance drives conversion</p>
-                  </div>
-                </div>
-                <div style="padding:20px 24px;background:rgba(50,205,50,0.08);border-left:3px solid #32CD32;border-radius:8px">
-                  <p style="color:#666;font-size:14px;line-height:1.7;margin:0;font-style:italic">New front doors remember user preferences and generate personalized results instantly. Partner context flows with consent in a privacy-safe manner.</p>
-                </div>
-              </div>
-            </div>
+      <div class="net-transform-panels net-reveal net-reveal-d1">
+        <div class="net-transform-arrow" aria-hidden="true">→</div>
+
+        <div class="net-t-panel net-t-cold">
+          <div class="net-t-status net-t-status-cold">✕ &nbsp;Today — Cold Start</div>
+          <div class="net-t-title">Fragmented<br>&amp; Forgotten</div>
+          <p class="net-t-desc">Users receive generic experiences on first landing as high-intent signals are siloed, lost, or unable to be shared.</p>
+          <ul class="net-t-list">
+            <li><span class="net-t-ico net-x">✕</span>Fragmented traveler signals across platforms</li>
+            <li><span class="net-t-ico net-x">✕</span>Generic first-screen experiences with no context</li>
+            <li><span class="net-t-ico net-x">✕</span>High bounce rates from irrelevant recommendations</li>
+            <li><span class="net-t-ico net-x">✕</span>No way to share context without exposing PII</li>
+            <li><span class="net-t-ico net-x">✕</span>Partners convert first-time traffic with limited intelligence</li>
+          </ul>
+          <div class="net-t-visual" aria-hidden="true">
+            <svg width="100%" height="120" viewBox="0 0 400 120" preserveAspectRatio="none">
+              <circle cx="40" cy="40" r="6" fill="rgba(255,80,80,0.35)"/>
+              <circle cx="120" cy="70" r="5" fill="rgba(255,80,80,0.28)"/>
+              <circle cx="200" cy="30" r="7" fill="rgba(255,80,80,0.32)"/>
+              <circle cx="280" cy="80" r="4" fill="rgba(255,80,80,0.26)"/>
+              <circle cx="360" cy="50" r="6" fill="rgba(255,80,80,0.3)"/>
+              <circle cx="80" cy="95" r="4" fill="rgba(255,80,80,0.22)"/>
+              <circle cx="160" cy="100" r="5" fill="rgba(255,80,80,0.24)"/>
+              <circle cx="320" cy="15" r="4" fill="rgba(255,80,80,0.2)"/>
+              <text x="200" y="115" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(255,80,80,0.35)">Siloed · Lost · Inaccessible</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="net-t-panel net-t-warm">
+          <div class="net-t-status net-t-status-warm">✓ &nbsp;Tomorrow — Warm Start</div>
+          <div class="net-t-title">Connected<br>&amp; <span class="net-green">Personalized</span></div>
+          <p class="net-t-desc">New front doors remember preferences and generate personalized results instantly. Partner context flows with consent in a privacy-safe manner.</p>
+          <ul class="net-t-list">
+            <li><span class="net-t-ico net-check">✓</span>Portable context travels with the traveler</li>
+            <li><span class="net-t-ico net-check">✓</span>Instant personalization on first screen</li>
+            <li><span class="net-t-ico net-check">✓</span>Partners receive high-intent signals with full context</li>
+            <li><span class="net-t-ico net-check">✓</span>Consent-based sharing preserves privacy and control</li>
+            <li><span class="net-t-ico net-check">✓</span>Immediate first-screen relevance drives conversion</li>
+          </ul>
+          <div class="net-t-visual" aria-hidden="true">
+            <svg width="100%" height="120" viewBox="0 0 400 120" preserveAspectRatio="none">
+              <line x1="40" y1="40" x2="195" y2="60" stroke="rgba(61,219,161,0.18)" stroke-width="1"/>
+              <line x1="120" y1="70" x2="195" y2="60" stroke="rgba(61,219,161,0.18)" stroke-width="1"/>
+              <line x1="280" y1="80" x2="205" y2="60" stroke="rgba(61,219,161,0.18)" stroke-width="1"/>
+              <line x1="360" y1="50" x2="205" y2="60" stroke="rgba(61,219,161,0.18)" stroke-width="1"/>
+              <circle cx="40" cy="40" r="5" fill="rgba(61,219,161,0.3)"/>
+              <circle cx="120" cy="70" r="4" fill="rgba(61,219,161,0.26)"/>
+              <circle cx="280" cy="80" r="5" fill="rgba(61,219,161,0.26)"/>
+              <circle cx="360" cy="50" r="4" fill="rgba(61,219,161,0.3)"/>
+              <circle cx="200" cy="60" r="14" fill="rgba(61,219,161,0.12)" stroke="rgba(61,219,161,0.38)" stroke-width="1.5">
+                <animate attributeName="r" values="14;18;14" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="200" cy="60" r="6" fill="rgba(61,219,161,0.65)"/>
+              <text x="200" y="115" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(61,219,161,0.42)">Portable · Consensual · Personalized</text>
+            </svg>
           </div>
         </div>
       </div>
 
-      <h3 style="font-weight:600;font-size:24px;color:#0A0A0F;text-align:center;margin:80px 0 40px">The Mechanism</h3>
-      <p style="text-align:center;color:#666;font-size:16px;margin-bottom:40px;max-width:800px;margin-left:auto;margin-right:auto">We believe the bedrock of portable traveler context lies in vectorization — a numerical representation where closeness equals similarity. Every item becomes a point in multi-dimensional space.</p>
+      <div class="net-mech-head net-reveal net-reveal-d2">
+        <p class="net-eyebrow net-eyebrow-dark">The Mechanism</p>
+        <h2 class="sec-title" style="color:#0A0A0F">Everything becomes<br/>a vector</h2>
+        <p class="net-sub net-sub-dark">The bedrock of portable traveler context lies in vectorization — a numerical representation where closeness equals similarity. Every item becomes a point in multi-dimensional space.</p>
+      </div>
 
-      <div class="mechanism-grid">
-        <div class="mechanism-item" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-          <div class="mechanism-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="22" cy="26" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M12 48C12 38 16 34 22 34C28 34 32 38 32 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="42" cy="26" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M32 48C32 38 36 34 42 34C48 34 52 38 52 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-          <div class="mechanism-label" style="color:#0A0A0F">Travelers</div>
+      <div class="net-mech-flow net-reveal net-reveal-d3">
+        <div class="net-mech-step">
+          <div class="net-mech-num">Step 01</div>
+          <div class="net-mech-title">Raw Signal</div>
+          <div class="net-mech-sub">Traveler behavior, preferences, and intent captured across touchpoints</div>
+          <div class="net-mech-vis" aria-hidden="true">
+            <svg width="100%" height="100%" viewBox="0 0 180 56" preserveAspectRatio="xMidYMid meet">
+              <rect x="4" y="8" width="80" height="40" rx="6" class="net-mech-box net-mech-amber"/>
+              <text x="44" y="26" text-anchor="middle" font-family="monospace" font-size="9" class="net-mech-mono">"Beach vacation"</text>
+              <text x="44" y="38" text-anchor="middle" font-family="monospace" font-size="8" class="net-mech-mono-dim">Budget: mid-range</text>
+              <rect x="95" y="20" width="60" height="16" rx="3" class="net-mech-box net-mech-amber-2"/>
+              <text x="125" y="31" text-anchor="middle" font-family="monospace" font-size="8" class="net-mech-mono-dim">+12 signals</text>
+            </svg>
+          </div>
         </div>
-        <div class="mechanism-item" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-          <div class="mechanism-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M8 52V24L32 8L56 24V52" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M8 32H56M20 32V52M32 32V52M44 32V52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="24" y="36" width="16" height="16" rx="1" stroke="currentColor" stroke-width="2.5"/></svg></div>
-          <div class="mechanism-label" style="color:#0A0A0F">Properties</div>
+        <div class="net-mech-arrow" aria-hidden="true">→</div>
+        <div class="net-mech-step">
+          <div class="net-mech-num">Step 02</div>
+          <div class="net-mech-title">Embedding Model</div>
+          <div class="net-mech-sub">Neural network transforms raw data into dense numerical representations</div>
+          <div class="net-mech-vis" aria-hidden="true">
+            <svg width="100%" height="100%" viewBox="0 0 180 56" preserveAspectRatio="xMidYMid meet">
+              <rect x="20" y="6" width="140" height="44" rx="8" class="net-mech-box net-mech-purple"/>
+              <text x="90" y="22" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9" font-weight="600" class="net-mech-label">Neural Network</text>
+              <line x1="35" y1="33" x2="70" y2="33" class="net-mech-line"/>
+              <line x1="80" y1="33" x2="115" y2="33" class="net-mech-line"/>
+              <line x1="125" y1="33" x2="148" y2="33" class="net-mech-line"/>
+              <circle cx="75" cy="33" r="4" class="net-mech-dot"/>
+              <circle cx="120" cy="33" r="4" class="net-mech-dot"/>
+            </svg>
+          </div>
         </div>
-        <div class="mechanism-item" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-          <div class="mechanism-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M32 8C20 8 12 24 12 32C12 44 32 56 32 56S52 44 52 32C52 24 44 8 32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2.5"/></svg></div>
-          <div class="mechanism-label" style="color:#0A0A0F">Locations</div>
+        <div class="net-mech-arrow" aria-hidden="true">→</div>
+        <div class="net-mech-step">
+          <div class="net-mech-num">Step 03</div>
+          <div class="net-mech-title">TAM Vector</div>
+          <div class="net-mech-sub">Compact pseudonymous representation — no PII, fully portable</div>
+          <div class="net-mech-vis" aria-hidden="true">
+            <svg width="100%" height="100%" viewBox="0 0 180 56" preserveAspectRatio="xMidYMid meet">
+              <rect x="4" y="10" width="172" height="36" rx="6" class="net-mech-box net-mech-blue"/>
+              <text x="10" y="27" font-family="monospace" font-size="8" class="net-mech-mono">[0.12, -0.88, 0.07, 0.34,</text>
+              <text x="10" y="39" font-family="monospace" font-size="8" class="net-mech-mono-dim"> -0.21, 0.63, ... 512d]</text>
+            </svg>
+          </div>
         </div>
-        <div class="mechanism-item" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-          <div class="mechanism-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2.5"/><path d="M32 10L32 6M32 54L32 58M54 32L58 32M10 32L6 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-          <div class="mechanism-label" style="color:#0A0A0F">Activities</div>
-        </div>
-        <div class="mechanism-item" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-          <div class="mechanism-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M56 36L32 12L8 36L32 36L32 52L56 36Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M32 12L32 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-          <div class="mechanism-label" style="color:#0A0A0F">Transportation</div>
-        </div>
-        <div class="mechanism-item" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-          <div class="mechanism-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M32 8L48 16L48 32Q48 44 32 56Q16 44 16 32L16 16L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 32L28 36L40 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="mechanism-label" style="color:#0A0A0F">Consent</div>
+        <div class="net-mech-arrow" aria-hidden="true">→</div>
+        <div class="net-mech-step">
+          <div class="net-mech-num">Step 04</div>
+          <div class="net-mech-title">Match &amp; Rank</div>
+          <div class="net-mech-sub">Cosine similarity finds closest items in real-time across millions of properties</div>
+          <div class="net-mech-vis" aria-hidden="true">
+            <svg width="100%" height="100%" viewBox="0 0 180 56" preserveAspectRatio="xMidYMid meet">
+              <circle cx="40" cy="28" r="14" class="net-mech-r net-mech-green"/>
+              <text x="40" y="32" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="8" class="net-mech-label">0.97</text>
+              <circle cx="80" cy="28" r="10" class="net-mech-r2 net-mech-green"/>
+              <text x="80" y="32" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7" class="net-mech-label-dim">0.91</text>
+              <circle cx="115" cy="28" r="8" class="net-mech-r3 net-mech-green"/>
+              <text x="115" y="32" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7" class="net-mech-label-dim">0.85</text>
+              <text x="148" y="32" font-family="Inter Tight,sans-serif" font-size="10" fill="rgba(0,0,0,0.25)">...</text>
+            </svg>
+          </div>
         </div>
       </div>
 
-      <p style="text-align:center;color:#666;font-size:15px;margin-top:20px">One format lets us compare, combine, and retrieve best matches in real time — while avoiding exposure of raw data</p>
-
-      <div class="diagram" style="background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.08)">
-        <div class="diagram-flow">
-          <div class="diagram-box" style="background:rgba(0,0,0,0.03);color:#0A0A0F">Raw Data<br/><span style="font-size:12px;font-weight:400">"Beach vacation"</span></div>
-          <div class="diagram-arrow">→</div>
-          <div class="diagram-box" style="background:rgba(0,0,0,0.03);color:#0A0A0F">Embedding Model<br/><span style="font-size:12px;font-weight:400">Neural network</span></div>
-          <div class="diagram-arrow">→</div>
-          <div class="diagram-box" style="background:rgba(0,0,0,0.03);color:#0A0A0F">Vector (TAM)<br/><span style="font-size:12px;font-weight:400">[0.12, -0.88, 0.07...]</span></div>
+      <div class="net-vector-space net-reveal net-reveal-d4">
+        <div class="net-vector-head">
+          <h3>Vector space: closeness = similarity</h3>
+          <p>One format lets all entities be compared, combined, and retrieved in real-time — while avoiding exposure of raw data.</p>
+        </div>
+        <div class="net-vector-grid">
+          <div class="net-vector-canvas-wrap">
+            <canvas id="net-vector-canvas" width="480" height="320" aria-label="Vector space visualization"></canvas>
+          </div>
+          <div>
+            <div class="net-vector-legend">
+              <div class="net-vl-item"><span class="net-vl-dot net-dot-amber"></span><div><div class="net-vl-label">Travelers</div><div class="net-vl-desc">Clustered by preference profile and travel style</div></div></div>
+              <div class="net-vl-item"><span class="net-vl-dot net-dot-blue"></span><div><div class="net-vl-label">Properties</div><div class="net-vl-desc">Beach resorts, city hotels, boutique stays</div></div></div>
+              <div class="net-vl-item"><span class="net-vl-dot net-dot-green"></span><div><div class="net-vl-label">Activities</div><div class="net-vl-desc">Experiences matched by vibe and context</div></div></div>
+              <div class="net-vl-item"><span class="net-vl-dot net-dot-purple"></span><div><div class="net-vl-label">Locations</div><div class="net-vl-desc">Destinations with personality embeddings</div></div></div>
+            </div>
+            <div class="net-vector-formula" aria-hidden="true">
+              <div class="net-vf-step"><div class="net-vf-label">Raw Data</div><div class="net-vf-value net-vf-amber">"Beach trip"</div></div>
+              <div class="net-vf-arr">→</div>
+              <div class="net-vf-step"><div class="net-vf-label">Model</div><div class="net-vf-value net-vf-purple">Embed()</div></div>
+              <div class="net-vf-arr">→</div>
+              <div class="net-vf-step"><div class="net-vf-label">TAM Vector</div><div class="net-vf-value net-vf-blue">[0.12, -0.88…]</div></div>
+              <div class="net-vf-arr">→</div>
+              <div class="net-vf-step"><div class="net-vf-label">Match</div><div class="net-vf-value net-vf-green">Top-K similar</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -376,6 +598,123 @@
     </div>
   </footer>
   <script src="js/universal-nav.js?v=2"></script>
+  <script>
+    (function() {
+      // Simple reveal used only on network page sections.
+      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = Array.prototype.slice.call(document.querySelectorAll('.net-reveal'));
+      if (!els.length) return;
+      if (prefersReduced) {
+        els.forEach(function(el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+
+    (function() {
+      // Vector space canvas (network page only).
+      var canvas = document.getElementById('net-vector-canvas');
+      if (!canvas) return;
+      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+
+      var clusters = [
+        { color: [247,175,36],  label: 'Traveler',  cx: 180, cy: 130, count: 18, spread: 52 },
+        { color: [74,158,255],  label: 'Property',  cx: 320, cy:  90, count: 16, spread: 48 },
+        { color: [61,219,161],  label: 'Activity',  cx: 340, cy: 230, count: 14, spread: 44 },
+        { color: [155,127,255], label: 'Location',  cx: 140, cy: 240, count: 12, spread: 50 }
+      ];
+
+      var points = [];
+      clusters.forEach(function(c, ci) {
+        for (var i = 0; i < c.count; i++) {
+          var angle = Math.random() * Math.PI * 2;
+          var dist = Math.random() * c.spread;
+          points.push({
+            x: c.cx + Math.cos(angle) * dist,
+            y: c.cy + Math.sin(angle) * dist,
+            r: Math.random() * 2.8 + 1.5,
+            color: c.color,
+            ox: c.cx + Math.cos(angle) * dist,
+            oy: c.cy + Math.sin(angle) * dist,
+            phase: Math.random() * Math.PI * 2,
+            speed: 0.3 + Math.random() * 0.4,
+            cluster: ci
+          });
+        }
+      });
+
+      var t = 0;
+      function drawFrame() {
+        ctx.clearRect(0, 0, W, H);
+        t += 0.012;
+
+        // axis
+        ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 6]);
+        ctx.beginPath(); ctx.moveTo(40, H / 2); ctx.lineTo(W - 20, H / 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(W / 2, 20); ctx.lineTo(W / 2, H - 20); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // connection
+        ctx.beginPath();
+        ctx.moveTo(clusters[0].cx, clusters[0].cy);
+        ctx.lineTo(clusters[1].cx, clusters[1].cy);
+        ctx.strokeStyle = 'rgba(247,175,36,0.10)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // halos
+        clusters.forEach(function(c) {
+          var r = c.color[0], g = c.color[1], b = c.color[2];
+          var grad = ctx.createRadialGradient(c.cx, c.cy, 0, c.cx, c.cy, c.spread + 20);
+          grad.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',0.10)');
+          grad.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)');
+          ctx.beginPath();
+          ctx.arc(c.cx, c.cy, c.spread + 20, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        });
+
+        // points
+        points.forEach(function(p) {
+          var px = p.ox, py = p.oy;
+          if (!prefersReduced) {
+            px = p.ox + Math.sin(t * p.speed + p.phase) * 2.5;
+            py = p.oy + Math.cos(t * p.speed * 0.7 + p.phase) * 2.5;
+          }
+          var r = p.color[0], g = p.color[1], b = p.color[2];
+          ctx.beginPath();
+          ctx.arc(px, py, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.78)';
+          ctx.fill();
+        });
+
+        // labels
+        clusters.forEach(function(c) {
+          var r = c.color[0], g = c.color[1], b = c.color[2];
+          ctx.font = '600 11px Inter Tight, sans-serif';
+          ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.72)';
+          ctx.textAlign = 'center';
+          ctx.fillText(c.label + 's', c.cx, c.cy - c.spread - 10);
+        });
+
+        if (!prefersReduced) requestAnimationFrame(drawFrame);
+      }
+
+      drawFrame();
+    })();
+  </script>
   <script type="module" src="js/motion-reveal.js"></script>
 </body>
 </html>
