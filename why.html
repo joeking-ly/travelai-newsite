@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <title>Why TravelAI — Our Vision for the Future of Travel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/universal-nav.css">
   <link rel="stylesheet" href="css/motion-reveal.css">
   <link rel="stylesheet" href="css/site.css">
 </head>
-<body>
+<body class="why-page">
   <div id="universal-nav-placeholder"></div>
 
   <section class="hero">
@@ -204,11 +205,14 @@
     </div>
   </section>
 
-  <section class="section white">
+  <section class="section white why-real-numbers-section">
     <div class="inner">
       <h2 class="sec-title">Real numbers. Real impact.</h2>
-      <p style="text-align:center;color:#666;font-size:18px;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto">Since our founding, we've helped millions of travelers discover their perfect stays — while building one of the largest personalization networks in travel.</p>
-      <div class="stats-grid">
+      <p class="why-real-numbers-intro">
+        Since our founding, we've helped millions of travelers discover their perfect stays — while building one of
+        the largest personalization networks in travel.
+      </p>
+      <div class="stats-grid why-network-stats">
         <div class="stat-box">
           <div class="stat-number">470+</div>
           <div class="stat-label">Travel brands powered by our AI platform</div>
@@ -220,6 +224,92 @@
         <div class="stat-box">
           <div class="stat-number">$456M</div>
           <div class="stat-label">Gross Booking Value generated in 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-world-travel-section">
+    <div
+      id="why-globe-explorer"
+      class="why-trulioo-globe"
+      aria-label="Explore illustrative travel market data by country"
+    >
+      <div class="why-trulioo-globe-bg">
+        <div class="inner why-trulioo-head-inner">
+          <h2 class="sec-title why-trulioo-title">The World Of Travel</h2>
+          <p class="why-globe-intro why-trulioo-intro">
+            Choose a country to see illustrative market scale — population, trips, hotels, and short-term rentals across
+            our network.
+          </p>
+        </div>
+
+        <div class="inner why-trulioo-picker-inner">
+          <div class="why-country-picker" id="why-country-picker">
+            <div class="why-country-backdrop" id="why-country-backdrop" hidden aria-hidden="true"></div>
+            <button
+              type="button"
+              id="why-country-trigger"
+              class="why-country-trigger"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-controls="why-country-panel"
+            >
+              <span class="why-country-trigger-label" id="why-country-trigger-label">Select your country</span>
+              <span class="why-country-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="why-country-panel" id="why-country-panel" hidden>
+              <div class="why-country-search-wrap">
+                <span class="why-country-search-icon" aria-hidden="true"></span>
+                <input
+                  type="search"
+                  id="why-country-search"
+                  class="why-country-search"
+                  placeholder="Country search…"
+                  autocomplete="off"
+                  aria-label="Filter countries"
+                />
+              </div>
+              <ul class="why-country-list" id="why-country-list" role="listbox" aria-label="Countries"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-globe-parent" id="why-globe-parent">
+          <div class="why-globe-canvas-wrap">
+            <div
+              id="why-globe-mount"
+              class="why-globe-mount"
+              role="img"
+              aria-label="Rotating globe; choose a country to focus the map"
+            ></div>
+          </div>
+          <aside class="why-globe-pill" id="why-globe-stats-card" aria-live="polite" aria-hidden="true">
+            <h3 id="why-globe-country-name" class="why-globe-country-name">Select a country</h3>
+            <div class="why-globe-pill-rule" aria-hidden="true"></div>
+            <p class="why-globe-pill-kicker">Travel market indicators</p>
+            <ul class="why-globe-metrics">
+              <li>
+                <span class="why-metric-label">Population</span>
+                <span class="why-metric-value" id="why-stat-pop">—</span>
+              </li>
+              <li>
+                <span class="why-metric-label">Trips per year</span>
+                <span class="why-metric-value" id="why-stat-trips">—</span>
+              </li>
+              <li>
+                <span class="why-metric-label">Hotels</span>
+                <span class="why-metric-value" id="why-stat-hotels">—</span>
+              </li>
+              <li>
+                <span class="why-metric-label">Short-term rentals</span>
+                <span class="why-metric-value" id="why-stat-str">—</span>
+              </li>
+            </ul>
+            <p id="why-globe-disclaimer" class="why-globe-disclaimer">
+              Illustrative estimates for context — not live booking or census data.
+            </p>
+          </aside>
         </div>
       </div>
     </div>
@@ -307,7 +397,9 @@
       <div class="social-links"><a href="#">𝕏</a><a href="#">in</a><a href="#">f</a><a href="#">◎</a></div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.41.2/dist/globe.gl.min.js"></script>
   <script src="js/universal-nav.js?v=2"></script>
+  <script type="module" src="js/why-globe.js"></script>
   <script type="module" src="js/motion-reveal.js"></script>
   <script>
     (function(){

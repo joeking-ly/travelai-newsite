@@ -112,7 +112,13 @@
 
   var page = (window.location.pathname.split('/').pop() || '').toLowerCase() || 'index.html';
   var pathname = window.location.pathname || '';
-  var root = (pathname.indexOf('/blog') === 0 || pathname.indexOf('/blogs/') !== -1 || pathname.indexOf('/insights') === 0) ? '/' : '';
+  var root =
+    pathname.indexOf('/blog') === 0 ||
+    pathname.indexOf('/blogs/') !== -1 ||
+    pathname.indexOf('/stories/') !== -1 ||
+    pathname.indexOf('/insights') === 0
+      ? '/'
+      : '';
 
   var navHtml =
     '<nav class="universal-nav" aria-label="Main navigation">' +

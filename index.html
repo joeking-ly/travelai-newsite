@@ -210,14 +210,34 @@
       </h2>
 
       <div class="mission-video">
-        <div class="play-button">
-          <svg viewBox="0 0 24 24" fill="none">
+        <div class="mission-video-media">
+          <div id="mission-inline-player"></div>
+        </div>
+        <button type="button" class="play-button" id="mission-video-play" aria-label="Expand video to fullscreen">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M8 5v14l11-7L8 5z"/>
           </svg>
-        </div>
+        </button>
       </div>
     </div>
   </section>
+
+  <!-- Fullscreen YouTube (mission play button) -->
+  <div
+    id="home-video-lightbox"
+    class="home-video-lightbox"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-label="Video"
+  >
+    <button type="button" class="home-video-close" id="home-video-close" aria-label="Close video">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="home-video-frame-wrap">
+      <div id="home-video-player"></div>
+    </div>
+  </div>
 
   <!-- STATS -->
   <section class="stats-section">
@@ -745,6 +765,200 @@
       });
 
       setSpotlight();
+    })();
+  </script>
+  <script>
+    (function () {
+      var VIDEO_ID = '2x84ZLB5Jh0';
+      var SLOW_RATE = 0.5;
+      var inlineHost = document.getElementById('mission-inline-player');
+      var playBtn = document.getElementById('mission-video-play');
+      var lightbox = document.getElementById('home-video-lightbox');
+      var closeBtn = document.getElementById('home-video-close');
+      var lightboxHost = document.getElementById('home-video-player');
+      if (!inlineHost || !playBtn || !lightbox || !closeBtn || !lightboxHost) return;
+
+      var lastFocus = null;
+      var closeDone = false;
+      var closeTimer = null;
+      var lightboxSession = 0;
+      var lightboxPlayer = null;
+      var inlinePlayer = null;
+      var inlineSession = 0;
+
+      function destroyLightboxPlayer() {
+        lightboxSession++;
+        if (lightboxPlayer && lightboxPlayer.destroy) {
+          try {
+            lightboxPlayer.destroy();
+          } catch (e) {}
+        }
+        lightboxPlayer = null;
+        lightboxHost.innerHTML = '';
+      }
+
+      function mountInlinePlayer() {
+        if (inlinePlayer) return;
+        var session = inlineSession;
+        inlinePlayer = new window.YT.Player('mission-inline-player', {
+          videoId: VIDEO_ID,
+          width: '100%',
+          height: '100%',
+          playerVars: {
+            autoplay: 1,
+            mute: 1,
+            controls: 0,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            fs: 0,
+            iv_load_policy: 3,
+            disablekb: 1,
+            loop: 1,
+            playlist: VIDEO_ID
+          },
+          events: {
+            onReady: function (ev) {
+              if (session !== inlineSession) return;
+              ev.target.mute();
+              if (ev.target.setPlaybackRate) ev.target.setPlaybackRate(SLOW_RATE);
+              ev.target.playVideo();
+            },
+            onStateChange: function (ev) {
+              if (session !== inlineSession) return;
+              if (ev.data === window.YT.PlayerState.PLAYING && ev.target.setPlaybackRate) {
+                ev.target.setPlaybackRate(SLOW_RATE);
+              }
+            }
+          }
+        });
+      }
+
+      function mountLightboxPlayer() {
+        destroyLightboxPlayer();
+        var session = lightboxSession;
+        lightboxPlayer = new window.YT.Player('home-video-player', {
+          videoId: VIDEO_ID,
+          width: '100%',
+          height: '100%',
+          playerVars: {
+            autoplay: 1,
+            mute: 0,
+            controls: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            iv_load_policy: 3
+          },
+          events: {
+            onReady: function (ev) {
+              if (session !== lightboxSession) return;
+              if (ev.target.setPlaybackRate) ev.target.setPlaybackRate(1);
+              if (ev.target.unMute) ev.target.unMute();
+              ev.target.playVideo();
+            },
+            onStateChange: function (ev) {
+              if (session !== lightboxSession) return;
+              if (ev.data === window.YT.PlayerState.PLAYING) {
+                if (ev.target.unMute) ev.target.unMute();
+              }
+            }
+          }
+        });
+      }
+
+      function ensureYouTubeApi(done) {
+        if (window.YT && window.YT.Player) {
+          done();
+          return;
+        }
+        var q = (window.__homeVideoYtQueue = window.__homeVideoYtQueue || []);
+        q.push(done);
+        if (window.__homeVideoYtLoading) return;
+        window.__homeVideoYtLoading = true;
+        var prev = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function () {
+          if (typeof prev === 'function') prev();
+          var callbacks = window.__homeVideoYtQueue || [];
+          window.__homeVideoYtQueue = [];
+          callbacks.forEach(function (fn) {
+            fn();
+          });
+        };
+        var s = document.createElement('script');
+        s.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(s);
+      }
+
+      ensureYouTubeApi(function () {
+        mountInlinePlayer();
+      });
+
+      function openLightbox() {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        try {
+          if (inlinePlayer && inlinePlayer.pauseVideo) inlinePlayer.pauseVideo();
+        } catch (e) {}
+        closeDone = false;
+        lastFocus = document.activeElement;
+        lightbox.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () {
+          lightbox.classList.add('is-open');
+          closeBtn.focus();
+          ensureYouTubeApi(function () {
+            if (!lightbox.classList.contains('is-open')) return;
+            mountLightboxPlayer();
+          });
+        });
+      }
+
+      function finishClose() {
+        if (closeDone) return;
+        closeDone = true;
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        lightbox.removeEventListener('transitionend', onEnd);
+        lightbox.setAttribute('hidden', '');
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+        lastFocus = null;
+        try {
+          if (inlinePlayer && inlinePlayer.playVideo) {
+            inlinePlayer.playVideo();
+            if (inlinePlayer.setPlaybackRate) inlinePlayer.setPlaybackRate(SLOW_RATE);
+          }
+        } catch (e) {}
+      }
+
+      function onEnd(e) {
+        if (e.target !== lightbox || e.propertyName !== 'opacity') return;
+        finishClose();
+      }
+
+      function closeLightbox() {
+        if (!lightbox.classList.contains('is-open')) return;
+        destroyLightboxPlayer();
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lightbox.addEventListener('transitionend', onEnd);
+        closeTimer = setTimeout(finishClose, 400);
+      }
+
+      playBtn.addEventListener('click', openLightbox);
+      closeBtn.addEventListener('click', closeLightbox);
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeLightbox();
+        }
+      });
     })();
   </script>
   <script type="module" src="js/motion-reveal.js"></script>
