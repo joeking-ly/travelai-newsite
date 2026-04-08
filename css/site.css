@@ -363,14 +363,36 @@
       position: absolute;
       inset: 0;
       background: #000;
+      overflow: hidden;
     }
 
-    .mission-video-media #mission-inline-player,
-    .mission-video-media #mission-inline-player iframe {
+    /* YouTube API may insert a wrapper div; force full-bleed inside 16:9 frame */
+    .mission-video-media #mission-inline-player {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 100% !important;
+      height: 100% !important;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .mission-video-media #mission-inline-player > div {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      overflow: hidden;
+    }
+
+    .mission-video-media #mission-inline-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
       border: 0;
       pointer-events: none;
     }
@@ -396,7 +418,11 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      z-index: 2;
+      z-index: 3;
+      pointer-events: auto;
+      box-shadow:
+        0 8px 32px rgba(255, 255, 255, 0.22),
+        0 0 0 1px rgba(0, 0, 0, 0.08);
     }
 
     .play-button:hover {

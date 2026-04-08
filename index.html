@@ -785,6 +785,31 @@
       var lightboxPlayer = null;
       var inlinePlayer = null;
       var inlineSession = 0;
+      var inlineResizeScheduled = false;
+
+      function measureMissionMedia() {
+        var media = document.querySelector('.mission-video-media');
+        if (!media) return { w: 640, h: 360 };
+        var r = media.getBoundingClientRect();
+        var w = Math.max(320, Math.floor(r.width) || media.clientWidth || 640);
+        var h = Math.max(180, Math.floor(r.height) || media.clientHeight || Math.round((w * 9) / 16));
+        return { w: w, h: h };
+      }
+
+      function syncInlinePlayerSize() {
+        if (!inlinePlayer || typeof inlinePlayer.setSize !== 'function') return;
+        var dim = measureMissionMedia();
+        if (dim.w > 1 && dim.h > 1) inlinePlayer.setSize(dim.w, dim.h);
+      }
+
+      function scheduleInlineResize() {
+        if (inlineResizeScheduled) return;
+        inlineResizeScheduled = true;
+        requestAnimationFrame(function () {
+          inlineResizeScheduled = false;
+          syncInlinePlayerSize();
+        });
+      }
 
       function destroyLightboxPlayer() {
         lightboxSession++;
@@ -800,10 +825,11 @@
       function mountInlinePlayer() {
         if (inlinePlayer) return;
         var session = inlineSession;
+        var dim = measureMissionMedia();
         inlinePlayer = new window.YT.Player('mission-inline-player', {
           videoId: VIDEO_ID,
-          width: '100%',
-          height: '100%',
+          width: dim.w,
+          height: dim.h,
           playerVars: {
             autoplay: 1,
             mute: 1,
@@ -820,6 +846,9 @@
           events: {
             onReady: function (ev) {
               if (session !== inlineSession) return;
+              syncInlinePlayerSize();
+              window.setTimeout(syncInlinePlayerSize, 120);
+              window.setTimeout(syncInlinePlayerSize, 600);
               ev.target.mute();
               if (ev.target.setPlaybackRate) ev.target.setPlaybackRate(SLOW_RATE);
               ev.target.playVideo();
@@ -890,8 +919,15 @@
         document.head.appendChild(s);
       }
 
+      window.addEventListener('resize', scheduleInlineResize, { passive: true });
+
       ensureYouTubeApi(function () {
-        mountInlinePlayer();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            mountInlinePlayer();
+            syncInlinePlayerSize();
+          });
+        });
       });
 
       function openLightbox() {
