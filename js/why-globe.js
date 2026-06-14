@@ -4,20 +4,22 @@
  */
 const GlobeFactory = typeof globalThis !== 'undefined' ? globalThis.Globe : undefined;
 
-const GLOBE_SURFACE_GREY =
+const GLOBE_SURFACE =
   'https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-dark.jpg';
 
 const GEOJSON_URL =
   'https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson';
 
-const DOT_GREY = 'rgba(190, 194, 204, 0.72)';
-const SCENE_BG = '#14151a';
+const DOT_TEAL = 'rgba(72, 220, 200, 0.78)';
+const DOT_TEAL_DIM = 'rgba(72, 220, 200, 0.32)';
+const SCENE_BG = 'rgba(0, 0, 0, 0)';
 
 /** Shown on first paint — auto zoom; user can change via picker. */
 const DEFAULT_COUNTRY_ISO = 'DZ';
 
-/** Lower = closer camera (idle uses ~2.28). */
-const FOCUS_ALTITUDE = 0.92;
+/** Camera distance in globe-radii; higher = more of the sphere visible. */
+const FOCUS_ALTITUDE = 1.62;
+const IDLE_ALTITUDE = 2.35;
 
 const COUNTRIES = [
   { iso: 'DZ', name: 'Algeria', lat: 28.2, lng: 2.6, population: 45e6, tripsYear: 95e6, hotels: 1_400, str: 52_000 },
@@ -42,11 +44,6 @@ const COUNTRIES = [
   { iso: 'GR', name: 'Greece', lat: 39.0, lng: 22.0, population: 10.4e6, tripsYear: 88e6, hotels: 10_500, str: 340_000 },
   { iso: 'TR', name: 'Turkey', lat: 39.0, lng: 35.0, population: 85e6, tripsYear: 190e6, hotels: 13_000, str: 310_000 },
 ];
-
-function randomRainbowHsla() {
-  const h = Math.floor(Math.random() * 360);
-  return `hsla(${h}, 90%, 58%, 0.96)`;
-}
 
 function fmtCompact(n) {
   if (n >= 1e9) return (n / 1e9).toFixed(n >= 10e9 ? 0 : 1) + 'B';
@@ -132,30 +129,41 @@ function initWhyGlobe() {
 
   let globe;
   let selectedIso = null;
-  let highlightColor = '#ffffff';
+  let highlightColor = '#5eead4';
   let polygons = [];
+  let networkPoints = COUNTRIES.map((c) => ({ ...c, size: 0.22 }));
 
-  const idlePov = { lat: 10, lng: 15, altitude: 2.28 };
+  const idlePov = { lat: 18, lng: 12, altitude: IDLE_ALTITUDE };
 
   function applyHighlight() {
     if (!globe) return;
     const sel = selectedIso;
     const accent = highlightColor;
+    const networkIsos = new Set(COUNTRIES.map((c) => c.iso));
     globe
       .hexPolygonColor((d) => {
-        if (sel == null) return DOT_GREY;
-        return featureIso(d) === sel ? accent : DOT_GREY;
+        const iso = featureIso(d);
+        if (sel != null && iso === sel) return accent;
+        if (networkIsos.has(iso)) return DOT_TEAL;
+        return DOT_TEAL_DIM;
       })
       .hexPolygonAltitude((d) => {
-        if (sel == null) return 0.005;
-        return featureIso(d) === sel ? 0.024 : 0.006;
-      });
+        const iso = featureIso(d);
+        if (sel != null && iso === sel) return 0.018;
+        return networkIsos.has(iso) ? 0.008 : 0.004;
+      })
+      .pointsData(networkPoints)
+      .pointLat('lat')
+      .pointLng('lng')
+      .pointColor((d) => (sel != null && d.iso === sel ? '#ffa500' : '#00ced1'))
+      .pointAltitude(0.02)
+      .pointRadius((d) => (sel != null && d.iso === sel ? 0.38 : 0.18));
   }
 
   function focusCountry(iso, animate) {
     const c = COUNTRIES.find((x) => x.iso === iso);
     if (!c || !globe) return;
-    highlightColor = randomRainbowHsla();
+    highlightColor = '#5eead4';
     const ms = animate && !reduceMotion ? 1400 : 0;
     /* Lower altitude = closer zoom (idle ~2.28). */
     globe.pointOfView({ lat: c.lat, lng: c.lng, altitude: FOCUS_ALTITUDE }, ms);
@@ -217,7 +225,7 @@ function initWhyGlobe() {
           focusCountry(c.iso, true);
         } else {
           selectedIso = c.iso;
-          highlightColor = randomRainbowHsla();
+          highlightColor = '#5eead4';
           updateStats(c.iso);
           updateListSelection(c.iso);
           globeParent?.classList.add('is-active');
@@ -248,18 +256,21 @@ function initWhyGlobe() {
     }
   });
 
-  function resize() {
-    if (!globe) return;
-    const w = mount.clientWidth || 600;
-    const h = Math.max(320, mount.clientHeight || Math.round(w * 0.65));
-    globe.width(w).height(h);
+  function getGlobeSize() {
+    const wrap = mount.closest('.why-globe-canvas-wrap') || mount;
+    const w = mount.clientWidth || wrap.clientWidth || 600;
+    return Math.max(240, w);
   }
 
-  const wanted = new Set(COUNTRIES.map((c) => c.iso));
+  function resize() {
+    if (!globe) return;
+    const size = getGlobeSize();
+    globe.width(size).height(size);
+  }
 
   if (typeof GlobeFactory !== 'function') {
     mount.innerHTML =
-      '<p class="why-globe-fallback" style="padding:24px;color:rgba(255,255,255,0.65);text-align:center;font-size:14px;max-width:28rem;margin:0 auto;">3D globe library did not load. Check your network connection, disable strict blockers, and refresh. The country list above still works for reference.</p>';
+      '<p class="why-globe-fallback" style="padding:24px;color:rgba(255,255,255,0.65);text-align:center;font-size:15px;max-width:28rem;margin:0 auto;">3D globe library did not load. Check your network connection, disable strict blockers, and refresh. The country list above still works for reference.</p>';
     updateStats(DEFAULT_COUNTRY_ISO);
     globeParent?.classList.add('is-active');
     document.getElementById('why-globe-stats-card')?.removeAttribute('aria-hidden');
@@ -269,31 +280,29 @@ function initWhyGlobe() {
   fetch(GEOJSON_URL)
     .then((r) => r.json())
     .then((data) => {
-      polygons = (data.features || []).filter((f) => wanted.has(featureIso(f)));
+      polygons = data.features || [];
     })
     .catch(() => {
       polygons = [];
     })
     .finally(() => {
-      const w = mount.clientWidth || 600;
-      const h = Math.max(320, mount.clientHeight || Math.round(w * 0.65));
-      /* Lower H3 resolution = fewer, larger tessellation cells → bigger, sparser dots. */
-      const hexResolution = 2;
+      const size = getGlobeSize();
+      const hexResolution = 3;
       const hexTransitionMs = reduceMotion ? 0 : 400;
 
       try {
         globe = GlobeFactory()(mount)
-          .globeImageUrl(GLOBE_SURFACE_GREY)
+          .globeImageUrl(GLOBE_SURFACE)
           .backgroundColor(SCENE_BG)
-          .showGraticules(false)
+          .showGraticules(true)
           .showAtmosphere(true)
-          .atmosphereColor('rgba(210, 215, 230, 0.06)')
-          .atmosphereAltitude(0.11)
+          .atmosphereColor('rgba(0, 206, 209, 0.32)')
+          .atmosphereAltitude(0.16)
           .hexPolygonsData(polygons)
           .hexPolygonResolution(hexResolution)
-          .hexPolygonMargin(0.58)
+          .hexPolygonMargin(0.42)
           .hexPolygonUseDots(true)
-          .hexPolygonDotResolution(10)
+          .hexPolygonDotResolution(12)
           .hexPolygonsTransitionDuration(hexTransitionMs)
           .hexPolygonLabel((d) => {
             const p = d.properties || {};
@@ -309,7 +318,7 @@ function initWhyGlobe() {
 
         globe.pointOfView({ lat: idlePov.lat, lng: idlePov.lng, altitude: idlePov.altitude }, 0);
         applyHighlight();
-        globe.width(w).height(h);
+        globe.width(size).height(size);
 
         try {
           const ctl =
@@ -317,17 +326,27 @@ function initWhyGlobe() {
               ? globe.controls()
               : globe.controls;
           if (ctl && 'enableZoom' in ctl) ctl.enableZoom = false;
+          if (ctl && 'autoRotate' in ctl) {
+            ctl.autoRotate = !reduceMotion;
+            ctl.autoRotateSpeed = 0.28;
+          }
         } catch (e) {}
 
-        window.addEventListener('resize', resize);
+        const wrapEl = mount.closest('.why-globe-canvas-wrap');
+        if (wrapEl && typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(() => resize()).observe(wrapEl);
+        } else {
+          window.addEventListener('resize', resize);
+        }
         resize();
 
         requestAnimationFrame(function () {
+          resize();
           focusCountry(DEFAULT_COUNTRY_ISO, !reduceMotion);
         });
       } catch (e) {
         mount.innerHTML =
-          '<p class="why-globe-fallback" style="padding:24px;color:rgba(255,255,255,0.65);text-align:center;font-size:14px;">Interactive globe could not start in this browser. Try another browser or update WebGL drivers.</p>';
+          '<p class="why-globe-fallback" style="padding:24px;color:rgba(255,255,255,0.65);text-align:center;font-size:15px;">Interactive globe could not start in this browser. Try another browser or update WebGL drivers.</p>';
         updateStats(DEFAULT_COUNTRY_ISO);
         globeParent?.classList.add('is-active');
         document.getElementById('why-globe-stats-card')?.removeAttribute('aria-hidden');

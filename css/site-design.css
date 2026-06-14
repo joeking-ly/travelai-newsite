@@ -1,0 +1,465 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SITE DESIGN — TravelAI elevation layer (inner pages + shared)
+   Loaded after site.css / typography.css. Homepage specifics stay in
+   home-v2.css; this file unifies the rest of the marketing site.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --ink: #14141a;
+  --ink-soft: #51515c;
+  --ink-faint: #8a8a95;
+  --cream: #f7f4ec;
+  --cream-deep: #efeadd;
+  --line-dark: rgba(255, 255, 255, 0.1);
+  --line-light: rgba(20, 20, 26, 0.1);
+  --ease: cubic-bezier(0.22, 0.8, 0.22, 1);
+  --maxw: 1240px;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+}
+
+/* ── Scroll progress (injected on all pages via universal-nav.js) ── */
+body:not(.page-home) .scroll-progress {
+  position: fixed;
+  top: var(--nav-offset, var(--nav-h));
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(var(--p, 0));
+  transform-origin: 0 50%;
+  background: var(--spectrum);
+  background-size: 100vw 100%;
+  z-index: 999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    transition: none;
+  }
+}
+
+/* ── Reveal (site-motion.js adds .in) ── */
+body:not(.page-home) .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+
+body:not(.page-home) .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.page-home) .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Unified eyebrow (spectrum tick) ── */
+.eyebrow,
+.drives-eyebrow,
+.platform-journey-eyebrow,
+.network-page .net-eyebrow,
+.case-eyebrow,
+.agentic-eyebrow,
+.j-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: var(--text-small, 12.5px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: var(--stack-md, 1rem);
+}
+
+.eyebrow::before,
+.drives-eyebrow::before,
+.platform-journey-eyebrow::before,
+.network-page .net-eyebrow::before,
+.case-eyebrow::before,
+.agentic-eyebrow::before,
+.j-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--spectrum);
+  flex: 0 0 auto;
+}
+
+.eyebrow.on-dark,
+.drives-eyebrow,
+.network-page .net-eyebrow,
+.section.dark .platform-journey-eyebrow,
+.section.soft .drives-eyebrow {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.eyebrow.on-light,
+.platform-journey-eyebrow,
+.section.white .drives-eyebrow,
+.case-eyebrow {
+  color: var(--ink-soft);
+}
+
+/* Centered eyebrows */
+.drives-head .drives-eyebrow,
+.platform-journey-head .platform-journey-eyebrow {
+  justify-content: center;
+  width: 100%;
+}
+
+/* ── Section rhythm ── */
+body:not(.page-home) .section,
+body:not(.page-home) .types-section,
+body:not(.page-home) .value-section,
+body:not(.page-home) .process-section,
+body:not(.page-home) .testimonials-section,
+body:not(.page-home) .form-section,
+body:not(.page-home) .agentic-section {
+  padding: clamp(4.5rem, 10vw, 7.5rem) var(--gutter);
+  border-top: none;
+}
+
+body:not(.page-home) .section.white:not(.vision-section) {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+body:not(.page-home) .section.white:not(.vision-section) .sec-title,
+body:not(.page-home) .section.white:not(.vision-section) .types-title {
+  color: var(--ink);
+}
+
+body:not(.page-home) .section.white:not(.vision-section) p,
+body:not(.page-home) .section.white:not(.vision-section) .type-desc,
+body:not(.page-home) .section.white:not(.vision-section) .platform-journey-subtitle {
+  color: var(--ink-soft);
+}
+
+body:not(.page-home) .section.white:not(.vision-section) .type-items li {
+  color: var(--ink-soft);
+}
+
+body:not(.page-home) .section.dark,
+body:not(.page-home) .section.soft {
+  border-top: none;
+}
+
+/* ── Inner page heroes ── */
+body:not(.page-home) .hero,
+body:not(.page-home) .page-hero {
+  padding: calc(var(--nav-h) + clamp(3.5rem, 10vw, 6.25rem)) var(--gutter)
+    clamp(3rem, 8vw, 5rem);
+  text-align: center;
+  background: var(--black-deep);
+}
+
+body:not(.page-home) .hero .hero-title,
+body:not(.page-home) .page-hero .hero-title {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+body:not(.page-home) .hero .hero-subtitle,
+body:not(.page-home) .page-hero .hero-subtitle {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body:not(.page-home) .hero-ctas,
+body:not(.page-home) .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+/* Blog / article hero */
+body:not(.page-home) .hero .hero-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+body:not(.page-home) .hero .hero-excerpt {
+  font-size: var(--text-lead);
+  line-height: var(--lead-lh, 1.75);
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 20px;
+}
+
+/* ── Light-surface cards (match homepage partners/market) ── */
+body:not(.page-home) .section.white:not(.vision-section) .type-card,
+body:not(.page-home) .partners-section .partner-item {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  box-shadow: 0 24px 48px -28px rgba(20, 20, 26, 0.22);
+}
+
+body:not(.page-home) .section.white:not(.vision-section) .type-card {
+  border-radius: 16px;
+}
+
+body:not(.page-home) .section.white:not(.vision-section) .type-card:hover {
+  box-shadow: 0 32px 64px -28px rgba(20, 20, 26, 0.28);
+}
+
+body:not(.page-home) .section.white:not(.vision-section) .type-title {
+  color: var(--ink);
+}
+
+body:not(.page-home) .section.white .btn-primary,
+body:not(.page-home) .types-section ~ .form-section .btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Dark section cards — subtle glass */
+body:not(.page-home) .section.dark .type-card,
+body:not(.page-home) .types-section .type-card {
+  border-radius: 16px;
+}
+
+/* ── Types / partners dark bands on light pages ── */
+body:not(.page-home) .types-section {
+  background: var(--black-soft);
+  padding: clamp(4.5rem, 10vw, 7.5rem) var(--gutter);
+  border-top: none;
+}
+
+body:not(.page-home) .types-section .types-title {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* ── Platform overview (cream intro — no card box) ── */
+body:not(.page-home) #overview.platform-overview {
+  padding: clamp(4rem, 8vw, 6.5rem) var(--gutter);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.platform-overview-head {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-bottom: 0;
+}
+
+.platform-overview-head .sec-title {
+  text-wrap: balance;
+}
+
+.platform-overview-copy {
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  text-align: center;
+}
+
+.platform-overview-lead {
+  font-size: var(--text-lead);
+  line-height: var(--lead-lh, 1.75);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.platform-overview-text {
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+/* ── Platform journey on cream ── */
+body:not(.page-home) .platform-journey-head {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+body:not(.page-home) .platform-journey-head .sec-title {
+  margin-bottom: 12px;
+}
+
+/* ── CTA closing bands ── */
+body:not(.page-home) .cta-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 12vw, 9rem) var(--gutter);
+}
+
+body:not(.page-home) .cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/wavelines-background.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+body:not(.page-home) .cta-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Article / blog prose ── */
+body:not(.page-home) .section.white .article,
+body:not(.page-home) .section.white .article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: var(--text-body);
+  line-height: var(--body-lh, 1.65);
+}
+
+body:not(.page-home) .section.white .article h2,
+body:not(.page-home) .section.white .article-body h2 {
+  color: var(--ink);
+  font-size: var(--text-h2);
+  margin: 2.5rem 0 1rem;
+}
+
+body:not(.page-home) .section.white .article h3 {
+  color: var(--ink);
+  font-size: var(--text-h3);
+  margin: 2rem 0 0.75rem;
+}
+
+body:not(.page-home) .section.white .article p {
+  margin-bottom: 1.25rem;
+}
+
+/* ── Footer alignment ── */
+footer {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE UX (site-wide, inner pages)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  body:not(.page-home) .hero,
+  body:not(.page-home) .page-hero {
+    padding-top: calc(var(--nav-h) + 2.5rem);
+    padding-bottom: 2.75rem;
+  }
+
+  body:not(.page-home) .hero-ctas,
+  body:not(.page-home) .hero-actions,
+  body:not(.page-home) .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body:not(.page-home) .hero-ctas a,
+  body:not(.page-home) .hero-actions a,
+  body:not(.page-home) .cta-actions a,
+  body:not(.page-home) .hero-cta {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  body:not(.page-home) .types-grid,
+  body:not(.page-home) .value-grid,
+  body:not(.page-home) .process-steps,
+  body:not(.page-home) .testimonials-grid,
+  body:not(.page-home) .types-section .types-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  body:not(.page-home) .section,
+  body:not(.page-home) .types-section,
+  body:not(.page-home) .form-section {
+    padding: 4rem 1.25rem;
+  }
+
+  body:not(.page-home) .sec-title,
+  body:not(.page-home) .types-title {
+    font-size: var(--text-h2-lg);
+    text-wrap: balance;
+  }
+
+  body:not(.page-home) .hero .hero-inner {
+    text-align: left;
+  }
+
+  body:not(.page-home) .hero-tags {
+    gap: 6px;
+  }
+
+  body:not(.page-home) .hero-tag {
+    font-size: var(--text-body);
+    padding: 5px 10px;
+  }
+
+  .case-insights {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field.full {
+    grid-column: 1;
+  }
+
+  /* Touch-friendly nav targets already in universal-nav.css */
+  .eyebrow::before,
+  .drives-eyebrow::before,
+  .platform-journey-eyebrow::before,
+  .network-page .net-eyebrow::before {
+    width: 22px;
+  }
+
+  .eyebrow.centered,
+  .core-eyebrow,
+  .problem-section .eyebrow,
+  .core-section .eyebrow,
+  .network-page .net-head .net-eyebrow,
+  .drives-head .drives-eyebrow,
+  .platform-journey-head .platform-journey-eyebrow {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  body:not(.page-home) .hero-title {
+    letter-spacing: -0.025em;
+  }
+
+  body:not(.page-home) .type-card {
+    padding: 24px 20px;
+  }
+}

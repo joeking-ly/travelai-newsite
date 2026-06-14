@@ -2,143 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0F" />
+  <meta name="description" content="TravelAI is The Travel Memory Company – portable travel memory for travelers, governed memory for enterprises, while applying agentic AI across a network of 530+ travel brands." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.travelai.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TravelAI" />
+  <meta property="og:title" content="TravelAI – The Travel Memory Company | Travel Personalization in the Age of AI" />
+  <meta property="og:description" content="TravelAI is The Travel Memory Company – portable travel memory for travelers, governed memory for enterprises, while applying agentic AI across a network of 530+ travel brands." />
+  <meta property="og:url" content="https://www.travelai.com/" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TravelAI – The Travel Memory Company | Travel Personalization in the Age of AI" />
+  <meta name="twitter:description" content="TravelAI is The Travel Memory Company – portable travel memory for travelers, governed memory for enterprises, while applying agentic AI across a network of 530+ travel brands." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <title>TravelAI — Travel Technology, Built for People</title>
+  <title>TravelAI – The Travel Memory Company | Travel Personalization in the Age of AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/universal-nav.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/universal-nav.css?v=11">
   <link rel="stylesheet" href="css/motion-reveal.css">
-  <link rel="stylesheet" href="css/site.css">
-  <style>
-    /* Index-only auth gate (temporary) */
-    .auth-gate {
-      position: fixed;
-      inset: 0;
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(10,10,15,0.86);
-      backdrop-filter: blur(6px);
-    }
-    html.auth-ok .auth-gate { display: none; }
-    .auth-modal {
-      width: 100%;
-      max-width: 420px;
-      background: #0A0A0F;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
-      color: rgba(255,255,255,0.92);
-    }
-    .auth-title {
-      font-weight: 700;
-      font-size: 18px;
-      margin-bottom: 14px;
-    }
-    .auth-fields { display: flex; flex-direction: column; gap: 12px; }
-    .auth-field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: rgba(255,255,255,0.7);
-    }
-    .auth-input {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      font-family: inherit;
-      font-size: 14px;
-      outline: none;
-    }
-    .auth-input:focus {
-      border-color: rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.08);
-    }
-    .auth-error {
-      color: #ffb4b4;
-      font-size: 13px;
-      min-height: 16px;
-      margin-top: 8px;
-    }
-    .auth-actions { display: flex; gap: 12px; margin-top: 16px; }
-    .auth-btn {
-      flex: 1;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: #fff;
-      color: #0A0A0F;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-    }
-    .auth-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(255,255,255,0.15);
-    }
-    body.auth-blocked { overflow: hidden; }
-  </style>
-  <script>
-    // Prevent initial flicker: hide gate if already unlocked.
-    try {
-      if (localStorage.getItem('tunerdepot_auth') === '1') {
-        document.documentElement.classList.add('auth-ok');
-      }
-    } catch (e) {}
-  </script>
+  <link rel="stylesheet" href="css/site.css?v=18">
+  <link rel="stylesheet" href="css/home-v2.css?v=5">
 </head>
 <body class="page-home">
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- NAV -->
   <div id="universal-nav-placeholder"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- TEMP: Index-only auth gate -->
-  <div id="auth-gate" class="auth-gate" aria-modal="true" role="dialog" aria-labelledby="auth-title">
-    <div class="auth-modal">
-      <div id="auth-title" class="auth-title">Sign in to view</div>
-      <div class="auth-fields">
-        <div class="auth-field">
-          <label for="auth-username">Username</label>
-          <input id="auth-username" class="auth-input" type="text" autocomplete="username" />
-        </div>
-        <div class="auth-field">
-          <label for="auth-password">Password</label>
-          <input id="auth-password" class="auth-input" type="password" autocomplete="current-password" />
-        </div>
-      </div>
-      <div id="auth-error" class="auth-error" aria-live="polite"></div>
-      <div class="auth-actions">
-        <button id="auth-submit" class="auth-btn" type="button">Enter</button>
-      </div>
-    </div>
-  </div>
-
+  <main id="main-content">
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-optical">
+        <div class="hero-optical__mount" id="hero-optical-mount"></div>
+      </div>
+      <div class="hero-optical__dim"></div>
+    </div>
     <div class="hero-inner">
-      <h1 class="hero-title">
-        Travel Technology,<br/>
-        <span class="hero-title-line2">Built for People.</span>
+      <h1 class="hero-title reveal">
+        The <span class="hero-title-line2">Travel Memory</span><br/>
+        Company.
       </h1>
 
-      <p class="hero-subtitle">
-        AI-driven search that connects travelers to the destinations & experiences
-        they'll love. Making travel better through personalization.
+      <p class="hero-subtitle reveal" style="--d:120ms">
+        Travel runs on context that today lives everywhere and belongs nowhere. We make it portable for travelers, governed for enterprises, and useful for every travel AI agent in between. This is the age of AI in Travel.
       </p>
 
-      <div class="hero-actions">
+      <div class="hero-actions reveal" style="--d:240ms">
         <a href="platform.html" class="btn-primary">What We're Building</a>
         <a href="partners.html" class="btn-hero-outline">Partner With Us</a>
       </div>
+    </div>
+    <div class="hero-scrollcue" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
     </div>
   </section>
 
@@ -204,12 +126,12 @@
   <!-- MISSION -->
   <section class="mission-section">
     <div class="mission-inner">
-      <h2 class="mission-title">
-        Travel is <span class="powerful">powerful.</span> It connects people,
-        creates lasting memories, and fuels economic opportunity.
+      <h2 class="mission-title reveal">
+        Travel is <span class="powerful">unforgettable.</span> It connects people,
+        creates lasting memories, and fuels the world's economy. In a world of digital and artificial, travel is permanent and real.
       </h2>
 
-      <div class="mission-video">
+      <div class="mission-video reveal" style="--d:120ms">
         <div class="mission-video-media">
           <div id="mission-inline-player"></div>
         </div>
@@ -239,159 +161,123 @@
     </div>
   </div>
 
-  <!-- STATS -->
-  <section class="stats-section">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-value">1M+</div>
-        <div class="stat-label">Monthly Active Users</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">470+</div>
-        <div class="stat-label">Travel Brands</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">34.6M</div>
-        <div class="stat-label">Annual Travelers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">1/38s</div>
-        <div class="stat-label">Booking Frequency</div>
-      </div>
+  <!-- THE PROBLEM -->
+  <section id="problem" class="problem-section">
+    <div class="problem-inner">
+      <p class="eyebrow on-light reveal">The Problem</p>
+      <h2 class="problem-title reveal" style="--d:80ms">
+        Personalized travel runs on memory.<br/>
+        Yet every app and AI agent forgets you.
+      </h2>
+      <p class="problem-desc reveal" style="--d:160ms">
+        You explain yourself once per service, forever — the loyalty number, the seat preference, the allergy, the no-red-eyes-with-the-kids. Each platform keeps a sliver of you. None of them share. We call it the <span class="tax">digital amnesia tax</span>, and every traveler pays it.
+      </p>
     </div>
   </section>
 
-  <!-- FEATURE 1 -->
-  <section id="platform" class="feature-section feature-section-light">
+  <!-- OUR BELIEF -->
+  <section id="belief" class="feature-section feature-section-light">
     <div class="feature-inner">
       <div class="feature-content">
-        <p class="feature-eyebrow">Platform</p>
-        <h2 class="feature-title">Every journey starts with a person, not a platform.</h2>
-        <p class="feature-desc">
-          We put travelers first by understanding their unique preferences, budget, and
-          travel style. AI learns what matters most to create personalized recommendations.
+        <p class="eyebrow on-light reveal">Our Belief</p>
+        <h2 class="feature-title reveal" style="--d:80ms">Every travel journey starts with a person, not a platform.</h2>
+        <p class="feature-desc reveal" style="--d:140ms">
+          So the memory should belong to the person. We're building a portable, governed memory layer for the travel industry. This is context the traveler owns and can carry between every AI agent, app, and service they choose.
         </p>
-        <button class="btn-primary">Learn More</button>
+        <a href="why.html" class="btn-primary reveal" style="--d:200ms">Read the vision</a>
       </div>
-      <div class="feature-visual"></div>
+      <div class="feature-visual reveal-img" style="--d:120ms; aspect-ratio:auto; background:none; border:none; box-shadow:none;">
+        <div class="photo-plate">
+          <image-slot id="home-belief-photo" placeholder="Drop a travel photo — a person in a place they love"></image-slot>
+          <span class="photo-chip"><span class="dot"></span>Every journey is personal</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FEATURE 2 -->
-  <section class="feature-section feature-section-light">
+  <!-- PORTABLE MEMORY · TRAVELER.MD -->
+  <section id="traveler-md" class="feature-section feature-section-light feat-warm">
     <div class="feature-inner reverse">
       <div class="feature-content">
-        <p class="feature-eyebrow">Discovery</p>
-        <h2 class="feature-title">AI that captures the soul of a place.</h2>
-        <p class="feature-desc">
-          Our AI understands the vibe, culture, and experiences that make each place unique.
-          From hidden gems to iconic landmarks, we surface what truly matters.
+        <p class="eyebrow on-light reveal">Portable Memory · Traveler.md</p>
+        <h2 class="feature-title reveal" style="--d:80ms">One file. Yours. It travels with you.</h2>
+        <p class="feature-desc reveal" style="--d:140ms">
+          Traveler.md is a portable, human-readable profile of who you are as a traveler — your preferences, your constraints, the trips that matter. Built to be read by AI agents like Claude, with your permission. You grant access, see what's used, and revoke it anytime.
         </p>
-        <button class="btn-primary">Explore Now</button>
+        <a href="platform.html" class="btn-primary reveal" style="--d:200ms">Meet traveler.md</a>
       </div>
-      <div class="feature-visual"></div>
+      <div class="feature-visual reveal-img" style="--d:120ms; aspect-ratio:auto; background:none; border:none; box-shadow:none;">
+        <div class="photo-plate">
+          <image-slot id="home-travelermd-photo" placeholder="Drop a travel photo — a candid, joyful moment on a trip"></image-slot>
+          <span class="md-badge"><span class="glyph">.md</span>traveler.md</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- AGENTIC SECTION -->
-  <section id="technology" class="agentic-section">
-    <h2 class="agentic-title">Built for the Agentic Age</h2>
-    <p class="agentic-subtitle">
-      A platform designed for intelligent travel planning—where AI agents and humans
-      collaborate seamlessly to create better journeys.
-    </p>
-
-    <div class="agentic-grid">
-      <div class="agentic-card">
-        <div class="agentic-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <rect x="16" y="12" width="32" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/>
-            <circle cx="26" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/>
-            <circle cx="38" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M24 32 Q32 36 40 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M32 12 L32 6 M28 6 L36 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M16 46 L16 52 M48 46 L48 52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M20 40 L20 46 L44 46 L44 40" stroke="currentColor" stroke-width="2.5"/>
-          </svg>
+  <!-- GOVERNED MEMORY · GMP -->
+  <section id="gmp" class="feature-section gmp-section">
+    <div class="feature-inner">
+      <div class="feature-content">
+        <p class="eyebrow on-dark reveal">Governed Memory · For the Enterprise</p>
+        <h2 class="feature-title reveal" style="--d:80ms">Built for the agentic age — and governed for it.</h2>
+        <p class="feature-desc reveal" style="--d:140ms">
+          The TravelAI Governed Memory Platform gives OTAs, TMCs, and enterprise travel programs the consent, audit, and replay machinery to put AI to work in travel with confidence — every interaction traceable, every decision defensible.
+        </p>
+        <p class="gmp-tag reveal" style="--d:180ms">Now in early development.</p>
+        <a href="partners.html" class="btn-primary reveal" style="--d:220ms">For the enterprise</a>
+      </div>
+      <div class="feature-visual reveal" style="--d:140ms; aspect-ratio:auto; background:none; border:none; box-shadow:none;">
+        <div class="render-stage">
+          <img src="assets/icons/icon-svtp.png" alt="Interlocking governance — consent, audit, and replay" />
         </div>
-        <h3 class="agentic-card-title">Intelligent Agents</h3>
-        <p class="agentic-card-desc">
-          AI agents that learn preferences and autonomously surface destinations matched to your style.
+      </div>
+    </div>
+  </section>
+
+  <!-- BETTER MEMORIES FOR ALL -->
+  <section id="memory-network" class="feature-section network-light">
+    <div class="feature-inner reverse">
+      <div class="feature-content">
+        <p class="eyebrow on-dark reveal">Better Memories for All</p>
+        <h2 class="feature-title reveal" style="--d:80ms">A memory network that compounds.</h2>
+        <p class="feature-desc reveal" style="--d:140ms">
+          We're applying our tech across our proprietary network of travel brands. That's 530+ sites and counting! Every traveler strengthens the format. Every AI agent strengthens it back. Enterprise deployments feed the network; the network makes every trip more personal. It's the flywheel that built email, OAuth, and the open web – now for travel memory.
         </p>
       </div>
-
-      <div class="agentic-card">
-        <div class="agentic-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <path d="M32 8 L34 20 L42 14 L36 22 L48 24 L36 26 L42 34 L34 28 L32 40 L30 28 L22 34 L28 26 L16 24 L28 22 L22 14 L30 20 L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-            <circle cx="48" cy="16" r="2" stroke="currentColor" stroke-width="2"/>
-            <circle cx="16" cy="48" r="2" stroke="currentColor" stroke-width="2"/>
-            <circle cx="52" cy="48" r="3" stroke="currentColor" stroke-width="2"/>
-          </svg>
+      <div class="feature-visual reveal" style="--d:140ms; aspect-ratio:auto; background:none; border:none; box-shadow:none;">
+        <div class="render-stage">
+          <img src="assets/icons/icon-travelcommunity.png" alt="A connected network of travel brands" />
         </div>
-        <h3 class="agentic-card-title">Personalized Discovery</h3>
-        <p class="agentic-card-desc">
-          Recommendations adapt in real-time based on interactions, budget, and travel history.
-        </p>
       </div>
+    </div>
+  </section>
 
-      <div class="agentic-card">
-        <div class="agentic-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M32 10 Q32 32 32 54" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M10 32 Q32 32 54 32" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M32 10 Q42 20 42 32 Q42 44 32 54" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M32 10 Q22 20 22 32 Q22 44 32 54" stroke="currentColor" stroke-width="2.5"/>
-            <ellipse cx="32" cy="32" rx="22" ry="10" stroke="currentColor" stroke-width="2.5"/>
-          </svg>
-        </div>
-        <h3 class="agentic-card-title">Global Network</h3>
-        <p class="agentic-card-desc">
-          Access 19.5M+ listings across 470+ brands, optimized through our unified AI layer.
-        </p>
+  <!-- THE CORE · OUR PROVING GROUND -->
+  <section id="core" class="core-section">
+    <div class="core-inner">
+      <p class="eyebrow on-dark centered reveal">The Core · Our Proving Ground</p>
+      <h2 class="core-title reveal" style="--d:80ms">Proven where it's hardest: at scale, in production.</h2>
+      <p class="core-lead reveal" style="--d:160ms">
+        We didn't start from a whiteboard. We run a live agentic network of 530+ travel brands and other complementary technologies. Together, these constitute the base we're building the memory layer on top of, and the origin story behind it all.
+      </p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value" data-count="50" data-suffix="M+" aria-label="50M+">50M+</div>
+        <div class="stat-label">Travelers helped yearly, each demonstrating high-intent demand</div>
       </div>
-
-      <div class="agentic-card">
-        <div class="agentic-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <path d="M32 8 L48 16 L48 32 Q48 44 32 56 Q16 44 16 32 L16 16 L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M28 32 L30 34 L36 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="agentic-card-title">Privacy First</h3>
-        <p class="agentic-card-desc">
-          Portable intelligence that learns without exposing personal information.
-        </p>
+      <div class="stat-item">
+        <div class="stat-value" data-count="530" data-suffix="+" aria-label="530+">530+</div>
+        <div class="stat-label">Active Travel Brands, creating helpful travel content at scale</div>
       </div>
-
-      <div class="agentic-card">
-        <div class="agentic-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <path d="M36 8 L20 32 L32 32 L28 56 L44 32 L32 32 L36 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-            <circle cx="52" cy="20" r="2" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="44" r="2" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </div>
-        <h3 class="agentic-card-title">Instant Results</h3>
-        <p class="agentic-card-desc">
-          Context-aware recommendations from your first search, in milliseconds.
-        </p>
+      <div class="stat-item">
+        <div class="stat-value" data-count="630" data-prefix="$" data-suffix="M+" aria-label="$630M+">$630M+</div>
+        <div class="stat-label">Gross Booking Value annually via sustainable growth and partnerships</div>
       </div>
-
-      <div class="agentic-card">
-        <div class="agentic-icon">
-          <svg viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2.5"/>
-            <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.5"/>
-            <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M32 10 L32 6 M32 54 L32 58 M54 32 L58 32 M10 32 L6 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3 class="agentic-card-title">Continuous Learning</h3>
-        <p class="agentic-card-desc">
-          Platform gets smarter with every interaction across the entire network.
-        </p>
+      <div class="stat-item">
+        <div class="stat-value" data-count="2500" data-suffix="+" data-comma="true" aria-label="2500+">2500+</div>
+        <div class="stat-label">Travel Bookings Daily, generating learning signals across the network</div>
       </div>
     </div>
   </section>
@@ -399,11 +285,12 @@
   <!-- SCALE SECTION -->
   <section class="scale-section" id="scale-section">
     <div class="scale-section-spotlight" aria-hidden="true"></div>
-    <h2 class="scale-title">A self-reinforcing engine<br/>powering accelerating scale</h2>
+    <h2 class="scale-title reveal">A self-reinforcing engine<br/>powering accelerating scale</h2>
 
-    <div class="scale-grid">
-      <div class="scale-card dark">
+    <div class="scale-grid" data-stagger="100">
+      <div class="scale-card dark reveal">
         <div>
+          <img class="scale-card-icon" src="assets/icons/icon-domainsystem.png" alt="" aria-hidden="true" />
           <p class="scale-card-eyebrow">Content</p>
           <h3 class="scale-card-title">Gen AI<br/>+ 19.5M Discovery</h3>
         </div>
@@ -412,8 +299,9 @@
         </p>
       </div>
 
-      <div class="scale-card light">
+      <div class="scale-card light reveal">
         <div>
+          <img class="scale-card-icon" src="assets/icons/icon-botarmy.png" alt="" aria-hidden="true" />
           <p class="scale-card-eyebrow">Travelers</p>
           <h3 class="scale-card-title">Millions Travelers,<br/>Billion+ Quality Data</h3>
         </div>
@@ -422,8 +310,9 @@
         </p>
       </div>
 
-      <div class="scale-card blue">
+      <div class="scale-card blue reveal">
         <div>
+          <img class="scale-card-icon" src="assets/icons/icon-tam.png" alt="" aria-hidden="true" />
           <p class="scale-card-eyebrow">Data</p>
           <h3 class="scale-card-title">Optimizing for<br/>Life of Traveler</h3>
         </div>
@@ -432,8 +321,9 @@
         </p>
       </div>
 
-      <div class="scale-card warm">
+      <div class="scale-card warm reveal">
         <div>
+          <img class="scale-card-icon" src="assets/icons/icon-admanagement.png" alt="" aria-hidden="true" />
           <p class="scale-card-eyebrow">Economics</p>
           <h3 class="scale-card-title">Manage Economics<br/>Data to Revenue</h3>
         </div>
@@ -446,22 +336,23 @@
 
   <!-- MARKET SIZE -->
   <section class="market-section">
-    <h2 class="market-title">The world's largest vertical.<br/>Ready for AI.</h2>
+    <h2 class="market-title reveal">The world's largest vertical.<br/>Ready for AI.</h2>
+    <p class="market-lead reveal" style="--d:100ms">Travel is the biggest consumer category on earth, and the one with the most context to remember.</p>
 
-    <div class="market-grid">
-      <div class="market-card">
+    <div class="market-grid" data-stagger="110">
+      <div class="market-card reveal">
         <div class="market-value">$1.7T</div>
         <div class="market-label">Total Addressable Market</div>
-        <p class="market-desc">Global travel & tourism industry size</p>
+        <p class="market-desc">Global travel &amp; tourism industry size</p>
       </div>
 
-      <div class="market-card">
+      <div class="market-card reveal">
         <div class="market-value">$341B</div>
         <div class="market-label">Online Booking Market</div>
         <p class="market-desc">Digital travel bookings worldwide</p>
       </div>
 
-      <div class="market-card">
+      <div class="market-card reveal">
         <div class="market-value">$110B</div>
         <div class="market-label">Serviceable Market</div>
         <p class="market-desc">AI-enabled travel discovery</p>
@@ -472,10 +363,10 @@
   <!-- HOMEPAGE FEATURED CONTENT -->
   <section class="homefeature-section">
     <div class="homefeature-inner">
-      <div class="homefeature-header">
+      <div class="homefeature-header reveal">
         <div>
           <div class="homefeature-eyebrow">From the TravelAI Network</div>
-          <h2 class="homefeature-title">Featured insights & stories.</h2>
+          <h2 class="homefeature-title">Featured insights &amp; stories.</h2>
         </div>
         <div>
           <p class="homefeature-subtitle">
@@ -485,14 +376,11 @@
         </div>
       </div>
 
-      <div class="homefeature-grid">
+      <div class="homefeature-grid" data-stagger="120">
         <!-- Featured Insight (tagged: homepagefeature) -->
         <a href="blogs/ai-assistant-bundled-travel-bookings.html"
-           class="homefeature-card homefeature-card--insight"
+           class="homefeature-card homefeature-card--insight reveal"
            data-tags="homepagefeature insights">
-          <div class="homefeature-card-image">
-           <img src="">
-          </div>
           <div class="homefeature-card-content">
             <div class="homefeature-pill-row">
               <span class="homefeature-pill">Insight</span>
@@ -518,11 +406,8 @@
 
         <!-- Featured Story (tagged: homepagefeature) -->
         <a href="stories/story-detail.html"
-           class="homefeature-card homefeature-card--story"
+           class="homefeature-card homefeature-card--story reveal"
            data-tags="homepagefeature stories">
-          <div class="homefeature-card-image">
-            <img src="">
-          </div>
           <div class="homefeature-card-content">
             <div class="homefeature-pill-row">
               <span class="homefeature-pill">Story</span>
@@ -553,14 +438,13 @@
   <section class="partners-section">
     <div class="partners-inner">
       <div class="partners-content">
-        <h2 class="partners-title">
+        <h2 class="partners-title reveal">
           Better travel starts with <span class="better">better</span> partners.
         </h2>
-        <p class="partners-desc">
-          We work with leading travel brands, accommodation providers, and technology
-          partners to create seamless, intelligent travel experiences.
+        <p class="partners-desc reveal" style="--d:100ms">
+          We give the travel ecosystem – suppliers, hotels, OTAs, and AI platforms – a neutral, governed memory layer to build on. Partners read and contribute to traveler memory with permission, so everyone starts from the same source of truth.
         </p>
-        <button class="btn-primary" style="background:var(--white);color:var(--black);">Become a Partner</button>
+        <a href="partners.html" class="btn-primary reveal" style="--d:160ms">Become a Partner</a>
       </div>
 
       <div class="partners-list">
@@ -611,18 +495,16 @@
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2 class="cta-title">
-      The Age of AI<br/>
-      <span class="for-ai">for one billion travelers.</span>
-    </h2>
-    <p class="cta-subtitle">
-      Join the future of travel. Intelligent, personalized, and built for everyone.
+    <h2 class="cta-title reveal">Own your travel memory with TravelAI.</h2>
+    <p class="cta-subtitle reveal" style="--d:100ms">
+      The next decade of travel will be defined less by the AI agents than by the memory they share. At TravelAI, we're on a mission to help one billion travelers by 2030. We're building that founding travel AI infrastructure: owned by the traveler, governed for the enterprise, open to all.
     </p>
-    <div class="cta-actions">
-      <button class="btn-white">Get Started</button>
-      <button class="btn-outline-white">Learn More</button>
+    <div class="cta-actions reveal" style="--d:180ms">
+      <a href="contact.html" class="btn-white">Get Started</a>
+      <a href="why.html" class="btn-outline-white">Read the whitepaper</a>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -630,7 +512,7 @@
       <div class="footer-brand">
         <div class="footer-logo">
           <a href="index.html"><img src="assets/White%20Logo%20Horizontal%20Transparent.svg" alt="TravelAI" class="footer-logo-img"></a>
-        </div>
+          </div>
         <p class="footer-tagline">Making travel better through AI personalization.</p>
       </div>
 
@@ -682,65 +564,12 @@
       </div>
     </div>
   </footer>
-  <script src="js/universal-nav.js?v=2"></script>
-  <script>
-    (function () {
-      var gate = document.getElementById('auth-gate');
-      if (!gate) return;
 
-      // Provided credentials (temporary).
-      var USERNAME = 'traveller';
-      var PASSWORD = 'therethere';
-      var STORAGE_KEY = 'tunerdepot_auth';
-
-      var submit = document.getElementById('auth-submit');
-      var username = document.getElementById('auth-username');
-      var password = document.getElementById('auth-password');
-      var error = document.getElementById('auth-error');
-
-      function unlock() {
-        try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
-        gate.remove();
-        document.body.classList.remove('auth-blocked');
-      }
-
-      function lock() {
-        document.body.classList.add('auth-blocked');
-      }
-
-      function check() {
-        if (!username || !password) return;
-        var u = (username.value || '').trim();
-        var p = (password.value || '').trim();
-        if (u === USERNAME && p === PASSWORD) {
-          error.textContent = '';
-          unlock();
-        } else {
-          error.textContent = 'Incorrect username or password.';
-          password.focus();
-        }
-      }
-
-      // If already unlocked, do nothing.
-      try {
-        if (localStorage.getItem(STORAGE_KEY) === '1') return;
-      } catch (e) {}
-
-      lock();
-      if (username) username.focus();
-
-      if (submit) {
-        submit.addEventListener('click', check);
-      }
-
-      [username, password].forEach(function (el) {
-        if (!el) return;
-        el.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter') check();
-        });
-      });
-    })();
-  </script>
+  <script src="js/image-slot.js"></script>
+  <script src="js/easemize-glow-cards.js?v=1"></script>
+  <script src="js/seo-schema.js?v=1" defer></script>
+  <script src="js/universal-nav.js?v=7"></script>
+  <script src="js/home-v2.js?v=2"></script>
   <script>
     (function () {
       var section = document.getElementById('scale-section');
@@ -997,6 +826,29 @@
       });
     })();
   </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import { initHeroOptical } from "./js/hero-optical-engine.js?v=4";
+
+    const mount = document.getElementById("hero-optical-mount");
+    const wrap = mount?.closest(".hero-optical");
+
+    try {
+      const engine = initHeroOptical(mount);
+      if (!engine && wrap) wrap.classList.add("hero-optical--static");
+    } catch (err) {
+      console.warn("Hero optical engine unavailable:", err);
+      if (wrap) wrap.classList.add("hero-optical--static");
+    }
+  </script>
   <script type="module" src="js/motion-reveal.js"></script>
+  <script src="js/core-stats.js?v=2"></script>
 </body>
 </html>

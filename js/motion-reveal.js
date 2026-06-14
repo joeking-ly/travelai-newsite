@@ -5,7 +5,6 @@
 import { inView, animate, stagger } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
 
 const pairs = [
-  [".stats-section", ".stat-item"],
   [".agentic-section", ".agentic-card"],
   [".partners-section", ".partner-item"],
   [".mission-grid", ".mission-card"],

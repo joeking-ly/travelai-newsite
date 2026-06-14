@@ -1,0 +1,287 @@
+/* ═══════════════════════════════════════════════════════
+   TravelAI — Fluid typography & spacing (DESIGN.md)
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Fluid type scale */
+  --text-display: clamp(3rem, 6.5vw + 0.25rem, 4.5rem);
+  --text-h1: clamp(2.25rem, 4vw + 0.5rem, 3rem);
+  --text-h2: clamp(20px, 2.6vw, 44px);
+  --text-h2-lg: clamp(20px, 2.6vw, 44px);
+  --text-h3: clamp(1.25rem, 1.4vw + 0.55rem, 1.625rem);
+  --text-h4: clamp(1.0625rem, 0.8vw + 0.75rem, 1.25rem);
+  --text-lead: clamp(1.0625rem, 1.2vw + 0.5rem, 1.1875rem);
+  --text-min: 0.9375rem; /* 15px — absolute floor; nothing smaller site-wide */
+  --text-body: clamp(var(--text-min), 0.15vw + 0.875rem, 1.0625rem);
+  --text-small: var(--text-body); /* eyebrows/labels use body size + letter-spacing */
+  --text-stat: clamp(2.5rem, 4.5vw + 0.5rem, 3.5rem);
+
+  /* Spacing */
+  --section-y: clamp(4.5rem, 8vw, 7.5rem);
+  --section-y-sm: clamp(3.5rem, 6vw, 6.25rem);
+  --section-x: clamp(1.25rem, 4vw, 3rem);
+  --stack-sm: clamp(0.75rem, 1.5vw, 1rem);
+  --stack-md: clamp(1rem, 2vw, 1.5rem);
+  --stack-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --stack-xl: clamp(2rem, 4vw, 3.5rem);
+
+  /* Heading rhythm */
+  --heading-lh-tight: 1.1;
+  --heading-lh: 1.15;
+  --heading-lh-relaxed: 1.2;
+  --heading-track: -0.03em;
+  --heading-track-sm: -0.02em;
+  --body-lh: 1.6;
+  --lead-lh: 1.75;
+}
+
+/* Base heading scale */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: var(--heading-track-sm);
+  line-height: var(--heading-lh);
+}
+
+h1 { font-size: var(--text-h1); letter-spacing: var(--heading-track); line-height: var(--heading-lh-tight); }
+h2 { font-size: var(--text-h2); letter-spacing: var(--heading-track); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); }
+h5, h6 { font-size: var(--text-small); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Unified eyebrow */
+.eyebrow,
+.problem-eyebrow,
+.feature-eyebrow,
+.core-eyebrow,
+.homefeature-eyebrow,
+.drives-eyebrow,
+.scale-card-eyebrow {
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--stack-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.eyebrow::before,
+.problem-eyebrow::before,
+.feature-eyebrow::before,
+.core-eyebrow::before,
+.homefeature-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--spectrum);
+  flex: 0 0 auto;
+}
+
+.eyebrow.on-dark,
+.problem-eyebrow,
+.core-eyebrow,
+.feature-section:not(.feature-section-light) .feature-eyebrow,
+.gmp-section .feature-eyebrow,
+.network-light .feature-eyebrow {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.eyebrow.on-light,
+.feature-section-light .feature-eyebrow,
+.homefeature-eyebrow {
+  color: var(--gray-mid);
+}
+
+.eyebrow.centered,
+.core-eyebrow,
+.problem-section .eyebrow,
+.core-section .eyebrow {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Map component titles to fluid scale */
+.hero-title,
+.page-hero .hero-title {
+  font-size: var(--text-display);
+  font-weight: 600;
+  letter-spacing: var(--heading-track);
+  line-height: var(--heading-lh-tight);
+}
+
+.hero-subtitle,
+.page-hero .hero-subtitle {
+  font-size: var(--text-lead);
+  line-height: var(--lead-lh);
+}
+
+.problem-title,
+.core-title,
+.market-title,
+.cta-title,
+.scale-title,
+.partners-title,
+.mission-title,
+.homefeature-title,
+.sec-title,
+.drives-title,
+.types-title,
+.feature-title {
+  font-size: var(--text-h2-lg);
+  font-weight: 600;
+  letter-spacing: var(--heading-track);
+  line-height: var(--heading-lh);
+}
+
+.feature-title {
+  font-size: var(--text-h2);
+  letter-spacing: var(--heading-track-sm);
+}
+
+.problem-desc,
+.core-lead,
+.market-lead,
+.cta-subtitle,
+.feature-desc,
+.partners-desc {
+  font-size: var(--text-lead);
+  line-height: var(--lead-lh);
+}
+
+.scale-card-title,
+.partner-title,
+.homefeature-heading,
+.case-title {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: var(--heading-track-sm);
+  line-height: var(--heading-lh-relaxed);
+}
+
+.core-section .stat-value,
+.market-value {
+  font-size: var(--text-stat);
+}
+
+/* Inner pages — map legacy title classes to scale */
+.sec-title,
+.types-title,
+.process-title,
+.testimonials-title,
+.form-title,
+.value-title,
+.drives-title,
+.agentic-title,
+.platform-title,
+.why-title,
+.about-title,
+.contact-title,
+.careers-title,
+.resources-title,
+.insights-title,
+.stories-title,
+.network-hero-title,
+.blog-title,
+.story-title,
+.job-title,
+.press-title {
+  font-size: var(--text-h2-lg);
+  font-weight: 600;
+  letter-spacing: var(--heading-track);
+  line-height: var(--heading-lh);
+}
+
+.type-title,
+.step-title,
+.job-detail h2,
+.value-item .value-label + *,
+.card-title,
+.surface-title,
+.product-name {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: var(--heading-track-sm);
+  line-height: var(--heading-lh-relaxed);
+}
+
+.form-subtitle,
+.sec-lead,
+.page-lead {
+  font-size: var(--text-lead);
+  line-height: var(--lead-lh);
+}
+
+body {
+  font-size: var(--text-body);
+  line-height: var(--body-lh);
+}
+
+.value-number,
+.stat-number,
+.metric-value {
+  font-size: var(--text-stat);
+  letter-spacing: var(--heading-track-sm);
+  line-height: var(--heading-lh-tight);
+}
+
+/* Section padding rhythm */
+.problem-section,
+.mission-section,
+.core-section,
+.market-section,
+.cta-section,
+.partners-section,
+.scale-section,
+.homefeature-section,
+.feature-section {
+  padding: var(--section-y) var(--section-x);
+}
+
+.section {
+  padding: var(--section-y-sm) var(--section-x);
+}
+
+.hero {
+  padding-left: var(--section-x);
+  padding-right: var(--section-x);
+}
+
+footer {
+  padding-left: var(--section-x);
+  padding-right: var(--section-x);
+}
+
+/* Scroll reveal (site-wide) — home-v2.js uses .in; core-stats uses .is-visible */
+.reveal,
+.reveal-img {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0ms);
+}
+
+.reveal-img {
+  transform: translateY(20px) scale(0.98);
+}
+
+.reveal.is-visible,
+.reveal-img.is-visible,
+.reveal.in,
+.reveal-img.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

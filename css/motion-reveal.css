@@ -1,5 +1,4 @@
 /* Initial state for card reveal (Motion.js slide-up + fade). Remove when JS runs. */
-.stat-item,
 .agentic-card,
 .partner-item,
 .mission-card,
@@ -18,7 +17,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stat-item,
   .agentic-card,
   .partner-item,
   .mission-card,

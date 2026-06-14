@@ -1,17 +1,67 @@
 /* Universal navigation – dark bar, light links, vertical separator, TRAVEL STORIES button */
+:root {
+  --nav-h: 72px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --nav-offset: calc(var(--nav-h) + var(--safe-top));
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 56px;
+  }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background: #0A0A0F;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#universal-nav-placeholder {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  min-height: 0;
+  border: 0;
+  overflow: visible;
+}
+
 .universal-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 72px;
+  margin: 0;
+  height: var(--nav-offset);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 48px;
+  box-sizing: border-box;
+  padding: var(--safe-top) max(48px, env(safe-area-inset-right, 0px)) 0 max(48px, env(safe-area-inset-left, 0px));
   background: #0A0A0F;
   font-family: 'Inter Tight', sans-serif;
+}
+
+/* Fill status-bar / overscroll inset above the nav bar */
+.universal-nav::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: var(--safe-top);
+  background: #0A0A0F;
+  pointer-events: none;
+}
+
+.scroll-progress {
+  top: var(--nav-offset) !important;
 }
 
 /* Animated line under nav: white → rainbow sweep → white (runs once on page load) */
@@ -57,7 +107,7 @@
 .universal-nav .unav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-weight: 700;
   font-size: 16px;
   color: #fff;
@@ -69,8 +119,7 @@
   opacity: 1;
 }
 
-.universal-nav .unav-logo:hover img,
-.universal-nav .unav-logo:hover .unav-logo-img {
+.universal-nav .unav-logo:hover img.unav-logo-img {
   animation: unav-logo-glow-pulse 2.5s ease-in-out infinite;
 }
 
@@ -97,12 +146,20 @@
   }
 }
 
-.universal-nav .unav-logo img,
 .universal-nav .unav-logo-img {
   height: 36px;
   width: auto;
   display: block;
+  flex-shrink: 0;
   transition: filter 0.4s;
+}
+
+.universal-nav img.unav-logo-name {
+  height: 26px;
+  width: auto;
+  max-height: 26px;
+  display: block;
+  flex-shrink: 0;
 }
 
 /* Footer logo (shared) */
@@ -128,7 +185,7 @@
 }
 
 .universal-nav .unav-links a {
-  font-size: 14px;
+  font-size: var(--text-body);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
@@ -170,7 +227,7 @@
   background: #fff;
   color: #0A0A0F;
   border-radius: 100px;
-  font-size: 14px;
+  font-size: var(--text-body);
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -194,6 +251,10 @@
 }
 
 .universal-nav .unav-hamburger {
+  display: none;
+}
+
+.universal-nav .unav-mobile-cta {
   display: none;
 }
 
@@ -226,7 +287,7 @@
 /* Tablet only: condensed dropdowns */
 @media (min-width: 769px) and (max-width: 1024px) {
   .universal-nav {
-    padding: 0 20px;
+    padding: var(--safe-top) max(20px, env(safe-area-inset-right, 0px)) 0 max(20px, env(safe-area-inset-left, 0px));
   }
 
   .universal-nav .unav-links {
@@ -260,7 +321,7 @@
     border-radius: 8px;
     color: rgba(255, 255, 255, 0.9);
     font-family: inherit;
-    font-size: 14px;
+    font-size: var(--text-body);
     font-weight: 500;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s, color 0.2s;
@@ -321,7 +382,7 @@
   .universal-nav .unav-dropdown-panel a {
     display: block;
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: var(--text-body);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
@@ -354,32 +415,56 @@
 
 @media (max-width: 768px) {
   .universal-nav {
-    padding: 0 16px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: flex-start;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 72px;
-    height: 72px;
+    padding: var(--safe-top) max(12px, env(safe-area-inset-right, 0px)) 0 max(12px, env(safe-area-inset-left, 0px));
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow: visible;
+    min-height: var(--nav-offset);
+    height: var(--nav-offset);
   }
 
   .universal-nav.unav-mobile-open {
+    flex-wrap: wrap;
+    align-content: flex-start;
     height: auto;
-    max-height: 100vh;
+    min-height: var(--nav-offset);
+    max-height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .universal-nav .unav-logo {
-    flex-shrink: 0;
-    min-height: 72px;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    gap: 8px;
     align-items: center;
     display: flex;
   }
 
+  .universal-nav .unav-logo-img {
+    height: 26px;
+    width: 26px;
+  }
+
+  .universal-nav img.unav-logo-name {
+    height: 14px;
+    max-height: 14px;
+    max-width: min(118px, 40vw);
+    object-fit: contain;
+    object-position: left center;
+  }
+
   .universal-nav .unav-right {
-    flex-shrink: 0;
-    min-height: 72px;
-    align-self: stretch;
+    flex: 0 0 auto;
+    min-height: 0;
+    margin-left: 8px;
+    gap: 0;
+  }
+
+  /* CTA lives in the mobile drawer, not the header bar */
+  .universal-nav > .unav-right > .unav-cta {
+    display: none;
   }
 
   .universal-nav .unav-tablet-menus {
@@ -397,11 +482,9 @@
     width: 100%;
     order: 99;
     flex-basis: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(5, auto);
+    flex-direction: column;
     gap: 0;
-    padding: 20px 0 24px;
+    padding: 8px 0 20px;
     margin-top: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: #0A0A0F;
@@ -412,37 +495,44 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .universal-nav .unav-links li:last-child {
+  .universal-nav .unav-links li.unav-mobile-cta {
     border-bottom: none;
+    padding-top: 12px;
+    margin-top: 4px;
   }
 
   .universal-nav .unav-links .unav-sep {
     display: none;
   }
 
+  .universal-nav .unav-mobile-cta {
+    display: list-item;
+  }
+
   .universal-nav .unav-links a {
-    display: block;
-    padding: 12px 0;
-    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding: 14px 4px;
+    font-size: 16px;
+    min-height: 48px;
+    line-height: 1.25;
+  }
+
+  .universal-nav .unav-links .unav-mobile-cta-link {
+    justify-content: center;
+    width: 100%;
+    padding: 14px 20px;
+    background: #fff;
+    color: #0A0A0F;
+    border-radius: 100px;
+    font-size: var(--text-body);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    min-height: 48px;
   }
 
   .universal-nav.unav-mobile-open .unav-links {
-    display: grid;
-  }
-
-  .universal-nav .unav-links li:nth-child(n+7) {
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-    padding-left: 16px;
-  }
-
-  .universal-nav .unav-cta {
-    padding: 10px 16px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .universal-nav .unav-cta .arrow {
-    display: none;
+    display: flex;
   }
 
   .universal-nav .unav-hamburger {
@@ -454,21 +544,22 @@
     height: 44px;
     padding: 0;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
     cursor: pointer;
     align-items: center;
+    flex-shrink: 0;
     transition: background 0.2s, border-color 0.2s;
   }
 
   .universal-nav .unav-hamburger:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.55);
   }
 
   .universal-nav .unav-hamburger-bar {
     display: block;
-    width: 20px;
+    width: 18px;
     height: 2px;
     background: #fff;
     border-radius: 1px;
@@ -502,48 +593,39 @@
 
 /* Rainbow gradient text: prevent right-edge clipping site-wide */
 .hero-title .gradient,
-.partners-title .better {
+.hero-title .hero-title-line2,
+.hero-title-line2,
+.partners-title .better,
+.mission-title .powerful,
+.cta-title .for-ai,
+.gradient {
   display: inline-block !important;
   box-sizing: content-box !important;
   padding-left: 0.05em !important;
   padding-right: 15px !important;
+  background: var(--spectrum) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-text-stroke: 0 transparent !important;
 }
 .hero-title,
 .partners-title {
   overflow: visible !important;
 }
 
-/* All headings: font-weight 700 site-wide */
+/* Hero headlines — match homepage (600, not black 900) */
 .hero-title,
-.hero-title .gradient,
-.hero-mission-label,
-.sec-title,
-.partners-title,
-.partners-title .better,
-.mission-title,
-.mission-title .powerful,
-.feature-title,
-.feature-eyebrow,
-.stories-title,
-.story-title,
-.scale-title,
-.scale-card-title,
-.market-title,
-.market-label,
-.cta-title,
-.cta-title .for-ai,
-.agentic-title,
-.agentic-subtitle,
-.agentic-card-title,
-.partners-title .better,
-.value-title,
-.timeline-content h3,
-.more-title,
-.verdict-title,
-.share-title,
-.footer-col h5 {
-  font-weight: 900 !important;
+.page-hero .hero-title {
+  font-weight: 600 !important;
+  letter-spacing: -0.03em;
 }
+
+/* Section & card headings: 600 per DESIGN.md — see typography.css + site.css cascade */
 
 /* Global hover for icon/text cards */
 .mission-card,
