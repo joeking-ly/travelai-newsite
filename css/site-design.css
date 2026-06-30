@@ -15,6 +15,9 @@
   --ease: cubic-bezier(0.22, 0.8, 0.22, 1);
   --maxw: 1240px;
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --surface-elevated: #141415;
+  --surface-elevated-hover: #161617;
+  --surface-elevated-border: rgba(255, 255, 255, 0.08);
 }
 
 /* ── Scroll progress (injected on all pages via universal-nav.js) ── */
@@ -66,14 +69,13 @@ body:not(.page-home) .reveal.in {
 .platform-journey-eyebrow,
 .network-page .net-eyebrow,
 .case-eyebrow,
-.agentic-eyebrow,
-.j-eyebrow {
+.agentic-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 11px;
   font-size: var(--text-small, 12.5px);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: var(--stack-md, 1rem);
 }
@@ -83,8 +85,7 @@ body:not(.page-home) .reveal.in {
 .platform-journey-eyebrow::before,
 .network-page .net-eyebrow::before,
 .case-eyebrow::before,
-.agentic-eyebrow::before,
-.j-eyebrow::before {
+.agentic-eyebrow::before {
   content: "";
   width: 26px;
   height: 2px;
@@ -128,7 +129,7 @@ body:not(.page-home) .agentic-section {
 }
 
 body:not(.page-home) .section.white:not(.vision-section) {
-  background: var(--cream);
+  background: var(--white);
   color: var(--ink);
 }
 
@@ -137,14 +138,40 @@ body:not(.page-home) .section.white:not(.vision-section) .types-title {
   color: var(--ink);
 }
 
-body:not(.page-home) .section.white:not(.vision-section) p,
+body:not(.page-home) .section.white:not(.vision-section) p:not(.platform-overview-lead):not(.platform-overview-text),
 body:not(.page-home) .section.white:not(.vision-section) .type-desc,
 body:not(.page-home) .section.white:not(.vision-section) .platform-journey-subtitle {
   color: var(--ink-soft);
 }
 
+body:not(.page-home) .section.white:not(.vision-section) .platform-overview-copy p,
+body:not(.page-home) .section.white:not(.vision-section) .platform-overview-lead,
+body:not(.page-home) .section.white:not(.vision-section) .platform-overview-text {
+  color: rgba(10, 10, 15, 0.72);
+}
+
 body:not(.page-home) .section.white:not(.vision-section) .type-items li {
   color: var(--ink-soft);
+}
+
+body:not(.page-home) .section.cream {
+  background: var(--cream);
+  color: var(--ink);
+  border-top: none;
+}
+
+body:not(.page-home) .section.cream .sec-title,
+body:not(.page-home) .section.cream .types-title {
+  color: var(--ink);
+}
+
+body:not(.page-home) .section.cream .sec-subtitle,
+body:not(.page-home) .section.cream .platform-journey-subtitle {
+  color: var(--ink-soft);
+}
+
+body:not(.page-home) .section.cream .vision-prose.on-light p {
+  color: rgba(10, 10, 15, 0.72);
 }
 
 body:not(.page-home) .section.dark,
@@ -269,16 +296,16 @@ body:not(.page-home) #overview.platform-overview {
 }
 
 .platform-overview-lead {
-  font-size: var(--text-lead);
-  line-height: var(--lead-lh, 1.75);
-  color: var(--ink-soft);
+  font-size: var(--text-editorial, 17px);
+  line-height: var(--editorial-lh, 1.75);
+  color: rgba(10, 10, 15, 0.72);
   margin: 0;
 }
 
 .platform-overview-text {
-  font-size: var(--text-body);
-  line-height: 1.65;
-  color: var(--ink-faint);
+  font-size: var(--text-editorial, 17px);
+  line-height: var(--editorial-lh, 1.75);
+  color: rgba(10, 10, 15, 0.72);
   margin: 0;
 }
 

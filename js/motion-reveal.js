@@ -16,6 +16,8 @@ const pairs = [
   [".factors-grid", ".factor-card"],
   [".surfaces-grid", ".surface-card"],
   [".products-grid", ".product-card"],
+  [".roadmap-phases", ".roadmap-phase"],
+  [".platform-engine .engine-grid", ".engine-item"],
   [".types-grid", ".type-card"],
   [".testimonials-grid", ".testimonial-card"],
 ];

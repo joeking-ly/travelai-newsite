@@ -26,9 +26,9 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Partners — TravelAI",
         "Partner with TravelAI to read and contribute to governed traveler memory — for suppliers, hotels, OTAs, and AI platforms building on a shared source of truth.",
     ),
-    "why.html": (
-        "Why TravelAI — Our Vision",
-        "Why travel needs a memory layer: TravelAI's vision for portable traveler-owned context, enterprise governance, and agentic AI across the travel ecosystem.",
+    "our-vision.html": (
+        "Our Vision — TravelAI | The Travel Memory Company",
+        "How TravelAI is building the founding memory layer for travel — told through the vision papers that set our direction, from the Factory of the Future to the Third Voice to Traveler.md.",
     ),
     "network.html": (
         "Network — TravelAI Agentic Travel Brands",

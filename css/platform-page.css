@@ -1,0 +1,523 @@
+/* ═══════════════════════════════════════════════════════
+   PLATFORM PAGE — layout only (type/colors via site.css)
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Overview: two-column split inside standard .inner ── */
+.platform-overview-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.platform-overview-content .eyebrow {
+  justify-content: flex-start;
+  width: auto;
+}
+
+.platform-overview-split .sec-title,
+.platform-overview-split .vision-prose {
+  text-align: left;
+}
+
+.platform-overview-media {
+  min-width: 0;
+}
+
+.platform-overview-frame {
+  position: relative;
+  min-height: clamp(280px, 32vw, 380px);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--cream-deep);
+}
+
+.platform-overview-img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.platform-overview-img[src=""],
+.platform-overview-img:not([src]) {
+  display: none;
+}
+
+.platform-overview-frame:has(.platform-overview-img[src]:not([src=""])) .platform-overview-placeholder {
+  display: none;
+}
+
+.platform-overview-placeholder {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 1.5px dashed rgba(10, 10, 15, 0.16);
+  margin: 12px;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  pointer-events: none;
+}
+
+.platform-overview-path {
+  margin: 8px 0 0;
+}
+
+.platform-overview-path code {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.platform-overview-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.platform-overview-placeholder-inner svg {
+  width: 40px;
+  height: 40px;
+  color: rgba(10, 10, 15, 0.28);
+  flex-shrink: 0;
+}
+
+.platform-overview-placeholder-inner p {
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.platform-overview-caption {
+  margin-top: 16px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+/* ── Journey: spacing on the timeline component ── */
+.platform-journey-section #platform-journey {
+  padding: 8px 0 48px;
+}
+
+.platform-journey-section #platform-jitems {
+  max-width: none;
+  padding: 0;
+}
+
+.platform-journey-section #platform-journey .j-item {
+  padding: clamp(64px, 7vw, 104px) 0;
+  gap: clamp(40px, 5vw, 80px);
+}
+
+.platform-journey-section #platform-journey .j-icon-col {
+  flex: 0 0 clamp(100px, 12vw, 160px);
+  padding: 0;
+}
+
+.platform-journey-section #platform-journey .j-item:nth-child(odd) .j-text {
+  margin-left: clamp(24px, 3vw, 40px);
+}
+
+.platform-journey-section #platform-journey .j-item:nth-child(even) .j-text {
+  margin-right: clamp(24px, 3vw, 40px);
+}
+
+.platform-journey-section #platform-journey .j-content-col {
+  padding-left: clamp(32px, 5vw, 72px);
+}
+
+.platform-journey-section #platform-journey .j-item:nth-child(even) .j-content-col {
+  padding-left: 0;
+  padding-right: clamp(32px, 5vw, 72px);
+}
+
+.platform-journey-section #platform-journey .j-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(10, 10, 15, 0.1);
+  box-shadow: 0 0 0 8px rgba(255, 215, 0, 0.12);
+}
+
+.platform-journey-section #platform-journey .j-item.in .j-icon {
+  border-color: rgba(255, 180, 0, 0.45);
+  box-shadow: 0 0 0 10px rgba(255, 200, 60, 0.22),
+    0 0 36px rgba(255, 180, 0, 0.18);
+}
+
+.platform-journey-section #platform-journey .j-eyebrow {
+  color: var(--ink-faint);
+}
+
+/* ── Growth engine: stat card grid ── */
+.platform-engine .engine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.platform-engine .engine-item {
+  padding: clamp(28px, 3vw, 36px);
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 15, 0.06);
+  border-radius: 22px;
+  text-align: left;
+  box-shadow: 0 12px 40px rgba(10, 10, 15, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  will-change: transform, box-shadow;
+}
+
+.platform-engine .engine-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px -16px rgba(10, 10, 15, 0.16);
+}
+
+.platform-engine .engine-grid .engine-item:nth-child(1):hover {
+  border-color: rgba(255, 107, 107, 0.35);
+}
+
+.platform-engine .engine-grid .engine-item:nth-child(2):hover {
+  border-color: rgba(50, 205, 50, 0.35);
+}
+
+.platform-engine .engine-grid .engine-item:nth-child(3):hover {
+  border-color: rgba(65, 105, 225, 0.35);
+}
+
+.platform-engine .engine-stat {
+  font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+}
+
+.platform-engine .engine-stat--warm { color: #FF6B5B; }
+.platform-engine .engine-stat--green { color: #2ECC71; }
+.platform-engine .engine-stat--compact {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+}
+.platform-engine .engine-stat--blue { color: #4A6CF7; }
+
+/* ── Stack: horizontal capability bars ── */
+.platform-stack .stack-layers {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 18px);
+  margin-top: clamp(2.5rem, 5vw, 3rem);
+}
+
+.platform-stack .stack-layer {
+  display: grid;
+  grid-template-columns: minmax(148px, 200px) 1fr;
+  gap: 16px clamp(20px, 3vw, 32px);
+  align-items: center;
+  padding: clamp(22px, 2.8vw, 30px) clamp(24px, 3vw, 36px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.platform-stack .stack-layer:nth-child(1) {
+  border-color: rgba(232, 185, 35, 0.35);
+  background: rgba(232, 185, 35, 0.06);
+}
+
+.platform-stack .stack-layer:nth-child(2) {
+  border-color: rgba(50, 168, 82, 0.35);
+  background: rgba(50, 168, 82, 0.06);
+}
+
+.platform-stack .stack-layer:nth-child(3) {
+  border-color: rgba(65, 105, 225, 0.35);
+  background: rgba(65, 105, 225, 0.06);
+}
+
+.platform-stack .stack-layer:nth-child(4) {
+  border-color: rgba(147, 112, 219, 0.35);
+  background: rgba(147, 112, 219, 0.06);
+}
+
+.platform-stack .layer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.platform-stack .layer-number {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.platform-stack .stack-layer:nth-child(1) .layer-number { color: #E8B923; }
+.platform-stack .stack-layer:nth-child(2) .layer-number { color: #3DA85A; }
+.platform-stack .stack-layer:nth-child(3) .layer-number { color: #5B8DEF; }
+.platform-stack .stack-layer:nth-child(4) .layer-number { color: #B794F6; }
+
+.platform-stack .layer-title {
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.platform-stack .layer-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.platform-stack .layer-item {
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 7px 14px;
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.platform-stack .stack-layer:nth-child(1) .layer-item {
+  background: rgba(232, 185, 35, 0.12);
+  border-color: rgba(232, 185, 35, 0.22);
+}
+
+.platform-stack .stack-layer:nth-child(2) .layer-item {
+  background: rgba(50, 168, 82, 0.12);
+  border-color: rgba(50, 168, 82, 0.22);
+}
+
+.platform-stack .stack-layer:nth-child(3) .layer-item {
+  background: rgba(65, 105, 225, 0.12);
+  border-color: rgba(65, 105, 225, 0.22);
+}
+
+.platform-stack .stack-layer:nth-child(4) .layer-item {
+  background: rgba(147, 112, 219, 0.12);
+  border-color: rgba(147, 112, 219, 0.22);
+}
+
+/* ── Roadmap: three cards on cream band ── */
+.platform-roadmap .roadmap-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  align-items: stretch;
+}
+
+.platform-roadmap .roadmap-phase {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(32px, 3.5vw, 42px);
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 15, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(10, 10, 15, 0.05);
+  text-align: left;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  will-change: transform, box-shadow;
+}
+
+.platform-roadmap .roadmap-phase:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px -16px rgba(10, 10, 15, 0.14);
+}
+
+.platform-roadmap .roadmap-phases .roadmap-phase:nth-child(1):hover {
+  border-color: rgba(255, 107, 107, 0.32);
+}
+
+.platform-roadmap .roadmap-phases .roadmap-phase:nth-child(2):hover {
+  border-color: rgba(65, 105, 225, 0.32);
+}
+
+.platform-roadmap .roadmap-phases .roadmap-phase:nth-child(3):hover {
+  border-color: rgba(50, 205, 50, 0.32);
+}
+
+.platform-roadmap .phase-header {
+  margin-bottom: 0;
+}
+
+.platform-roadmap .phase-eyebrow {
+  display: inline-flex;
+  justify-content: flex-start;
+  width: auto;
+  margin-bottom: 18px;
+}
+
+.platform-roadmap .phase-title {
+  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.platform-roadmap .phase-year {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-faint);
+  margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.platform-roadmap .phase-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.platform-roadmap .phase-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+
+.platform-roadmap .phase-items li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 5px;
+  height: 22px;
+  margin-top: 3px;
+  border-radius: 100px;
+  background: linear-gradient(
+    180deg,
+    #ffd700 0%,
+    #32cd32 38%,
+    #4169e1 72%,
+    #9370db 100%
+  );
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-roadmap .roadmap-phase:hover .phase-items li,
+.platform-roadmap .phase-items li:hover {
+  color: var(--ink);
+}
+
+.platform-roadmap .phase-items li:hover::before {
+  transform: scale(1.12);
+  box-shadow: 0 0 10px rgba(65, 105, 225, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-roadmap .roadmap-phase,
+  .platform-engine .engine-item {
+    transition: box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .platform-roadmap .roadmap-phase:hover,
+  .platform-engine .engine-item:hover {
+    transform: none;
+  }
+
+  .platform-roadmap .phase-items li::before {
+    transition: box-shadow 0.2s ease;
+  }
+
+  .platform-roadmap .phase-items li:hover::before {
+    transform: none;
+  }
+}
+
+/* ── Closing CTA wave ── */
+.platform-closing {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: var(--black-deep);
+}
+
+.platform-closing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/wavelines-background.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.14;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.platform-closing .inner {
+  position: relative;
+  z-index: 1;
+}
+
+.platform-closing .hero-ctas {
+  justify-content: center;
+}
+
+/* ── Responsive layout ── */
+@media (max-width: 900px) {
+  .platform-overview-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .platform-engine .engine-grid,
+  .platform-roadmap .roadmap-phases {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-stack .stack-layer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .platform-stack .layer-items {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .platform-journey-section #platform-journey .j-item {
+    padding: 48px 0;
+    gap: 24px;
+  }
+
+  .platform-journey-section #platform-journey .j-content-col,
+  .platform-journey-section #platform-journey .j-item:nth-child(even) .j-content-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .platform-journey-section #platform-journey .j-icon {
+    width: 64px;
+    height: 64px;
+  }
+}

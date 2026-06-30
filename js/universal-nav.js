@@ -27,7 +27,7 @@
         '<img src="' + root + 'assets/travelai-name.png" alt="" class="unav-logo-name" aria-hidden="true">' +
       '</a>' +
       '<ul class="unav-links">' +
-        '<li><a href="' + root + 'why.html" data-page="why.html">Why</a></li>' +
+        '<li><a href="' + root + 'our-vision.html" data-page="our-vision.html">Our Vision</a></li>' +
         '<li><a href="' + root + 'platform.html" data-page="platform.html">Platform</a></li>' +
         '<li><a href="' + root + 'network.html" data-page="network.html">Network</a></li>' +
         '<li><a href="' + root + 'partners.html" data-page="partners.html">Partners</a></li>' +
@@ -37,13 +37,13 @@
         '<li><a href="' + root + 'about.html" data-page="about.html">About</a></li>' +
         '<li><a href="' + root + 'insights.html" data-page="insights.html">Insights</a></li>' +
         '<li><a href="' + root + 'contact.html" data-page="contact.html">Contact</a></li>' +
-        '<li class="unav-mobile-cta"><a href="' + root + 'stories.html" class="unav-mobile-cta-link">Travel Stories <span aria-hidden="true">→</span></a></li>' +
+        // '<// <li class="unav-mobile-cta"><a href="' + root + 'stories.html" class="unav-mobile-cta-link">Travel Stories <span aria-hidden="true">→</span></a></li>' +
       '</ul>' +
       '<div class="unav-tablet-menus">' +
         '<div class="unav-dropdown unav-what">' +
           '<button type="button" class="unav-dropdown-trigger" aria-expanded="false" aria-controls="unav-panel-what">What We Do <span class="unav-chevron" aria-hidden="true"></span></button>' +
           '<div class="unav-dropdown-panel" id="unav-panel-what">' +
-            '<a href="' + root + 'why.html" data-page="why.html">Why</a>' +
+            '<a href="' + root + 'our-vision.html" data-page="our-vision.html">Our Vision</a>' +
             '<a href="' + root + 'platform.html" data-page="platform.html">Platform</a>' +
             '<a href="' + root + 'network.html" data-page="network.html">Network</a>' +
             '<a href="' + root + 'partners.html" data-page="partners.html">Partners</a>' +
@@ -64,7 +64,7 @@
         '<button type="button" class="unav-hamburger" aria-label="Open menu" aria-expanded="false">' +
           '<span class="unav-hamburger-bar"></span><span class="unav-hamburger-bar"></span><span class="unav-hamburger-bar"></span>' +
         '</button>' +
-        '<a href="' + root + 'stories.html" class="unav-cta">TRAVEL STORIES <span class="arrow" aria-hidden="true">→</span></a>' +
+        // '<a href="' + root + 'stories.html" class="unav-cta">TRAVEL STORIES <span class="arrow" aria-hidden="true">→</span></a>' +
       '</div>' +
     '</nav>';
 
@@ -83,6 +83,12 @@
     if (setActiveState(links[i])) break;
   }
   placeholder.querySelectorAll('.unav-dropdown-panel a[data-page]').forEach(setActiveState);
+
+  if (page === 'why.html') {
+    placeholder.querySelectorAll('a[data-page="our-vision.html"]').forEach(function (link) {
+      link.classList.add('active');
+    });
+  }
 
   if (page === 'index.html' || page === '' || page === 'index') {
     var logo = placeholder.querySelector('.unav-logo');
@@ -178,5 +184,28 @@
     motion.src = motionSrc;
     motion.defer = true;
     document.body.appendChild(motion);
+  }
+
+  var footer = document.querySelector('footer');
+  if (
+    footer &&
+    !document.querySelector('.site-join, .vision-join') &&
+    !document.body.hasAttribute('data-skip-site-join')
+  ) {
+    var joinSection = document.createElement('section');
+    joinSection.className = 'section white site-join';
+    joinSection.setAttribute('aria-labelledby', 'site-join-heading');
+    joinSection.innerHTML =
+      '<div class="inner">' +
+        '<div class="vision-section-intro">' +
+          '<h2 class="vision-section-title on-light" id="site-join-heading">Join us in building the future of travel</h2>' +
+          '<p class="vision-lead on-light">Whether you\'re a traveler, a partner, or someone who believes technology can make the world more connected, there\'s a place for you in the TravelAI story.</p>' +
+        '</div>' +
+        '<div class="hero-ctas vision-join-ctas">' +
+          '<a href="' + root + 'partners.html" class="hero-cta on-light">Become a Partner</a>' +
+          '<a href="' + root + 'careers.html" class="hero-cta secondary on-light">Join Our Team</a>' +
+        '</div>' +
+      '</div>';
+    footer.parentNode.insertBefore(joinSection, footer);
   }
 })();

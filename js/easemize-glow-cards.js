@@ -18,7 +18,6 @@
     '.doc-card',
     '.lab-card',
     '.tech-card',
-    '.factor-card',
     '.surface-card',
     '.product-card',
     '.type-card',

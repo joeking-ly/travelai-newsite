@@ -21,10 +21,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/universal-nav.css?v=11">
-  <link rel="stylesheet" href="css/motion-reveal.css">
-  <link rel="stylesheet" href="css/site.css?v=18">
-  <link rel="stylesheet" href="css/home-v2.css?v=5">
+  <link rel="stylesheet" href="css/universal-nav.css?v=14">
+  <link rel="stylesheet" href="css/motion-reveal.css?v=2">
+  <link rel="stylesheet" href="css/site.css?v=35">
+  <link rel="stylesheet" href="css/home-v2.css?v=17">
 </head>
 <body class="page-home">
 
@@ -184,11 +184,27 @@
         <p class="feature-desc reveal" style="--d:140ms">
           So the memory should belong to the person. We're building a portable, governed memory layer for the travel industry. This is context the traveler owns and can carry between every AI agent, app, and service they choose.
         </p>
-        <a href="why.html" class="btn-primary reveal" style="--d:200ms">Read the vision</a>
+        <a href="our-vision.html" class="btn-primary reveal" style="--d:200ms">Read the vision</a>
       </div>
       <div class="feature-visual reveal-img" style="--d:120ms; aspect-ratio:auto; background:none; border:none; box-shadow:none;">
         <div class="photo-plate">
-          <image-slot id="home-belief-photo" placeholder="Drop a travel photo — a person in a place they love"></image-slot>
+          <img
+            class="photo-plate-img"
+            src="assets/img/our-belief.webp"
+            alt="A person in a place they love"
+            loading="lazy"
+            decoding="async"
+            onerror="this.removeAttribute('src')"
+          >
+          <div class="photo-plate-empty" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+            <p>Image placeholder</p>
+            <p class="photo-plate-path"><code>assets/img/our-belief.webp</code></p>
+          </div>
           <span class="photo-chip"><span class="dot"></span>Every journey is personal</span>
         </div>
       </div>
@@ -204,12 +220,28 @@
         <p class="feature-desc reveal" style="--d:140ms">
           Traveler.md is a portable, human-readable profile of who you are as a traveler — your preferences, your constraints, the trips that matter. Built to be read by AI agents like Claude, with your permission. You grant access, see what's used, and revoke it anytime.
         </p>
-        <a href="platform.html" class="btn-primary reveal" style="--d:200ms">Meet traveler.md</a>
+        <a href="https://traveler.md" target="_blank" class="btn-primary reveal" style="--d:200ms">Meet traveler.md</a>
       </div>
       <div class="feature-visual reveal-img" style="--d:120ms; aspect-ratio:auto; background:none; border:none; box-shadow:none;">
         <div class="photo-plate">
-          <image-slot id="home-travelermd-photo" placeholder="Drop a travel photo — a candid, joyful moment on a trip"></image-slot>
-          <span class="md-badge"><span class="glyph">.md</span>traveler.md</span>
+          <img
+            class="photo-plate-img"
+            src="assets/img/traveler-md.webp"
+            alt="A candid, joyful moment on a trip"
+            loading="lazy"
+            decoding="async"
+            onerror="this.removeAttribute('src')"
+          >
+          <div class="photo-plate-empty" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+            <p>Image placeholder</p>
+            <p class="photo-plate-path"><code>assets/img/traveler-md.webp</code></p>
+          </div>
+          <span class="md-badge"><span class="md-badge-dot" aria-hidden="true"></span>traveler.md</span>
         </div>
       </div>
     </div>
@@ -255,6 +287,12 @@
 
   <!-- THE CORE · OUR PROVING GROUND -->
   <section id="core" class="core-section">
+    <div class="core-bg" aria-hidden="true">
+      <video class="core-bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/mesh2.mp4" type="video/mp4">
+      </video>
+      <div class="core-bg-overlay"></div>
+    </div>
     <div class="core-inner">
       <p class="eyebrow on-dark centered reveal">The Core · Our Proving Ground</p>
       <h2 class="core-title reveal" style="--d:80ms">Proven where it's hardest: at scale, in production.</h2>
@@ -287,50 +325,60 @@
     <div class="scale-section-spotlight" aria-hidden="true"></div>
     <h2 class="scale-title reveal">A self-reinforcing engine<br/>powering accelerating scale</h2>
 
-    <div class="scale-grid" data-stagger="100">
-      <div class="scale-card dark reveal">
-        <div>
-          <img class="scale-card-icon" src="assets/icons/icon-domainsystem.png" alt="" aria-hidden="true" />
-          <p class="scale-card-eyebrow">Content</p>
-          <h3 class="scale-card-title">Gen AI<br/>+ 19.5M Discovery</h3>
-        </div>
-        <p class="scale-card-desc">
-          Generative AI creates helpful content at scale across 470+ brands and 40 languages.
-        </p>
+    <div class="scale-engine reveal" data-stagger="80">
+      <article class="scale-engine-card scale-engine-card--01" style="--engine-accent: #FFA500;">
+        <div class="scale-engine-card-num">01</div>
+        <p class="scale-engine-card-eyebrow">Content</p>
+        <h3 class="scale-engine-card-title">Gen AI + 19.5M Discovery</h3>
+        <p class="scale-engine-card-desc">Generative AI creates helpful content at scale across 530+ brands and 40 languages.</p>
+      </article>
+
+      <div class="scale-engine-arrow scale-engine-arrow--e" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </div>
 
-      <div class="scale-card light reveal">
-        <div>
-          <img class="scale-card-icon" src="assets/icons/icon-botarmy.png" alt="" aria-hidden="true" />
-          <p class="scale-card-eyebrow">Travelers</p>
-          <h3 class="scale-card-title">Millions Travelers,<br/>Billion+ Quality Data</h3>
-        </div>
-        <p class="scale-card-desc">
-          High-intent demand via online marketing, organic search, and LLM discovery channels.
-        </p>
+      <article class="scale-engine-card scale-engine-card--02" style="--engine-accent: #FFD700;">
+        <div class="scale-engine-card-num">02</div>
+        <p class="scale-engine-card-eyebrow">Travelers</p>
+        <h3 class="scale-engine-card-title">Millions Travelers, Billion+ Quality Data</h3>
+        <p class="scale-engine-card-desc">High intent demand via online marketing, organic search, and LLM discovery channels.</p>
+      </article>
+
+      <div class="scale-engine-arrow scale-engine-arrow--n" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
       </div>
 
-      <div class="scale-card blue reveal">
-        <div>
-          <img class="scale-card-icon" src="assets/icons/icon-tam.png" alt="" aria-hidden="true" />
-          <p class="scale-card-eyebrow">Data</p>
-          <h3 class="scale-card-title">Optimizing for<br/>Life of Traveler</h3>
+      <div class="scale-engine-hub" aria-hidden="true">
+        <div class="scale-engine-hub-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-3-6.7"/>
+            <path d="M21 3v6h-6"/>
+          </svg>
         </div>
-        <p class="scale-card-desc">
-          Nearly 1,000 transactions per day generate learning signals across the network.
-        </p>
+        <span class="scale-engine-hub-label">Compounds</span>
       </div>
 
-      <div class="scale-card warm reveal">
-        <div>
-          <img class="scale-card-icon" src="assets/icons/icon-admanagement.png" alt="" aria-hidden="true" />
-          <p class="scale-card-eyebrow">Economics</p>
-          <h3 class="scale-card-title">Manage Economics<br/>Data to Revenue</h3>
-        </div>
-        <p class="scale-card-desc">
-          Sustainable growth through intelligent monetization and partner relationships.
-        </p>
+      <div class="scale-engine-arrow scale-engine-arrow--s" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
       </div>
+
+      <article class="scale-engine-card scale-engine-card--04" style="--engine-accent: #9370DB;">
+        <div class="scale-engine-card-num">04</div>
+        <p class="scale-engine-card-eyebrow">Economics</p>
+        <h3 class="scale-engine-card-title">Manage Economics Data to Revenue</h3>
+        <p class="scale-engine-card-desc">Sustainable growth through intelligent monetization and partner relationships.</p>
+      </article>
+
+      <div class="scale-engine-arrow scale-engine-arrow--w" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+      </div>
+
+      <article class="scale-engine-card scale-engine-card--03" style="--engine-accent: #32CD32;">
+        <div class="scale-engine-card-num">03</div>
+        <p class="scale-engine-card-eyebrow">Data</p>
+        <h3 class="scale-engine-card-title">Optimizing for Life of Traveler</h3>
+        <p class="scale-engine-card-desc">Nearly 1,000 transactions per day generate learning signals across the network.</p>
+      </article>
     </div>
   </section>
 
@@ -494,16 +542,6 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
-    <h2 class="cta-title reveal">Own your travel memory with TravelAI.</h2>
-    <p class="cta-subtitle reveal" style="--d:100ms">
-      The next decade of travel will be defined less by the AI agents than by the memory they share. At TravelAI, we're on a mission to help one billion travelers by 2030. We're building that founding travel AI infrastructure: owned by the traveler, governed for the enterprise, open to all.
-    </p>
-    <div class="cta-actions reveal" style="--d:180ms">
-      <a href="contact.html" class="btn-white">Get Started</a>
-      <a href="why.html" class="btn-outline-white">Read the whitepaper</a>
-    </div>
-  </section>
   </main>
 
   <!-- FOOTER -->
@@ -529,7 +567,7 @@
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
-          <li><a href="why.html">Why Travel AI</a></li>
+          <li><a href="our-vision.html">Our Vision</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -565,11 +603,11 @@
     </div>
   </footer>
 
-  <script src="js/image-slot.js"></script>
   <script src="js/easemize-glow-cards.js?v=1"></script>
   <script src="js/seo-schema.js?v=1" defer></script>
-  <script src="js/universal-nav.js?v=7"></script>
-  <script src="js/home-v2.js?v=2"></script>
+  <script src="js/universal-nav.js?v=8"></script>
+  <script src="js/scroll-reveal.js?v=2"></script>
+  <script src="js/home-v2.js?v=5"></script>
   <script>
     (function () {
       var section = document.getElementById('scale-section');

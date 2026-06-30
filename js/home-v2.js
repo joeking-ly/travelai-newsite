@@ -24,42 +24,38 @@
     updateBar();
   }
 
-  /* ── Reveal on scroll ───────────────────────────────────────────── */
-  var revealEls = [].slice.call(document.querySelectorAll('.reveal, .reveal-img'));
+  /* ── Reveal on scroll: scroll-reveal.js (site-wide) ─────────────── */
 
-  if (reduce || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
-    return;
+  /* ── Core section: animated vector lines video ─────────────────── */
+  var coreVideo = document.querySelector('.core-bg-video');
+  if (coreVideo) {
+    if (reduce) {
+      coreVideo.classList.add('is-fallback');
+    } else {
+      coreVideo.addEventListener('error', function () {
+        coreVideo.classList.add('is-fallback');
+      });
+
+      function tryPlayCoreVideo() {
+        if (coreVideo.classList.contains('is-fallback')) return;
+        var playPromise = coreVideo.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise.catch(function () {
+            /* Keep poster / first frame visible; do not hide the video layer */
+          });
+        }
+      }
+
+      if (coreVideo.readyState >= 2) {
+        tryPlayCoreVideo();
+      } else {
+        coreVideo.addEventListener('loadeddata', tryPlayCoreVideo, { once: true });
+      }
+
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) tryPlayCoreVideo();
+      });
+    }
   }
 
-  // Stagger siblings that share a [data-stagger] parent.
-  document.querySelectorAll('[data-stagger]').forEach(function (group) {
-    var step = parseInt(group.getAttribute('data-stagger'), 10) || 90;
-    var kids = group.querySelectorAll('.reveal, .reveal-img');
-    for (var i = 0; i < kids.length; i++) {
-      if (!kids[i].style.getPropertyValue('--d')) {
-        kids[i].style.setProperty('--d', (i * step) + 'ms');
-      }
-    }
-  });
-
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-  revealEls.forEach(function (el) { io.observe(el); });
-
-  /* Safety: anything still hidden after load that's already in view */
-  window.addEventListener('load', function () {
-    revealEls.forEach(function (el) {
-      if (el.classList.contains('in')) return;
-      var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
-    });
-  });
 })();

@@ -185,7 +185,7 @@ body {
 }
 
 .universal-nav .unav-links a {
-  font-size: var(--text-body);
+  font-size: var(--text-nav-link);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
@@ -227,7 +227,7 @@ body {
   background: #fff;
   color: #0A0A0F;
   border-radius: 100px;
-  font-size: var(--text-body);
+  font-size: var(--text-nav-link);
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -321,7 +321,7 @@ body {
     border-radius: 8px;
     color: rgba(255, 255, 255, 0.9);
     font-family: inherit;
-    font-size: var(--text-body);
+    font-size: var(--text-nav-link);
     font-weight: 500;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s, color 0.2s;
@@ -382,7 +382,7 @@ body {
   .universal-nav .unav-dropdown-panel a {
     display: block;
     padding: 10px 20px;
-    font-size: var(--text-body);
+    font-size: var(--text-nav-link);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
@@ -525,7 +525,7 @@ body {
     background: #fff;
     color: #0A0A0F;
     border-radius: 100px;
-    font-size: var(--text-body);
+    font-size: var(--text-nav-link);
     font-weight: 600;
     letter-spacing: 0.02em;
     min-height: 48px;
@@ -635,7 +635,6 @@ body {
 .doc-card,
 .lab-card,
 .tech-card,
-.factor-card,
 .surface-card,
 .product-card,
 .type-card,
@@ -655,7 +654,6 @@ body {
 .doc-card:hover,
 .lab-card:hover,
 .tech-card:hover,
-.factor-card:hover,
 .surface-card:hover,
 .product-card:hover,
 .type-card:hover,
@@ -759,4 +757,23 @@ body {
     text-align: center;
     justify-content: center;
   }
+}
+
+/* Footer links — same token as top nav (.unav-links a) */
+footer .footer-col a {
+  font-size: var(--text-nav-link) !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+}
+
+footer .footer-col h5 {
+  font-size: var(--text-footer-label) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin-bottom: 12px !important;
+}
+
+footer .footer-legal {
+  font-size: var(--text-footer-legal) !important;
 }
