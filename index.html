@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/universal-nav.css?v=14">
-  <link rel="stylesheet" href="css/motion-reveal.css?v=2">
-  <link rel="stylesheet" href="css/site.css?v=35">
+  <link rel="stylesheet" href="css/motion-reveal.css?v=3">
+  <link rel="stylesheet" href="css/site.css?v=41">
   <link rel="stylesheet" href="css/home-v2.css?v=17">
 </head>
 <body class="page-home">
@@ -133,9 +133,17 @@
 
       <div class="mission-video reveal" style="--d:120ms">
         <div class="mission-video-media">
-          <div id="mission-inline-player"></div>
+          <iframe
+            id="mission-inline-player"
+            class="mission-youtube-embed"
+            src="https://www.youtube.com/embed/bGxTPPT6LHE?si=PvX3k7fFBaTQ9q77&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=bGxTPPT6LHE&amp;controls=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
-        <button type="button" class="play-button" id="mission-video-play" aria-label="Expand video to fullscreen">
+        <button type="button" class="play-button" id="mission-video-play" aria-label="Play video with sound">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M8 5v14l11-7L8 5z"/>
           </svg>
@@ -144,7 +152,7 @@
     </div>
   </section>
 
-  <!-- Fullscreen YouTube (mission play button) -->
+  <!-- Fullscreen mission video (YouTube) -->
   <div
     id="home-video-lightbox"
     class="home-video-lightbox"
@@ -156,9 +164,7 @@
     <button type="button" class="home-video-close" id="home-video-close" aria-label="Close video">
       <span aria-hidden="true">&times;</span>
     </button>
-    <div class="home-video-frame-wrap">
-      <div id="home-video-player"></div>
-    </div>
+    <div class="home-video-frame-wrap" id="home-video-player" aria-live="polite"></div>
   </div>
 
   <!-- THE PROBLEM -->
@@ -414,66 +420,62 @@
       <div class="homefeature-header reveal">
         <div>
           <div class="homefeature-eyebrow">From the TravelAI Network</div>
-          <h2 class="homefeature-title">Featured insights &amp; stories.</h2>
+          <h2 class="homefeature-title">Latest insights.</h2>
         </div>
         <div>
           <p class="homefeature-subtitle">
-            A rotating blend of our latest perspectives and real traveler stories,
-            hand-picked and tagged with <span style="font-weight:600;color:rgba(255,255,255,0.9);">#homepagefeature</span>.
+            Our newest perspectives on AI, travel, and the agentic network from the TravelAI team.
           </p>
         </div>
       </div>
 
       <div class="homefeature-grid" data-stagger="120">
-        <!-- Featured Insight (tagged: homepagefeature) -->
-        <a href="blogs/ai-assistant-bundled-travel-bookings.html"
+        <a href="blogs/travel-trends-podcast-agentic-ai.html"
            class="homefeature-card homefeature-card--insight reveal"
            data-tags="homepagefeature insights">
           <div class="homefeature-card-content">
             <div class="homefeature-pill-row">
               <span class="homefeature-pill">Insight</span>
-              <span class="homefeature-tag">AI Trip Planning</span>
-              <span class="homefeature-tag">Product</span>
+              <span class="homefeature-tag">Podcast</span>
+              <span class="homefeature-tag">Company</span>
             </div>
             <h3 class="homefeature-heading">
-              AI Assistant for Bundled Travel Bookings
+              Agentic AI in Travel: From Conversation to Action
             </h3>
             <p class="homefeature-body">
-              How AI is transforming trip planning from manual inputs to unified, personalized
-              bundled booking experiences across our travel network.
+              AI in travel is moving from chatbots to agents that can act. Brianna MacNeil joins the
+              Travel Trends Podcast to unpack what’s real, what’s hype, and where value shows up first.
             </p>
             <div class="homefeature-meta">
-              <div class="homefeature-avatar">TA</div>
+              <div class="homefeature-avatar">JV</div>
               <div>
-                <div class="homefeature-author">TravelAI Team</div>
-                <div class="homefeature-date">Featured insight • Feb 19, 2026</div>
+                <div class="homefeature-author">Joshua Viner</div>
+                <div class="homefeature-date">May 19, 2026</div>
               </div>
             </div>
           </div>
         </a>
 
-        <!-- Featured Story (tagged: homepagefeature) -->
-        <a href="stories/story-detail.html"
-           class="homefeature-card homefeature-card--story reveal"
-           data-tags="homepagefeature stories">
+        <a href="blogs/gabbai-macneil-appointments.html"
+           class="homefeature-card homefeature-card--insight reveal"
+           data-tags="homepagefeature insights">
           <div class="homefeature-card-content">
             <div class="homefeature-pill-row">
-              <span class="homefeature-pill">Story</span>
-              <span class="homefeature-tag">Portugal</span>
-              <span class="homefeature-tag">Wine Country</span>
+              <span class="homefeature-pill">Insight</span>
+              <span class="homefeature-tag">Company</span>
             </div>
             <h3 class="homefeature-heading">
-              Finding Hidden Gems in Portugal's Douro Valley
+              TravelAI Names Shie Gabbai, Brianna MacNeil to Lead Agentic Travel
             </h3>
             <p class="homefeature-body">
-              A three-week journey through wine country—powered by TravelAI—to uncover
-              family-run quintas, sunrise river cruises, and experiences beyond the guidebook.
+              Gabbai and MacNeil join to advance TravelAI’s mission of creating intuitive travel
+              experiences powered by autonomous AI agents.
             </p>
             <div class="homefeature-meta">
-              <div class="homefeature-avatar">SK</div>
+              <div class="homefeature-avatar">JV</div>
               <div>
-                <div class="homefeature-author">Sarah Kim</div>
-                <div class="homefeature-date">Featured story • 2 days ago</div>
+                <div class="homefeature-author">Joshua Viner</div>
+                <div class="homefeature-date">May 1, 2026</div>
               </div>
             </div>
           </div>
@@ -578,7 +580,7 @@
         <h5>Content</h5>
         <ul>
           <li><a href="insights.html">Insights</a></li>
-          <li><a href="resources.html">Resources</a></li>
+          
           <li><a href="stories.html">Travel Stories</a></li>
         </ul>
       </div>
@@ -605,7 +607,7 @@
 
   <script src="js/easemize-glow-cards.js?v=1"></script>
   <script src="js/seo-schema.js?v=1" defer></script>
-  <script src="js/universal-nav.js?v=8"></script>
+  <script src="js/universal-nav.js?v=9"></script>
   <script src="js/scroll-reveal.js?v=2"></script>
   <script src="js/home-v2.js?v=5"></script>
   <script>
@@ -636,175 +638,55 @@
   </script>
   <script>
     (function () {
-      var VIDEO_ID = '2x84ZLB5Jh0';
-      var SLOW_RATE = 0.5;
-      var inlineHost = document.getElementById('mission-inline-player');
+      var INLINE_SRC =
+        'https://www.youtube.com/embed/bGxTPPT6LHE?si=PvX3k7fFBaTQ9q77&autoplay=1&mute=1&loop=1&playlist=bGxTPPT6LHE&controls=0&rel=0&modestbranding=1&playsinline=1';
+      var LIGHTBOX_SRC =
+        'https://www.youtube.com/embed/bGxTPPT6LHE?si=PvX3k7fFBaTQ9q77&autoplay=1&rel=0&modestbranding=1&playsinline=1';
+
+      var inlineIframe = document.getElementById('mission-inline-player');
       var playBtn = document.getElementById('mission-video-play');
       var lightbox = document.getElementById('home-video-lightbox');
       var closeBtn = document.getElementById('home-video-close');
       var lightboxHost = document.getElementById('home-video-player');
-      if (!inlineHost || !playBtn || !lightbox || !closeBtn || !lightboxHost) return;
+      if (!inlineIframe || !playBtn || !lightbox || !closeBtn || !lightboxHost) return;
 
       var lastFocus = null;
       var closeDone = false;
       var closeTimer = null;
-      var lightboxSession = 0;
-      var lightboxPlayer = null;
-      var inlinePlayer = null;
-      var inlineSession = 0;
-      var inlineResizeScheduled = false;
 
-      function measureMissionMedia() {
-        var media = document.querySelector('.mission-video-media');
-        if (!media) return { w: 640, h: 360 };
-        var r = media.getBoundingClientRect();
-        var w = Math.max(320, Math.floor(r.width) || media.clientWidth || 640);
-        var h = Math.max(180, Math.floor(r.height) || media.clientHeight || Math.round((w * 9) / 16));
-        return { w: w, h: h };
+      function pauseInline() {
+        inlineIframe.src = 'about:blank';
       }
 
-      function syncInlinePlayerSize() {
-        if (!inlinePlayer || typeof inlinePlayer.setSize !== 'function') return;
-        var dim = measureMissionMedia();
-        if (dim.w > 1 && dim.h > 1) inlinePlayer.setSize(dim.w, dim.h);
-      }
-
-      function scheduleInlineResize() {
-        if (inlineResizeScheduled) return;
-        inlineResizeScheduled = true;
-        requestAnimationFrame(function () {
-          inlineResizeScheduled = false;
-          syncInlinePlayerSize();
-        });
-      }
-
-      function destroyLightboxPlayer() {
-        lightboxSession++;
-        if (lightboxPlayer && lightboxPlayer.destroy) {
-          try {
-            lightboxPlayer.destroy();
-          } catch (e) {}
-        }
-        lightboxPlayer = null;
-        lightboxHost.innerHTML = '';
-      }
-
-      function mountInlinePlayer() {
-        if (inlinePlayer) return;
-        var session = inlineSession;
-        var dim = measureMissionMedia();
-        inlinePlayer = new window.YT.Player('mission-inline-player', {
-          videoId: VIDEO_ID,
-          width: dim.w,
-          height: dim.h,
-          playerVars: {
-            autoplay: 1,
-            mute: 1,
-            controls: 0,
-            rel: 0,
-            modestbranding: 1,
-            playsinline: 1,
-            fs: 0,
-            iv_load_policy: 3,
-            disablekb: 1,
-            loop: 1,
-            playlist: VIDEO_ID
-          },
-          events: {
-            onReady: function (ev) {
-              if (session !== inlineSession) return;
-              syncInlinePlayerSize();
-              window.setTimeout(syncInlinePlayerSize, 120);
-              window.setTimeout(syncInlinePlayerSize, 600);
-              ev.target.mute();
-              if (ev.target.setPlaybackRate) ev.target.setPlaybackRate(SLOW_RATE);
-              ev.target.playVideo();
-            },
-            onStateChange: function (ev) {
-              if (session !== inlineSession) return;
-              if (ev.data === window.YT.PlayerState.PLAYING && ev.target.setPlaybackRate) {
-                ev.target.setPlaybackRate(SLOW_RATE);
-              }
-            }
-          }
-        });
+      function resumeInline() {
+        inlineIframe.src = INLINE_SRC;
       }
 
       function mountLightboxPlayer() {
-        destroyLightboxPlayer();
-        var session = lightboxSession;
-        lightboxPlayer = new window.YT.Player('home-video-player', {
-          videoId: VIDEO_ID,
-          width: '100%',
-          height: '100%',
-          playerVars: {
-            autoplay: 1,
-            mute: 0,
-            controls: 1,
-            rel: 0,
-            modestbranding: 1,
-            playsinline: 1,
-            iv_load_policy: 3
-          },
-          events: {
-            onReady: function (ev) {
-              if (session !== lightboxSession) return;
-              if (ev.target.setPlaybackRate) ev.target.setPlaybackRate(1);
-              if (ev.target.unMute) ev.target.unMute();
-              ev.target.playVideo();
-            },
-            onStateChange: function (ev) {
-              if (session !== lightboxSession) return;
-              if (ev.data === window.YT.PlayerState.PLAYING) {
-                if (ev.target.unMute) ev.target.unMute();
-              }
-            }
-          }
-        });
+        lightboxHost.innerHTML = '';
+        var iframe = document.createElement('iframe');
+        iframe.className = 'home-lightbox-embed';
+        iframe.src = LIGHTBOX_SRC;
+        iframe.setAttribute(
+          'allow',
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        );
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        iframe.title = 'YouTube video player';
+        lightboxHost.appendChild(iframe);
       }
 
-      function ensureYouTubeApi(done) {
-        if (window.YT && window.YT.Player) {
-          done();
-          return;
-        }
-        var q = (window.__homeVideoYtQueue = window.__homeVideoYtQueue || []);
-        q.push(done);
-        if (window.__homeVideoYtLoading) return;
-        window.__homeVideoYtLoading = true;
-        var prev = window.onYouTubeIframeAPIReady;
-        window.onYouTubeIframeAPIReady = function () {
-          if (typeof prev === 'function') prev();
-          var callbacks = window.__homeVideoYtQueue || [];
-          window.__homeVideoYtQueue = [];
-          callbacks.forEach(function (fn) {
-            fn();
-          });
-        };
-        var s = document.createElement('script');
-        s.src = 'https://www.youtube.com/iframe_api';
-        document.head.appendChild(s);
+      function destroyLightboxPlayer() {
+        lightboxHost.innerHTML = '';
       }
-
-      window.addEventListener('resize', scheduleInlineResize, { passive: true });
-
-      ensureYouTubeApi(function () {
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            mountInlinePlayer();
-            syncInlinePlayerSize();
-          });
-        });
-      });
 
       function openLightbox() {
         if (closeTimer) {
           clearTimeout(closeTimer);
           closeTimer = null;
         }
-        try {
-          if (inlinePlayer && inlinePlayer.pauseVideo) inlinePlayer.pauseVideo();
-        } catch (e) {}
+        pauseInline();
         closeDone = false;
         lastFocus = document.activeElement;
         lightbox.removeAttribute('hidden');
@@ -812,10 +694,7 @@
         requestAnimationFrame(function () {
           lightbox.classList.add('is-open');
           closeBtn.focus();
-          ensureYouTubeApi(function () {
-            if (!lightbox.classList.contains('is-open')) return;
-            mountLightboxPlayer();
-          });
+          mountLightboxPlayer();
         });
       }
 
@@ -828,14 +707,10 @@
         }
         lightbox.removeEventListener('transitionend', onEnd);
         lightbox.setAttribute('hidden', '');
+        destroyLightboxPlayer();
         if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
         lastFocus = null;
-        try {
-          if (inlinePlayer && inlinePlayer.playVideo) {
-            inlinePlayer.playVideo();
-            if (inlinePlayer.setPlaybackRate) inlinePlayer.setPlaybackRate(SLOW_RATE);
-          }
-        } catch (e) {}
+        resumeInline();
       }
 
       function onEnd(e) {

@@ -20,3 +20,7 @@ Thumbs.db
 # Build / cache
 dist/
 .cache/
+
+# Local archives / design reference (not part of the live site)
+*.zip
+Claude Design/

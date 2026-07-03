@@ -33,7 +33,7 @@
         '<li><a href="' + root + 'partners.html" data-page="partners.html">Partners</a></li>' +
         '<li><a href="' + root + 'case-studies.html" data-page="case-studies.html">Case Studies</a></li>' +
         '<li class="unav-sep" aria-hidden="true"></li>' +
-        '<li><a href="' + root + 'resources.html" data-page="resources.html">Resources</a></li>' +
+        // '<li><a href="' + root + 'resources.html" data-page="resources.html">Resources</a></li>' +
         '<li><a href="' + root + 'about.html" data-page="about.html">About</a></li>' +
         '<li><a href="' + root + 'insights.html" data-page="insights.html">Insights</a></li>' +
         '<li><a href="' + root + 'contact.html" data-page="contact.html">Contact</a></li>' +
@@ -53,7 +53,7 @@
         '<div class="unav-dropdown unav-who">' +
           '<button type="button" class="unav-dropdown-trigger" aria-expanded="false" aria-controls="unav-panel-who">Who We Are <span class="unav-chevron" aria-hidden="true"></span></button>' +
           '<div class="unav-dropdown-panel" id="unav-panel-who">' +
-            '<a href="' + root + 'resources.html" data-page="resources.html">Resources</a>' +
+            // '<a href="' + root + 'resources.html" data-page="resources.html">Resources</a>' +
             '<a href="' + root + 'about.html" data-page="about.html">About</a>' +
             '<a href="' + root + 'insights.html" data-page="insights.html">Insights</a>' +
             '<a href="' + root + 'contact.html" data-page="contact.html">Contact</a>' +
