@@ -603,6 +603,10 @@ body {
   box-sizing: content-box !important;
   padding-left: 0.05em !important;
   padding-right: 15px !important;
+  /* Extend the paint box below the baseline so descenders (g, y) aren't clipped
+     by background-clip:text on an inline-block; negative margin cancels the layout shift */
+  padding-bottom: 0.18em !important;
+  margin-bottom: -0.18em !important;
   background: var(--spectrum) !important;
   background-size: 200% auto !important;
   -webkit-background-clip: text !important;
