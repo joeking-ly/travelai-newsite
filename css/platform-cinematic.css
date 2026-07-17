@@ -1,0 +1,222 @@
+/* TravelAI — Platform page (extends cinematic-shared.css) */
+.plc-hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: flex-end; overflow: hidden;
+}
+.plc-hero .plc-media { position: absolute; inset: 0; width: 100%; height: 100%; }
+.plc-hero .plc-media img { width: 100%; height: 100%; object-fit: cover; }
+.plc-hero .cin-hero-scrim { z-index: 1; }
+
+/* ---------- Unified platform statement ---------- */
+.plc-unified { border-top: 1px solid var(--glass-border); }
+.plc-unified-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.plc-unified-grid h2 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.08; margin-top: 16px; }
+.plc-unified-grid .copy p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.72); }
+.plc-unified-grid .copy p + p { margin-top: 20px; }
+
+/* ---------- Four responsibilities: stacked text + image rows ---------- */
+.plc-pillars-stack {
+  background: #000;
+  border-top: 1px solid var(--glass-border);
+}
+
+.plc-pillar-rows {
+  margin-top: clamp(24px, 4vw, 48px);
+}
+
+.plc-pillar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(56px, 8vw, 96px) 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.plc-pillar-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.plc-pillar-row__kicker {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.15;
+}
+
+.plc-pillar-row__num {
+  display: block;
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.plc-pillar-row__title {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.plc-pillar-row--1 .plc-pillar-row__num { color: #ff9a6b; }
+.plc-pillar-row--2 .plc-pillar-row__num { color: #70c4ff; }
+.plc-pillar-row--3 .plc-pillar-row__num { color: #8be09a; }
+.plc-pillar-row--4 .plc-pillar-row__num { color: #c9a0ff; }
+
+.plc-pillar-row__items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plc-pillar-row__items p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.plc-pillar-row__items strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.plc-pillar-row__media {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 4 / 3;
+}
+
+.plc-pillar-row__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plc-pillar-row:nth-child(even) .plc-pillar-row__copy { order: 2; }
+.plc-pillar-row:nth-child(even) .plc-pillar-row__media { order: 1; }
+
+@media (max-width: 900px) {
+  .plc-pillar-row,
+  .plc-pillar-row:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 48px 0;
+  }
+
+  .plc-pillar-row__copy,
+  .plc-pillar-row:nth-child(even) .plc-pillar-row__copy { order: 1; }
+
+  .plc-pillar-row__media,
+  .plc-pillar-row:nth-child(even) .plc-pillar-row__media { order: 2; }
+}
+
+/* ---------- Growth loop ---------- */
+.plc-loop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.plc-loop-card {
+  border: 1px solid var(--glass-border); border-radius: 16px; padding: 40px 30px;
+  background: rgba(255,255,255,0.03);
+}
+.plc-loop-card .v { font-size: clamp(34px, 4vw, 46px); font-weight: 700; letter-spacing: -0.03em; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.plc-loop-card:nth-child(1) .v { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.plc-loop-card:nth-child(2) .v { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.plc-loop-card:nth-child(3) .v { background-image: linear-gradient(120deg, #9370DB, #FF1493); }
+.plc-loop-card h4 { font-size: 17px; font-weight: 600; margin: 14px 0 8px; }
+.plc-loop-card p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.62); }
+
+/* ---------- Roadmap ---------- */
+.plc-roadmap { background: #000; border-top: 1px solid var(--glass-border); }
+.plc-phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.plc-phase { border: 1px solid var(--glass-border); border-radius: 16px; padding: 34px 28px; background: rgba(255,255,255,0.02); }
+.plc-phase .yr { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+.plc-phase h4 { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin: 10px 0 4px; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.plc-phase:nth-child(1) h4 { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.plc-phase:nth-child(2) h4 { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.plc-phase:nth-child(3) h4 { background-image: linear-gradient(120deg, #9370DB, #FF1493); }
+.plc-phase ul { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 0; }
+.plc-phase li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.72);
+  padding: 11px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s ease;
+}
+.plc-phase li:first-child { border-top: 0; padding-top: 0; }
+.plc-phase li:last-child { padding-bottom: 0; }
+.plc-phase li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  margin-top: 7px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  background: transparent;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.plc-phase:nth-child(1) li::before {
+  border-color: rgba(255, 140, 80, 0.7);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+.plc-phase:nth-child(2) li::before {
+  border-color: rgba(65, 180, 220, 0.7);
+  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
+}
+.plc-phase:nth-child(3) li::before {
+  border-color: rgba(180, 100, 220, 0.7);
+  box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.1);
+}
+.plc-phase:nth-child(1) li.is-done::before {
+  background: linear-gradient(135deg, #FF6B6B, #FFA500);
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(255, 140, 80, 0.35);
+}
+.plc-phase li.is-done em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 180, 100, 0.85);
+  margin-left: 6px;
+}
+.plc-phase li:hover { color: rgba(255,255,255,0.92); }
+.plc-phase:nth-child(1) li:hover::before {
+  background: linear-gradient(135deg, #FF6B6B, #FFA500);
+  border-color: transparent;
+}
+.plc-phase:nth-child(2) li:hover::before {
+  background: linear-gradient(135deg, #4169E1, #00CED1);
+  border-color: transparent;
+}
+.plc-phase:nth-child(3) li:hover::before {
+  background: linear-gradient(135deg, #9370DB, #FF1493);
+  border-color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .plc-phase li, .plc-phase li::before { transition: none; }
+}
+
+/* Platform CTA media layer (shell in cinematic-shared.css) */
+.plc-cta .plc-media { position: absolute; inset: 0; width: 100%; height: 100%; }
+.plc-cta .plc-media img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 900px) {
+  .plc-unified-grid, .plc-loop-grid, .plc-phase-grid { grid-template-columns: 1fr; }
+}
+
+body.page-platform-cinematic .plc-hero {
+  margin-top: 0;
+}

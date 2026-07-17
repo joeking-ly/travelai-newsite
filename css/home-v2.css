@@ -42,7 +42,7 @@ body.page-home .partners-section {
   position: fixed;
   top: var(--nav-offset, var(--nav-h));
   left: 0;
-  height: 3px;
+  height: var(--site-line-width, 2px);
   width: 100%;
   transform: scaleX(var(--p, 0));
   transform-origin: 0 50%;

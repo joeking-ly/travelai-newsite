@@ -4,11 +4,11 @@
 (function () {
   'use strict';
 
-  var section = document.querySelector('.core-section');
+  var section = document.querySelector('.core-section') || document.querySelector('.wh-stats');
   if (!section) return;
 
   var valueEls = section.querySelectorAll('.stat-value[data-count]');
-  var itemEls = section.querySelectorAll('.stat-item');
+  var itemEls = section.querySelectorAll('.stat-item, .wh-stats__item');
   if (!valueEls.length) return;
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
