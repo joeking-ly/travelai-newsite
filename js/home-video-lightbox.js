@@ -1,13 +1,14 @@
 /**
- * Homepage hero — open brand film in fullscreen YouTube lightbox.
- * Video: https://youtu.be/ZcdCg_eG48k
+ * Homepage hero — muted background loop + fullscreen YouTube lightbox.
+ * Background: https://youtu.be/QKr2kEQr7bw · Lightbox brand film: https://youtu.be/ZcdCg_eG48k
  */
 (function () {
   'use strict';
 
   var hero = document.querySelector('.wh-hero');
   var videoId = (hero && hero.getAttribute('data-youtube-id')) || 'ZcdCg_eG48k';
-  var bgEmbedBase = 'https://www.youtube-nocookie.com/embed/' + videoId;
+  var bgVideoId = (hero && hero.getAttribute('data-youtube-bg-id')) || videoId;
+  var bgEmbedBase = 'https://www.youtube-nocookie.com/embed/' + bgVideoId;
   var modalEmbedBase = 'https://www.youtube.com/embed/' + videoId;
 
   function bgEmbedSrc() {
@@ -15,7 +16,7 @@
       'autoplay=1',
       'mute=1',
       'loop=1',
-      'playlist=' + videoId,
+      'playlist=' + bgVideoId,
       'controls=0',
       'rel=0',
       'modestbranding=1',
@@ -24,6 +25,8 @@
       'disablekb=1',
       'fs=0',
       'iv_load_policy=3',
+      'showinfo=0',
+      'autohide=1',
       'enablejsapi=0',
     ];
     if (window.location.origin && window.location.origin !== 'null') {
@@ -47,8 +50,20 @@
   function startBackgroundVideo() {
     if (inlineIframe.getAttribute('data-started') === '1') return;
     inlineIframe.setAttribute('data-started', '1');
+    inlineIframe.setAttribute('tabindex', '-1');
+    inlineIframe.setAttribute('aria-hidden', 'true');
     inlineIframe.src = INLINE_SRC;
   }
+
+  // Never let the decorative background player take focus (focus reveals YouTube chrome)
+  inlineIframe.addEventListener('focus', function () {
+    inlineIframe.blur();
+  });
+  inlineIframe.addEventListener('load', function () {
+    try {
+      inlineIframe.blur();
+    } catch (e) {}
+  });
 
   if (document.readyState === 'complete') {
     startBackgroundVideo();

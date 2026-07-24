@@ -221,6 +221,20 @@ body {
   line-height: var(--body-lh);
 }
 
+/* Avoid one-word last lines (widows) in body copy */
+p,
+li,
+.lede,
+.hero-subtitle,
+.article-body,
+.story-excerpt,
+.case-intro-body,
+.vision-paper-body,
+.trip-body,
+blockquote {
+  text-wrap: pretty;
+}
+
 .value-number,
 .stat-number,
 .metric-value {

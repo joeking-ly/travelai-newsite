@@ -1,4 +1,17 @@
 (function () {
+  /* Safety net: ensure GTM loads even if a page omits site-tracking.js */
+  if (!window.__travelaiGtmInstalled) {
+    var trackingSrc = (function () {
+      var pathname = window.location.pathname || '';
+      var root = pathname.indexOf('/blogs/') !== -1 || pathname.indexOf('/stories/') !== -1 ? '../' : '';
+      return root + 'js/site-tracking.js?v=1';
+    })();
+    var s = document.createElement('script');
+    s.src = trackingSrc;
+    s.async = false;
+    (document.head || document.documentElement).appendChild(s);
+  }
+
   var placeholder = document.getElementById('universal-nav-placeholder');
   if (!placeholder) return;
 
@@ -13,26 +26,28 @@
     document.head.appendChild(themeColor);
   }
 
-  var page = (window.location.pathname.split('/').pop() || '').toLowerCase() || 'index.html';
+  // Works with clean URLs (/about) and legacy .html paths alike
+  var page = (window.location.pathname.split('/').pop() || '').toLowerCase().replace(/\.html$/, '');
   var pathname = window.location.pathname || '';
   var root = '';
   if (pathname.indexOf('/blogs/') !== -1 || pathname.indexOf('/stories/') !== -1) {
     root = '../';
   }
+  var homeHref = root || '/';
 
   var navHtml =
     '<nav class="universal-nav" aria-label="Main navigation">' +
-      '<a href="' + root + 'index.html" class="unav-logo" aria-label="TravelAI">' +
+      '<a href="' + homeHref + '" class="unav-logo" aria-label="TravelAI">' +
         '<img src="' + root + 'assets/travelai-logo-icon.svg" alt="TravelAI" class="unav-logo-img" width="26" height="26">' +
         '<img src="' + root + 'assets/travelai-name.png" alt="" class="unav-logo-name" aria-hidden="true">' +
       '</a>' +
       '<ul class="unav-links">' +
-        '<li><a href="' + root + 'our-vision.html" data-page="our-vision.html">Our Vision</a></li>' +
-        '<li><a href="' + root + 'platform.html" data-page="platform.html">Platform</a></li>' +
-        '<li><a href="' + root + 'network.html" data-page="network.html">Network</a></li>' +
-        '<li><a href="' + root + 'about.html" data-page="about.html">About</a></li>' +
-        '<li><a href="' + root + 'insights.html" data-page="insights.html">Insights</a></li>' +
-        '<li><a href="' + root + 'contact.html" data-page="contact.html">Contact</a></li>' +
+        '<li><a href="' + root + 'our-vision" data-page="our-vision">Our Vision</a></li>' +
+        '<li><a href="' + root + 'platform" data-page="platform">Platform</a></li>' +
+        '<li><a href="' + root + 'network" data-page="network">Network</a></li>' +
+        '<li><a href="' + root + 'about" data-page="about">About</a></li>' +
+        '<li><a href="' + root + 'insights" data-page="insights">Insights</a></li>' +
+        '<li><a href="' + root + 'contact" data-page="contact">Contact</a></li>' +
       '</ul>' +
       '<div class="unav-right">' +
         '<button type="button" class="unav-hamburger" aria-label="Open menu" aria-expanded="false">' +
@@ -56,19 +71,19 @@
     if (setActiveState(links[i])) break;
   }
 
-  if (page === 'why.html') {
-    placeholder.querySelectorAll('a[data-page="our-vision.html"]').forEach(function (link) {
+  if (page === 'why') {
+    placeholder.querySelectorAll('a[data-page="our-vision"]').forEach(function (link) {
       link.classList.add('active');
     });
   }
 
-  if (pathname.indexOf('/blogs/') !== -1 || page === 'blog-detail.html') {
-    placeholder.querySelectorAll('a[data-page="insights.html"]').forEach(function (link) {
+  if (pathname.indexOf('/blogs/') !== -1 || page === 'blog-detail') {
+    placeholder.querySelectorAll('a[data-page="insights"]').forEach(function (link) {
       link.classList.add('active');
     });
   }
 
-  if (page === 'index.html' || page === 'homepage-new.html' || page === '' || page === 'index') {
+  if (page === 'index' || page === 'homepage-new' || page === '') {
     var logo = placeholder.querySelector('.unav-logo');
     if (logo) logo.classList.add('active');
   }
@@ -96,6 +111,11 @@
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') setMenuOpen(false);
+    });
+    /* Tap on the dimmed page behind the drawer closes it */
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('unav-mobile-open')) return;
+      if (!nav.contains(e.target)) setMenuOpen(false);
     });
     window.addEventListener('resize', function () {
       if (window.innerWidth > 768) setMenuOpen(false);
@@ -261,12 +281,12 @@
     joinSection.innerHTML =
       '<div class="inner">' +
         '<div class="vision-section-intro">' +
-          '<h2 class="vision-section-title on-light" id="site-join-heading">Join us in building the future of travel</h2>' +
+          '<h2 class="vision-section-title on-light" id="site-join-heading">Join TravelAI in building the future of AI in Travel</h2>' +
           '<p class="vision-lead on-light">Whether you\'re a traveler, a partner, or someone who believes technology can make the world more connected, there\'s a place for you in the TravelAI story.</p>' +
         '</div>' +
         '<div class="hero-ctas vision-join-ctas">' +
-          '<a href="' + root + 'contact.html" class="hero-cta on-light">Get in Touch</a>' +
-          '<a href="' + root + 'careers.html" class="hero-cta secondary on-light">Join Our Team</a>' +
+          '<a href="' + root + 'contact" class="hero-cta on-light">Get in Touch</a>' +
+          '<a href="' + root + 'careers" class="hero-cta secondary on-light">Join Our Team</a>' +
         '</div>' +
       '</div>';
     footer.parentNode.insertBefore(joinSection, footer);
@@ -274,9 +294,9 @@
   }
 
   // Partners, Case Studies, Careers & Travel Stories hidden for launch — strip links site-wide
-  var hiddenPaths = ['partners.html', 'case-studies.html', 'careers.html', 'stories.html'];
+  var hiddenPaths = ['partners', 'case-studies', 'careers', 'stories'];
   document.querySelectorAll('a[href]').forEach(function (link) {
-    var href = (link.getAttribute('href') || '').toLowerCase().split('#')[0].split('?')[0];
+    var href = (link.getAttribute('href') || '').toLowerCase().split('#')[0].split('?')[0].replace(/\.html$/, '');
     var isHidden = hiddenPaths.some(function (page) {
       return href === page || href.endsWith('/' + page) || href.endsWith('../' + page);
     });
@@ -292,5 +312,10 @@
   document.querySelectorAll('footer .footer-col').forEach(function (col) {
     var links = col.querySelectorAll('a[href]');
     if (!links.length) col.remove();
+  });
+
+  // Copyright year: always show the current year regardless of the static markup
+  document.querySelectorAll('.footer-legal').forEach(function (legal) {
+    legal.textContent = legal.textContent.replace(/©\s*\d{4}/, '© ' + new Date().getFullYear());
   });
 })();

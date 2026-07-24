@@ -342,13 +342,21 @@
 }
 
 .nwc-works__title {
-  margin: 0 0 clamp(28px, 4vw, 48px);
+  margin: 0 0 16px;
   max-width: 560px;
   font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.08;
   color: #14120E;
+}
+
+.nwc-works__lede {
+  margin: 0 0 clamp(28px, 4vw, 48px);
+  max-width: 62ch;
+  font-size: clamp(16px, 1.7vw, 18px);
+  line-height: 1.65;
+  color: rgba(20, 18, 14, 0.65);
 }
 
 .nwc-works__split {
@@ -476,6 +484,17 @@
   overflow: hidden;
 }
 
+/* Animated graphic (see js/nwc-works-motion.js) — fixed-size stage scaled to fit */
+.nwc-works-panel__graphic--motion {
+  background: #faf7f0;
+}
+
+.nwc-works-motion {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
 .nwc-works-panel__graphic-ph {
   position: absolute;
   inset: 0;
@@ -514,7 +533,7 @@
   position: absolute;
   top: clamp(10px, 1.5vw, 16px);
   right: clamp(16px, 2.5vw, 28px);
-  font-size: clamp(64px, 10vw, 96px);
+  font-size: clamp(40px, 5vw, 56px);
   font-weight: 700;
   line-height: 1;
   color: rgba(20, 18, 14, 0.06);
@@ -562,10 +581,92 @@
 
 @media (max-width: 560px) {
   .nwc-pipe { grid-template-columns: 1fr; }
+
+  /* Steps: no hover on phones — show full text on every card, compact height */
+  .nwc-mark-card,
+  .nwc-mark-card:is(:hover, :focus-visible, .is-active) {
+    min-height: 0;
+    background: var(--black-deep);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+  .nwc-mark-card .nwc-mark-step,
+  .nwc-mark-card:is(:hover, :focus-visible, .is-active) .nwc-mark-step {
+    color: rgba(255, 255, 255, 0.48);
+  }
+  .nwc-mark-card .nwc-mark-body,
+  .nwc-mark-card:is(:hover, :focus-visible, .is-active) .nwc-mark-body {
+    margin-top: 18px;
+    transform: none;
+  }
+  .nwc-mark-card h3,
+  .nwc-mark-card:is(:hover, :focus-visible, .is-active) h3 {
+    color: #fff;
+  }
+  .nwc-mark-card .nwc-mark-detail {
+    grid-template-rows: 1fr;
+  }
+  .nwc-mark-card .nwc-mark-detail > p,
+  .nwc-mark-card:is(:hover, :focus-visible, .is-active) .nwc-mark-detail > p {
+    opacity: 1;
+    transform: none;
+    padding-top: 12px;
+    color: rgba(255, 255, 255, 0.68);
+  }
+  .nwc-pipe .nwc-mark-card::after,
+  .nwc-pipe .nwc-mark-card:is(:hover, :focus-visible, .is-active)::after {
+    color: rgba(255, 255, 255, 0.08);
+  }
   .nwc-tri-diagram { height: 320px; }
   .nwc-node { width: 110px; padding: 14px 10px; font-size: 14px; }
   .nwc-node b { font-size: 14px; }
   .nwc-node span { font-size: 11px; }
+}
+
+/* Works section on phones: tabs collapse to one scrollable row and the
+   animation stage switches to a tall portrait layout (see nwc-works-motion.js) */
+@media (max-width: 640px) {
+  .nwc-works-nav {
+    flex-direction: row;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-bottom: var(--site-line-width, 2px) solid rgba(20, 18, 14, 0.12);
+  }
+
+  .nwc-works-nav::-webkit-scrollbar { display: none; }
+
+  .nwc-works-nav__item {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 12px 14px;
+    margin-bottom: calc(-1 * var(--site-line-width, 2px));
+    border-top: none;
+    border-bottom-color: transparent;
+  }
+
+  .nwc-works-nav__item:first-child {
+    border-top: none;
+    padding-left: 0;
+  }
+
+  .nwc-works-nav__item.is-active {
+    border-bottom-color: #14120E;
+  }
+
+  .nwc-works-nav__row {
+    gap: 8px;
+  }
+
+  .nwc-works-nav__label {
+    white-space: nowrap;
+  }
+
+  .nwc-works-panel__graphic {
+    height: auto;
+    aspect-ratio: 720 / 1000;
+    max-height: 72vh;
+  }
 }
 
 body.page-network-cinematic .nwc-works__title .cin-spectrum,

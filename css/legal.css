@@ -1,0 +1,205 @@
+/* TravelAI — Privacy & Terms */
+
+body.page-legal {
+  background: #0a0a0f;
+  color: #14120e;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Compact hero — legal pages don't need a full-viewport splash */
+body.page-legal .site-hero {
+  min-height: 0;
+  height: auto;
+  justify-content: flex-end;
+}
+
+body.page-legal .site-hero__inner {
+  padding-top: calc(var(--nav-offset, 72px) + clamp(64px, 8vw, 96px));
+  padding-bottom: clamp(48px, 6vw, 72px);
+}
+
+body.page-legal .site-hero__title {
+  max-width: 18ch;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+}
+
+body.page-legal .site-hero__lead {
+  margin-top: 16px;
+  max-width: 42ch;
+  font-size: clamp(15px, 1.3vw, 17px);
+  color: rgba(255, 255, 255, 0.62);
+}
+
+body.page-legal .site-hero__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.page-legal .site-hero__meta a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 3px;
+}
+
+body.page-legal .site-hero__meta a:hover {
+  color: #fff;
+  text-decoration-color: currentColor;
+}
+
+/* Document band */
+.legal-doc {
+  background: #f4f1ec;
+  color: #14120e;
+  padding: clamp(56px, 7vw, 96px) var(--cin-gutter, clamp(24px, 5vw, 64px));
+  border-top: none;
+}
+
+.legal-doc__inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.legal-prose {
+  text-wrap: pretty;
+}
+
+.legal-prose > p:first-child {
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.7;
+  color: rgba(20, 18, 14, 0.72);
+  margin: 0 0 1.5em;
+}
+
+.legal-prose p {
+  margin: 0 0 1.25em;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: rgba(20, 18, 14, 0.68);
+}
+
+.legal-prose h2 {
+  margin: 2.75em 0 0.85em;
+  padding-top: 0.35em;
+  border-top: 1px solid rgba(20, 18, 14, 0.1);
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: #14120e;
+}
+
+.legal-prose h2:first-of-type {
+  margin-top: 2em;
+}
+
+.legal-prose h3 {
+  margin: 1.75em 0 0.55em;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  color: #14120e;
+}
+
+.legal-prose strong {
+  color: #14120e;
+  font-weight: 600;
+}
+
+.legal-prose a {
+  color: #14120e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 18, 14, 0.35);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.legal-prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Contact / address card */
+.legal-contact {
+  margin-top: clamp(40px, 5vw, 64px);
+  padding: clamp(24px, 3vw, 32px);
+  border-radius: 20px;
+  border: 1px solid rgba(20, 18, 14, 0.1);
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(20, 18, 14, 0.05);
+}
+
+.legal-contact__label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(20, 18, 14, 0.45);
+}
+
+.legal-contact p {
+  margin: 0 0 0.35em;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: rgba(20, 18, 14, 0.72);
+}
+
+.legal-contact p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-contact a {
+  color: #14120e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 18, 14, 0.35);
+  text-underline-offset: 2px;
+}
+
+.legal-contact a:hover {
+  text-decoration-color: currentColor;
+}
+
+.legal-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(20, 18, 14, 0.1);
+  font-size: 14.5px;
+  color: rgba(20, 18, 14, 0.55);
+}
+
+.legal-switch a {
+  color: #14120e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 18, 14, 0.35);
+  text-underline-offset: 2px;
+}
+
+.legal-switch a:hover {
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 640px) {
+  .legal-doc {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .legal-prose h2 {
+    margin-top: 2.25em;
+  }
+}

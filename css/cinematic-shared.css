@@ -29,6 +29,19 @@ body.page-vision-cinematic {
   overflow-x: hidden;
 }
 
+/* Avoid one-word last lines in cinematic body copy */
+body.page-network-cinematic p,
+body.page-platform-cinematic p,
+body.page-vision-cinematic p,
+body.page-network-cinematic .lede,
+body.page-platform-cinematic .lede,
+body.page-vision-cinematic .lede,
+body.page-vision-cinematic .vsc-pillars-close p,
+body.page-vision-cinematic .vsc-statement .body,
+body.page-vision-cinematic .vsc-mark-copy {
+  text-wrap: pretty;
+}
+
 body.page-network-cinematic a,
 body.page-platform-cinematic a,
 body.page-vision-cinematic a {

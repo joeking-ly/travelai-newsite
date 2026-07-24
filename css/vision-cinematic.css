@@ -43,22 +43,23 @@
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: clamp(32px, 5vw, 72px);
-  align-items: start;
+  align-items: stretch;
 }
 
 .vsc-big-picture-intro__lead {
   margin: 16px 0 0;
-  max-width: 58ch;
+  max-width: 90ch;
   font-size: clamp(20px, 2.4vw, 26px);
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.88);
+  text-wrap: pretty;
 }
 
 .vsc-big-picture-intro__block {
   margin-top: clamp(32px, 4vw, 48px);
-  max-width: 58ch;
+  max-width: 90ch;
   padding-top: clamp(28px, 3.5vw, 40px);
   border-top: 1px solid var(--glass-border);
 }
@@ -77,18 +78,20 @@
   font-size: 17px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.66);
+  text-wrap: pretty;
 }
 
 .vsc-big-picture-intro__media {
-  position: sticky;
-  top: calc(var(--nav-offset, 72px) + 24px);
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  min-height: 0;
   background: rgba(255, 255, 255, 0.04);
 }
 
 .vsc-big-picture-intro__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -103,13 +106,21 @@
 }
 
 .vsc-pillars-tabs__title {
-  margin: 0 0 clamp(32px, 4vw, 52px);
-  max-width: 22ch;
+  margin: 0 0 clamp(14px, 1.6vw, 20px);
   font-size: clamp(1.75rem, 3.6vw, 2.75rem);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.12;
   color: #fff;
+  text-wrap: balance;
+}
+
+.vsc-pillars-tabs__lead {
+  margin: 0 0 clamp(36px, 4.5vw, 56px);
+  max-width: 62ch;
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .vsc-pipe {
@@ -122,7 +133,7 @@
   --mark-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --mark-duration: 0.72s;
   position: relative;
-  min-height: clamp(300px, 28vw, 380px);
+  min-height: clamp(320px, 30vw, 420px);
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: var(--black-deep, #0a0a0f);
@@ -157,6 +168,8 @@
 
 .vsc-mark-step {
   display: block;
+  /* keep the label clear of the big corner number */
+  padding-right: clamp(56px, 5vw, 76px);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -167,9 +180,6 @@
 
 .vsc-mark-body {
   margin-top: auto;
-  transform: translateY(0);
-  transition: transform var(--mark-duration) var(--mark-ease);
-  will-change: transform;
 }
 
 .vsc-mark-card h3 {
@@ -183,6 +193,49 @@
   transition: color var(--mark-duration) var(--mark-ease);
 }
 
+/* Copy is collapsed by default (heading sits at the bottom of the card)
+   and expands to its full natural height on hover — the animatable 0fr→1fr
+   grid track means no fixed cap and no clipped text. The whole row grows
+   with the expanded card, so all four cards always share the same height. */
+.vsc-mark-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows var(--mark-duration) var(--mark-ease);
+}
+
+.vsc-mark-reveal > .vsc-mark-copy {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.vsc-mark-copy {
+  margin: 12px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgba(20, 18, 14, 0.62);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity calc(var(--mark-duration) * 0.85) var(--mark-ease),
+    transform calc(var(--mark-duration) * 0.85) var(--mark-ease);
+}
+
+body.page-vision-cinematic .vsc-mark-copy a {
+  color: #14120e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 18, 14, 0.4);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+body.page-vision-cinematic .vsc-mark-copy a:hover {
+  color: #14120e;
+  text-decoration-color: currentColor;
+}
+
 .vsc-mark-card:is(:hover, :focus-visible, .is-active) {
   background: #fff;
   border-color: rgba(20, 18, 14, 0.08);
@@ -192,12 +245,17 @@
   color: rgba(20, 18, 14, 0.45);
 }
 
-.vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-body {
-  transform: translateY(-20px);
-}
-
 .vsc-mark-card:is(:hover, :focus-visible, .is-active) h3 {
   color: #14120e;
+}
+
+.vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-reveal {
+  grid-template-rows: 1fr;
+}
+
+.vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-copy {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .vsc-mark-card:is(:hover, :focus-visible, .is-active)::after {
@@ -206,13 +264,14 @@
 
 @media (prefers-reduced-motion: reduce) {
   .vsc-mark-card,
-  .vsc-mark-body,
   .vsc-mark-step,
   .vsc-mark-card h3,
+  .vsc-mark-reveal,
+  .vsc-mark-copy,
   .vsc-pipe .vsc-mark-card::after {
     transition: none;
   }
-  .vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-body {
+  .vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-copy {
     transform: none;
   }
 }
@@ -223,6 +282,7 @@
   max-width: 880px; margin: 0 auto; text-align: center;
   font-size: clamp(22px, 2.8vw, 30px); font-weight: 500;
   letter-spacing: -0.015em; line-height: 1.45; color: rgba(255,255,255,0.85);
+  text-wrap: pretty;
 }
 .vsc-pillars-close p b { font-weight: 600; }
 
@@ -328,11 +388,11 @@
   right: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(18px);
+  transform: translateY(10px);
   transition:
-    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0.55s;
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    visibility 0.28s;
   pointer-events: none;
 }
 
@@ -345,7 +405,31 @@
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.14s,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.14s,
+    visibility 0.55s 0.14s;
 }
+
+/* Panel content cascades in after the crossfade */
+.vsc-papers-panel > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vsc-papers-panel.is-active > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vsc-papers-panel.is-active > *:nth-child(1) { transition-delay: 0.16s; }
+.vsc-papers-panel.is-active > *:nth-child(2) { transition-delay: 0.24s; }
+.vsc-papers-panel.is-active > *:nth-child(3) { transition-delay: 0.32s; }
+.vsc-papers-panel.is-active > *:nth-child(4) { transition-delay: 0.4s; }
+.vsc-papers-panel.is-active > *:nth-child(5) { transition-delay: 0.48s; }
 
 .vsc-papers-panel__when {
   margin: 0 0 16px;
@@ -381,9 +465,10 @@
   color: rgba(20, 18, 14, 0.82);
 }
 
-.vsc-paper-cta {
+.vsc-paper-cta,
+body.page-vision-cinematic .vsc-papers a.vsc-paper-cta {
   display: inline-flex;
-  margin-top: 24px;
+  margin-top: clamp(32px, 3.4vw, 44px);
 }
 
 body.page-vision-cinematic .vsc-papers a,
@@ -404,7 +489,12 @@ body.page-vision-cinematic .vsc-papers .cin-panel-link:hover {
 .vsc-papers-panel.upcoming h3 { color: rgba(20, 18, 14, 0.9); }
 
 @media (prefers-reduced-motion: reduce) {
-  .vsc-papers-panel { transition: none; transform: none; }
+  .vsc-papers-panel,
+  .vsc-papers-panel > * {
+    transition: none;
+    transform: none;
+  }
+  .vsc-papers-panel > * { opacity: 1; }
 }
 
 /* ---------- Bigger vision statement ---------- */
@@ -488,15 +578,67 @@ body.page-vision-cinematic .vsc-papers .cin-panel-link:hover {
     gap: 32px;
   }
   .vsc-big-picture-intro__media {
-    position: static;
+    position: relative;
     aspect-ratio: 16 / 10;
+    min-height: 220px;
   }
+
+  .vsc-big-picture-intro__media img {
+    position: absolute;
+    inset: 0;
+  }
+  /* Pillar cards become a snap carousel: full copy always visible,
+     no hover choreography, active (in-view) card is highlighted white. */
   .vsc-pipe {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -24px;
+    padding: 4px 24px;
   }
+  .vsc-pipe::-webkit-scrollbar { display: none; }
+
   .vsc-mark-card {
-    min-height: 240px;
+    flex: 0 0 min(84%, 340px);
+    scroll-snap-align: start;
+    min-height: 0;
+  }
+
+  .vsc-pipe .vsc-mark-card::after {
+    font-size: 38px;
+    top: 20px;
+  }
+
+  .vsc-mark-step {
+    padding-right: 56px;
+  }
+
+  .vsc-mark-body { margin-top: 18px; }
+
+  .vsc-mark-reveal { grid-template-rows: 1fr; }
+
+  .vsc-mark-copy {
+    opacity: 1;
+    transform: none;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  body.page-vision-cinematic .vsc-mark-copy a {
+    color: #fff;
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+  }
+
+  .vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-copy {
+    color: rgba(20, 18, 14, 0.62);
+  }
+
+  body.page-vision-cinematic .vsc-mark-card:is(:hover, :focus-visible, .is-active) .vsc-mark-copy a {
+    color: #14120e;
+    text-decoration-color: rgba(20, 18, 14, 0.4);
   }
   .vsc-papers-split { grid-template-columns: 1fr; gap: 32px; }
   .vsc-papers-stage { min-height: 0; }

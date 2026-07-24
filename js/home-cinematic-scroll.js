@@ -53,16 +53,19 @@
   function initHeroReveal() {
     if (prefersReduced) return;
 
+    var eyebrow = document.querySelector('.wh-hero__eyebrow');
     var lines = gsap.utils.toArray('.wh-hero__line');
     var lead = document.querySelector('.wh-hero__lead');
     var actions = document.querySelector('.wh-hero__actions');
 
+    if (eyebrow) gsap.set(eyebrow, { y: 20, opacity: 0 });
     gsap.set(lines, { y: 56, opacity: 0 });
     if (lead) gsap.set(lead, { y: 24, opacity: 0 });
     if (actions) gsap.set(actions, { y: 16, opacity: 0 });
 
     var tl = gsap.timeline({ delay: 0.15, defaults: { ease: 'power3.out' } });
-    tl.to(lines, { y: 0, opacity: 1, duration: 0.9, stagger: 0.1 });
+    if (eyebrow) tl.to(eyebrow, { y: 0, opacity: 1, duration: 0.6 });
+    tl.to(lines, { y: 0, opacity: 1, duration: 0.9, stagger: 0.1 }, eyebrow ? '-=0.35' : 0);
     if (lead) tl.to(lead, { y: 0, opacity: 1, duration: 0.7 }, '-=0.45');
     if (actions) tl.to(actions, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4');
   }
@@ -303,6 +306,10 @@
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () {
         setActive(i);
+        /* Keep the tapped tab visible in the scrollable tab row on mobile */
+        if (tab.scrollIntoView) {
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
       });
     });
 

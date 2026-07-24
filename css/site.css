@@ -4659,6 +4659,13 @@ body.page-home .hero .hero-inner {
   margin: 0 auto;
   text-align: left;
 }
+/* Must live after the base rule: the earlier 900px override is defeated by
+   source order otherwise */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .form-field {
   display: flex;
   flex-direction: column;
@@ -4721,6 +4728,117 @@ body.page-home .hero .hero-inner {
 .form-submit:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(255,255,255,0.25);
+}
+
+/* HubSpot embedded form — matches the dark form section.
+   Field labels are visually hidden (placeholders carry the field names);
+   they stay in the DOM for screen readers. Error labels remain visible. */
+.hubspot-form {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+}
+.hubspot-form .hs-form fieldset {
+  max-width: none;
+}
+.hubspot-form .hs-form-field {
+  margin-bottom: 24px;
+}
+.hubspot-form .hs-form-field > label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.hubspot-form .hs-input {
+  width: 100% !important;
+  padding: 14px 18px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hubspot-form .hs-input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+.hubspot-form .hs-input:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+}
+.hubspot-form select.hs-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='2'%3E%3Cpath d='M2 4L6 8L10 4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.hubspot-form select.hs-input option {
+  color: var(--black-deep);
+  background: var(--white);
+}
+.hubspot-form textarea.hs-input {
+  min-height: 140px;
+  resize: vertical;
+}
+/* two-column rows: keep a comfortable gutter between fields */
+.hubspot-form .hs-form fieldset.form-columns-2 .hs-form-field .input {
+  margin-right: 16px;
+}
+.hubspot-form .hs-form fieldset.form-columns-2 .hs-form-field:last-of-type .input {
+  margin-right: 0;
+}
+.hubspot-form .hs-error-msgs {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hubspot-form .hs-error-msgs label {
+  font-size: 13px;
+  color: #ff8f7d;
+}
+.hubspot-form .hs_error_rollup {
+  margin-bottom: 16px;
+}
+.hubspot-form .hs-button {
+  padding: 16px 32px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black-deep);
+  background: var(--white);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hubspot-form .hs-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.25);
+}
+.hubspot-form .submitted-message {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .hubspot-form .hs-form fieldset.form-columns-2 .hs-form-field,
+  .hubspot-form .hs-form fieldset.form-columns-2 .hs-form-field .input {
+    width: 100% !important;
+    float: none;
+    margin-right: 0;
+  }
 }
 
 /* Contact page */
@@ -5109,6 +5227,13 @@ body.page-home .hero .hero-inner {
   gap: 24px;
   margin-top: 32px;
 }
+/* Must live after the base rule: the earlier 900px override is defeated by
+   source order otherwise */
+@media (max-width: 900px) {
+  .docs-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .doc-card {
   padding: 28px 26px;
@@ -5330,6 +5455,12 @@ body.page-insights .featured {
   margin-bottom: 48px;
 }
 
+/* Hide post category tags on Insights listing (filters still use data-category) */
+body.page-insights .featured-tags,
+body.page-insights .story-tags {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   body.page-insights section.hero {
     padding-bottom: 24px;
@@ -5374,6 +5505,11 @@ body.page-insights .featured {
   justify-content: center;
 }
 
+/* Wrapper is layout-transparent on desktop; becomes a scroll row on phones */
+.filters-chips {
+  display: contents;
+}
+
 .filter-btn {
   padding: 8px 18px;
   min-height: 44px;
@@ -5403,6 +5539,30 @@ body.page-insights .featured {
   background: rgba(255,255,255,0.95);
   color: var(--black-deep);
   border-color: rgba(255,255,255,0.95);
+}
+
+/* Phones: filters collapse to one horizontally-scrollable row instead of a
+   tall wrapped block that eats a third of the viewport when stuck */
+@media (max-width: 640px) {
+  .filters-bar-content .inner {
+    justify-content: flex-start;
+  }
+  .filters-bar-content .filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px 0;
+  }
+  .filters-bar-content .filters::-webkit-scrollbar {
+    display: none;
+  }
+  .filters-bar-content .filter-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 }
 
 #stories-filters-sticky-bar .search-box {
@@ -5469,6 +5629,11 @@ body.page-insights .featured {
 .story-hidden {
   display: none !important;
 }
+/* Must out-rank the display:flex !important on .stories-grid .story-card */
+.stories-grid .story-card.blog-hidden,
+.stories-grid .story-card.story-hidden {
+  display: none !important;
+}
 
 .blog-no-results,
 .stories-no-results {
@@ -5525,13 +5690,23 @@ a.story-card:hover {
 /* Blog/story listing cards: only show date, small, bottom-left */
 .stories-grid .story-card {
   padding-bottom: 0;
+  /* !important beats the inline display:block on the card anchors.
+     Flex column lets .story-content stretch to the card's real bottom
+     edge (grid rows equalize card heights), so the absolutely
+     positioned date lands in the true bottom-left corner. */
+  display: flex !important;
+  flex-direction: column;
+}
+.stories-grid .story-card .story-img {
+  flex: 0 0 auto;
 }
 .stories-grid .story-card .story-content {
-  padding-bottom: 36px;
+  padding-bottom: 42px;
+  flex: 1 1 auto;
 }
 .stories-grid .story-card .story-meta {
   position: absolute;
-  bottom: 12px;
+  bottom: 14px;
   left: 24px;
   display: block;
   margin: 0;
@@ -5541,12 +5716,14 @@ a.story-card:hover {
   display: none;
 }
 .stories-grid .story-card .story-date {
-  font-size: var(--text-body);
-  color: rgba(0,0,0,0.5);
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(0,0,0,0.45);
   font-weight: 500;
+  letter-spacing: 0.02em;
 }
 .section.dark .stories-grid .story-card .story-date {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.45);
 }
 
 .story-avatar,
@@ -7115,14 +7292,37 @@ figure.case-hero {
     padding: 0 var(--gutter, 24px);
   }
 
+  /* Search stays full-width on its own line; category chips become one
+     horizontally-scrollable row (matches the insights filter treatment) */
   #stories-filters-sticky-bar .filters {
     width: 100%;
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: visible;
   }
 
   #stories-filters-sticky-bar .search-box {
     width: 100%;
+    flex: 1 0 100%;
+  }
+
+  #stories-filters-sticky-bar .filters-chips {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px 0;
+  }
+
+  #stories-filters-sticky-bar .filters-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  #stories-filters-sticky-bar .filter-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 }
 

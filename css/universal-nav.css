@@ -378,7 +378,8 @@ body.unav-is-compact .universal-nav img.unav-logo-name {
 @media (max-width: 768px) {
   .universal-nav {
     padding: var(--safe-top) max(var(--nav-pad-x), env(safe-area-inset-right, 0px)) 0 max(var(--nav-pad-x), env(safe-area-inset-left, 0px));
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    align-content: flex-start;
     align-items: center;
     overflow: visible;
     min-height: var(--nav-offset);
@@ -395,6 +396,56 @@ body.unav-is-compact .universal-nav img.unav-logo-name {
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Open menu: solid dark sheet regardless of scroll/light state */
+  body .universal-nav.unav-mobile-open,
+  body .universal-nav.unav-mobile-open::before {
+    background: rgba(10, 10, 15, 0.98) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  body .universal-nav.unav-mobile-open .unav-hamburger-bar {
+    background: #fff !important;
+  }
+
+  body .universal-nav.unav-mobile-open .unav-links a {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  body .universal-nav.unav-mobile-open .unav-links a.active {
+    color: #fff !important;
+  }
+
+  /* Lock page scroll and dim the page behind the open menu */
+  body.unav-menu-open {
+    overflow: hidden;
+  }
+
+  body.unav-menu-open::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 15, 0.55);
+    z-index: 999;
+    animation: unav-backdrop-in 0.3s ease;
+  }
+
+  @keyframes unav-backdrop-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .universal-nav .unav-links,
+    .universal-nav.unav-mobile-open .unav-links {
+      transition: none;
+    }
+
+    body.unav-menu-open::after {
+      animation: none;
+    }
+  }
+
   .universal-nav .unav-logo {
     flex: 1 1 auto;
     min-width: 0;
@@ -402,6 +453,8 @@ body.unav-is-compact .universal-nav img.unav-logo-name {
     gap: 8px;
     align-items: center;
     display: flex;
+    /* Pin the header row height so the logo doesn't shift when the drawer opens */
+    height: var(--nav-h);
   }
 
   .universal-nav .unav-logo-img {
@@ -436,20 +489,36 @@ body.unav-is-compact .universal-nav img.unav-logo-name {
   }
 
   .universal-nav .unav-links {
-    display: none;
-    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100% + max(var(--nav-pad-x), env(safe-area-inset-left, 0px)) + max(var(--nav-pad-x), env(safe-area-inset-right, 0px)));
     order: 99;
-    flex-basis: 100%;
+    flex-basis: calc(100% + max(var(--nav-pad-x), env(safe-area-inset-left, 0px)) + max(var(--nav-pad-x), env(safe-area-inset-right, 0px)));
     flex-direction: column;
+    align-items: stretch;
     gap: 0;
-    padding: 8px 0 20px;
     margin-top: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: #0A0A0F;
+    background: rgba(10, 10, 15, 0.98);
     list-style: none;
+    /* Full-bleed to the screen edges; link text stays aligned via padding */
+    margin-left: calc(-1 * max(var(--nav-pad-x), env(safe-area-inset-left, 0px)));
+    margin-right: calc(-1 * max(var(--nav-pad-x), env(safe-area-inset-right, 0px)));
+    /* Collapsed by default; expands with a smooth animation when opened */
+    max-height: 0;
+    padding: 0 max(var(--nav-pad-x), env(safe-area-inset-right, 0px)) 0 max(var(--nav-pad-x), env(safe-area-inset-left, 0px));
+    border-top: 1px solid transparent;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition:
+      max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.25s ease,
+      visibility 0s linear 0.4s;
   }
 
   .universal-nav .unav-links li {
+    width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
@@ -490,7 +559,18 @@ body.unav-is-compact .universal-nav img.unav-logo-name {
   }
 
   .universal-nav.unav-mobile-open .unav-links {
-    display: flex;
+    max-height: min(calc(100dvh - var(--nav-offset)), 560px);
+    padding: 8px max(var(--nav-pad-x), env(safe-area-inset-right, 0px)) 20px max(var(--nav-pad-x), env(safe-area-inset-left, 0px));
+    border-top-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    visibility: visible;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition:
+      max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s ease 0.05s,
+      visibility 0s;
   }
 
   .universal-nav .unav-hamburger {

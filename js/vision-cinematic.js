@@ -31,6 +31,45 @@
     markCards[0].classList.add('is-active');
   }
 
+  /* Touch carousel: the card nearest the viewport centre gets the
+     white highlight while the user scrolls horizontally. */
+  var pipe = document.querySelector('.vsc-pipe');
+  if (pipe && markCards.length && !finePointer) {
+    var ticking = false;
+    var setNearest = function () {
+      ticking = false;
+      var pipeRect = pipe.getBoundingClientRect();
+      var center = pipeRect.left + pipeRect.width / 2;
+      var best = null;
+      var bestDist = Infinity;
+      markCards.forEach(function (c) {
+        var r = c.getBoundingClientRect();
+        var d = Math.abs(r.left + r.width / 2 - center);
+        if (d < bestDist) {
+          bestDist = d;
+          best = c;
+        }
+      });
+      if (best && !best.classList.contains('is-active')) {
+        markCards.forEach(function (c) {
+          c.classList.remove('is-active');
+        });
+        best.classList.add('is-active');
+      }
+    };
+    pipe.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(setNearest);
+        }
+      },
+      { passive: true }
+    );
+    setNearest();
+  }
+
   if (markCards.length) {
     markCards.forEach(function (card) {
       card.addEventListener('click', function () {

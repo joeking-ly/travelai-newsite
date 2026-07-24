@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Age of Agentic Networks needs four things: memory, governance, trust, and distribution. How TravelAI is building all four, told through the vision papers that set our direction.">
+  <link rel="icon" type="image/svg+xml" href="9ef82e4f-8da7-4a31-823f-27a1f2366cb9">
+  <title>Our Vision — TravelAI | The Travel Memory Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("c2f899b2-c12d-41cb-95a0-24ec48a3cd19") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("21751488-16c9-4614-9ffb-b35891ddf551") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("6f717fc2-7551-42dc-88f2-2e2629710d64") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("e00ce42e-5730-4cb0-bcf2-f0ff0f31ffb0") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("14cf5b08-ee5b-4737-b4b8-dbd787d5e4a0") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("a482b74c-341a-4daa-9b40-4c84d465a3a2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("4f9d9f34-a51b-491e-bcf5-163a68869b9c") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("c2f899b2-c12d-41cb-95a0-24ec48a3cd19") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("21751488-16c9-4614-9ffb-b35891ddf551") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("6f717fc2-7551-42dc-88f2-2e2629710d64") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("e00ce42e-5730-4cb0-bcf2-f0ff0f31ffb0") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("14cf5b08-ee5b-4737-b4b8-dbd787d5e4a0") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("a482b74c-341a-4daa-9b40-4c84d465a3a2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4f9d9f34-a51b-491e-bcf5-163a68869b9c") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("cb629de1-121a-41dc-b4f1-f4f26aa794b9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("0f955ad3-3d39-4ea5-ab8a-bb7d6c6f852d") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("b828d22e-561a-44df-aaef-8a199509bad2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("8fbd55c6-a279-4f7c-9104-62f3dc2a9fc1") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("2438c78a-c7de-44e6-8ce4-ee64e3fbb0ce") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("ad9e0846-5af5-4df2-9788-3072833da34f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("015baef9-e4ec-4138-b7e3-41fb4775838b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("cb629de1-121a-41dc-b4f1-f4f26aa794b9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("0f955ad3-3d39-4ea5-ab8a-bb7d6c6f852d") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("b828d22e-561a-44df-aaef-8a199509bad2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("8fbd55c6-a279-4f7c-9104-62f3dc2a9fc1") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("2438c78a-c7de-44e6-8ce4-ee64e3fbb0ce") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("ad9e0846-5af5-4df2-9788-3072833da34f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("015baef9-e4ec-4138-b7e3-41fb4775838b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("cb629de1-121a-41dc-b4f1-f4f26aa794b9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("0f955ad3-3d39-4ea5-ab8a-bb7d6c6f852d") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("b828d22e-561a-44df-aaef-8a199509bad2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("8fbd55c6-a279-4f7c-9104-62f3dc2a9fc1") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("2438c78a-c7de-44e6-8ce4-ee64e3fbb0ce") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("ad9e0846-5af5-4df2-9788-3072833da34f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("015baef9-e4ec-4138-b7e3-41fb4775838b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("cb629de1-121a-41dc-b4f1-f4f26aa794b9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("0f955ad3-3d39-4ea5-ab8a-bb7d6c6f852d") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("b828d22e-561a-44df-aaef-8a199509bad2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("8fbd55c6-a279-4f7c-9104-62f3dc2a9fc1") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("2438c78a-c7de-44e6-8ce4-ee64e3fbb0ce") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("ad9e0846-5af5-4df2-9788-3072833da34f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("015baef9-e4ec-4138-b7e3-41fb4775838b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("cb629de1-121a-41dc-b4f1-f4f26aa794b9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("0f955ad3-3d39-4ea5-ab8a-bb7d6c6f852d") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("b828d22e-561a-44df-aaef-8a199509bad2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("8fbd55c6-a279-4f7c-9104-62f3dc2a9fc1") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("2438c78a-c7de-44e6-8ce4-ee64e3fbb0ce") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("ad9e0846-5af5-4df2-9788-3072833da34f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("015baef9-e4ec-4138-b7e3-41fb4775838b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("cb629de1-121a-41dc-b4f1-f4f26aa794b9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("0f955ad3-3d39-4ea5-ab8a-bb7d6c6f852d") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("b828d22e-561a-44df-aaef-8a199509bad2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("8fbd55c6-a279-4f7c-9104-62f3dc2a9fc1") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("2438c78a-c7de-44e6-8ce4-ee64e3fbb0ce") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("ad9e0846-5af5-4df2-9788-3072833da34f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("015baef9-e4ec-4138-b7e3-41fb4775838b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+  <style>/* TravelAI — Homepage Cinematic (Wolverine-inspired) */
+:root {
+  --spectrum: linear-gradient(90deg,
+    #FF6B6B 0%, #FFA500 14%, #FFD700 28%, #32CD32 42%,
+    #00CED1 57%, #4169E1 71%, #9370DB 85%, #FF1493 100%);
+  --black-deep: #0A0A0F;
+  --black-soft: #1A1A1A;
+  --white: #FFFFFF;
+  --glass-border: rgba(255,255,255,0.1);
+  --gray-dark: #2A2A2A;
+  --gray-mid: #666666;
+
+  /* Tweakable */
+  --nav-tall: 104px;
+  --nav-short: 58px;
+  --h-speed: 1.6;       /* scroll length per pillar panel, in viewport heights */
+  --overlay-dark: 0.4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: var(--black-deep);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--white); text-decoration: none; }
+a:hover { color: rgba(255,255,255,0.75); }
+img { display: block; }
+
+.cin-spectrum {
+  background: var(--spectrum);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cin-spectrum { animation: spectrum-shift 6s linear infinite; }
+}
+@keyframes spectrum-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.cin-kicker {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+.cin-kicker.center { text-align: center; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(28px); }
+.reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1) var(--d, 0ms),
+              transform 0.8s cubic-bezier(0.22,1,0.36,1) var(--d, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Nav (shrinks on scroll) ---------- */
+.cin-nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  height: var(--nav-tall);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: height 0.45s cubic-bezier(0.22,1,0.36,1),
+              background 0.45s ease, border-color 0.45s ease;
+}
+.cin-nav::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: var(--spectrum); transform: scaleX(0); transform-origin: left;
+  animation: nav-sweep 1.4s cubic-bezier(0.22,1,0.36,1) 0.4s forwards;
+  opacity: 0.9;
+}
+@keyframes nav-sweep { to { transform: scaleX(1); } }
+.cin-nav.is-shrunk {
+  height: var(--nav-short);
+  background: rgba(10,10,15,0.82);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom-color: var(--glass-border);
+}
+.cin-nav.is-shrunk::after { display: none; }
+.cin-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+.cin-logo img { height: 36px; transition: height 0.45s cubic-bezier(0.22,1,0.36,1); }
+.cin-nav.is-shrunk .cin-logo img { height: 26px; }
+.cin-nav.is-shrunk .cin-logo { font-size: 17px; }
+.cin-nav-links { display: flex; align-items: center; gap: 36px; }
+.cin-nav-links > a:not(.cin-btn) {
+  font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8);
+  transition: color 0.2s ease;
+}
+.cin-nav-links > a:not(.cin-btn):hover { color: var(--white); }
+
+/* ---------- Buttons ---------- */
+.cin-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: 100px;
+  font-size: 15px; font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.cin-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+.cin-btn-light { background: var(--white); color: #000; }
+.cin-btn-light:hover { color: #000; }
+.cin-btn-ghost { border: 1px solid rgba(255,255,255,0.4); color: var(--white); }
+.cin-btn-ghost:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.cin-nav .cin-btn { padding: 10px 20px; font-size: 14px; }
+
+/* ---------- Hero video ---------- */
+.cin-hero {
+  position: relative; height: 100vh; min-height: 640px;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+.cin-hero-video {
+  position: absolute; inset: 0; overflow: hidden; background: #000;
+}
+.cin-hero-video iframe {
+  position: absolute; top: 50%; left: 50%;
+  width: max(100vw, 177.78vh); height: max(100vh, 56.25vw);
+  transform: translate(-50%, -50%);
+  pointer-events: none; border: 0;
+}
+.cin-hero-scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0) 30%),
+    linear-gradient(180deg, rgba(10,10,15,0) 40%, rgba(10,10,15,0.9) 100%),
+    rgba(0,0,0, var(--overlay-dark));
+}
+.cin-hero-content {
+  position: relative; z-index: 2; width: 100%;
+  max-width: 1200px; margin: 0 auto; padding: 0 48px 96px;
+}
+.cin-hero-content h1 {
+  font-size: clamp(52px, 7.5vw, 96px); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1.02;
+  max-width: 12ch;
+}
+.cin-hero-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 48px; margin-top: 36px; flex-wrap: wrap;
+}
+.cin-hero-row p {
+  max-width: 480px; font-size: clamp(17px, 2vw, 19px);
+  line-height: 1.7; color: rgba(255,255,255,0.75);
+}
+.cin-hero-cta { display: flex; gap: 14px; }
+.cin-scroll-cue {
+  position: absolute; z-index: 2; left: 50%; bottom: 26px;
+  transform: translateX(-50%);
+  width: 1px; height: 44px; overflow: hidden; background: rgba(255,255,255,0.2);
+}
+.cin-scroll-cue::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--white);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cin-scroll-cue::after { animation: cue-drop 1.8s cubic-bezier(0.65,0,0.35,1) infinite; }
+}
+@keyframes cue-drop { 0% { transform: translateY(-100%); } 60%, 100% { transform: translateY(100%); } }
+
+/* ---------- Section ordering (tweak) ---------- */
+.cin-main { display: flex; flex-direction: column; }
+.cin-main > section { order: 0; }
+body[data-portfolio-first="false"] .cin-portfolio { order: 1; }
+body[data-portfolio-first="false"] .cin-pillars-section { order: 0; }
+body[data-show-marquee="false"] .cin-brands { display: none; }
+body[data-show-market="false"] .cin-market { display: none; }
+
+/* ---------- Brand marquee ---------- */
+.cin-brands { padding: 72px 0 64px; border-bottom: 1px solid var(--glass-border); }
+.cin-brands .lbl { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 40px; }
+.cin-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.cin-marquee-track { display: flex; align-items: center; gap: 88px; width: max-content; }
+@media (prefers-reduced-motion: no-preference) {
+  .cin-marquee-track { animation: marquee 42s linear infinite; }
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+.cin-marquee-track img { height: 26px; opacity: 0.55; filter: brightness(0) invert(1); }
+
+/* ---------- Belief statement ---------- */
+.cin-statement { padding: 160px 48px; max-width: 980px; margin: 0 auto; text-align: center; }
+.cin-statement h2 {
+  font-size: clamp(36px, 5vw, 60px); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 28px;
+}
+.cin-statement .lede {
+  font-size: clamp(17px, 2vw, 19px); line-height: 1.75;
+  color: rgba(255,255,255,0.7); max-width: 760px; margin: 0 auto;
+}
+.cin-tax { border-bottom: 2px solid; border-image: var(--spectrum) 1; padding-bottom: 1px; color: var(--white); }
+
+/* ---------- Portfolio grid ---------- */
+.cin-portfolio { padding: 40px 48px 140px; }
+.cin-portfolio-head {
+  max-width: 1200px; margin: 0 auto 56px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.cin-portfolio-head h2 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 600; letter-spacing: -0.03em; margin-top: 14px; max-width: 16ch; line-height: 1.08; }
+.cin-portfolio-head p { max-width: 380px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.65); }
+.cin-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 190px; gap: 14px;
+}
+.cin-tile {
+  position: relative; overflow: hidden; border-radius: 16px;
+  background: var(--black-soft); border: 1px solid var(--glass-border);
+}
+.cin-tile.span-w { grid-column: span 2; }
+.cin-tile.span-h { grid-row: span 2; }
+.cin-tile image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cin-tile .cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 44px 18px 16px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+  pointer-events: none;
+}
+.cin-tile .cap b { display: block; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.cin-tile .cap span { font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.cin-tile.brand { display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); }
+.cin-tile.brand img { height: 28px; opacity: 0.7; filter: brightness(0) invert(1); transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1); }
+.cin-tile.brand:hover img { opacity: 1; transform: scale(1.06); }
+.cin-tile.brand .cap { padding: 30px 18px 14px; }
+
+/* Hover variants (tweak: data-hover on .cin-portfolio) */
+.cin-portfolio[data-hover="zoom"] .cin-tile image-slot { transition: transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.cin-portfolio[data-hover="zoom"] .cin-tile:hover image-slot { transform: scale(1.06); }
+
+.cin-portfolio[data-hover="reveal"] .cin-tile .cap { transform: translateY(12px); opacity: 0; transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease; }
+.cin-portfolio[data-hover="reveal"] .cin-tile:hover .cap { transform: none; opacity: 1; }
+.cin-portfolio[data-hover="reveal"] .cin-tile image-slot { transition: transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.cin-portfolio[data-hover="reveal"] .cin-tile:hover image-slot { transform: translateY(-6px) scale(1.03); }
+
+.cin-portfolio[data-hover="lift"] .cin-tile { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease, border-color 0.3s ease; }
+.cin-portfolio[data-hover="lift"] .cin-tile:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.25); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cin-portfolio .cin-tile, .cin-portfolio .cin-tile image-slot, .cin-portfolio .cin-tile .cap { transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+
+/* ---------- Horizontal pillars ---------- */
+.cin-pillars-section { position: relative; }
+.cin-pillars-spacer { height: calc(var(--h-speed) * 300vh); }
+.cin-pillars-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  background: #000;
+}
+.cin-pillars-head {
+  position: absolute; top: calc(var(--nav-short) + 28px); left: 48px; right: 48px;
+  display: flex; align-items: center; justify-content: space-between; z-index: 3;
+}
+.cin-pillars-count { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); font-variant-numeric: tabular-nums; }
+.cin-pillars-track {
+  display: flex; width: max-content; will-change: transform;
+}
+.cin-panel {
+  width: 100vw; height: 100vh; flex-shrink: 0;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+  gap: 64px; padding: 140px 48px 100px;
+  max-width: 100vw;
+}
+.cin-panel-copy { max-width: 520px; justify-self: end; }
+.cin-panel-copy .num {
+  font-size: clamp(64px, 8vw, 110px); font-weight: 700; letter-spacing: -0.04em;
+  line-height: 1; margin-bottom: 20px;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cin-panel.pl1 .num { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.cin-panel.pl2 .num { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.cin-panel.pl3 .num { background-image: linear-gradient(120deg, #9370DB, #FF1493); }
+.cin-panel-copy h3 { font-size: clamp(30px, 3.6vw, 44px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin: 14px 0 18px; }
+.cin-panel-copy p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 26px; }
+.cin-panel-link { font-size: 15px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 3px; }
+.cin-panel-link:hover { border-bottom-color: var(--white); color: var(--white); }
+.cin-panel-visual { position: relative; height: min(58vh, 560px); border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); background: var(--black-soft); }
+.cin-panel-visual image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cin-pillars-rail {
+  position: absolute; left: 48px; right: 48px; bottom: 40px; z-index: 3;
+  height: 2px; background: rgba(255,255,255,0.12);
+}
+.cin-pillars-rail-fill { display: block; height: 100%; width: 0%; background: var(--spectrum); }
+
+/* ---------- Market ---------- */
+.cin-market { padding: 150px 48px; background: var(--black-deep); border-top: 1px solid var(--glass-border); }
+.cin-market-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.cin-market-inner h2 { font-size: clamp(32px, 4.5vw, 48px); font-weight: 600; letter-spacing: -0.03em; margin: 20px 0 18px; }
+.cin-market-inner .lede { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 640px; margin: 0 auto 64px; }
+.cin-market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cin-market-card {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 44px 32px; text-align: center;
+  transition: transform 0.35s ease, background 0.3s ease;
+}
+.cin-market-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.05); }
+.cin-market-card .v { font-size: clamp(40px, 5vw, 56px); font-weight: 700; letter-spacing: -0.03em; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cin-market-card:nth-child(1) .v { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.cin-market-card:nth-child(2) .v { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.cin-market-card:nth-child(3) .v { background-image: linear-gradient(120deg, #32CD32, #00CED1); }
+.cin-market-card .t { font-size: 17px; font-weight: 600; margin: 12px 0 8px; }
+.cin-market-card .d { font-size: 14.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ---------- Footer ---------- */
+.cin-footer { background: #000; border-top: 1px solid var(--glass-border); padding: 80px 48px 40px; }
+.cin-footer-top { max-width: 1200px; margin: 0 auto 64px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; }
+.cin-footer-brand img { height: 30px; margin-bottom: 18px; }
+.cin-footer-brand p { font-size: 14.5px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 260px; }
+.cin-footer h5 { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+.cin-footer ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.cin-footer ul a { font-size: 15px; color: rgba(255,255,255,0.75); }
+.cin-footer ul a:hover { color: var(--white); }
+.cin-footer-bottom {
+  max-width: 1200px; margin: 0 auto; padding-top: 28px;
+  border-top: 1px solid var(--glass-border);
+  display: flex; justify-content: space-between;
+  font-size: 13.5px; color: rgba(255,255,255,0.45);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .cin-nav { padding: 0 24px; }
+  .cin-nav-links > a:not(.cin-btn) { display: none; }
+  .cin-hero-content { padding: 0 24px 80px; }
+  .cin-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+  .cin-panel { grid-template-columns: 1fr; gap: 28px; padding: 120px 24px 90px; }
+  .cin-panel-visual { height: 34vh; }
+  .cin-panel-copy { justify-self: start; }
+  .cin-market-grid { grid-template-columns: 1fr; }
+  .cin-footer-top { grid-template-columns: 1fr 1fr; }
+  .cin-portfolio, .cin-statement { padding-left: 24px; padding-right: 24px; }
+  .cin-pillars-head, .cin-pillars-rail { left: 24px; right: 24px; }
+}
+</style>
+  <style>/* TravelAI — Our Vision Cinematic (extends home-cin.css) */
+
+/* ---------- Hero (photo) ---------- */
+.vsc-hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: flex-end; overflow: hidden;
+}
+.vsc-hero image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.vsc-hero .cin-hero-scrim { z-index: 1; }
+.vsc-hero .cin-hero-content { padding-top: calc(var(--nav-tall) + 48px); padding-bottom: 88px; }
+
+/* ---------- Shared shell ---------- */
+.vsc-section { padding: 130px 48px; }
+.vsc-inner { max-width: 1200px; margin: 0 auto; }
+.vsc-head { max-width: 800px; margin-bottom: 64px; }
+.vsc-head h2 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin: 16px 0 20px; }
+.vsc-head .lede { font-size: 18px; line-height: 1.75; color: rgba(255,255,255,0.7); }
+
+/* Fourth pillar gradient */
+.cin-panel.pl4 .num { background-image: linear-gradient(120deg, #32CD32, #00CED1); }
+
+/* Pillars closing line */
+.vsc-pillars-close { padding: 110px 48px; border-bottom: 1px solid var(--glass-border); }
+.vsc-pillars-close p {
+  max-width: 880px; margin: 0 auto; text-align: center;
+  font-size: clamp(22px, 2.8vw, 30px); font-weight: 500;
+  letter-spacing: -0.015em; line-height: 1.45; color: rgba(255,255,255,0.85);
+}
+.vsc-pillars-close p b { font-weight: 600; }
+
+/* ---------- Vision papers ---------- */
+.vsc-papers { background: #000; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+.vsc-paper {
+  display: grid; grid-template-columns: 220px 1fr; gap: 48px;
+  padding: 56px 0; border-top: 1px solid var(--glass-border);
+  position: relative;
+}
+.vsc-paper::before {
+  content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 100%;
+  background: var(--spectrum); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.vsc-paper:hover::before { transform: scaleX(1); }
+.vsc-paper-meta .idx {
+  font-size: 52px; font-weight: 700; letter-spacing: -0.04em; line-height: 1;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.vsc-paper.pp1 .idx { background-image: linear-gradient(120deg, #32CD32, #00CED1); }
+.vsc-paper.pp2 .idx { background-image: linear-gradient(120deg, #9370DB, #FF1493); }
+.vsc-paper.pp3 .idx { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.vsc-paper.pp4 .idx { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.vsc-paper-meta .when { display: block; margin-top: 14px; font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.vsc-paper-meta .tag {
+  display: inline-block; margin-top: 12px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  border: 1px solid var(--glass-border); border-radius: 100px;
+  padding: 6px 13px; background: rgba(255,255,255,0.04);
+}
+.vsc-paper-body h3 { font-size: clamp(24px, 2.8vw, 32px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px; }
+.vsc-paper-body p { font-size: 16.5px; line-height: 1.75; color: rgba(255,255,255,0.68); max-width: 72ch; }
+.vsc-paper-body blockquote {
+  margin: 22px 0; padding-left: 20px;
+  border-left: 2px solid; border-image: var(--spectrum) 1;
+  font-size: 18px; font-style: italic; line-height: 1.6; color: rgba(255,255,255,0.85);
+}
+.vsc-paper-body .cin-panel-link { margin-top: 6px; }
+.vsc-paper.upcoming { opacity: 0.85; }
+.vsc-paper.upcoming .vsc-paper-body h3 { color: rgba(255,255,255,0.9); }
+
+/* ---------- Bigger vision statement ---------- */
+.vsc-statement { padding: 170px 48px; text-align: center; }
+.vsc-statement .inner { max-width: 960px; margin: 0 auto; }
+.vsc-statement h2 {
+  font-size: clamp(28px, 3.6vw, 44px); font-weight: 600;
+  letter-spacing: -0.025em; line-height: 1.28; margin: 24px 0 28px;
+}
+.vsc-statement .body { font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.68); max-width: 780px; margin: 0 auto 56px; }
+.vsc-statement .stat {
+  display: inline-block;
+  font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -0.03em;
+}
+.vsc-statement .stat small { display: block; margin-top: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+/* ---------- Timeline ---------- */
+.vsc-timeline { max-width: 900px; margin: 110px auto 0; padding: 56px 48px 26px; }
+.vsc-timeline-track { position: relative; height: 2px; }
+.vsc-timeline-line { position: absolute; inset: 0; background: rgba(255,255,255,0.14); }
+.vsc-timeline-fill {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 60%;
+  background: var(--spectrum); transform: scaleX(0); transform-origin: left;
+}
+.vsc-timeline.in .vsc-timeline-fill { transition: transform 1.4s cubic-bezier(0.22,1,0.36,1) 0.3s; transform: scaleX(1); }
+.vsc-tl-point { position: absolute; left: var(--x); top: 50%; transform: translate(-50%, -50%); text-align: center; }
+.vsc-tl-point .dot {
+  display: block; width: 10px; height: 10px; margin: 0 auto; border-radius: 50%;
+  background: var(--black-deep); border: 2px solid rgba(255,255,255,0.35);
+}
+.vsc-tl-point.past .dot { background: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.7); }
+.vsc-tl-point .yr {
+  position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
+  font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.5); white-space: nowrap;
+}
+.vsc-tl-point.past .yr { color: rgba(255,255,255,0.65); }
+.vsc-tl-point .pin {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  white-space: nowrap; padding: 7px 14px; border-radius: 100px;
+}
+.vsc-tl-point.now .dot {
+  width: 14px; height: 14px; background: var(--white); border-color: var(--white);
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.12);
+}
+.vsc-tl-point.now .pin { background: var(--white); color: #000; }
+.vsc-tl-point.now .pin::after {
+  content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--white);
+}
+.vsc-tl-point.now .yr { color: var(--white); }
+.vsc-tl-point.goal .dot {
+  width: 16px; height: 16px; border: none;
+  background: #FFD700;
+  box-shadow: 0 0 0 6px rgba(255,215,0,0.15), 0 0 28px rgba(255,215,0,0.6);
+}
+.vsc-tl-point.goal .pin {
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.06); color: var(--white);
+}
+.vsc-tl-point.goal .yr {
+  font-size: 18px; font-weight: 700; top: 22px;
+  color: #FFD700; text-shadow: 0 0 20px rgba(255,215,0,0.45);
+}
+@media (prefers-reduced-motion: reduce) {
+  .vsc-timeline-fill { transform: scaleX(1); transition: none; }
+}
+@media (max-width: 900px) {
+  .vsc-timeline { padding: 48px 12px 20px; }
+  .vsc-tl-point:not(.now):not(.goal) .yr { display: none; }
+  .vsc-tl-point .pin { font-size: 11px; padding: 6px 10px; }
+}
+
+/* ---------- Sonder (inverted, light) ---------- */
+.vsc-sonder {
+  background: #F4F1EC; color: #14120E;
+  border-top: 1px solid var(--glass-border);
+}
+.vsc-sonder .cin-kicker { color: rgba(20,18,14,0.5); }
+.vsc-sonder-head { max-width: 820px; margin: 0 auto 88px; text-align: center; }
+.vsc-sonder-head h2 { font-size: clamp(36px, 5vw, 60px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin-top: 16px; color: #14120E; }
+.vsc-sonder-head .lede { font-size: 18px; line-height: 1.8; color: rgba(20,18,14,0.65); margin-top: 22px; }
+.vsc-sonder-head .lede em { font-style: italic; color: #14120E; }
+
+.vsc-sonder-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  max-width: 1200px; margin: 0 auto 110px;
+}
+.vsc-sonder-row:last-of-type { margin-bottom: 0; }
+.vsc-sonder-row .visual { position: relative; border-radius: 20px; overflow: hidden; height: 520px; box-shadow: 0 30px 80px rgba(20,18,14,0.18); }
+.vsc-sonder-row .visual image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.vsc-sonder-row.flip .visual { order: -1; }
+.vsc-sonder-row:not(.flip) .visual { transform: translateY(-28px); }
+.vsc-sonder-row.flip .visual { transform: translateY(28px); }
+.vsc-sonder-row h3 { font-size: clamp(24px, 2.8vw, 32px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 18px; color: #14120E; }
+.vsc-sonder-row p { font-size: 16.5px; line-height: 1.8; color: rgba(20,18,14,0.68); }
+.vsc-sonder-row p + p { margin-top: 18px; }
+.vsc-sonder-row .copy .cin-panel-link { color: #14120E; border-bottom-color: rgba(20,18,14,0.3); margin-top: 24px; }
+.vsc-sonder-row .copy .cin-panel-link:hover { color: rgba(20,18,14,0.7); border-bottom-color: #14120E; }
+
+.vsc-sonder-legal {
+  max-width: 820px; margin: 96px auto 0; padding: 26px 30px;
+  border: 1px solid rgba(20,18,14,0.14); border-radius: 14px;
+  background: rgba(20,18,14,0.03);
+}
+.vsc-sonder-legal h6 { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(20,18,14,0.45); margin-bottom: 10px; }
+.vsc-sonder-legal p { font-size: 14.5px; line-height: 1.7; color: rgba(20,18,14,0.6); }
+
+@media (max-width: 900px) {
+  .vsc-sonder-row { grid-template-columns: 1fr; gap: 28px; margin-bottom: 70px; }
+  .vsc-sonder-row .visual { height: 300px; transform: none !important; }
+  .vsc-sonder-row.flip .visual { order: -1; }
+}
+
+/* ---------- Where this is going ---------- */
+.vsc-going { padding: 160px 48px; border-top: 1px solid var(--glass-border); }
+.vsc-going .inner { max-width: 1200px; margin: 0 auto; }
+.vsc-going-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; margin-top: 28px; }
+.vsc-going h2 {
+  font-size: clamp(32px, 4.2vw, 52px); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1.12;
+}
+.vsc-going h2 s { text-decoration-color: rgba(255,255,255,0.35); text-decoration-thickness: 3px; }
+
+/* Friction list: crossed out, collapsing */
+.vsc-frictions { list-style: none; display: flex; flex-direction: column; }
+.vsc-frictions li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  padding: 20px 0; border-bottom: 1px solid var(--glass-border);
+  font-size: clamp(18px, 2vw, 22px); font-weight: 500; letter-spacing: -0.01em;
+}
+.vsc-frictions li .item {
+  display: inline; color: rgba(255,255,255,0.75);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: transparent;
+}
+.vsc-frictions li:nth-child(1) .item { --strike: #FFA500; }
+.vsc-frictions li:nth-child(2) .item { --strike: #00CED1; }
+.vsc-frictions li:nth-child(3) .item { --strike: #FF1493; }
+.vsc-frictions li:nth-child(4) .item { --strike: #4169E1; }
+.vsc-frictions li.in .item {
+  transition: text-decoration-color 0.7s ease var(--d, 0ms), color 0.7s ease var(--d, 0ms);
+  text-decoration-color: var(--strike, #FFA500);
+  color: rgba(255,255,255,0.35);
+}
+.vsc-frictions li .gone {
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); white-space: nowrap;
+  opacity: 0;
+}
+.vsc-frictions li.in .gone { transition: opacity 0.5s ease calc(var(--d, 0ms) + 400ms); opacity: 1; }
+.vsc-frictions .keep {
+  padding: 26px 0 0;
+  font-size: clamp(20px, 2.2vw, 25px); font-weight: 600; letter-spacing: -0.015em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vsc-frictions li .item { text-decoration-color: var(--strike, #FFA500); color: rgba(255,255,255,0.35); transition: none; }
+  .vsc-frictions li .gone { opacity: 1; transition: none; }
+}
+
+.vsc-going-close { max-width: 820px; margin: 110px auto 0; text-align: center; }
+.vsc-going-close p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.65); }
+.vsc-going-close p b { color: var(--white); }
+.vsc-going-close .sig-block { margin-top: 90px; }
+.vsc-going-close .sig-rule {
+  display: block; width: 72px; height: 2px; margin: 0 auto 36px;
+  background: var(--spectrum);
+}
+.vsc-going-close .sig-intro {
+  font-size: 14px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 18px;
+}
+.vsc-going-close .sig-name b {
+  display: block;
+  font-size: clamp(48px, 6.5vw, 88px); font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1.04;
+}
+.vsc-going-close .sig-next {
+  margin-top: 26px;
+  font-size: clamp(18px, 2vw, 22px); font-weight: 500;
+  letter-spacing: -0.01em; color: rgba(255,255,255,0.8);
+}
+
+/* ---------- Closing CTA ---------- */
+.vsc-cta { position: relative; overflow: hidden; padding: 170px 48px; text-align: center; }
+.vsc-cta image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.vsc-cta .scrim { position: absolute; inset: 0; z-index: 1; background: rgba(10,10,15,0.72); }
+.vsc-cta .inner { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+.vsc-cta h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px; }
+.vsc-cta p { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
+.vsc-cta .row { display: flex; gap: 14px; justify-content: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vsc-paper::before { transition: none; }
+}
+@media (max-width: 900px) {
+  .vsc-section, .vsc-statement, .vsc-going, .vsc-cta { padding-left: 24px; padding-right: 24px; }
+  .vsc-section { padding-top: 90px; padding-bottom: 90px; }
+  .vsc-paper { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+  .vsc-going-grid { grid-template-columns: 1fr; gap: 40px; }
+  .vsc-going-close { margin-top: 70px; }
+}
+</style>
+  
+</head>
+<body>
+
+  <!-- NAV (shrinks on scroll) -->
+  <nav class="cin-nav">
+    <a class="cin-logo" href="Homepage Cinematic.html">
+      <img src="9ef82e4f-8da7-4a31-823f-27a1f2366cb9" alt="">
+      <span>TravelAI</span>
+    </a>
+    <div class="cin-nav-links">
+      <a href="Platform Cinematic.html">Platform</a>
+      <a href="network.html">Network</a>
+      <a href="Our Vision Cinematic.html">Our Vision</a>
+      <a href="partners.html">Partners</a>
+      <a href="partners.html" class="cin-btn cin-btn-light">Partner With Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="vsc-hero" data-screen-label="Vision Hero">
+    <image-slot id="vsc-hero" src="6bc56cc1-6f56-402c-8a4b-8f864b27e543" placeholder="Hero photo: a traveler looking out at the road ahead" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1503220317375-aaad61436b1b"></image-slot>
+    <div class="cin-hero-scrim"></div>
+    <div class="cin-hero-content">
+      <p class="cin-kicker reveal">Our Vision</p>
+      <h1 class="reveal" style="--d:80ms; margin-top:16px;">One vision, <b class="cin-spectrum">written down</b> as we go.</h1>
+      <div class="cin-hero-row">
+        <p class="reveal" style="--d:160ms">We've been building toward the same future for years: travel that knows you, works for you, and remembers you without taking you away from the trip itself. Along the way we've written down what we saw coming, at the moment we saw it. Each paper below is a marker in time. Read together, they trace a single line toward the four things the agentic age requires, and what we're doing about each one.</p>
+        <div class="cin-hero-cta reveal" style="--d:240ms">
+          <a href="Platform Cinematic.html" class="cin-btn cin-btn-light">Explore the Platform</a>
+          <a href="partners.html" class="cin-btn cin-btn-ghost">Partner With Us</a>
+        </div>
+      </div>
+    </div>
+    <span class="cin-scroll-cue" aria-hidden="true"></span>
+  </header>
+
+  <main>
+
+  <!-- THE BIG PICTURE: pinned horizontal four pillars -->
+  <section class="cin-pillars-section" id="big-picture" data-screen-label="The Big Picture">
+    <div class="cin-pillars-spacer">
+      <div class="cin-pillars-sticky">
+        <div class="cin-pillars-head">
+          <p class="cin-kicker">The big picture · The Age of Agentic Networks needs four things</p>
+          <span class="cin-pillars-count">01 / 04</span>
+        </div>
+        <div class="cin-pillars-track">
+          <div class="cin-panel pl1">
+            <div class="cin-panel-copy">
+              <div class="num">01</div>
+              <p class="cin-kicker">Memory</p>
+              <h3>Agents are amnesiacs. Travelers pay for it.</h3>
+              <p>Agents are only as good as the context they hold, and today every agent is an amnesiac. Traveler.md and the Traveler Action Model make travel context portable, human readable, and owned by the traveler. Granted to any agent. Revoked anytime.</p>
+            </div>
+            <div class="cin-panel-visual"><image-slot id="vsc-pl1" src="f259a948-b643-407a-a62a-b5d038422963" placeholder="Pillar 01 visual: a personal, joyful travel moment" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1476900543704-4312b78632f8"></image-slot></div>
+          </div>
+          <div class="cin-panel pl2">
+            <div class="cin-panel-copy">
+              <div class="num">02</div>
+              <p class="cin-kicker">Governance</p>
+              <h3>No enterprise puts agents to work ungoverned.</h3>
+              <p>Consent, audit, and replay machinery lets OTAs, TMCs, and enterprise travel programs adopt traveler memory with every interaction traceable and every decision defensible. That's the Governed Memory Platform.</p>
+            </div>
+            <div class="cin-panel-visual"><image-slot id="vsc-pl2" src="a86eec33-ff0a-4107-8ec4-1ce33a0ccd16" placeholder="Pillar 02 visual: a considered, premium enterprise travel moment" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1445019980597-93fa8acb246c"></image-slot></div>
+          </div>
+          <div class="cin-panel pl3">
+            <div class="cin-panel-copy">
+              <div class="num">03</div>
+              <p class="cin-kicker">Trust</p>
+              <h3>Memory only moves when everyone can see it move.</h3>
+              <p>Memory only moves if every participant can see what's shared, with whose permission, and to what end. The Shared Vector Travel Protocol moves traveler context between partners without exposing the person behind it.</p>
+            </div>
+            <div class="cin-panel-visual"><image-slot id="vsc-pl3" src="cb2925ef-db43-4065-8b43-af56887fcff8" placeholder="Pillar 03 visual: people connecting across a journey" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1522199755839-a2bacb67c546"></image-slot></div>
+          </div>
+          <div class="cin-panel pl4">
+            <div class="cin-panel-copy">
+              <div class="num">04</div>
+              <p class="cin-kicker">Distribution</p>
+              <h3>None of it matters without real travel.</h3>
+              <p>None of it matters without real travelers, real bookings, and real supply to run on. Our network of 530+ travel brands reaches 50M+ travelers a year and generates $630M+ in bookings. It is not a legacy business that funds the vision. It is the distribution layer the vision requires, and the proving ground where the other three pillars meet production traffic every day.</p>
+            </div>
+            <div class="cin-panel-visual"><image-slot id="vsc-pl4" src="e458fe69-322d-4875-8dba-27e13e479c67" placeholder="Pillar 04 visual: a wide, connected, many-places moment" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1488646953014-85cb44e25828"></image-slot></div>
+          </div>
+        </div>
+        <div class="cin-pillars-rail"><span class="cin-pillars-rail-fill"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars closing line -->
+  <section class="vsc-pillars-close" data-screen-label="Pillars Closing">
+    <p class="reveal">The agent layer will be competitive and fast moving. The layer underneath, where these four requirements live, should be <b>cooperative, stable, and the traveler's.</b> That's the layer we're building. The papers below trace how each requirement came into focus.</p>
+  </section>
+
+  <!-- THE VISION PAPERS -->
+  <section class="vsc-section vsc-papers" id="papers" data-screen-label="The Vision Papers">
+    <div class="vsc-inner">
+      <div class="vsc-head">
+        <p class="cin-kicker reveal">The vision papers</p>
+        <h2 class="reveal" style="--d:80ms">Moments in <b class="cin-spectrum">time.</b></h2>
+        <p class="lede reveal" style="--d:160ms">A series of markers, each capturing where we stood and where we were headed. The direction has held; the picture keeps getting sharper.</p>
+      </div>
+
+      <article class="vsc-paper pp1 reveal">
+        <div class="vsc-paper-meta">
+          <div class="idx">01</div>
+          <span class="when">October 2024<br>Painted Picture</span>
+          <span class="tag">Distribution, the engine</span>
+        </div>
+        <div class="vsc-paper-body">
+          <h3>Building Our Factory of the Future</h3>
+          <p>Before there was a memory layer, there had to be a machine that could learn. This paper describes the operating philosophy behind TravelAI: a virtual factory that builds the thing that builds the thing. Automate the 80% of work every business shares, so our people, and now our agents, can pour themselves into the 20% that's ours alone. The point was never automation for its own sake. It was to build an engine efficient enough to make travel better for a billion people, and human enough to keep its soul. That engine is what turned a portfolio of brands into a distribution layer.</p>
+          <blockquote>"Our job, and humanity's job, is to infuse the soul into the machine."</blockquote>
+          <a href="insights.html" class="cin-panel-link">Read the paper <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="vsc-paper pp2 reveal">
+        <div class="vsc-paper-meta">
+          <div class="idx">02</div>
+          <span class="when">February 2025<br>The AI Power Shift</span>
+          <span class="tag">Trust, the shift</span>
+        </div>
+        <div class="vsc-paper-body">
+          <h3>The Third Voice</h3>
+          <p>If the factory was about how we build, the Third Voice is about what's changing in the market we build for. Travel has always been a two sided marketplace: travelers and suppliers. AI introduces a third participant: agents that don't just assist, but decide, negotiate, and act. We argued that whoever holds this Third Voice will shape the customer experience for the next decade, and that it must be aligned to the interests travelers and suppliers already share. That alignment question is a trust question, and it's why the protocol layer matters as much as the agents themselves.</p>
+          <blockquote>"Soon, you won't just search for travel. Travel will come to you."</blockquote>
+          <a href="insights.html" class="cin-panel-link">Read the paper <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="vsc-paper pp3 reveal">
+        <div class="vsc-paper-meta">
+          <div class="idx">03</div>
+          <span class="when">2026<br>The portable memory layer</span>
+          <span class="tag">Memory, the traveler</span>
+        </div>
+        <div class="vsc-paper-body">
+          <h3>Traveler.md</h3>
+          <p>Capable agents are here. But every one of them is an amnesiac. Each conversation starts from zero, each preference explained again. We call it the amnesia tax, and every traveler pays it. This paper makes the case for the missing layer: a portable, human readable memory the traveler owns and grants to any agent, app, or service they choose. Traveler.md is who you are. Trip.md is what you're planning. The connected trip isn't a journey assembled inside one platform. It's a trip that stays connected to the person.</p>
+          <blockquote>"We believe a traveler's memory should travel with them."</blockquote>
+          <a href="Platform Cinematic.html" class="cin-panel-link">Read the paper <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="vsc-paper pp4 upcoming reveal">
+        <div class="vsc-paper-meta">
+          <div class="idx">04</div>
+          <span class="when">In progress</span>
+          <span class="tag">Governance, the enterprise</span>
+        </div>
+        <div class="vsc-paper-body">
+          <h3>Next: Governance</h3>
+          <p>The fourth paper takes on the hardest requirement: how enterprises adopt traveler memory without losing control of it. Consent, audit, replay, and the machinery that makes an agentic network defensible in a boardroom, not just impressive in a demo.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- THE BIGGER VISION -->
+  <section class="vsc-statement" data-screen-label="The Bigger Vision">
+    <div class="inner">
+      <p class="cin-kicker center reveal">The bigger vision</p>
+      <h2 class="reveal" style="--d:80ms">Help one billion travelers by building the founding travel AI infrastructure: <b class="cin-spectrum">owned by the traveler,</b> governed for the enterprise, trusted across the network, and running on real travel.</h2>
+      <p class="body reveal" style="--d:160ms">Four requirements, one arc. The factory taught us how to operate AI at scale across real travel brands. The Third Voice told us where the market was going and why alignment would decide who deserves to hold it. Traveler.md is what we give the traveler so the agentic age works in their favor, not at their expense. And the network underneath is what makes all of it real instead of theoretical.</p>
+      <div class="stat reveal" style="--d:240ms">
+        <span class="cin-spectrum">1 Billion Travelers</span>
+        <small>by 2030</small>
+      </div>
+
+      <!-- Timeline -->
+      <div class="vsc-timeline reveal" style="--d:320ms">
+        <div class="vsc-timeline-track">
+          <span class="vsc-timeline-line" aria-hidden="true"></span>
+          <span class="vsc-timeline-fill" aria-hidden="true"></span>
+          <div class="vsc-tl-point past" style="--x:0%"><span class="dot"></span><span class="yr">2020</span></div>
+          <div class="vsc-tl-point past" style="--x:20%"><span class="dot"></span><span class="yr">2022</span></div>
+          <div class="vsc-tl-point past" style="--x:40%"><span class="dot"></span><span class="yr">2024</span></div>
+          <div class="vsc-tl-point now" style="--x:60%"><span class="pin">We are here</span><span class="dot"></span><span class="yr">2026</span></div>
+          <div class="vsc-tl-point" style="--x:80%"><span class="dot"></span><span class="yr">2028</span></div>
+          <div class="vsc-tl-point goal" style="--x:100%"><span class="pin">The goal</span><span class="dot"></span><span class="yr">2030+</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WE ACQUIRED SONDER (inverted, light) -->
+  <section class="vsc-section vsc-sonder" id="sonder" data-screen-label="Why We Acquired Sonder">
+    <div class="vsc-inner">
+      <div class="vsc-sonder-head">
+        <p class="cin-kicker reveal">Why we acquired Sonder</p>
+        <h2 class="reveal" style="--d:80ms">The name is <b class="cin-spectrum">the thesis.</b></h2>
+        <p class="lede reveal" style="--d:160ms"><em>Sonder</em> is the realization that every passing stranger has an inner life as vivid and complex as your own. It's the most precise word in travel for what we're building: a company that treats every traveler's tastes, history, and memories as singular, worth remembering, and worth carrying from one trip to the next. We didn't acquire a portfolio of buildings. We acquired the one brand in travel whose name already means what we mean.</p>
+      </div>
+
+      <div class="vsc-sonder-row">
+        <div class="copy reveal">
+          <h3>Curated stays, chosen for taste.</h3>
+          <p>Sonder is the most visible expression of the thesis these papers describe, and a clear example of how our brands work. Each brand gives us two of the four things an agentic network needs: distribution to high intent travelers, and a proving ground where memory, governance, and trust meet real bookings.</p>
+          <p>Sonder relaunches at Sonder.com as a curated guide to the world's best urban stays: design led apartment style and boutique accommodations, chosen for taste rather than served as infinite, undifferentiated choice. Stays are fulfilled through our distribution partners. It's a continuation, not a teardown. We're keeping what made Sonder Sonder, and moving its technology from the lock on the door to discovery, memory, and personalization.</p>
+        </div>
+        <div class="visual reveal" style="--d:100ms"><image-slot id="vsc-sonder" src="9241ea2f-f6e4-4fd6-9672-a2b538f7987b" placeholder="Photo: a design led apartment style stay" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1522708323590-d24dbb6b0267"></image-slot></div>
+      </div>
+
+      <div class="vsc-sonder-row flip">
+        <div class="copy reveal">
+          <h3>A path we know, and where memory becomes real.</h3>
+          <p>This is a path we know. We've acquired and revitalized Casai, Smartours, and OwnerDirect by pairing trusted travel names with modern distribution and applied AI. Sonder joins a portfolio we already know how to build, launch, and grow.</p>
+          <p>And it's where the memory thesis becomes real for travelers. Traveler.md, our traveler owned memory file, is in public beta and already being used to make trips more personal. Over time, we intend to make Sonder the flagship showcase for personalization led by memory: an experience designed to help the right traveler find the right place, and to remember them, with their permission, when they return. Our principle is simple. We never tell a traveler something they didn't share with us first.</p>
+          <a href="https://sonder.com" class="cin-panel-link" target="_blank" rel="noopener">Visit Sonder.com <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="visual reveal" style="--d:100ms"><image-slot id="vsc-sonder2" src="28240b20-bd7c-40df-a244-e85122073aa3" placeholder="Photo: a boutique urban stay interior" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1560448204-e02f11c3d0e2"></image-slot></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE THIS IS GOING -->
+  <section class="vsc-going" data-screen-label="Where This Is Going">
+    <div class="inner">
+      <p class="cin-kicker reveal">Where this is going</p>
+      <div class="vsc-going-grid">
+        <h2 class="reveal" style="--d:80ms">Today, travel is a logistics job with a vacation hidden inside it. We think that's <b class="cin-spectrum">backwards.</b></h2>
+        <div>
+          <ul class="vsc-frictions">
+            <li class="fx"><span class="item">The rebooking</span><span class="gone">Handled</span></li>
+            <li class="fx"><span class="item">The visa form</span><span class="gone">Handled</span></li>
+            <li class="fx"><span class="item">The preference, explained for the hundredth time</span><span class="gone">Remembered</span></li>
+            <li class="fx"><span class="item">The "saved time" that never shows up</span><span class="gone">Returned</span></li>
+            <li class="keep reveal">What's left: the moment you sit down somewhere unfamiliar and remember why you came.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="vsc-going-close">
+        <p class="reveal">When your memory is portable, governed, trusted, and running everywhere you travel, the friction collapses and you get the hours back. We're at the beginning. The foundation is small on purpose, and we're building it in the open, with hard problems named, not hidden.</p>
+        <div class="sig-block reveal" style="--d:120ms">
+          <span class="sig-rule" aria-hidden="true"></span>
+          <p class="sig-intro">We are</p>
+          <p class="sig-name"><b class="cin-spectrum">The Travel<br>Memory Company.</b></p>
+          <p class="sig-next">And we're excited for what's up next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="vsc-cta" data-screen-label="Closing CTA">
+    <image-slot id="vsc-cta" src="d45187d0-ec19-4a12-9d02-15ed5663f940" placeholder="Closing photo: joyful travelers, wide and warm" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1502791451862-7bd8c1df43a7"></image-slot>
+    <div class="scrim"></div>
+    <div class="inner">
+      <h2 class="reveal">Join us in building the <b class="cin-spectrum">future of travel</b></h2>
+      <p class="reveal" style="--d:100ms">Whether you're a traveler, a partner, or someone who believes technology can make the world more connected, there's a place for you in the TravelAI story.</p>
+      <div class="row reveal" style="--d:180ms">
+        <a href="partners.html" class="cin-btn cin-btn-light">Become a Partner</a>
+        <a href="careers.html" class="cin-btn cin-btn-ghost">Join Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="cin-footer">
+    <div class="cin-footer-top">
+      <div class="cin-footer-brand">
+        <img src="c02eed59-767e-464b-851a-87a960a2c8ee" alt="TravelAI">
+        <p>Making travel better through AI personalization.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="Platform Cinematic.html">Platform</a></li><li><a href="network.html">Network</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="partners.html">Partners</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="Our Vision Cinematic.html">Our Vision</a></li><li><a href="about.html">About Us</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h5>Content</h5><ul><li><a href="insights.html">Insights</a></li><li><a href="resources.html">Resources</a></li><li><a href="stories.html">Travel Stories</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="cin-footer-bottom">
+      <span>© 2026 TravelAI. All rights reserved.</span>
+      <span>The Travel Memory Company</span>
+    </div>
+  </footer>
+
+  <script src="3551476c-6a91-4cbb-beb5-6dd9065cc737"></script>
+  <script>
+    (function () {
+      'use strict';
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* Nav shrink */
+      var nav = document.querySelector('.cin-nav');
+      function onNav() { nav.classList.toggle('is-shrunk', window.scrollY > 20); }
+      window.addEventListener('scroll', onNav, { passive: true });
+      onNav();
+
+      /* Reveal on scroll */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        var parent = el.closest('[data-stagger]');
+        if (parent) {
+          var kids = Array.prototype.slice.call(parent.querySelectorAll('.reveal'));
+          el.style.setProperty('--d', (kids.indexOf(el) * parseInt(parent.dataset.stagger, 10)) + 'ms');
+        }
+        io.observe(el);
+      });
+
+      /* Friction list strike-through on scroll */
+      var fio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); fio.unobserve(en.target); }
+        });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('.vsc-frictions .fx').forEach(function (li, i) {
+        li.style.setProperty('--d', (i * 350) + 'ms');
+        fio.observe(li);
+      });
+
+      /* Horizontal pillars (pinned) */
+      var section = document.querySelector('.cin-pillars-section');
+      var track = document.querySelector('.cin-pillars-track');
+      var fill = document.querySelector('.cin-pillars-rail-fill');
+      var count = document.querySelector('.cin-pillars-count');
+      var panels = document.querySelectorAll('.cin-panel').length;
+
+      /* 4 panels: extend the scroll length */
+      section.querySelector('.cin-pillars-spacer').style.height = 'calc(1.6 * 400vh)';
+
+      function progress() {
+        var rect = section.getBoundingClientRect();
+        var total = section.offsetHeight - window.innerHeight;
+        if (total <= 0) return 0;
+        return Math.min(1, Math.max(0, -rect.top / total));
+      }
+      function render() {
+        var p = progress();
+        track.style.transform = 'translate3d(' + (p * (panels - 1) * -100) + 'vw, 0, 0)';
+        fill.style.width = (p * 100) + '%';
+        var idx = Math.min(panels - 1, Math.round(p * (panels - 1)));
+        count.textContent = '0' + (idx + 1) + ' / 0' + panels;
+      }
+
+      if (reduced) {
+        section.querySelector('.cin-pillars-spacer').style.height = '0px';
+        var sticky = section.querySelector('.cin-pillars-sticky');
+        sticky.style.position = 'static';
+        sticky.style.height = 'auto';
+        track.style.flexDirection = 'column';
+        document.querySelectorAll('.cin-panel').forEach(function (pn) { pn.style.height = 'auto'; pn.style.paddingTop = '60px'; });
+      } else {
+        window.addEventListener('scroll', function () { requestAnimationFrame(render); }, { passive: true });
+        window.addEventListener('resize', render);
+        render();
+
+        var snapTimer = null;
+        window.addEventListener('scroll', function () {
+          clearTimeout(snapTimer);
+          snapTimer = setTimeout(function () {
+            var p = progress();
+            if (p <= 0.001 || p >= 0.999) return;
+            var nearest = Math.round(p * (panels - 1)) / (panels - 1);
+            if (Math.abs(nearest - p) < 0.002) return;
+            var total = section.offsetHeight - window.innerHeight;
+            var top = section.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: top + nearest * total, behavior: 'smooth' });
+          }, 320);
+        }, { passive: true });
+      }
+    })();
+  </script>
+
+
+</body></html>

@@ -1,0 +1,25 @@
+---
+description: Do not add rainbow/gradient top borders to cards or boxes on TravelAI site
+alwaysApply: true
+---
+
+# No gradient card top borders
+
+Joe does **not** want the "AI border" treatment on boxes: colored or rainbow gradient strips along the top edge of cards, panels, or containers (typically a 2–3px `::before` pseudo-element with `var(--spectrum)` or phase-tint gradients).
+
+## Avoid
+
+- `::before` / `::after` top accent bars on cards (`.card::before { height: 3px; background: linear-gradient(...) }`)
+- Phase-colored top borders on grid items, step cards, model cards, or similar UI boxes
+- Any decorative "spectrum rim" on container edges meant to signal AI/tech
+
+## Prefer instead
+
+- Uniform `border: 1px solid var(--glass-border)` or `--site-line`
+- Subtle background elevation (`rgba(255,255,255,0.03)` on dark, white + shadow on light sections)
+- Typography accents (kickers, headings) for color — not box rims
+- Small neutral bullet markers or icons inside the card if emphasis is needed
+
+Gradient **text** (`.cin-spectrum`, headline highlights) is fine when requested. The objection is specifically **gradient borders on boxes**.
+
+When redesigning cards, never reintroduce top gradient borders unless the user explicitly asks for them.

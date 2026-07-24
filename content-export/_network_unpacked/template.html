@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How an agentic travel network actually runs: portable traveler memory (TAM), consent based context sharing (SVTP), governed adoption for enterprises, and 530+ brands of live distribution.">
+  <link rel="icon" type="image/svg+xml" href="bded3c57-3e52-4b4e-84cb-536e35c01ca0">
+  <title>The Agentic Network — TravelAI | Portable Traveler Memory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("7c5289c6-057b-4098-bb74-67cab8d772b8") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("4780cdf6-7749-49da-8c0e-bc92a6c51fa9") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("244a635c-f9d0-465c-8e66-bad2529f1bd5") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("6e1578fe-7878-4e99-b0d3-cc54227b78a9") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("05628d43-ab57-4287-9c4a-cfbc760887fa") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("508771e0-2800-4a0b-95a4-a9e93620186c") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("90b6272b-44d9-45c6-841a-89ec8ae1e54a") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("7c5289c6-057b-4098-bb74-67cab8d772b8") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4780cdf6-7749-49da-8c0e-bc92a6c51fa9") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("244a635c-f9d0-465c-8e66-bad2529f1bd5") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("6e1578fe-7878-4e99-b0d3-cc54227b78a9") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("05628d43-ab57-4287-9c4a-cfbc760887fa") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("508771e0-2800-4a0b-95a4-a9e93620186c") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("90b6272b-44d9-45c6-841a-89ec8ae1e54a") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("a7a99d87-0221-4fe2-ae83-9a4a999a8fc7") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("e3d36539-d697-46e3-bdec-cf2dd79f67db") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("68fb7a2a-7223-421a-b865-2f7937d6bc26") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("526d9a54-0bef-423b-81ce-2d6cecc9e3e7") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("ca0470a1-bfe6-4f41-9285-684e94d72315") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("4f8f874f-911c-45ff-ae88-6e1fe6c1392e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("e96c0571-9a7c-4a19-a12e-17896f80ecbd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("a7a99d87-0221-4fe2-ae83-9a4a999a8fc7") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("e3d36539-d697-46e3-bdec-cf2dd79f67db") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("68fb7a2a-7223-421a-b865-2f7937d6bc26") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("526d9a54-0bef-423b-81ce-2d6cecc9e3e7") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("ca0470a1-bfe6-4f41-9285-684e94d72315") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("4f8f874f-911c-45ff-ae88-6e1fe6c1392e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("e96c0571-9a7c-4a19-a12e-17896f80ecbd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("a7a99d87-0221-4fe2-ae83-9a4a999a8fc7") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("e3d36539-d697-46e3-bdec-cf2dd79f67db") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("68fb7a2a-7223-421a-b865-2f7937d6bc26") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("526d9a54-0bef-423b-81ce-2d6cecc9e3e7") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("ca0470a1-bfe6-4f41-9285-684e94d72315") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("4f8f874f-911c-45ff-ae88-6e1fe6c1392e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("e96c0571-9a7c-4a19-a12e-17896f80ecbd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("a7a99d87-0221-4fe2-ae83-9a4a999a8fc7") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("e3d36539-d697-46e3-bdec-cf2dd79f67db") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("68fb7a2a-7223-421a-b865-2f7937d6bc26") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("526d9a54-0bef-423b-81ce-2d6cecc9e3e7") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("ca0470a1-bfe6-4f41-9285-684e94d72315") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4f8f874f-911c-45ff-ae88-6e1fe6c1392e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("e96c0571-9a7c-4a19-a12e-17896f80ecbd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("a7a99d87-0221-4fe2-ae83-9a4a999a8fc7") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("e3d36539-d697-46e3-bdec-cf2dd79f67db") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("68fb7a2a-7223-421a-b865-2f7937d6bc26") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("526d9a54-0bef-423b-81ce-2d6cecc9e3e7") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("ca0470a1-bfe6-4f41-9285-684e94d72315") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("4f8f874f-911c-45ff-ae88-6e1fe6c1392e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("e96c0571-9a7c-4a19-a12e-17896f80ecbd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("a7a99d87-0221-4fe2-ae83-9a4a999a8fc7") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("e3d36539-d697-46e3-bdec-cf2dd79f67db") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("68fb7a2a-7223-421a-b865-2f7937d6bc26") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("526d9a54-0bef-423b-81ce-2d6cecc9e3e7") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("ca0470a1-bfe6-4f41-9285-684e94d72315") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("4f8f874f-911c-45ff-ae88-6e1fe6c1392e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("e96c0571-9a7c-4a19-a12e-17896f80ecbd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+  <style>/* TravelAI — Homepage Cinematic (Wolverine-inspired) */
+:root {
+  --spectrum: linear-gradient(90deg,
+    #FF6B6B 0%, #FFA500 14%, #FFD700 28%, #32CD32 42%,
+    #00CED1 57%, #4169E1 71%, #9370DB 85%, #FF1493 100%);
+  --black-deep: #0A0A0F;
+  --black-soft: #1A1A1A;
+  --white: #FFFFFF;
+  --glass-border: rgba(255,255,255,0.1);
+  --gray-dark: #2A2A2A;
+  --gray-mid: #666666;
+
+  /* Tweakable */
+  --nav-tall: 104px;
+  --nav-short: 58px;
+  --h-speed: 1.6;       /* scroll length per pillar panel, in viewport heights */
+  --overlay-dark: 0.4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: var(--black-deep);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--white); text-decoration: none; }
+a:hover { color: rgba(255,255,255,0.75); }
+img { display: block; }
+
+.cin-spectrum {
+  background: var(--spectrum);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cin-spectrum { animation: spectrum-shift 6s linear infinite; }
+}
+@keyframes spectrum-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.cin-kicker {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+.cin-kicker.center { text-align: center; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(28px); }
+.reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1) var(--d, 0ms),
+              transform 0.8s cubic-bezier(0.22,1,0.36,1) var(--d, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Nav (shrinks on scroll) ---------- */
+.cin-nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  height: var(--nav-tall);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: height 0.45s cubic-bezier(0.22,1,0.36,1),
+              background 0.45s ease, border-color 0.45s ease;
+}
+.cin-nav::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: var(--spectrum); transform: scaleX(0); transform-origin: left;
+  animation: nav-sweep 1.4s cubic-bezier(0.22,1,0.36,1) 0.4s forwards;
+  opacity: 0.9;
+}
+@keyframes nav-sweep { to { transform: scaleX(1); } }
+.cin-nav.is-shrunk {
+  height: var(--nav-short);
+  background: rgba(10,10,15,0.82);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom-color: var(--glass-border);
+}
+.cin-nav.is-shrunk::after { display: none; }
+.cin-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+.cin-logo img { height: 36px; transition: height 0.45s cubic-bezier(0.22,1,0.36,1); }
+.cin-nav.is-shrunk .cin-logo img { height: 26px; }
+.cin-nav.is-shrunk .cin-logo { font-size: 17px; }
+.cin-nav-links { display: flex; align-items: center; gap: 36px; }
+.cin-nav-links > a:not(.cin-btn) {
+  font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8);
+  transition: color 0.2s ease;
+}
+.cin-nav-links > a:not(.cin-btn):hover { color: var(--white); }
+
+/* ---------- Buttons ---------- */
+.cin-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: 100px;
+  font-size: 15px; font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.cin-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+.cin-btn-light { background: var(--white); color: #000; }
+.cin-btn-light:hover { color: #000; }
+.cin-btn-ghost { border: 1px solid rgba(255,255,255,0.4); color: var(--white); }
+.cin-btn-ghost:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.cin-nav .cin-btn { padding: 10px 20px; font-size: 14px; }
+
+/* ---------- Hero video ---------- */
+.cin-hero {
+  position: relative; height: 100vh; min-height: 640px;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+.cin-hero-video {
+  position: absolute; inset: 0; overflow: hidden; background: #000;
+}
+.cin-hero-video iframe {
+  position: absolute; top: 50%; left: 50%;
+  width: max(100vw, 177.78vh); height: max(100vh, 56.25vw);
+  transform: translate(-50%, -50%);
+  pointer-events: none; border: 0;
+}
+.cin-hero-scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0) 30%),
+    linear-gradient(180deg, rgba(10,10,15,0) 40%, rgba(10,10,15,0.9) 100%),
+    rgba(0,0,0, var(--overlay-dark));
+}
+.cin-hero-content {
+  position: relative; z-index: 2; width: 100%;
+  max-width: 1200px; margin: 0 auto; padding: 0 48px 96px;
+}
+.cin-hero-content h1 {
+  font-size: clamp(52px, 7.5vw, 96px); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1.02;
+  max-width: 12ch;
+}
+.cin-hero-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 48px; margin-top: 36px; flex-wrap: wrap;
+}
+.cin-hero-row p {
+  max-width: 480px; font-size: clamp(17px, 2vw, 19px);
+  line-height: 1.7; color: rgba(255,255,255,0.75);
+}
+.cin-hero-cta { display: flex; gap: 14px; }
+.cin-scroll-cue {
+  position: absolute; z-index: 2; left: 50%; bottom: 26px;
+  transform: translateX(-50%);
+  width: 1px; height: 44px; overflow: hidden; background: rgba(255,255,255,0.2);
+}
+.cin-scroll-cue::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--white);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cin-scroll-cue::after { animation: cue-drop 1.8s cubic-bezier(0.65,0,0.35,1) infinite; }
+}
+@keyframes cue-drop { 0% { transform: translateY(-100%); } 60%, 100% { transform: translateY(100%); } }
+
+/* ---------- Section ordering (tweak) ---------- */
+.cin-main { display: flex; flex-direction: column; }
+.cin-main > section { order: 0; }
+body[data-portfolio-first="false"] .cin-portfolio { order: 1; }
+body[data-portfolio-first="false"] .cin-pillars-section { order: 0; }
+body[data-show-marquee="false"] .cin-brands { display: none; }
+body[data-show-market="false"] .cin-market { display: none; }
+
+/* ---------- Brand marquee ---------- */
+.cin-brands { padding: 72px 0 64px; border-bottom: 1px solid var(--glass-border); }
+.cin-brands .lbl { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 40px; }
+.cin-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.cin-marquee-track { display: flex; align-items: center; gap: 88px; width: max-content; }
+@media (prefers-reduced-motion: no-preference) {
+  .cin-marquee-track { animation: marquee 42s linear infinite; }
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+.cin-marquee-track img { height: 26px; opacity: 0.55; filter: brightness(0) invert(1); }
+
+/* ---------- Belief statement ---------- */
+.cin-statement { padding: 160px 48px; max-width: 980px; margin: 0 auto; text-align: center; }
+.cin-statement h2 {
+  font-size: clamp(36px, 5vw, 60px); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1.12; margin: 24px 0 28px;
+}
+.cin-statement .lede {
+  font-size: clamp(17px, 2vw, 19px); line-height: 1.75;
+  color: rgba(255,255,255,0.7); max-width: 760px; margin: 0 auto;
+}
+.cin-tax { border-bottom: 2px solid; border-image: var(--spectrum) 1; padding-bottom: 1px; color: var(--white); }
+
+/* ---------- Portfolio grid ---------- */
+.cin-portfolio { padding: 40px 48px 140px; }
+.cin-portfolio-head {
+  max-width: 1200px; margin: 0 auto 56px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.cin-portfolio-head h2 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 600; letter-spacing: -0.03em; margin-top: 14px; max-width: 16ch; line-height: 1.08; }
+.cin-portfolio-head p { max-width: 380px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.65); }
+.cin-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 190px; gap: 14px;
+}
+.cin-tile {
+  position: relative; overflow: hidden; border-radius: 16px;
+  background: var(--black-soft); border: 1px solid var(--glass-border);
+}
+.cin-tile.span-w { grid-column: span 2; }
+.cin-tile.span-h { grid-row: span 2; }
+.cin-tile image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cin-tile .cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 44px 18px 16px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+  pointer-events: none;
+}
+.cin-tile .cap b { display: block; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.cin-tile .cap span { font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.cin-tile.brand { display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); }
+.cin-tile.brand img { height: 28px; opacity: 0.7; filter: brightness(0) invert(1); transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1); }
+.cin-tile.brand:hover img { opacity: 1; transform: scale(1.06); }
+.cin-tile.brand .cap { padding: 30px 18px 14px; }
+
+/* Hover variants (tweak: data-hover on .cin-portfolio) */
+.cin-portfolio[data-hover="zoom"] .cin-tile image-slot { transition: transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.cin-portfolio[data-hover="zoom"] .cin-tile:hover image-slot { transform: scale(1.06); }
+
+.cin-portfolio[data-hover="reveal"] .cin-tile .cap { transform: translateY(12px); opacity: 0; transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease; }
+.cin-portfolio[data-hover="reveal"] .cin-tile:hover .cap { transform: none; opacity: 1; }
+.cin-portfolio[data-hover="reveal"] .cin-tile image-slot { transition: transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.cin-portfolio[data-hover="reveal"] .cin-tile:hover image-slot { transform: translateY(-6px) scale(1.03); }
+
+.cin-portfolio[data-hover="lift"] .cin-tile { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease, border-color 0.3s ease; }
+.cin-portfolio[data-hover="lift"] .cin-tile:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.25); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cin-portfolio .cin-tile, .cin-portfolio .cin-tile image-slot, .cin-portfolio .cin-tile .cap { transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+
+/* ---------- Horizontal pillars ---------- */
+.cin-pillars-section { position: relative; }
+.cin-pillars-spacer { height: calc(var(--h-speed) * 300vh); }
+.cin-pillars-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  background: #000;
+}
+.cin-pillars-head {
+  position: absolute; top: calc(var(--nav-short) + 28px); left: 48px; right: 48px;
+  display: flex; align-items: center; justify-content: space-between; z-index: 3;
+}
+.cin-pillars-count { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); font-variant-numeric: tabular-nums; }
+.cin-pillars-track {
+  display: flex; width: max-content; will-change: transform;
+}
+.cin-panel {
+  width: 100vw; height: 100vh; flex-shrink: 0;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+  gap: 64px; padding: 140px 48px 100px;
+  max-width: 100vw;
+}
+.cin-panel-copy { max-width: 520px; justify-self: end; }
+.cin-panel-copy .num {
+  font-size: clamp(64px, 8vw, 110px); font-weight: 700; letter-spacing: -0.04em;
+  line-height: 1; margin-bottom: 20px;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cin-panel.pl1 .num { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.cin-panel.pl2 .num { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.cin-panel.pl3 .num { background-image: linear-gradient(120deg, #9370DB, #FF1493); }
+.cin-panel-copy h3 { font-size: clamp(30px, 3.6vw, 44px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin: 14px 0 18px; }
+.cin-panel-copy p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 26px; }
+.cin-panel-link { font-size: 15px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 3px; }
+.cin-panel-link:hover { border-bottom-color: var(--white); color: var(--white); }
+.cin-panel-visual { position: relative; height: min(58vh, 560px); border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); background: var(--black-soft); }
+.cin-panel-visual image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cin-pillars-rail {
+  position: absolute; left: 48px; right: 48px; bottom: 40px; z-index: 3;
+  height: 2px; background: rgba(255,255,255,0.12);
+}
+.cin-pillars-rail-fill { display: block; height: 100%; width: 0%; background: var(--spectrum); }
+
+/* ---------- Market ---------- */
+.cin-market { padding: 150px 48px; background: var(--black-deep); border-top: 1px solid var(--glass-border); }
+.cin-market-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.cin-market-inner h2 { font-size: clamp(32px, 4.5vw, 48px); font-weight: 600; letter-spacing: -0.03em; margin: 20px 0 18px; }
+.cin-market-inner .lede { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 640px; margin: 0 auto 64px; }
+.cin-market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cin-market-card {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 44px 32px; text-align: center;
+  transition: transform 0.35s ease, background 0.3s ease;
+}
+.cin-market-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.05); }
+.cin-market-card .v { font-size: clamp(40px, 5vw, 56px); font-weight: 700; letter-spacing: -0.03em; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cin-market-card:nth-child(1) .v { background-image: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.cin-market-card:nth-child(2) .v { background-image: linear-gradient(120deg, #4169E1, #00CED1); }
+.cin-market-card:nth-child(3) .v { background-image: linear-gradient(120deg, #32CD32, #00CED1); }
+.cin-market-card .t { font-size: 17px; font-weight: 600; margin: 12px 0 8px; }
+.cin-market-card .d { font-size: 14.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ---------- Footer ---------- */
+.cin-footer { background: #000; border-top: 1px solid var(--glass-border); padding: 80px 48px 40px; }
+.cin-footer-top { max-width: 1200px; margin: 0 auto 64px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; }
+.cin-footer-brand img { height: 30px; margin-bottom: 18px; }
+.cin-footer-brand p { font-size: 14.5px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 260px; }
+.cin-footer h5 { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+.cin-footer ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.cin-footer ul a { font-size: 15px; color: rgba(255,255,255,0.75); }
+.cin-footer ul a:hover { color: var(--white); }
+.cin-footer-bottom {
+  max-width: 1200px; margin: 0 auto; padding-top: 28px;
+  border-top: 1px solid var(--glass-border);
+  display: flex; justify-content: space-between;
+  font-size: 13.5px; color: rgba(255,255,255,0.45);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .cin-nav { padding: 0 24px; }
+  .cin-nav-links > a:not(.cin-btn) { display: none; }
+  .cin-hero-content { padding: 0 24px 80px; }
+  .cin-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+  .cin-panel { grid-template-columns: 1fr; gap: 28px; padding: 120px 24px 90px; }
+  .cin-panel-visual { height: 34vh; }
+  .cin-panel-copy { justify-self: start; }
+  .cin-market-grid { grid-template-columns: 1fr; }
+  .cin-footer-top { grid-template-columns: 1fr 1fr; }
+  .cin-portfolio, .cin-statement { padding-left: 24px; padding-right: 24px; }
+  .cin-pillars-head, .cin-pillars-rail { left: 24px; right: 24px; }
+}
+</style>
+  <style>/* TravelAI — Network Cinematic (extends home-cin.css) */
+
+/* ---------- Hero ---------- */
+.nwc-hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: flex-end; overflow: hidden;
+}
+.nwc-hero image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.nwc-hero .cin-hero-scrim { z-index: 1; }
+.nwc-hero .cin-hero-content { padding-top: calc(var(--nav-tall) + 48px); padding-bottom: 88px; }
+
+/* ---------- Shared shell ---------- */
+.nwc-section { padding: 130px 48px; }
+.nwc-inner { max-width: 1200px; margin: 0 auto; }
+.nwc-head { max-width: 800px; margin-bottom: 64px; }
+.nwc-head h2 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin: 16px 0 20px; }
+.nwc-head .lede { font-size: 18px; line-height: 1.75; color: rgba(255,255,255,0.7); }
+.nwc-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+
+/* ---------- Light (inverted) sections ---------- */
+.nwc-light { background: #F4F1EC; color: #14120E; }
+.nwc-light .cin-kicker { color: rgba(20,18,14,0.5); }
+.nwc-light .nwc-head h2 { color: #14120E; }
+.nwc-light .nwc-head .lede { color: rgba(20,18,14,0.65); }
+
+/* ---------- How it works: triangle diagram ---------- */
+.nwc-tri { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.nwc-tri-diagram { position: relative; height: 460px; }
+.nwc-tri-diagram svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.nwc-tri-diagram svg line { stroke: rgba(255,255,255,0.18); stroke-width: 1.5; stroke-dasharray: 6 8; }
+@media (prefers-reduced-motion: no-preference) {
+  .nwc-tri-diagram svg line { animation: nwc-dash 2.4s linear infinite; }
+}
+@keyframes nwc-dash { to { stroke-dashoffset: -28; } }
+.nwc-node {
+  position: absolute; transform: translate(-50%, -50%);
+  width: 168px; text-align: center;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 22px 16px;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.nwc-node b { display: block; font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.nwc-node span { font-size: 12.5px; line-height: 1.45; color: rgba(255,255,255,0.55); display: block; }
+.nwc-node .glyph {
+  width: 12px; height: 12px; border-radius: 50%; margin: 0 auto 12px;
+}
+.nwc-node.n1 { top: 12%; left: 50%; }
+.nwc-node.n1 .glyph { background: linear-gradient(120deg, #FF6B6B, #FFA500); }
+.nwc-node.n2 { top: 78%; left: 18%; }
+.nwc-node.n2 .glyph { background: linear-gradient(120deg, #4169E1, #00CED1); }
+.nwc-node.n3 { top: 78%; left: 82%; }
+.nwc-node.n3 .glyph { background: linear-gradient(120deg, #9370DB, #FF1493); }
+.nwc-core {
+  position: absolute; top: 56%; left: 50%; transform: translate(-50%, -50%);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid var(--glass-border); border-radius: 100px; padding: 8px 16px;
+  background: rgba(10,10,15,0.8);
+}
+.nwc-tri-copy p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.72); }
+.nwc-metcalfe {
+  margin-top: 34px; padding: 28px 30px;
+  border: 1px solid var(--glass-border); border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+}
+.nwc-metcalfe p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.65); }
+.nwc-metcalfe p b { color: var(--white); }
+.nwc-metcalfe .law {
+  font-size: clamp(26px, 3vw, 34px); font-weight: 700; letter-spacing: -0.02em;
+  white-space: nowrap;
+  background-image: var(--spectrum);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- Technology ---------- */
+.nwc-tech { background: #000; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+
+/* The two models: hero pair with connector */
+.nwc-models { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: stretch; }
+.nwc-model {
+  border-radius: 20px; padding: 44px 40px;
+  background: #FFFFFF; border: 1px solid rgba(20,18,14,0.1);
+  box-shadow: 0 16px 50px rgba(20,18,14,0.08);
+  position: relative; overflow: hidden;
+}
+.nwc-model::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--model-grad); }
+.nwc-model.m1 { --model-grad: linear-gradient(90deg, #FF6B6B, #FFA500); }
+.nwc-model.m2 { --model-grad: linear-gradient(90deg, #9370DB, #FF1493); }
+.nwc-model .pillar {
+  display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(20,18,14,0.6); border: 1px solid rgba(20,18,14,0.15);
+  border-radius: 100px; padding: 5px 12px; margin-bottom: 22px;
+}
+.nwc-model .abbr {
+  font-size: clamp(38px, 4vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+  background-image: var(--model-grad);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 8px;
+}
+.nwc-model h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; color: #14120E; margin-bottom: 16px; }
+.nwc-model > p { font-size: 15.5px; line-height: 1.7; color: rgba(20,18,14,0.68); margin-bottom: 22px; }
+.nwc-model .role {
+  display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(20,18,14,0.45); margin-bottom: 22px;
+}
+.nwc-model ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.nwc-model li { font-size: 14.5px; line-height: 1.55; color: rgba(20,18,14,0.62); padding-left: 20px; position: relative; }
+.nwc-model li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 2px; background: var(--model-grad); }
+
+/* Connector between the two models */
+.nwc-models-link {
+  align-self: center; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 0 26px; text-align: center;
+}
+.nwc-models-link .line { width: 2px; height: 44px; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.35)); }
+.nwc-models-link .line.down { background: linear-gradient(0deg, transparent, rgba(255,255,255,0.35)); }
+.nwc-models-link .word {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); white-space: normal; max-width: 130px; line-height: 1.5;
+  border: 1px solid var(--glass-border); border-radius: 18px; padding: 9px 16px;
+  background: rgba(255,255,255,0.05); text-align: center;
+}
+
+/* Supporting band: around the models */
+.nwc-support-label {
+  margin: 84px 0 26px; display: flex; align-items: center; gap: 18px;
+}
+.nwc-support-label span {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); white-space: nowrap;
+}
+.nwc-support-label::before, .nwc-support-label::after {
+  content: ""; height: 1px; background: var(--glass-border); flex: 1;
+}
+.nwc-support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.nwc-support {
+  border: 1px solid var(--glass-border); border-radius: 16px;
+  padding: 30px 28px; background: rgba(255,255,255,0.03);
+}
+.nwc-support .tagline {
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 16px;
+}
+.nwc-support h4 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
+.nwc-support p { font-size: 14.5px; line-height: 1.68; color: rgba(255,255,255,0.62); }
+.nwc-support .cin-panel-link { margin-top: 16px; font-size: 14px; }
+
+/* Technology on light bg */
+.nwc-tech.nwc-light { border-top: none; border-bottom: none; background: #F4F1EC; }
+.nwc-tech.nwc-light .nwc-models-link .line { background: linear-gradient(180deg, transparent, rgba(20,18,14,0.3)); }
+.nwc-tech.nwc-light .nwc-models-link .line.down { background: linear-gradient(0deg, transparent, rgba(20,18,14,0.3)); }
+.nwc-tech.nwc-light .nwc-models-link .word { color: rgba(20,18,14,0.6); border-color: rgba(20,18,14,0.15); background: rgba(20,18,14,0.03); }
+.nwc-tech.nwc-light .nwc-support-label span { color: rgba(20,18,14,0.5); }
+.nwc-tech.nwc-light .nwc-support-label::before, .nwc-tech.nwc-light .nwc-support-label::after { background: rgba(20,18,14,0.12); }
+.nwc-tech.nwc-light .nwc-support { background: #FFFFFF; border-color: rgba(20,18,14,0.1); box-shadow: 0 12px 40px rgba(20,18,14,0.06); }
+.nwc-tech.nwc-light .nwc-support .tagline { color: rgba(20,18,14,0.5); }
+.nwc-tech.nwc-light .nwc-support h4 { color: #14120E; }
+.nwc-tech.nwc-light .nwc-support p { color: rgba(20,18,14,0.62); }
+.nwc-tech.nwc-light .cin-panel-link { color: #14120E; border-bottom-color: rgba(20,18,14,0.3); }
+.nwc-tech.nwc-light .cin-panel-link:hover { color: rgba(20,18,14,0.7); border-bottom-color: #14120E; }
+
+/* ---------- Transformation: cold vs warm ---------- */
+.nwc-transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.nwc-state {
+  border-radius: 20px; padding: 44px 38px;
+  border: 1px solid var(--glass-border);
+}
+.nwc-state.cold { background: rgba(255,255,255,0.02); }
+.nwc-state.warm {
+  background-color: var(--black-soft);
+  background-image: linear-gradient(160deg, rgba(255,107,107,0.14), rgba(65,105,225,0.14) 55%, rgba(255,20,147,0.12));
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow: 0 24px 70px rgba(255,20,147,0.14);
+}
+.nwc-state .tag {
+  display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: 100px; padding: 6px 13px; margin-bottom: 22px;
+}
+.nwc-state.cold .tag { border: 1px solid var(--glass-border); color: rgba(255,255,255,0.5); }
+.nwc-state.warm .tag { background: var(--white); color: #000; box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+.nwc-state h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; }
+.nwc-state .sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+.nwc-state > p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.68); margin-bottom: 24px; }
+.nwc-state ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.nwc-state li { font-size: 14.5px; line-height: 1.55; padding-left: 24px; position: relative; }
+.nwc-state.cold li { color: rgba(255,255,255,0.55); }
+.nwc-state.cold li::before { content: "×"; position: absolute; left: 0; top: 0; color: rgba(255,255,255,0.35); font-weight: 600; }
+.nwc-state.warm li { color: rgba(255,255,255,0.78); }
+.nwc-state.warm li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; font-weight: 700;
+  background-image: var(--spectrum);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- Mechanism: vector pipeline ---------- */
+.nwc-mech { background: #000; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+.nwc-pipe { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.nwc-step { padding: 8px 28px 0 0; position: relative; }
+.nwc-step + .nwc-step { padding-left: 28px; border-left: 1px solid var(--glass-border); }
+.nwc-step .num {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+  background-image: var(--spectrum);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.nwc-step h4 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin: 12px 0 10px; }
+.nwc-step p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,0.6); }
+.nwc-step .arrow {
+  position: absolute; right: -7px; top: 10px; z-index: 2;
+  color: rgba(255,255,255,0.4); font-size: 15px;
+}
+.nwc-vector-space {
+  margin-top: 64px; padding: 36px 38px;
+  border: 1px solid var(--glass-border); border-radius: 18px;
+  background: rgba(255,255,255,0.02);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+.nwc-vector-space p { font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,0.68); }
+.nwc-vector-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.nwc-vector-tags span {
+  font-size: 13.5px; color: rgba(255,255,255,0.72);
+  border: 1px solid var(--glass-border); border-radius: 100px;
+  padding: 8px 16px; background: rgba(255,255,255,0.03);
+}
+
+/* ---------- What makes it work: six-up ---------- */
+.nwc-works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.nwc-work {
+  border: 1px solid var(--glass-border); border-radius: 16px;
+  padding: 30px 28px; background: rgba(255,255,255,0.03);
+  transition: transform 0.35s ease, background 0.3s ease, border-color 0.3s ease;
+}
+.nwc-work:hover { transform: translateY(-4px); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+.nwc-work h4 { font-size: 17.5px; font-weight: 600; margin-bottom: 9px; }
+.nwc-work p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,0.6); }
+
+/* What makes it work on light bg */
+.nwc-works.nwc-light .nwc-work { background: #FFFFFF; border-color: rgba(20,18,14,0.1); box-shadow: 0 12px 40px rgba(20,18,14,0.06); }
+.nwc-works.nwc-light .nwc-work:hover { background: #FFFFFF; border-color: rgba(20,18,14,0.25); }
+.nwc-works.nwc-light .nwc-work h4 { color: #14120E; }
+.nwc-works.nwc-light .nwc-work p { color: rgba(20,18,14,0.62); }
+
+/* ---------- Closing CTA ---------- */
+.nwc-cta { position: relative; overflow: hidden; padding: 170px 48px; text-align: center; }
+.nwc-cta image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+.nwc-cta .scrim { position: absolute; inset: 0; z-index: 1; background: rgba(10,10,15,0.72); }
+.nwc-cta .inner { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+.nwc-cta h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px; }
+.nwc-cta p { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
+.nwc-cta .row { display: flex; gap: 14px; justify-content: center; }
+
+@media (max-width: 1100px) {
+  .nwc-models { grid-template-columns: 1fr; }
+  .nwc-models-link { flex-direction: row; padding: 20px 0; }
+  .nwc-models-link .line { width: 44px; height: 2px; }
+  .nwc-models-link .word { max-width: none; }
+}
+
+@media (max-width: 900px) {
+  .nwc-section, .nwc-cta { padding-left: 24px; padding-right: 24px; }
+  .nwc-section { padding-top: 90px; padding-bottom: 90px; }
+  .nwc-tri { grid-template-columns: 1fr; gap: 40px; }
+  .nwc-support-grid { grid-template-columns: 1fr; }
+  .nwc-tri-diagram { height: 380px; }
+  .nwc-node { width: 132px; padding: 16px 12px; }
+  .nwc-metcalfe { grid-template-columns: 1fr; }
+  .nwc-tech-grid, .nwc-transform-grid, .nwc-vector-space { grid-template-columns: 1fr; }
+  .nwc-tech-card.wide { grid-column: span 1; }
+  .nwc-tech-wide-grid { grid-template-columns: 1fr; gap: 20px; }
+  .nwc-pipe { grid-template-columns: 1fr; gap: 28px; }
+  .nwc-step { padding-right: 0; }
+  .nwc-step + .nwc-step { padding-left: 0; border-left: none; padding-top: 28px; border-top: 1px solid var(--glass-border); }
+  .nwc-step .arrow { display: none; }
+  .nwc-works-grid { grid-template-columns: 1fr; }
+}
+</style>
+  
+</head>
+<body>
+
+  <!-- NAV (shrinks on scroll) -->
+  <nav class="cin-nav">
+    <a class="cin-logo" href="Homepage Cinematic.html">
+      <img src="bded3c57-3e52-4b4e-84cb-536e35c01ca0" alt="">
+      <span>TravelAI</span>
+    </a>
+    <div class="cin-nav-links">
+      <a href="Platform Cinematic.html">Platform</a>
+      <a href="Network Cinematic.html">Network</a>
+      <a href="Our Vision Cinematic.html">Our Vision</a>
+      <a href="partners.html">Partners</a>
+      <a href="partners.html" class="cin-btn cin-btn-light">Partner With Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="nwc-hero" data-screen-label="Network Hero">
+    <image-slot id="nwc-hero" src="53c6fc6d-576d-4c37-9111-414f6ea8e53b" placeholder="Hero photo: travel in motion, connected world" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1436491865332-7a61a109cc05"></image-slot>
+    <div class="cin-hero-scrim"></div>
+    <div class="cin-hero-content">
+      <p class="cin-kicker reveal">The Agentic Network</p>
+      <h1 class="reveal" style="--d:80ms; margin-top:16px;">The Age of Agentic Networks, <b class="cin-spectrum">running.</b></h1>
+      <div class="cin-hero-row">
+        <p class="reveal" style="--d:160ms">Other pages argue that agentic travel needs memory, governance, trust, and distribution. This page shows the machinery: a self learning network connecting travelers, AI agents, and supply, built on portable, privacy first traveler memory, with consent at every handoff and measurable value in return.</p>
+        <div class="cin-hero-cta reveal" style="--d:240ms">
+          <a href="#how" class="cin-btn cin-btn-light">How It Works</a>
+          <a href="Platform Cinematic.html" class="cin-btn cin-btn-ghost">Explore the Platform</a>
+        </div>
+      </div>
+    </div>
+    <span class="cin-scroll-cue" aria-hidden="true"></span>
+  </header>
+
+  <main>
+
+  <!-- HOW IT WORKS -->
+  <section class="nwc-section" id="how" data-screen-label="How It Works">
+    <div class="nwc-inner">
+      <div class="nwc-head">
+        <p class="cin-kicker reveal">How It Works</p>
+        <h2 class="reveal" style="--d:80ms">Three participants. <b class="cin-spectrum">One shared objective.</b></h2>
+      </div>
+      <div class="nwc-tri">
+        <div class="nwc-tri-diagram reveal">
+          <svg viewBox="0 0 600 460" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="300" y1="70" x2="115" y2="355"></line>
+            <line x1="300" y1="70" x2="485" y2="355"></line>
+            <line x1="115" y1="355" x2="485" y2="355"></line>
+          </svg>
+          <div class="nwc-node n1"><span class="glyph"></span><b>Travelers</b><span>High intent demand with portable context</span></div>
+          <div class="nwc-node n2"><span class="glyph"></span><b>AI Agents</b><span>Autonomous optimization and orchestration</span></div>
+          <div class="nwc-node n3"><span class="glyph"></span><b>Supply</b><span>Accommodation, activities, experiences</span></div>
+          <span class="nwc-core">The Network</span>
+        </div>
+        <div class="nwc-tri-copy reveal" style="--d:120ms">
+          <p>The network connects travelers, AI agents, and supply providers around a single goal: making the purchase and consumption of travel better for everyone involved. This is the Third Voice in production: agents aligned to the interests travelers and suppliers already share, not a fourth party extracting from all three.</p>
+          <div class="nwc-metcalfe">
+            <p>It follows <b>Metcalfe's Law</b>: value compounds as participants join. Every new brand, traveler, or supply partner makes the network more valuable for all the others. Today that starts from 530+ brands and 50M+ travelers a year, so the compounding isn't hypothetical.</p>
+            <span class="law">V ∝ N²</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TECHNOLOGY -->
+  <section class="nwc-section nwc-tech nwc-light" data-screen-label="The Technology">
+    <div class="nwc-inner">
+      <div class="nwc-head">
+        <p class="cin-kicker reveal">The Technology</p>
+        <h2 class="reveal" style="--d:80ms">Two models. <b class="cin-spectrum">One portable context.</b></h2>
+        <p class="lede reveal" style="--d:160ms">Our patent pending architecture pairs the Traveler Action Model with the Shared Vector Travel Protocol. Together they carry two of the four pillars: TAM is the memory, SVTP is the trust.</p>
+      </div>
+      <div class="nwc-models" data-stagger="100">
+        <article class="nwc-model m1 reveal">
+          <span class="pillar">Pillar · Memory</span>
+          <div class="abbr">TAM</div>
+          <h3>Traveler Action Model</h3>
+          <span class="role">The memory</span>
+          <p>A compact, pseudonymous memory of a traveler's preferences. Built from passive, active, analyzed, and enriched signals. Never PII.</p>
+          <ul>
+            <li>Privacy first, with no personally identifiable information</li>
+            <li>Learns continuously from traveler signals and outcomes</li>
+            <li>Compact vector representation enables real time matching</li>
+            <li>Self improving as the network observes more behavior</li>
+          </ul>
+        </article>
+        <div class="nwc-models-link reveal" aria-hidden="true">
+          <span class="line"></span>
+          <span class="word">SVTP moves what TAM remembers</span>
+          <span class="line down"></span>
+        </div>
+        <article class="nwc-model m2 reveal">
+          <span class="pillar">Pillar · Trust</span>
+          <div class="abbr">SVTP</div>
+          <h3>Shared Vector Travel Protocol</h3>
+          <span class="role">The trust</span>
+          <p>The standard way to exchange traveler memory between partners. Consent based sharing lets the receiving site personalize without ever seeing PII.</p>
+          <ul>
+            <li>Consent based model keeps travelers in control</li>
+            <li>Warm handoffs preserve full context</li>
+            <li>Works across brands, partners, and AI agents</li>
+            <li>An industry standard protocol for the agentic age</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="nwc-support-label reveal"><span>What keeps the models running</span></div>
+      <div class="nwc-support-grid" data-stagger="80">
+        <article class="nwc-support reveal">
+          <span class="tagline">Keeps memory fresh</span>
+          <h4>Vector Enrichment</h4>
+          <p>The traveler's memory updates continuously with new signals: aggregated outcomes, status, and behavioral patterns. Each update refreshes the TAM, and cross session learning compounds over time.</p>
+        </article>
+        <article class="nwc-support reveal">
+          <span class="tagline">Lets enterprises join · Governance</span>
+          <h4>Governed adoption</h4>
+          <p>Every read of traveler memory across the network is granted, logged, and reviewable, the machinery behind the Governed Memory Platform, so OTAs, TMCs, and enterprise travel programs can adopt agentic personalization with every decision defensible.</p>
+          <a href="Platform Cinematic.html" class="cin-panel-link">See the Platform <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="nwc-support reveal">
+          <span class="tagline">Learns at scale · Distribution</span>
+          <h4>Network-Scale Learning Engine</h4>
+          <p>Autonomous learning across 530+ brands. Cohort and causal models identify what drives conversion and satisfaction, with safe deployment, monitoring, and rollback. It exists because the network provides production traffic to learn from.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TRANSFORMATION -->
+  <section class="nwc-section" data-screen-label="The Transformation">
+    <div class="nwc-inner">
+      <div class="nwc-head center">
+        <p class="cin-kicker center reveal">The Transformation</p>
+        <h2 class="reveal" style="--d:80ms">From cold start to <b class="cin-spectrum">warm start.</b></h2>
+        <p class="lede reveal" style="--d:160ms">Moving from fragmented, forgotten signals to context rich sessions: more relevance, lower bounce, higher conversion.</p>
+      </div>
+      <div class="nwc-transform-grid" data-stagger="120">
+        <div class="nwc-state cold reveal">
+          <span class="tag">Today · Cold Start</span>
+          <h3>Fragmented &amp; Forgotten</h3>
+          <p>Travelers get generic first landing experiences because high intent signals are siloed, lost, or impossible to share safely.</p>
+          <ul>
+            <li>Traveler signals fragmented across platforms</li>
+            <li>Generic first screen experiences with no context</li>
+            <li>High bounce rates from irrelevant recommendations</li>
+            <li>No way to share context without exposing PII</li>
+            <li>Partners convert first-time traffic with limited intelligence</li>
+          </ul>
+        </div>
+        <div class="nwc-state warm reveal">
+          <span class="tag">Tomorrow · Warm Start</span>
+          <h3>Connected &amp; Personalized</h3>
+          <p>New front doors remember preferences and generate personalized results on arrival. Partner context flows with consent, privately.</p>
+          <ul>
+            <li>Portable context travels with the traveler</li>
+            <li>Instant personalization on first screen</li>
+            <li>Partners receive high intent signals with full context</li>
+            <li>Consent-based sharing preserves privacy and control</li>
+            <li>First screen relevance drives conversion</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MECHANISM -->
+  <section class="nwc-section nwc-mech" data-screen-label="The Mechanism">
+    <div class="nwc-inner">
+      <div class="nwc-head">
+        <p class="cin-kicker reveal">The Mechanism</p>
+        <h2 class="reveal" style="--d:80ms">Everything becomes <b class="cin-spectrum">a vector.</b></h2>
+        <p class="lede reveal" style="--d:160ms">Portable traveler context rests on vectorization: a numerical representation where closeness means similarity. Every item becomes a point in multi dimensional space.</p>
+      </div>
+      <div class="nwc-pipe" data-stagger="100">
+        <div class="nwc-step reveal">
+          <span class="num">STEP 01</span>
+          <h4>Raw Signal</h4>
+          <p>Traveler behavior, preferences, and intent, captured across touchpoints.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </div>
+        <div class="nwc-step reveal">
+          <span class="num">STEP 02</span>
+          <h4>Embedding Model</h4>
+          <p>A neural network turns raw data into dense numerical representations.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </div>
+        <div class="nwc-step reveal">
+          <span class="num">STEP 03</span>
+          <h4>TAM Vector</h4>
+          <p>A compact, pseudonymous representation. No PII, fully portable.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </div>
+        <div class="nwc-step reveal">
+          <span class="num">STEP 04</span>
+          <h4>Match &amp; Rank</h4>
+          <p>Cosine similarity finds the closest items in real time, across millions of properties.</p>
+        </div>
+      </div>
+      <div class="nwc-vector-space reveal">
+        <p>One format lets every entity be compared, combined, and retrieved in real time, without exposing raw data.</p>
+        <div class="nwc-vector-tags">
+          <span>Travelers · clustered by preference profile and travel style</span>
+          <span>Properties · from beach resorts to boutique stays</span>
+          <span>Activities · matched by vibe and context</span>
+          <span>Destinations · with personality embeddings</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES IT WORK -->
+  <section class="nwc-section nwc-works nwc-light" data-screen-label="What Makes It Work">
+    <div class="nwc-inner">
+      <div class="nwc-head">
+        <h2 class="reveal">What makes an agentic network <b class="cin-spectrum">work.</b></h2>
+      </div>
+      <div class="nwc-works-grid" data-stagger="60">
+        <div class="nwc-work reveal"><h4>Speed &amp; Scale</h4><p>Context flows at the speed of thought: millisecond responses even across millions of travelers, properties, and preference combinations.</p></div>
+        <div class="nwc-work reveal"><h4>Clear Attribution</h4><p>Partners need to see what's working. Attribution, monitoring, and ROI analytics are built into every handoff.</p></div>
+        <div class="nwc-work reveal"><h4>Network Learning</h4><p>Every interaction improves the whole network. What works for one traveler or partner makes the system smarter for all of them.</p></div>
+        <div class="nwc-work reveal"><h4>Outcome Optimization</h4><p>The network optimizes for real traveler satisfaction and partner ROI, not clicks, impressions, or vanity metrics.</p></div>
+        <div class="nwc-work reveal"><h4>Governed by Design</h4><p>Enterprises join with consent, audit, and replay built in. Adoption that survives a compliance review, not just a demo.</p></div>
+        <div class="nwc-work reveal"><h4>Trust in Agents</h4><p>Travelers have to trust that agents act in their interest, with transparency, consent, and predictable outcomes at every step.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="nwc-cta" data-screen-label="Closing CTA">
+    <image-slot id="nwc-cta" src="16506f82-9f41-48c0-afc7-4dd1c1d8ad6d" placeholder="Closing photo: people connecting, warm and human" credit="Photo on Unsplash" credit-href="https://unsplash.com/photos/1521737604893-d14cc237f11d"></image-slot>
+    <div class="scrim"></div>
+    <div class="inner">
+      <h2 class="reveal">Join the <b class="cin-spectrum">network.</b></h2>
+      <p class="reveal" style="--d:100ms">Supply providers get high intent demand without operational complexity. Brands get an engine that learns across 530+ properties' worth of production traffic. Travelers get remembered. Wherever you sit in travel, the network gets more valuable when you join it.</p>
+      <div class="row reveal" style="--d:180ms">
+        <a href="partners.html" class="cin-btn cin-btn-light">Become a Partner</a>
+        <a href="contact.html" class="cin-btn cin-btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="cin-footer">
+    <div class="cin-footer-top">
+      <div class="cin-footer-brand">
+        <img src="254138f6-2b5c-4d29-8e31-2982d2043358" alt="TravelAI">
+        <p>Making travel better through AI personalization.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="Platform Cinematic.html">Platform</a></li><li><a href="Network Cinematic.html">Network</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="partners.html">Partners</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="Our Vision Cinematic.html">Our Vision</a></li><li><a href="about.html">About Us</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h5>Content</h5><ul><li><a href="insights.html">Insights</a></li><li><a href="resources.html">Resources</a></li><li><a href="stories.html">Travel Stories</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="cin-footer-bottom">
+      <span>© 2026 TravelAI. All rights reserved.</span>
+      <span>The Travel Memory Company</span>
+    </div>
+  </footer>
+
+  <script src="cf389b30-9b36-49a7-8f7a-61fa83044377"></script>
+  <script>
+    (function () {
+      'use strict';
+      var nav = document.querySelector('.cin-nav');
+      function onNav() { nav.classList.toggle('is-shrunk', window.scrollY > 20); }
+      window.addEventListener('scroll', onNav, { passive: true });
+      onNav();
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        var parent = el.closest('[data-stagger]');
+        if (parent) {
+          var kids = Array.prototype.slice.call(parent.querySelectorAll('.reveal'));
+          el.style.setProperty('--d', (kids.indexOf(el) * parseInt(parent.dataset.stagger, 10)) + 'ms');
+        }
+        io.observe(el);
+      });
+    })();
+  </script>
+
+
+</body></html>

@@ -249,9 +249,15 @@
   document.querySelectorAll('[data-stagger]').forEach(function (group) {
     var step = parseInt(group.getAttribute('data-stagger'), 10) || 80;
     var kids = group.querySelectorAll('.reveal, .reveal-img');
+    // Long grids (100+ blog cards) must not accumulate i*step forever —
+    // items deep in the list waited 10+ seconds to appear after
+    // scrolling into view. Cycle the delay per row instead. Short
+    // groups (hero elements etc.) keep the full cascade.
+    var cycle = kids.length > 12;
     for (var i = 0; i < kids.length; i++) {
       if (!kids[i].style.getPropertyValue('--d')) {
-        kids[i].style.setProperty('--d', (i * step) + 'ms');
+        var d = (cycle ? (i % 3) : i) * step;
+        kids[i].style.setProperty('--d', d + 'ms');
       }
     }
   });

@@ -28,6 +28,15 @@ html:has(.page-home-cinematic) {
   font-family: 'Inter Tight', sans-serif;
 }
 
+/* Avoid one-word last lines in homepage body copy */
+.page-home-cinematic p,
+.page-home-cinematic .wh-pillars__body,
+.page-home-cinematic .wh-opportunity__copy,
+.page-home-cinematic .wh-problem__text,
+.page-home-cinematic li {
+  text-wrap: pretty;
+}
+
 /* Nav shrink + light/cream legibility: universal-nav.css (site-wide) */
 
 .page-home-cinematic .scroll-progress {
@@ -63,6 +72,7 @@ html:has(.page-home-cinematic) {
 .wh-hero__media {
   position: absolute;
   inset: 0;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
 }
@@ -72,9 +82,10 @@ html:has(.page-home-cinematic) {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: max(118vw, calc(177.78vh * 1.18));
-  height: max(66.5vw, 118vh);
+  width: max(130vw, calc(177.78vh * 1.3));
+  height: max(73vw, 130vh);
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .wh-hero__media iframe {
@@ -86,9 +97,12 @@ html:has(.page-home-cinematic) {
   pointer-events: none;
 }
 
+/* Full-bleed interaction shield — YouTube paints big center controls on hover/focus */
 .wh-hero__shade {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: auto;
   background:
     linear-gradient(180deg, rgba(10, 10, 15, 0.35) 0%, rgba(10, 10, 15, 0.15) 40%, rgba(10, 10, 15, 0.82) 100%),
     linear-gradient(90deg, rgba(10, 10, 15, 0.55) 0%, transparent 55%);
@@ -101,6 +115,16 @@ html:has(.page-home-cinematic) {
   max-width: var(--cin-hero-max, 1440px);
   margin: 0 auto;
   padding: var(--cin-section-y) var(--cin-gutter);
+}
+
+/* Eyebrow above the hero title — same voice as .cin-kicker on interior pages */
+.wh-hero__eyebrow {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .wh-hero__title {
@@ -707,21 +731,41 @@ body.wh-trip-modal-open {
   opacity: 0.72;
 }
 
-.wh-pillars__foot {
+.wh-pillars__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   margin-top: 28px;
-  font-size: 12px;
+  padding: 12px 22px;
+  border-radius: 100px;
+  font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   text-decoration: none;
   color: inherit;
-  transition: opacity 0.25s ease;
+  border: 1px solid currentColor;
   width: fit-content;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.wh-pillars__cta-arrow {
+  transition: transform 0.25s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .wh-pillars__foot:hover {
-    opacity: 0.72;
+  .wh-pillars__cta:hover {
+    background: color-mix(in srgb, currentColor 14%, transparent);
+    transform: translateY(-2px);
+  }
+  .wh-pillars__cta:hover .wh-pillars__cta-arrow {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wh-pillars__cta,
+  .wh-pillars__cta-arrow {
+    transition: none;
   }
 }
 
@@ -748,13 +792,151 @@ body.wh-trip-modal-open {
   opacity: 1;
 }
 
+/* Animated pillar diagrams */
+.wh-pillars__card {
+  --whd-accent: 112, 161, 255;
+}
+
+.wh-pillars__card--2 {
+  --whd-accent: 91, 79, 207;
+}
+
+.wh-pillars__card--3 {
+  --whd-accent: 196, 94, 26;
+}
+
+.wh-pillars__card--4 {
+  --whd-accent: 123, 237, 159;
+}
+
+.wh-pillars__diagram {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 1.8vw, 24px);
+}
+
+.wh-pillars__diagram svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Portrait diagram variants only render on small screens */
+.wh-pillars__diagram .whd-svg--mobile {
+  display: none;
+}
+
+.whd-label {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--wd, 0s),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--wd, 0s);
+}
+
+.wh-pillars__card.is-active .whd-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive nodes: entry cascade is a one-shot animation so the
+   hover transition below stays delay-free in both directions. */
+.whd-node {
+  opacity: 0;
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wh-pillars__card.is-active .whd-node {
+  opacity: 1;
+  animation: whd-enter 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--wd, 0s) backwards;
+}
+
+@keyframes whd-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.whd-node rect {
+  transition:
+    fill 0.3s ease,
+    stroke 0.3s ease,
+    filter 0.3s ease;
+}
+
+.wh-pillars__card.is-active .whd-node:is(:hover, :focus-visible) {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.whd-node:is(:hover, :focus-visible) rect {
+  fill: rgba(var(--whd-accent), 0.14);
+  stroke: rgba(var(--whd-accent), 0.7);
+  filter: drop-shadow(0 6px 18px rgba(var(--whd-accent), 0.28));
+}
+
+.whd-node--key:is(:hover, :focus-visible) rect {
+  fill: rgba(var(--whd-accent), 0.2);
+}
+
+/* Connector lines: always flowing, brighten to the card accent on hover */
+.whd-line {
+  opacity: 0;
+  stroke-dasharray: 5 7;
+  animation: whd-flow 1.4s linear infinite;
+  transition:
+    opacity 0.5s ease,
+    stroke 0.35s ease;
+}
+
+.wh-pillars__card.is-active .whd-line {
+  opacity: 1;
+}
+
+.wh-pillars__diagram:hover .whd-line {
+  stroke: rgba(var(--whd-accent), 0.75);
+  animation-duration: 0.9s;
+}
+
+@keyframes whd-flow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whd-node,
+  .whd-label,
+  .whd-line {
+    transition: none;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .wh-pillars__diagram:hover .whd-line {
+    animation: none;
+  }
+  .wh-pillars__card.is-active .whd-node {
+    animation: none;
+  }
+  .wh-pillars__card.is-active .whd-node:is(:hover, :focus-visible) {
+    transform: none;
+  }
+}
+
 .wh-pillars__card--1 {
   background: var(--w-black-soft);
   color: #fff;
 }
 
 .wh-pillars__card--1 .wh-pillars__eyebrow,
-.wh-pillars__card--1 .wh-pillars__foot {
+.wh-pillars__card--1 .wh-pillars__cta {
   color: #70a1ff;
 }
 
@@ -768,7 +950,7 @@ body.wh-trip-modal-open {
 }
 
 .wh-pillars__card--2 .wh-pillars__eyebrow,
-.wh-pillars__card--2 .wh-pillars__foot {
+.wh-pillars__card--2 .wh-pillars__cta {
   color: #5b4fcf;
 }
 
@@ -782,7 +964,7 @@ body.wh-trip-modal-open {
 }
 
 .wh-pillars__card--3 .wh-pillars__eyebrow,
-.wh-pillars__card--3 .wh-pillars__foot {
+.wh-pillars__card--3 .wh-pillars__cta {
   color: #c45e1a;
 }
 
@@ -796,7 +978,7 @@ body.wh-trip-modal-open {
 }
 
 .wh-pillars__card--4 .wh-pillars__eyebrow,
-.wh-pillars__card--4 .wh-pillars__foot {
+.wh-pillars__card--4 .wh-pillars__cta {
   color: #7bed9f;
 }
 
@@ -1093,6 +1275,8 @@ html.lenis-smooth {
 
   .wh-pillars__tabs {
     gap: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1135,6 +1319,28 @@ html.lenis-smooth {
   .wh-pillars__media {
     aspect-ratio: 16 / 10;
     order: -1;
+  }
+
+  /* Diagram cards switch to the stacked portrait SVG and size to it */
+  .wh-pillars__media--diagram {
+    aspect-ratio: auto;
+  }
+
+  .wh-pillars__diagram {
+    position: relative;
+    inset: auto;
+    padding: 20px 12px;
+  }
+
+  .wh-pillars__diagram .whd-svg--desktop {
+    display: none;
+  }
+
+  .wh-pillars__diagram .whd-svg--mobile {
+    display: block;
+    height: auto;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .wh-pillars__title {

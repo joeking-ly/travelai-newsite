@@ -1,0 +1,24 @@
+{
+  "detector": {
+    "ignoreRules": [
+      "single-font",
+      "numbered-section-markers"
+    ],
+    "ignoreFiles": [
+      "css/platform-cinematic.css",
+      "index.html",
+      "css/site.css",
+      "insights.html",
+      "css/universal-nav.css",
+      "contact.html"
+    ],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "reason": "User confirmed Inter Tight is the intentional brand font",
+        "createdAt": "2026-07-19T17:23:07.901Z"
+      }
+    ]
+  }
+}

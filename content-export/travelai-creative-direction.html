@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelAI — Creative Direction: Homepage Relaunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0E;
+    --ink-2:#14141A;
+    --ink-3:#1E1E26;
+    --cream:#F5F2EC;
+    --cream-2:#ECE8DF;
+    --paper-line:#D9D4C8;
+    --white:#FFFFFF;
+    --mist:#A8A8B3;
+    --mist-2:#6E6E7A;
+    --spectrum:linear-gradient(90deg,#FF5C39,#FFB03A,#7ED957,#3AC0FF,#8B5CF6);
+    --font-sans:'Inter Tight',system-ui,sans-serif;
+    --font-serif:'Fraunces',Georgia,serif;
+    --max:1200px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-sans);background:var(--ink);color:var(--white);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+  ::selection{background:#3AC0FF;color:var(--ink)}
+
+  /* ---------- NAV (demonstrates the shrink mechanic) ---------- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:28px 48px;transition:padding .35s cubic-bezier(.4,0,.2,1),background .35s,border-color .35s;
+    background:transparent;border-bottom:1px solid transparent}
+  .nav.condensed{padding:12px 48px;background:rgba(11,11,14,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-logo{font-weight:800;letter-spacing:.14em;font-size:15px;text-transform:uppercase;transition:font-size .35s cubic-bezier(.4,0,.2,1)}
+  .nav.condensed .nav-logo{font-size:12.5px}
+  .nav-logo .ai{background:var(--spectrum);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:30px;align-items:center;font-size:13.5px;color:var(--mist);letter-spacing:.02em}
+  .nav-links span{cursor:default;transition:color .2s}
+  .nav-links span:hover{color:var(--white)}
+  .nav-cta{border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:8px 18px;font-size:12.5px;color:var(--white);transition:padding .35s,border-color .2s;cursor:default}
+  .nav.condensed .nav-cta{padding:6px 15px}
+  .nav-cta:hover{border-color:var(--white)}
+  .nav-note{position:fixed;top:0;right:0;z-index:101;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#3AC0FF;padding:6px 12px;opacity:.85}
+
+  /* ---------- SHARED ---------- */
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+  .eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mist-2);margin-bottom:20px;font-weight:600}
+  .eyebrow b{color:transparent;background:var(--spectrum);-webkit-background-clip:text;background-clip:text;font-weight:700}
+  h2{font-size:clamp(30px,4.4vw,52px);line-height:1.06;font-weight:700;letter-spacing:-.02em;margin-bottom:26px}
+  h2 em, .serif-em{font-family:var(--font-serif);font-style:italic;font-weight:500;letter-spacing:0}
+  .lead{font-size:19px;color:var(--mist);max-width:64ch}
+  section{padding:110px 0}
+  .rule{height:1px;background:rgba(255,255,255,.08);border:0}
+  .k{color:var(--white);font-weight:600}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:92vh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding-bottom:80px;
+    background:
+      radial-gradient(1100px 500px at 80% -10%, rgba(58,192,255,.10), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(255,92,57,.08), transparent 60%),
+      var(--ink)}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse at 50% 60%,black 30%,transparent 75%)}
+  .doc-tag{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:7px 16px;color:var(--mist);margin-bottom:34px}
+  .hero h1{font-size:clamp(52px,8.5vw,118px);line-height:.98;font-weight:800;letter-spacing:-.035em}
+  .hero h1 .line{display:block}
+  .hero h1 .grad{background:var(--spectrum);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{margin-top:34px;font-size:18px;color:var(--mist);max-width:56ch}
+  .hero-meta{margin-top:44px;display:flex;gap:36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist-2)}
+
+  /* ---------- TEARDOWN CARDS ---------- */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:54px}
+  .card{background:var(--ink-2);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:34px}
+  .card .num{font-size:12px;letter-spacing:.18em;color:var(--mist-2);margin-bottom:16px;font-weight:600}
+  .card h3{font-size:21px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+  .card p{font-size:15.5px;color:var(--mist)}
+  .card .maps{margin-top:18px;padding-top:16px;border-top:1px dashed rgba(255,255,255,.12);font-size:14px;color:#3AC0FF}
+  .card .maps b{color:var(--white);font-weight:600}
+
+  /* ---------- CREAM SECTIONS ---------- */
+  .cream-block{background:var(--cream);color:var(--ink)}
+  .cream-block .eyebrow{color:#8A8375}
+  .cream-block .lead{color:#5B564B}
+  .cream-block .rule{background:var(--paper-line)}
+
+  /* ---------- SCATTER SPEC ---------- */
+  .scatter-stage{position:relative;height:460px;margin-top:56px;border:1px dashed var(--paper-line);border-radius:20px;overflow:hidden;background:var(--cream)}
+  .scatter-head{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2;pointer-events:none}
+  .scatter-head .l1{font-size:clamp(30px,4.6vw,54px);font-weight:700;letter-spacing:-.02em;line-height:1.04}
+  .scatter-head .l2{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:clamp(30px,4.6vw,54px);line-height:1.04;margin-left:9vw}
+  .scatter-head .pill{pointer-events:auto;margin-top:28px;display:inline-block;border:1px solid var(--ink);border-radius:100px;padding:10px 22px;font-size:13px;font-weight:600;background:var(--cream);cursor:default}
+  .chip{position:absolute;border-radius:10px;background-size:cover;background-position:center;box-shadow:0 10px 30px rgba(20,18,12,.18);will-change:transform;transition:transform .1s linear}
+  .chip::after{content:attr(data-label);position:absolute;left:0;right:0;bottom:-22px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#8A8375;text-align:center;white-space:nowrap}
+  .spec-note{font-size:13px;color:#8A8375;margin-top:16px;letter-spacing:.02em}
+
+  /* ---------- ARCH FLOW ---------- */
+  .flow{margin-top:54px;display:flex;flex-direction:column}
+  .flow-row{display:grid;grid-template-columns:70px 260px 1fr;gap:26px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.08);align-items:baseline}
+  .flow-row .n{font-size:13px;color:var(--mist-2);font-weight:600;letter-spacing:.1em}
+  .flow-row .t{font-size:18px;font-weight:700;letter-spacing:-.01em}
+  .flow-row .t small{display:block;font-weight:500;font-size:12px;color:#3AC0FF;letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
+  .flow-row .d{font-size:15.5px;color:var(--mist)}
+  .flow-row.hl{background:linear-gradient(90deg,rgba(58,192,255,.06),transparent 70%);border-radius:10px;padding-left:14px;margin-left:-14px}
+
+  /* ---------- HORIZONTAL PINNED DEMO ---------- */
+  .pin-outer{position:relative;height:420vh}
+  .pin-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+  .pin-head{padding:40px 48px 8px}
+  .pin-track{display:flex;height:64vh;will-change:transform}
+  .panel{flex:0 0 78vw;max-width:900px;margin-right:4vw;border-radius:22px;padding:56px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(255,255,255,.09);position:relative;overflow:hidden}
+  .panel .p-eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin-bottom:22px}
+  .panel h3{font-size:clamp(34px,4.6vw,60px);font-weight:800;letter-spacing:-.025em;line-height:1}
+  .panel h3 em{font-family:var(--font-serif);font-style:italic;font-weight:500}
+  .panel p{margin-top:22px;font-size:17px;max-width:52ch}
+  .panel .p-product{margin-top:auto;padding-top:32px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .panel .glow{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.28;right:-160px;top:-160px}
+  .p1{background:var(--ink-2)} .p1 .p-eyebrow,.p1 .p-product{color:#3AC0FF} .p1 .glow{background:#3AC0FF} .p1 p{color:var(--mist)}
+  .p2{background:var(--ink-2)} .p2 .p-eyebrow,.p2 .p-product{color:#8B5CF6} .p2 .glow{background:#8B5CF6} .p2 p{color:var(--mist)}
+  .p3{background:var(--cream);color:var(--ink);border-color:transparent} .p3 .p-eyebrow,.p3 .p-product{color:#C2410C} .p3 .glow{background:#FFB03A;opacity:.35} .p3 p{color:#5B564B}
+  .p4{background:var(--ink-2)} .p4 .p-eyebrow,.p4 .p-product{color:#7ED957} .p4 .glow{background:#7ED957} .p4 p{color:var(--mist)}
+  .pin-progress{display:flex;gap:10px;padding:26px 48px 0;align-items:center}
+  .pin-progress .dot{width:34px;height:3px;border-radius:2px;background:rgba(255,255,255,.15);transition:background .3s}
+  .pin-progress .dot.on{background:var(--white)}
+  .pin-progress .plabel{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mist-2);margin-left:14px}
+  .demo-flag{position:absolute;top:22px;right:48px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#3AC0FF;border:1px solid rgba(58,192,255,.4);border-radius:100px;padding:6px 14px;z-index:5}
+
+  /* ---------- SPEC TABLES ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:44px;font-size:15px}
+  th{text-align:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mist-2);padding:0 16px 14px 0;font-weight:600;border-bottom:1px solid rgba(255,255,255,.12)}
+  td{padding:16px 16px 16px 0;border-bottom:1px solid rgba(255,255,255,.07);color:var(--mist);vertical-align:top}
+  td:first-child{color:var(--white);font-weight:600;white-space:nowrap}
+  .cream-block table th{color:#8A8375;border-color:var(--paper-line)}
+  .cream-block table td{color:#5B564B;border-color:var(--paper-line)}
+  .cream-block table td:first-child{color:var(--ink)}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:rgba(255,255,255,.07);padding:2px 7px;border-radius:5px;color:#3AC0FF}
+  .cream-block code{background:rgba(20,18,12,.07);color:#C2410C}
+
+  .flag-list{margin-top:44px;display:flex;flex-direction:column;gap:16px}
+  .flag{border-left:2px solid #FFB03A;padding:6px 0 6px 22px;font-size:15.5px;color:var(--mist)}
+  .flag b{color:var(--white)}
+
+  footer{padding:70px 0 90px;color:var(--mist-2);font-size:13px}
+
+  @media (max-width:820px){
+    .wrap{padding:0 24px}
+    .nav{padding:20px 24px}.nav.condensed{padding:10px 24px}
+    .nav-links{display:none}
+    .cards{grid-template-columns:1fr}
+    .flow-row{grid-template-columns:1fr;gap:8px}
+    .pin-outer{height:auto}
+    .pin-sticky{position:static;height:auto;padding:20px 0}
+    .pin-track{flex-direction:column;height:auto;transform:none !important;gap:20px;padding:0 24px}
+    .panel{flex:none;max-width:none;margin:0;min-height:380px}
+    .pin-progress{display:none}
+    .scatter-stage{height:520px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .chip{transition:none}
+    .pin-track{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav" id="nav">
+  <div class="nav-logo">TRAVEL<span class="ai">AI</span></div>
+  <div class="nav-links">
+    <span>Our Vision</span><span>Platform</span><span>Network</span><span>Partners</span><span>About</span>
+    <span class="nav-cta">Partner With Us</span>
+  </div>
+</div>
+<div class="nav-note">↑ Live demo: nav condenses on scroll</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap" style="position:relative">
+    <span class="doc-tag">Creative Direction · travelai.com Relaunch · v1 · July 2026</span>
+    <h1>
+      <span class="line">Travel.</span>
+      <span class="line">Memory.</span>
+      <span class="line grad">Company.</span>
+    </h1>
+    <p class="hero-sub">A homepage built on four mechanics borrowed from the Wolverine Worldwide reference, rebuilt in TravelAI's own system: cinematic hero video, a living portfolio of travel stories, a pinned horizontal journey through the four pillars, and a nav that gets out of the way.</p>
+    <div class="hero-meta"><span>Ink-first · Cream editorial</span><span>Inter Tight / Fraunces</span><span>Spectrum used once per view</span></div>
+  </div>
+</header>
+
+<!-- ================= 01 REFERENCE TEARDOWN ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><b>01</b> · The reference, decoded</div>
+    <h2>Four mechanics worth taking. <em>Nothing else.</em></h2>
+    <p class="lead">The Wolverine page works because every showpiece carries information: the video proves the brand is physical, the scatter proves breadth, the horizontal scroll forces sequence, the nav defers to content. We take the mechanics and swap in our meaning.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="num">MECHANIC A</div>
+        <h3>Full-bleed hero video + stacked declarative type</h3>
+        <p>Their "Make. Every Day. Better." is three beats of display type, left-aligned over motion, with a small latest-news card anchored bottom right.</p>
+        <div class="maps"><b>Ours:</b> brand video (Veo shot set) under "Travel. Memory. Company." News card slot holds the Sonder announcement from July 20.</div>
+      </div>
+      <div class="card">
+        <div class="num">MECHANIC B</div>
+        <h3>Scatter portfolio around a centered headline</h3>
+        <p>Small photo chips drift at different scroll speeds around "A portfolio built for every step." Breadth shown, not claimed.</p>
+        <div class="maps"><b>Ours:</b> travel photography and story cards from the network orbiting "A network built for every trip." 530+ brands, felt.</div>
+      </div>
+      <div class="card">
+        <div class="num">MECHANIC C</div>
+        <h3>Pinned horizontal scroll section</h3>
+        <p>The page pins, scroll input translates panels sideways through a fixed sequence, then releases back to vertical flow.</p>
+        <div class="maps"><b>Ours:</b> this is where the four pillars live. Memory → Governance → Trust → Distribution. The mechanic enforces the argument's order.</div>
+      </div>
+      <div class="card">
+        <div class="num">MECHANIC D</div>
+        <h3>Nav that condenses on scroll</h3>
+        <p>Full-height transparent nav at top; past the hero it shrinks, gains a blur backdrop, and stays fixed.</p>
+        <div class="maps"><b>Ours:</b> identical behavior in ink glass. You are experiencing it in this document right now.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================= 02 PAGE ARCHITECTURE ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><b>02</b> · Page architecture</div>
+    <h2>The scroll is the story.</h2>
+    <p class="lead">The existing homepage arc (problem → belief → product → proof → market → action) survives intact. The new mechanics are placed where they carry the most narrative weight, and the four-pillar frame gets the showpiece treatment.</p>
+    <div class="flow">
+      <div class="flow-row"><div class="n">S1</div><div class="t">Hero<small>Mechanic A · ink</small></div><div class="d">Full-bleed video. Stacked headline "Travel. Memory. Company." (alt: "Portable. Governed. Better."). Subhead is the current one-liner. News card bottom right: Sonder announcement. Scroll cue.</div></div>
+      <div class="flow-row"><div class="n">S2</div><div class="t">Brand marquee<small>ink · kept</small></div><div class="d">Existing ticker of network brands. Slowed 20%, given breathing room. First proof beat.</div></div>
+      <div class="flow-row"><div class="n">S3</div><div class="t">The Problem<small>ink · kept</small></div><div class="d">Digital amnesia tax section as written. Dark, centered, no imagery. The one quiet moment before the portfolio.</div></div>
+      <div class="flow-row"><div class="n">S4</div><div class="t">Scatter portfolio<small>Mechanic B · cream</small></div><div class="d">First cream surface. Travel photos and story cards drift around "A network built for every trip." CTA pill: Explore the Network. Replaces the static Better Memories for All layout.</div></div>
+      <div class="flow-row hl"><div class="n">S5</div><div class="t">Four Pillars<small>Mechanic C · pinned horizontal</small></div><div class="d">Eyebrow: "The Age of Agentic Networks needs four things." Four panels: Memory (Traveler.md), Governance (GMP), Trust (SVTP), Distribution (the network). Panel four hands off directly into S6.</div></div>
+      <div class="flow-row"><div class="n">S6</div><div class="t">The Core stats<small>ink · kept</small></div><div class="d">50M+ / 530+ / $630M+ / 2500+ animated counters. Now lands as evidence for the Distribution panel the visitor just left.</div></div>
+      <div class="flow-row"><div class="n">S7</div><div class="t">Market + Insights<small>ink · condensed</small></div><div class="d">Market size and latest insights merge into one lighter band. The pillars did the persuasion; this is reference.</div></div>
+      <div class="flow-row"><div class="n">S8</div><div class="t">Partners + closing CTA<small>cream · kept</small></div><div class="d">Partner types reframed as joining the distribution layer. Closing CTA: Own your travel memory.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 SCATTER SPEC (cream) ================= -->
+<section class="cream-block">
+  <div class="wrap">
+    <div class="eyebrow"><b>03</b> · Mechanic B spec</div>
+    <h2 style="color:var(--ink)">The portfolio, <em>alive.</em></h2>
+    <p class="lead">Static mock below; chips get parallax drift on scroll (each chip owns a speed factor between 0.4 and 1.6) and a slow idle float. Move your cursor over the stage to preview the drift.</p>
+    <div class="scatter-stage" id="stage">
+      <div class="scatter-head">
+        <div class="l1">A network built</div>
+        <div class="l2">for every trip.</div>
+        <span class="pill">Explore the Network →</span>
+      </div>
+      <div class="chip" data-label="Douro Valley" data-s="1.4" style="width:86px;height:112px;left:8%;top:12%;background:linear-gradient(160deg,#B9793F,#5C3A1E)"></div>
+      <div class="chip" data-label="Tokyo" data-s="0.6" style="width:110px;height:78px;left:20%;top:64%;background:linear-gradient(160deg,#2E3A6E,#0F1430)"></div>
+      <div class="chip" data-label="Ring Road" data-s="1.1" style="width:74px;height:98px;left:36%;top:20%;background:linear-gradient(160deg,#8FB3C7,#3D5A6B)"></div>
+      <div class="chip" data-label="Patagonia" data-s="0.8" style="width:96px;height:70px;left:63%;top:14%;background:linear-gradient(160deg,#4C7A5E,#1E3327)"></div>
+      <div class="chip" data-label="Sardinia" data-s="1.5" style="width:80px;height:104px;left:82%;top:30%;background:linear-gradient(160deg,#3AA6B9,#14505E)"></div>
+      <div class="chip" data-label="Morocco" data-s="0.5" style="width:104px;height:76px;left:74%;top:68%;background:linear-gradient(160deg,#C77B4A,#6E3A1D)"></div>
+      <div class="chip" data-label="Highlands" data-s="1.2" style="width:88px;height:60px;left:45%;top:74%;background:linear-gradient(160deg,#6B7A5E,#2C3527)"></div>
+      <div class="chip" data-label="Milos" data-s="0.9" style="width:70px;height:92px;left:5%;top:58%;background:linear-gradient(160deg,#4A90D9,#1C3E66)"></div>
+    </div>
+    <p class="spec-note">Sourcing: Travel Stories page photography + team travel stories from About + best-performing network brand imagery. Every chip links to a story or brand. Nothing decorative.</p>
+  </div>
+</section>
+
+<!-- ================= 04 PINNED HORIZONTAL DEMO ================= -->
+<div class="pin-outer" id="pinOuter">
+  <div class="pin-sticky">
+    <div class="demo-flag">Live demo · scroll to advance</div>
+    <div class="pin-head">
+      <div class="eyebrow"><b>04</b> · Mechanic C, working</div>
+      <h2 style="font-size:clamp(24px,3vw,36px);margin-bottom:0">The Age of Agentic Networks needs <em>four things.</em></h2>
+    </div>
+    <div class="pin-progress" id="dots">
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <span class="plabel" id="plabel">01 · Memory</span>
+    </div>
+    <div style="padding:26px 48px 0">
+      <div class="pin-track" id="track">
+        <div class="panel p1"><div class="glow"></div>
+          <div><div class="p-eyebrow">01 · Memory</div>
+          <h3>Agents are only as good as the <em>context</em> they hold.</h3>
+          <p>Traveler.md and the Traveler Action Model make travel context portable, human readable, and owned by the traveler. Granted to any agent. Revoked anytime.</p></div>
+          <div class="p-product">Traveler.md · TAM</div>
+        </div>
+        <div class="panel p2"><div class="glow"></div>
+          <div><div class="p-eyebrow">02 · Governance</div>
+          <h3>No enterprise puts agents to work <em>ungoverned.</em></h3>
+          <p>Consent, audit, and replay machinery for OTAs, TMCs, and enterprise travel programs. Every interaction traceable, every decision defensible.</p></div>
+          <div class="p-product">Governed Memory Platform</div>
+        </div>
+        <div class="panel p3"><div class="glow"></div>
+          <div><div class="p-eyebrow">03 · Trust</div>
+          <h3>Memory only moves when everyone can <em>see the terms.</em></h3>
+          <p>The Shared Vector Travel Protocol moves traveler context between partners with permission, without exposing the person behind it.</p></div>
+          <div class="p-product">SVTP</div>
+        </div>
+        <div class="panel p4"><div class="glow"></div>
+          <div><div class="p-eyebrow">04 · Distribution</div>
+          <h3>None of it matters without <em>real travel</em> to run on.</h3>
+          <p>530+ travel brands. 50M+ travelers a year. $630M+ in bookings. Not a legacy business funding the vision. The distribution layer the vision requires.</p></div>
+          <div class="p-product">The TravelAI Network</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 05 MOTION SPEC ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><b>05</b> · Motion &amp; interaction spec</div>
+    <h2>Disciplined motion. <em>One showpiece.</em></h2>
+    <p class="lead">The pinned pillar section is the single bold move. Everything else stays quiet so it can land. All values below are starting points for the build.</p>
+    <table>
+      <tr><th>Element</th><th>Behavior</th><th>Values</th></tr>
+      <tr><td>Nav condense</td><td>Toggles past 80px scroll. Padding and logo scale down, ink glass backdrop fades in.</td><td>350ms · <code>cubic-bezier(.4,0,.2,1)</code> · blur 14px @ 82% ink</td></tr>
+      <tr><td>Hero video</td><td>Autoplay, muted, loop, poster fallback. Type reveals line by line on load.</td><td>≤6MB H.265 + VP9 · lines stagger 120ms · no autoplay on save-data</td></tr>
+      <tr><td>Scatter chips</td><td>Parallax on scroll, per-chip speed factor, plus slow idle float. Hover lifts chip and reveals story label.</td><td>Speed 0.4–1.6 · idle ±6px @ 7s · hover scale 1.06</td></tr>
+      <tr><td>Pinned pillars</td><td>Section pins for 4 viewport-heights. Scroll maps linearly to translateX across four panels. Progress dots + label update per panel.</td><td>420vh outer · panel 78vw · release after panel 4 with 10% ease-out runway</td></tr>
+      <tr><td>Stat counters</td><td>Count up once when 60% in view.</td><td>1.2s · ease-out · no re-trigger</td></tr>
+      <tr><td>Reduced motion</td><td>Pillars become vertically stacked cards, chips static, counters render final values, video shows poster.</td><td><code>prefers-reduced-motion</code> honored globally</td></tr>
+      <tr><td>Mobile (&lt;820px)</td><td>No pinning. Pillars stack vertically full-width (as in this doc on mobile). Scatter becomes a 2-col collage. Nav links collapse to menu.</td><td>Pinned horizontal is desktop/tablet-landscape only</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= 06 SYSTEM + BUILD ================= -->
+<section class="cream-block">
+  <div class="wrap">
+    <div class="eyebrow"><b>06</b> · System, assets, build</div>
+    <h2 style="color:var(--ink)">Same system, <em>new theater.</em></h2>
+    <table>
+      <tr><th>Token</th><th>Direction</th></tr>
+      <tr><td>Surfaces</td><td>Ink-first default. Cream reserved for the scatter portfolio, the Trust panel, and Partners, so each cream moment reads as editorial relief.</td></tr>
+      <tr><td>Type</td><td>Inter Tight 800 for display (tight tracking, stacked beats), Fraunces italic for the single emphasized word per headline. Never both treatments in body copy.</td></tr>
+      <tr><td>Spectrum gradient</td><td>Once per viewport maximum: hero "Company." + the AI in the wordmark. It is a signature, not a paint bucket.</td></tr>
+      <tr><td>Photography</td><td>Real trips, warm grade, people mid-moment. No stock gloss, no passports, no suitcases.</td></tr>
+      <tr><td>Hero video</td><td>Cut from the Veo brand shot set: arrival moments, not montage. 10 to 14s loop, no text baked in.</td></tr>
+      <tr><td>Build</td><td>GSAP ScrollTrigger for pin + scrub (battle-tested, IE-free). Native <code>position: sticky</code> for nav. Lazy-load everything below S3. Target LCP under 2.5s with the video poster as LCP element.</td></tr>
+    </table>
+    <div class="flag-list">
+      <div class="flag"><b>Hero headline decision needed:</b> "Travel. Memory. Company." (category, recommended) vs "Portable. Governed. Better." (the three taglines). Both shown to team for reaction.</div>
+      <div class="flag"><b>News card is timing-dependent:</b> the Sonder slot goes live with the July 20 release, placeholder until then. Forward-looking, needs your sign-off on wording.</div>
+      <div class="flag"><b>Performance vs press crawl:</b> wire services and AI bots index on July 20. All pillar copy must exist in the DOM as real text, not canvas or image, for SEO and LLM readability.</div>
+      <div class="flag"><b>GMP tense</b> on the Governance panel follows whatever you decide for the Vision page (early-development qualifier vs current offering). Panel copy above is written tense-neutral so it works either way.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">TravelAI · Creative Direction v1 · Internal working document · July 2026<br>Demos in this file (nav condense, pinned pillars, chip drift) are functional references for the build team.</div>
+</footer>
+
+<script>
+  // Nav condense
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('condensed', window.scrollY > 80);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Pinned horizontal scrub
+  const outer = document.getElementById('pinOuter');
+  const track = document.getElementById('track');
+  const dots = document.querySelectorAll('#dots .dot');
+  const plabel = document.getElementById('plabel');
+  const labels = ['01 · Memory','02 · Governance','03 · Trust','04 · Distribution'];
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function scrub(){
+    if (window.innerWidth < 820 || prefersReduced) { track.style.transform = 'none'; return; }
+    const r = outer.getBoundingClientRect();
+    const total = outer.offsetHeight - window.innerHeight;
+    const p = Math.min(1, Math.max(0, -r.top / total));
+    const maxX = track.scrollWidth - track.parentElement.clientWidth;
+    track.style.transform = 'translateX(' + (-p * maxX) + 'px)';
+    const idx = Math.min(3, Math.floor(p * 4));
+    dots.forEach((d,i)=>d.classList.toggle('on', i <= idx));
+    plabel.textContent = labels[idx];
+  }
+  window.addEventListener('scroll', scrub, {passive:true});
+  window.addEventListener('resize', scrub); scrub();
+
+  // Chip drift preview (cursor parallax) + scroll parallax
+  const stage = document.getElementById('stage');
+  const chips = document.querySelectorAll('.chip');
+  if (!prefersReduced){
+    stage.addEventListener('mousemove', e => {
+      const b = stage.getBoundingClientRect();
+      const x = (e.clientX - b.left)/b.width - .5, y = (e.clientY - b.top)/b.height - .5;
+      chips.forEach(c => { const s = parseFloat(c.dataset.s); c.style.transform = 'translate(' + (x*24*s) + 'px,' + (y*18*s) + 'px)'; });
+    });
+    stage.addEventListener('mouseleave', () => chips.forEach(c => c.style.transform = ''));
+  }
+</script>
+</body>
+</html>

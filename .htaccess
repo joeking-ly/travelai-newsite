@@ -1,0 +1,187 @@
+# ============================================================
+# TravelAI — clean URLs + legacy redirects
+# Generated 2026-07-23. All redirects are 301 (permanent).
+# ============================================================
+
+Options -MultiViews -Indexes
+DirectoryIndex index.html
+# Don't auto-append a trailing slash to directory URLs; /stories must be
+# handled by the rewrite rules (stories.html), not mod_dir.
+DirectorySlash Off
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# /stories clashes with the stories/ directory: serve the page directly
+# and normalize /stories/ back to /stories (mod_dir would otherwise
+# redirect to the bare directory).
+RewriteRule ^stories$ /stories.html [L]
+RewriteRule ^stories/$ /stories [R=301,L]
+
+# ------------------------------------------------------------
+# 1. Legacy top-level pages from the old travelai.com site
+# ------------------------------------------------------------
+RewriteRule ^about-us/?$        /about      [R=301,L]
+RewriteRule ^our-brands/?$      /partners   [R=301,L]
+RewriteRule ^applied-ai/?$      /network    [R=301,L]
+RewriteRule ^contact-us/?$      /contact    [R=301,L]
+RewriteRule ^privacy-policy/?$  /privacy    [R=301,L]
+RewriteRule ^site-terms/?$      /terms      [R=301,L]
+RewriteRule ^resources/blog/?$  /insights   [R=301,L]
+
+# ------------------------------------------------------------
+# 2. Old blog posts: /resources/<slug>/ -> new location
+#    (generated from the old site's Yoast post-sitemap)
+# ------------------------------------------------------------
+RewriteRule ^resources/the-double-edged-sword-of-ai-in-the-travel-industry/?$ /blogs/the-double-edged-sword-of-ai-in-the-travel-industry [R=301,L]
+RewriteRule ^resources/building-our-values-in-public-how-we-transformed-and-crafted-the-values-for-travelai/?$ /blogs/building-our-values-in-public-how-we-transformed-and-crafted-the-values-for-travelai [R=301,L]
+RewriteRule ^resources/travelai-a-peak-under-the-hood/?$ /blogs/travelai-a-peak-under-the-hood [R=301,L]
+RewriteRule ^resources/travel-personalization-at-scale-the-role-of-ai-in-crafting-unique-traveler-journeys-for-millions/?$ /blogs/travel-personalization-at-scale-the-role-of-ai-in-crafting-unique-traveler-journeys-for-millions [R=301,L]
+RewriteRule ^resources/ai-the-future-of-travel-a-journey-beyond-borders/?$ /blogs/ai-the-future-of-travel-a-journey-beyond-borders [R=301,L]
+RewriteRule ^resources/ai-in-travel-2024/?$ /blogs/ai-in-travel-2024 [R=301,L]
+RewriteRule ^resources/podcast-2-shie-gebbai/?$ /blogs/podcast-2-shie-gebbai [R=301,L]
+RewriteRule ^resources/travelai-com-everything-ai-in-travel-presents-fred-chanout/?$ /blogs/travelai-com-everything-ai-in-travel-presents-fred-chanout [R=301,L]
+RewriteRule ^resources/travelai-everything-ai-in-travel-presents-christian-watts-from-magpie-travel/?$ /blogs/travelai-everything-ai-in-travel-presents-christian-watts-from-magpie-travel [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-presents-jeff-kischuk-of-tripian/?$ /blogs/everything-ai-in-travel-presents-jeff-kischuk-of-tripian [R=301,L]
+RewriteRule ^resources/journey-to-the-future-how-digital-twins-and-ai-are-reimagining-travel/?$ /blogs/journey-to-the-future-how-digital-twins-and-ai-are-reimagining-travel [R=301,L]
+RewriteRule ^resources/harnessing-ai-in-travel-a-new-horizon-of-opportunities-and-challenges/?$ /blogs/harnessing-ai-in-travel-a-new-horizon-of-opportunities-and-challenges [R=301,L]
+RewriteRule ^resources/travelai-everything-ai-in-travel-presents-dan-flores-of-satisfi-labs/?$ /blogs/travelai-everything-ai-in-travel-presents-dan-flores-of-satisfi-labs [R=301,L]
+RewriteRule ^resources/new-brand-and-new-website-why-were-re-launching-as-travelai/?$ /blogs/new-brand-and-new-website-why-were-re-launching-as-travelai [R=301,L]
+RewriteRule ^resources/ai-summit-navigating-the-future-of-ai-in-travel-marketing/?$ /blogs/ai-summit-navigating-the-future-of-ai-in-travel-marketing [R=301,L]
+RewriteRule ^resources/ai-products-unleashing-innovation-travel-industry/?$ /blogs/ai-products-unleashing-innovation-travel-industry [R=301,L]
+RewriteRule ^resources/ai-adoption-travel-industry-insights/?$ /blogs/ai-adoption-travel-industry-insights [R=301,L]
+RewriteRule ^resources/aisummit-leadership-insights-travel-ai/?$ /blogs/aisummit-leadership-insights-travel-ai [R=301,L]
+RewriteRule ^resources/applying-ai-hospitality-industry-travel-startups/?$ /blogs/applying-ai-hospitality-industry-travel-startups [R=301,L]
+RewriteRule ^resources/travelai-everything-ai-in-travel-presents-eduardo-schuch-from-tailbox/?$ /blogs/travelai-everything-ai-in-travel-presents-eduardo-schuch-from-tailbox [R=301,L]
+RewriteRule ^resources/genai-travel-openai-google-expedia/?$ /blogs/genai-travel-openai-google-expedia [R=301,L]
+RewriteRule ^resources/interview-stephanie-daniel-ai-travel-data-integration/?$ /blogs/interview-stephanie-daniel-ai-travel-data-integration [R=301,L]
+RewriteRule ^resources/ai-travel-insights-with-john-lyotier/?$ /blogs/ai-travel-insights-with-john-lyotier [R=301,L]
+RewriteRule ^resources/ai-hospitality-human-touch-susan-barry-interview/?$ /blogs/ai-hospitality-human-touch-susan-barry-interview [R=301,L]
+RewriteRule ^resources/interview-connor-wilson-pilot-travel-tool/?$ /blogs/interview-connor-wilson-pilot-travel-tool [R=301,L]
+RewriteRule ^resources/andy-moss-from-mindtrip/?$ /blogs/andy-moss-from-mindtrip [R=301,L]
+RewriteRule ^resources/marketing-special-with-brennen-bliss-from-propellic-everything-ai-in-travel/?$ /blogs/marketing-special-with-brennen-bliss-from-propellic-everything-ai-in-travel [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel/?$ /blogs/everything-ai-in-travel [R=301,L]
+RewriteRule ^resources/bg2-podcast-software-valuations-earnings-immigration/?$ /blogs/bg2-podcast-software-valuations-earnings-immigration [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-gilad-berenstein-brook-bay-capital/?$ /blogs/everything-ai-in-travel-gilad-berenstein-brook-bay-capital [R=301,L]
+RewriteRule ^resources/tripped-up-why-trip-planning-startups-stumble/?$ /blogs/tripped-up-why-trip-planning-startups-stumble [R=301,L]
+RewriteRule ^resources/generative-ai-impact-travel-2024/?$ /blogs/generative-ai-impact-travel-2024 [R=301,L]
+RewriteRule ^resources/ai-investing-sam-altman-startup/?$ /blogs/ai-investing-sam-altman-startup [R=301,L]
+RewriteRule ^resources/genai-landscape-user-experience-chat-tools-agents-copilots/?$ /blogs/genai-landscape-user-experience-chat-tools-agents-copilots [R=301,L]
+RewriteRule ^resources/tourism-genai-nyc-applied-ai/?$ /blogs/tourism-genai-nyc-applied-ai [R=301,L]
+RewriteRule ^resources/gilad-berenstein-addendum-to-one-of-my-least-popular-takes/?$ /blogs/gilad-berenstein-addendum-to-one-of-my-least-popular-takes [R=301,L]
+RewriteRule ^resources/how-people-are-really-using-genai/?$ /blogs/how-people-are-really-using-genai [R=301,L]
+RewriteRule ^resources/five-themes-and-trends-in-travel-technology-and-iinnovation-gilad-berenstein/?$ /blogs/five-themes-and-trends-in-travel-technology-and-iinnovation-gilad-berenstein [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-chats-to-cat-jones-of-byway-about-journeyai/?$ /blogs/everything-ai-in-travel-chats-to-cat-jones-of-byway-about-journeyai [R=301,L]
+RewriteRule ^resources/travelai-everything-ai-in-travel-jason-halberstadt-mytrip/?$ /blogs/travelai-everything-ai-in-travel-jason-halberstadt-mytrip [R=301,L]
+RewriteRule ^resources/travelai-everything-ai-in-travel-presents-kim-bennett-from-atlasguru/?$ /blogs/travelai-everything-ai-in-travel-presents-kim-bennett-from-atlasguru [R=301,L]
+RewriteRule ^resources/travelai-everything-ai-in-travel-varun-gupta-pathfndr/?$ /blogs/travelai-everything-ai-in-travel-varun-gupta-pathfndr [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-adam-stoker-tourismi/?$ /blogs/everything-ai-in-travel-adam-stoker-tourismi [R=301,L]
+RewriteRule ^resources/humanizing-travel-ai/?$ /blogs/humanizing-travel-ai [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-mark-philips-nomad-stays/?$ /blogs/everything-ai-in-travel-mark-philips-nomad-stays [R=301,L]
+RewriteRule ^resources/generative-ai-travel-technology/?$ /blogs/generative-ai-travel-technology [R=301,L]
+RewriteRule ^resources/ai-hiring-sapia/?$ /blogs/ai-hiring-sapia [R=301,L]
+RewriteRule ^resources/the-age-of-ai-eric-schmidt/?$ /blogs/the-age-of-ai-eric-schmidt [R=301,L]
+RewriteRule ^resources/agentic-ai-without-process-optimization-will-flop/?$ /blogs/agentic-ai-without-process-optimization-will-flop [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-tahnee-perrry-a25/?$ /blogs/everything-ai-in-travel-tahnee-perrry-a25 [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-jessie-fischer-guestos/?$ /blogs/everything-ai-in-travel-jessie-fischer-guestos [R=301,L]
+RewriteRule ^resources/travel-trends-travelai/?$ /blogs/travel-trends-travelai [R=301,L]
+RewriteRule ^resources/everything-ai-in-travel-travis-pittman-tourradar/?$ /blogs/everything-ai-in-travel-travis-pittman-tourradar [R=301,L]
+RewriteRule ^resources/phocuswright-travel-innovation-technology-treds-2025/?$ /blogs/phocuswright-travel-innovation-technology-treds-2025 [R=301,L]
+RewriteRule ^resources/the-ai-power-shift-why-the-third-voice-will-control-the-future-of-travel/?$ /blogs/the-ai-power-shift-why-the-third-voice-will-control-the-future-of-travel [R=301,L]
+RewriteRule ^resources/the-third-voice-the-future-of-human-intelligence/?$ /blogs/the-third-voice-the-future-of-human-intelligence [R=301,L]
+RewriteRule ^resources/travelai-acquires-smartours/?$ /blogs/travelai-acquires-smartours [R=301,L]
+RewriteRule ^resources/travelai-acquires-ownerdirect/?$ /blogs/travelai-acquires-ownerdirect [R=301,L]
+RewriteRule ^resources/travel-surpasses-one-million-bookings/?$ /blogs/travel-surpasses-one-million-bookings [R=301,L]
+RewriteRule ^resources/deloitte-fast-500-growth/?$ /blogs/deloitte-fast-500-growth [R=301,L]
+RewriteRule ^resources/gentle-singularity/?$ /blogs/gentle-singularity [R=301,L]
+RewriteRule ^resources/deepseek-ai-challenging-dominance/?$ /blogs/deepseek-ai-challenging-dominance [R=301,L]
+RewriteRule ^resources/up-next-in-travel-embarking-on-a-digital-odyssey-with-ai-agents/?$ /blogs/up-next-in-travel-embarking-on-a-digital-odyssey-with-ai-agents [R=301,L]
+RewriteRule ^resources/phocuswire-ceo-spotlight-john-lyotier/?$ /blogs/phocuswire-ceo-spotlight-john-lyotier [R=301,L]
+RewriteRule ^resources/eugenia-dunaeva-appointed-advisor-for-travelai/?$ /blogs/eugenia-dunaeva-appointed-advisor-for-travelai [R=301,L]
+RewriteRule ^resources/state-of-ai-2025-bessemer-ventures/?$ /blogs/state-of-ai-2025-bessemer-ventures [R=301,L]
+RewriteRule ^resources/gabbai-macneil-appointments/?$ /blogs/gabbai-macneil-appointments [R=301,L]
+RewriteRule ^resources/travel-trends-podcast-agentic-ai/?$ /blogs/travel-trends-podcast-agentic-ai [R=301,L]
+RewriteRule ^resources/ai-chatbots-for-booking-assistance/?$ /blogs/ai-chatbots-for-booking-assistance [R=301,L]
+RewriteRule ^resources/ai-travel-itnieraries-travel-technology/?$ /blogs/ai-travel-itnieraries-travel-technology [R=301,L]
+RewriteRule ^resources/real-time-ai-translation-at-museums/?$ /blogs/real-time-ai-translation-at-museums [R=301,L]
+RewriteRule ^resources/ai-suggested-virtual-tours/?$ /blogs/ai-suggested-virtual-tours [R=301,L]
+RewriteRule ^resources/ai-travel-chatbot/?$ /blogs/ai-travel-chatbot [R=301,L]
+RewriteRule ^resources/personalized-travel-ai-based-collaborative-filtering/?$ /blogs/personalized-travel-ai-based-collaborative-filtering [R=301,L]
+RewriteRule ^resources/sentiment-analysis-for-hotel-reviews/?$ /blogs/sentiment-analysis-for-hotel-reviews [R=301,L]
+RewriteRule ^resources/agentic-ai-revolutionizes-travel-autonomous-systems/?$ /blogs/agentic-ai-revolutionizes-travel-autonomous-systems [R=301,L]
+RewriteRule ^resources/sentiment-analysis-via-ai/?$ /blogs/sentiment-analysis-via-ai [R=301,L]
+RewriteRule ^resources/ai-for-destination-recommendations/?$ /blogs/ai-for-destination-recommendations [R=301,L]
+RewriteRule ^resources/recommendations-for-trips-using-ai/?$ /blogs/recommendations-for-trips-using-ai [R=301,L]
+RewriteRule ^resources/chatbot-check-in-reminders/?$ /blogs/chatbot-check-in-reminders [R=301,L]
+RewriteRule ^resources/voice-activated-booking-nlp/?$ /blogs/voice-activated-booking-nlp [R=301,L]
+RewriteRule ^resources/personalized-photo-books-merchandise-ai/?$ /blogs/personalized-photo-books-merchandise-ai [R=301,L]
+RewriteRule ^resources/mobi-ai-intent-driven-search/?$ /blogs/mobi-ai-intent-driven-search [R=301,L]
+RewriteRule ^resources/ai-travel-budgeters-managing-expenses/?$ /blogs/ai-travel-budgeters-managing-expenses [R=301,L]
+RewriteRule ^resources/ai-travel-guide-personalized-tours/?$ /blogs/ai-travel-guide-personalized-tours [R=301,L]
+RewriteRule ^resources/ai-booking-agents-secure-travel-reservations/?$ /blogs/ai-booking-agents-secure-travel-reservations [R=301,L]
+RewriteRule ^resources/predictive-booking-ai-winter-travel/?$ /blogs/predictive-booking-ai-winter-travel [R=301,L]
+RewriteRule ^resources/ai-photo-sorting-travel/?$ /blogs/ai-photo-sorting-travel [R=301,L]
+RewriteRule ^resources/ai-powered-travel-writing/?$ /blogs/ai-powered-travel-writing [R=301,L]
+RewriteRule ^resources/ai-powered-smart-vacation-planning-fitness-data/?$ /blogs/ai-powered-smart-vacation-planning-fitness-data [R=301,L]
+RewriteRule ^resources/international-womens-day-2025/?$ /blogs/international-womens-day-2025 [R=301,L]
+RewriteRule ^resources/ai-travel-insurance-brokers/?$ /blogs/ai-travel-insurance-brokers [R=301,L]
+RewriteRule ^resources/https-www-travelai-com-resources-ai-suggestions-clothing-weather/?$ /blogs/ai-suggestions-clothing-weather [R=301,L]
+RewriteRule ^resources/https-www-travelai-com-resources-use-ai-predictive-analytics-travel-booking/?$ /blogs/use-ai-predictive-analytics-travel-booking [R=301,L]
+RewriteRule ^resources/chatbots-for-travel-information/?$ /blogs/chatbots-for-travel-information [R=301,L]
+RewriteRule ^resources/ai-shopping-assistant-travel-preparation/?$ /blogs/ai-shopping-assistant-travel-preparation [R=301,L]
+RewriteRule ^resources/flight-price-predictor-ai-booking-tips/?$ /blogs/flight-price-predictor-ai-booking-tips [R=301,L]
+RewriteRule ^resources/dynamic-pricing-travel-profitability/?$ /blogs/how-dynamic-pricing-algorithms-can-transform-travel-business-profitability [R=301,L]
+RewriteRule ^resources/predictive-analytics-travel-add-on-conversions/?$ /blogs/how-predictive-analytics-could-transform-travel-add-on-conversion-rates [R=301,L]
+RewriteRule ^resources/dynamic-itinerary-management-travel-ai/?$ /blogs/the-business-case-for-dynamic-itinerary-management-systems [R=301,L]
+RewriteRule ^resources/real-time-health-advisory-data-travel-ai/?$ /blogs/integrating-real-time-health-advisory-data-into-your-travel-platform [R=301,L]
+RewriteRule ^resources/ai-form-automation-travel-cart-abandonment/?$ /blogs/reduce-cart-abandonment-with-ai-powered-intelligent-form-automation [R=301,L]
+RewriteRule ^resources/ai-travel-real-time-market-intelligence/?$ /blogs/real-time-market-intelligence-using-ai-to-capture-emerging-travel-demand [R=301,L]
+RewriteRule ^resources/ai-powered-visa-application-automation/?$ /blogs/ai-powered-visa-application-automation [R=301,L]
+RewriteRule ^resources/ai-negotiators-getting-you-the-best-hotel-rates/?$ /blogs/ai-negotiators-getting-you-the-best-hotel-rates [R=301,L]
+RewriteRule ^resources/ai-suggestions-clothing-weather/?$ /blogs/ai-suggestions-clothing-weather [R=301,L]
+RewriteRule ^resources/use-ai-predictive-analytics-travel-booking/?$ /blogs/use-ai-predictive-analytics-travel-booking [R=301,L]
+RewriteRule ^resources/how-chatbots-provide-instant-travel-information-from-visa-rules-to-local-customs/?$ /blogs/how-chatbots-provide-instant-travel-information-from-visa-rules-to-local-customs [R=301,L]
+RewriteRule ^resources/trip-ai-shopping/?$ /blogs/trip-ai-shopping [R=301,L]
+RewriteRule ^resources/ai-assistant-for-bundled-travel-bookings/?$ /blogs/ai-assistant-for-bundled-travel-bookings [R=301,L]
+RewriteRule ^resources/the-business-case-for-dynamic-itinerary-management-systems/?$ /blogs/the-business-case-for-dynamic-itinerary-management-systems [R=301,L]
+RewriteRule ^resources/how-predictive-analytics-could-transform-travel-add-on-conversion-rates/?$ /blogs/how-predictive-analytics-could-transform-travel-add-on-conversion-rates [R=301,L]
+RewriteRule ^resources/how-dynamic-pricing-algorithms-can-transform-travel-business-profitability/?$ /blogs/how-dynamic-pricing-algorithms-can-transform-travel-business-profitability [R=301,L]
+RewriteRule ^resources/expense-tracking-and-ai-budget-management-based-on-real-time-spending/?$ /blogs/expense-tracking-and-ai-budget-management-based-on-real-time-spending [R=301,L]
+RewriteRule ^resources/ai-packing-list-for-travel/?$ /blogs/ai-packing-list-for-travel [R=301,L]
+RewriteRule ^resources/integrating-real-time-health-advisory-data-into-your-travel-platform/?$ /blogs/integrating-real-time-health-advisory-data-into-your-travel-platform [R=301,L]
+RewriteRule ^resources/reduce-cart-abandonment-with-ai-powered-intelligent-form-automation/?$ /blogs/reduce-cart-abandonment-with-ai-powered-intelligent-form-automation [R=301,L]
+RewriteRule ^resources/real-time-market-intelligence-using-ai-to-capture-emerging-travel-demand/?$ /blogs/real-time-market-intelligence-using-ai-to-capture-emerging-travel-demand [R=301,L]
+RewriteRule ^resources/ai-travel-planning-that-thinks-ahead-balancing-ticket-availability-forecasts-and-user-ratings/?$ /blogs/ai-travel-planning-that-thinks-ahead-balancing-ticket-availability-forecasts-and-user-ratings [R=301,L]
+RewriteRule ^resources/the-mathematics-of-budget-allocation-how-trip-planning-algorithms-optimize-spending-across-categories/?$ /blogs/the-mathematics-of-budget-allocation-how-trip-planning-algorithms-optimize-spending-across-categories [R=301,L]
+RewriteRule ^resources/using-an-ai-quiz-as-a-first-party-data-strategy-for-travel-companies/?$ /blogs/using-an-ai-quiz-as-a-first-party-data-strategy-for-travel-companies [R=301,L]
+RewriteRule ^resources/how-predictive-ai-identifies-at-risk-bookings-before-abandonment-happens/?$ /blogs/how-predictive-ai-identifies-at-risk-bookings-before-abandonment-happens [R=301,L]
+RewriteRule ^resources/the-future-of-fare-alerts-ai-flight-price-tracker-innovation-on-the-horizon/?$ /blogs/the-future-of-fare-alerts-ai-flight-price-tracker-innovation-on-the-horizon [R=301,L]
+
+# ------------------------------------------------------------
+# 3. Anything else under /resources/ (categories, tags, authors,
+#    wp-content, unmigrated posts) -> Insights hub.
+#    NOTE: bare /resources is NOT redirected - it serves the new
+#    Resources (press kit) page.
+# ------------------------------------------------------------
+RewriteRule ^resources/.+ /insights [R=301,L]
+
+# ------------------------------------------------------------
+# 4. Clean URLs: externally strip .html
+# ------------------------------------------------------------
+# /index.html (any depth) -> directory root
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/+(.*?)index\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
+# /page.html -> /page
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/+([^?\s]+?)\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
+
+# ------------------------------------------------------------
+# 5. Internally serve the .html file for extension-less requests
+#    (no !-d guard: /stories must serve stories.html even though
+#     a stories/ directory also exists)
+# ------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+</IfModule>

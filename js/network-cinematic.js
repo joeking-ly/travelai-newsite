@@ -75,6 +75,10 @@
     navItems.forEach(function (item, i) {
       item.addEventListener('click', function () {
         setActive(i);
+        /* Keep the tapped tab visible in the scrollable tab row on mobile */
+        if (item.scrollIntoView) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
       });
     });
 
